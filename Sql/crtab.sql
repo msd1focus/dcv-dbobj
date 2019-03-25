@@ -5,33 +5,33 @@
 
 
 
-DROP TABLE dcv.dcv_documents CASCADE CONSTRAINTS;
+DROP TABLE dcv_documents CASCADE CONSTRAINTS;
 
-DROP TABLE dcv.dcv_number CASCADE CONSTRAINTS;
+DROP TABLE dcv_number CASCADE CONSTRAINTS;
 
-DROP TABLE dcv.dcv_request CASCADE CONSTRAINTS;
+DROP TABLE dcv_request CASCADE CONSTRAINTS;
 
-DROP TABLE dcv.doc_movement CASCADE CONSTRAINTS;
+DROP TABLE doc_movement CASCADE CONSTRAINTS;
 
-DROP TABLE dcv.holiday CASCADE CONSTRAINTS;
+DROP TABLE holiday CASCADE CONSTRAINTS;
 
-DROP TABLE dcv.pcline_tc_appr CASCADE CONSTRAINTS;
+DROP TABLE pcline_tc_appr CASCADE CONSTRAINTS;
 
-DROP TABLE dcv.request_dtl CASCADE CONSTRAINTS;
+DROP TABLE request_dtl CASCADE CONSTRAINTS;
 
-DROP TABLE dcv.sec_role CASCADE CONSTRAINTS;
+DROP TABLE sec_role CASCADE CONSTRAINTS;
 
-DROP TABLE dcv.sec_user CASCADE CONSTRAINTS;
+DROP TABLE sec_user CASCADE CONSTRAINTS;
 
-DROP TABLE dcv.wf_node CASCADE CONSTRAINTS;
+DROP TABLE wf_node CASCADE CONSTRAINTS;
 
-DROP TABLE dcv.wf_node_option CASCADE CONSTRAINTS;
+DROP TABLE wf_node_option CASCADE CONSTRAINTS;
 
-DROP TABLE dcv.wf_task CASCADE CONSTRAINTS;
+DROP TABLE wf_task CASCADE CONSTRAINTS;
 
-DROP TABLE dcv.wf_task_merge CASCADE CONSTRAINTS;
+DROP TABLE wf_task_merge CASCADE CONSTRAINTS;
 
-CREATE TABLE dcv.dcv_documents (
+CREATE TABLE dcv_documents (
     id            INTEGER NOT NULL,
     dcv_id        INTEGER NOT NULL,
     doc_type      VARCHAR2(25 CHAR),
@@ -45,20 +45,20 @@ CREATE TABLE dcv.dcv_documents (
     doc_date      DATE
 );
 
-COMMENT ON COLUMN dcv.dcv_documents.doc_type IS
+COMMENT ON COLUMN dcv_documents.doc_type IS
     'beritaacara, rekapfaktur, kwitansi, fakturpajak, buktipotong, fakturpengganti, noresi';
 
-ALTER TABLE dcv.dcv_documents ADD CONSTRAINT files_pk PRIMARY KEY ( id );
+ALTER TABLE dcv_documents ADD CONSTRAINT files_pk PRIMARY KEY ( id );
 
-CREATE TABLE dcv.dcv_number (
+CREATE TABLE dcv_number (
     period        INTEGER NOT NULL,
     lastnum       INTEGER NOT NULL,
     modified_dt   DATE
 );
 
-ALTER TABLE dcv.dcv_number ADD CONSTRAINT dcv_number_pk PRIMARY KEY ( period );
+ALTER TABLE dcv_number ADD CONSTRAINT dcv_number_pk PRIMARY KEY ( period );
 
-CREATE TABLE dcv.dcv_request (
+CREATE TABLE dcv_request (
     req_id              INTEGER NOT NULL,
     customer            VARCHAR2(25 CHAR) NOT NULL,
     company             VARCHAR2(3 CHAR) NOT NULL,
@@ -95,21 +95,21 @@ CREATE TABLE dcv.dcv_request (
     modified_by         VARCHAR2(50 CHAR)
 );
 
-COMMENT ON COLUMN dcv.dcv_request.ppn IS
+COMMENT ON COLUMN dcv_request.ppn IS
     'flag ada ppn atau tidak (Y/T)';
 
-COMMENT ON COLUMN dcv.dcv_request.pc_tc IS
+COMMENT ON COLUMN dcv_request.pc_tc IS
     'no PC pengganti / tambahan';
 
-COMMENT ON COLUMN dcv.dcv_request.type_pc_tc IS
+COMMENT ON COLUMN dcv_request.type_pc_tc IS
     'PENGGANTI / TAMBAHAN';
 
-COMMENT ON COLUMN dcv.dcv_request.metode_bayar IS
+COMMENT ON COLUMN dcv_request.metode_bayar IS
     'PO / CM';
 
-ALTER TABLE dcv.dcv_request ADD CONSTRAINT request_hdr_pk PRIMARY KEY ( req_id );
+ALTER TABLE dcv_request ADD CONSTRAINT request_hdr_pk PRIMARY KEY ( req_id );
 
-CREATE TABLE dcv.doc_movement (
+CREATE TABLE doc_movement (
     id              INTEGER NOT NULL,
     dcv_id          INTEGER NOT NULL,
     userid          INTEGER,
@@ -119,18 +119,18 @@ CREATE TABLE dcv.doc_movement (
     sent_dt         DATE
 );
 
-ALTER TABLE dcv.doc_movement ADD CONSTRAINT doc_movement_pk PRIMARY KEY ( id );
+ALTER TABLE doc_movement ADD CONSTRAINT doc_movement_pk PRIMARY KEY ( id );
 
-CREATE TABLE dcv.holiday (
+CREATE TABLE holiday (
     id            INTEGER NOT NULL,
     start_dt      DATE,
     end_dt        DATE,
     description   VARCHAR2(50 CHAR)
 );
 
-ALTER TABLE dcv.holiday ADD CONSTRAINT holiday_pk PRIMARY KEY ( id );
+ALTER TABLE holiday ADD CONSTRAINT holiday_pk PRIMARY KEY ( id );
 
-CREATE TABLE dcv.pcline_tc_appr (
+CREATE TABLE pcline_tc_appr (
     id               INTEGER NOT NULL,
     request_dtl_id   INTEGER NOT NULL,
     prod_code        VARCHAR2(30),
@@ -146,9 +146,9 @@ CREATE TABLE dcv.pcline_tc_appr (
     modified_by      VARCHAR2(50 CHAR)
 );
 
-ALTER TABLE dcv.pcline_tc_appr ADD CONSTRAINT req_line_breakdown_pk PRIMARY KEY ( id );
+ALTER TABLE pcline_tc_appr ADD CONSTRAINT req_line_breakdown_pk PRIMARY KEY ( id );
 
-CREATE TABLE dcv.request_dtl (
+CREATE TABLE request_dtl (
     id                    INTEGER NOT NULL,
     request_hdr_id        INTEGER NOT NULL,
     pc_lineno             VARCHAR2(100 CHAR),
@@ -182,9 +182,9 @@ CREATE TABLE dcv.request_dtl (
     modified_by           VARCHAR2(50 CHAR)
 );
 
-ALTER TABLE dcv.request_dtl ADD CONSTRAINT request_dtl_pk PRIMARY KEY ( id );
+ALTER TABLE request_dtl ADD CONSTRAINT request_dtl_pk PRIMARY KEY ( id );
 
-CREATE TABLE dcv.sec_role (
+CREATE TABLE sec_role (
     id            INTEGER NOT NULL,
     role_code     VARCHAR2(15 CHAR) NOT NULL,
     role_desc     VARCHAR2(50 CHAR),
@@ -194,21 +194,21 @@ CREATE TABLE dcv.sec_role (
     role_parent   INTEGER
 );
 
-COMMENT ON COLUMN dcv.sec_role.sla1 IS
+COMMENT ON COLUMN sec_role.sla1 IS
     'sla1 : target berapa hari proses harus selesai diproses';
 
-COMMENT ON COLUMN dcv.sec_role.sla2 IS
+COMMENT ON COLUMN sec_role.sla2 IS
     'cadangan';
 
-COMMENT ON COLUMN dcv.sec_role.role_level IS
+COMMENT ON COLUMN sec_role.role_level IS
     'jika role ada leveling, mis. member - supervisor - mgr';
 
-ALTER TABLE dcv.sec_role ADD CONSTRAINT role_pk PRIMARY KEY ( id );
+ALTER TABLE sec_role ADD CONSTRAINT role_pk PRIMARY KEY ( id );
 
-CREATE TABLE dcv.sec_user (
+CREATE TABLE sec_user (
     id           INTEGER NOT NULL,
-    username     VARCHAR2(100 CHAR) NOT NULL,
-    passwd       VARCHAR2(100 CHAR),
+    username     VARCHAR2(50 CHAR) NOT NULL,
+    passwd       VARCHAR2(50 CHAR),
     role_id      INTEGER NOT NULL,
     rank         VARCHAR2(15 CHAR),
     sp_assign1   VARCHAR2(50 CHAR),
@@ -216,16 +216,15 @@ CREATE TABLE dcv.sec_user (
     spv_id       INTEGER
 );
 
-COMMENT ON COLUMN dcv.sec_user.rank IS
+COMMENT ON COLUMN sec_user.rank IS
     'Superviser, member';
 
-COMMENT ON COLUMN dcv.sec_user.sp_assign1 IS
-    'mis: 
-untuk TC: food/non food';
+COMMENT ON COLUMN sec_user.sp_assign1 IS
+    'mis: untuk TC: food/non food';
 
-ALTER TABLE dcv.sec_user ADD CONSTRAINT user_pk PRIMARY KEY ( id );
+ALTER TABLE sec_user ADD CONSTRAINT user_pk PRIMARY KEY ( id );
 
-CREATE TABLE dcv.wf_node (
+CREATE TABLE wf_node (
     nodecode     VARCHAR2(10 CHAR) NOT NULL,
     node_desc    VARCHAR2(50 CHAR),
     nodetype     VARCHAR2(30 CHAR) NOT NULL,
@@ -233,20 +232,15 @@ CREATE TABLE dcv.wf_node (
     execscript   VARCHAR2(100 CHAR)
 );
 
-COMMENT ON COLUMN dcv.wf_node.nodetype IS
-    'normal: decission
-split: jadi banyak
-merge: jadi satu
-autocheck: scheduled check
-serahterima dok
-end';
+COMMENT ON COLUMN wf_node.nodetype IS
+    'normal:decision; split:jadi banyak; merge:jadi satu;autocheck:scheduled check;serahterima dok;end';
 
-COMMENT ON COLUMN dcv.wf_node.execscript IS
+COMMENT ON COLUMN wf_node.execscript IS
     'nama db function unt di-execute';
 
-ALTER TABLE dcv.wf_node ADD CONSTRAINT node_pk PRIMARY KEY ( nodecode );
+ALTER TABLE wf_node ADD CONSTRAINT node_pk PRIMARY KEY ( nodecode );
 
-CREATE TABLE dcv.wf_node_option (
+CREATE TABLE wf_node_option (
     id            INTEGER NOT NULL,
     node_id       VARCHAR2(10 CHAR) NOT NULL,
     pilihan       INTEGER NOT NULL,
@@ -254,15 +248,15 @@ CREATE TABLE dcv.wf_node_option (
     refnode       VARCHAR2(10 CHAR) NOT NULL
 );
 
-COMMENT ON COLUMN dcv.wf_node_option.pilihan IS
+COMMENT ON COLUMN wf_node_option.pilihan IS
     '1. Approve1
 2. Approve2
 3. Return/Back
 4. Terminate/Cancel';
 
-ALTER TABLE dcv.wf_node_option ADD CONSTRAINT node_option_pk PRIMARY KEY ( id );
+ALTER TABLE wf_node_option ADD CONSTRAINT node_option_pk PRIMARY KEY ( id );
 
-CREATE TABLE dcv.wf_task (
+CREATE TABLE wf_task (
     id                INTEGER NOT NULL,
     dcv_code          VARCHAR2(20 CHAR) NOT NULL,
     task_type         VARCHAR2(10 CHAR),
@@ -278,15 +272,15 @@ CREATE TABLE dcv.wf_task (
     process_by        INTEGER NOT NULL
 );
 
-COMMENT ON COLUMN dcv.wf_task.task_type IS
+COMMENT ON COLUMN wf_task.task_type IS
     'humantask, merge, auto sched';
 
-COMMENT ON COLUMN dcv.wf_task.progress_status IS
-    'DONE, WAITING';
+COMMENT ON COLUMN wf_task.progress_status IS
+    'DONE, WORKING';
 
-ALTER TABLE dcv.wf_task ADD CONSTRAINT task_pk PRIMARY KEY ( id );
+ALTER TABLE wf_task ADD CONSTRAINT task_pk PRIMARY KEY ( id );
 
-CREATE TABLE dcv.wf_task_merge (
+CREATE TABLE wf_task_merge (
     id           INTEGER NOT NULL,
     task         INTEGER NOT NULL,
     prev_task    INTEGER,
@@ -294,57 +288,57 @@ CREATE TABLE dcv.wf_task_merge (
     process_dt   DATE
 );
 
-ALTER TABLE dcv.wf_task_merge ADD CONSTRAINT task_multiple_pk PRIMARY KEY ( id );
+ALTER TABLE wf_task_merge ADD CONSTRAINT task_multiple_pk PRIMARY KEY ( id );
 
-ALTER TABLE dcv.doc_movement
+ALTER TABLE doc_movement
     ADD CONSTRAINT doc_movement_dcv_files_fk FOREIGN KEY ( dcv_id )
-        REFERENCES dcv.dcv_documents ( id );
+        REFERENCES dcv_documents ( id );
 
-ALTER TABLE dcv.dcv_documents
+ALTER TABLE dcv_documents
     ADD CONSTRAINT file_pendukung_request_hdr_fk FOREIGN KEY ( dcv_id )
-        REFERENCES dcv.dcv_request ( req_id );
+        REFERENCES dcv_request ( req_id );
 
-ALTER TABLE dcv.wf_node
+ALTER TABLE wf_node
     ADD CONSTRAINT node_role_fk FOREIGN KEY ( role_id )
-        REFERENCES dcv.sec_role ( id );
+        REFERENCES sec_role ( id );
 
-ALTER TABLE dcv.pcline_tc_appr
+ALTER TABLE pcline_tc_appr
     ADD CONSTRAINT req_line_breakdown_fk FOREIGN KEY ( request_dtl_id )
-        REFERENCES dcv.request_dtl ( id );
+        REFERENCES request_dtl ( id );
 
-ALTER TABLE dcv.request_dtl
+ALTER TABLE request_dtl
     ADD CONSTRAINT request_dtl_request_hdr_fk FOREIGN KEY ( request_hdr_id )
-        REFERENCES dcv.dcv_request ( req_id );
+        REFERENCES dcv_request ( req_id );
 
-ALTER TABLE dcv.wf_task_merge
+ALTER TABLE wf_task_merge
     ADD CONSTRAINT task_multiple_task_fk FOREIGN KEY ( task )
-        REFERENCES dcv.wf_task ( id );
+        REFERENCES wf_task ( id );
 
-ALTER TABLE dcv.wf_task
+ALTER TABLE wf_task
     ADD CONSTRAINT task_user_fk FOREIGN KEY ( process_by )
-        REFERENCES dcv.sec_user ( id );
+        REFERENCES sec_user ( id );
 
-ALTER TABLE dcv.sec_user
+ALTER TABLE sec_user
     ADD CONSTRAINT user_role_fk FOREIGN KEY ( role_id )
-        REFERENCES dcv.sec_role ( id )
+        REFERENCES sec_role ( id )
             ON DELETE CASCADE;
 
-ALTER TABLE dcv.wf_node_option
+ALTER TABLE wf_node_option
     ADD CONSTRAINT wf_node_option_wf_node_fk FOREIGN KEY ( node_id )
-        REFERENCES dcv.wf_node ( nodecode );
+        REFERENCES wf_node ( nodecode );
 
-ALTER TABLE dcv.wf_node_option
+ALTER TABLE wf_node_option
     ADD CONSTRAINT wf_node_option_wf_node_fkv1 FOREIGN KEY ( refnode )
-        REFERENCES dcv.wf_node ( nodecode );
+        REFERENCES wf_node ( nodecode );
 
-ALTER TABLE dcv.wf_task
+ALTER TABLE wf_task
     ADD CONSTRAINT wf_task_wf_node_fk FOREIGN KEY ( nodecode )
-        REFERENCES dcv.wf_node ( nodecode );
+        REFERENCES wf_node ( nodecode );
 
 
 
--- Oracle SQL Developer Data Modeler Summary Report: 
--- 
+-- Oracle SQL Developer Data Modeler Summary Report:
+--
 -- CREATE TABLE                            13
 -- CREATE INDEX                             0
 -- ALTER TABLE                             24
@@ -372,16 +366,16 @@ ALTER TABLE dcv.wf_task
 -- CREATE SYNONYM                           0
 -- CREATE TABLESPACE                        0
 -- CREATE USER                              0
--- 
+--
 -- DROP TABLESPACE                          0
 -- DROP DATABASE                            0
--- 
+--
 -- REDACTION POLICY                         0
 -- TSDP POLICY                              0
--- 
+--
 -- ORDS DROP SCHEMA                         0
 -- ORDS ENABLE SCHEMA                       0
 -- ORDS ENABLE OBJECT                       0
--- 
+--
 -- ERRORS                                   0
 -- WARNINGS                                 0
