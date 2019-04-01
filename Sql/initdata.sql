@@ -8,14 +8,16 @@ Insert into DCV.SEC_ROLE (ID,ROLE_CODE,ROLE_DESC,SLA1,SLA2,ROLE_LEVEL,ROLE_PAREN
 
 REM INSERTING into DCV.WF_NODE
 SET DEFINE OFF;
-Insert into DCV.WF_NODE (NODECODE,NODE_DESC,NODETYPE,ROLE_ID,execscript) values ('D0','Entri Data DCV','Start',1,null);
-Insert into DCV.WF_NODE (NODECODE,NODE_DESC,NODETYPE,ROLE_ID,execscript) values ('SL1','Sales Process','Human',2,null);
-Insert into DCV.WF_NODE (NODECODE,NODE_DESC,NODETYPE,ROLE_ID,execscript) values ('END','End','End',null,null);
-Insert into DCV.WF_NODE (NODECODE,NODE_DESC,NODETYPE,ROLE_ID,execscript) values ('TC1','Proses TC','Human',3,null);
-Insert into DCV.WF_NODE (NODECODE,NODE_DESC,NODETYPE,ROLE_ID,execscript) values ('TX1','Cek Kwitansi','Human',4,null);
-Insert into DCV.WF_NODE (NODECODE,NODE_DESC,NODETYPE,ROLE_ID,execscript) values ('D2','Attach Faktur','Human',1,null);
-Insert into DCV.WF_NODE (NODECODE,NODE_DESC,NODETYPE,ROLE_ID,execscript) values ('TX2','Cetak Faktur','Human',4,null);
-Insert into DCV.WF_NODE (NODECODE,NODE_DESC,NODETYPE,ROLE_ID,execscript) values ('PR1','Create PO','Human',5,null);
+Insert into DCV.WF_NODE (NODECODE,NODE_DESC,NODETYPE,ROLE_ID,EXECSCRIPT) values ('D0','Entri Data DCV','Start',1,null);
+Insert into DCV.WF_NODE (NODECODE,NODE_DESC,NODETYPE,ROLE_ID,EXECSCRIPT) values ('D1','Attach Kwitansi Faktur','Human',1,null);
+Insert into DCV.WF_NODE (NODECODE,NODE_DESC,NODETYPE,ROLE_ID,EXECSCRIPT) values ('SL1','Sales Process','Human',2,null);
+Insert into DCV.WF_NODE (NODECODE,NODE_DESC,NODETYPE,ROLE_ID,EXECSCRIPT) values ('TC1','Proses TC','Human',3,null);
+Insert into DCV.WF_NODE (NODECODE,NODE_DESC,NODETYPE,ROLE_ID,EXECSCRIPT) values ('TC2','Dokumen Fisik','Human',3,null);
+Insert into DCV.WF_NODE (NODECODE,NODE_DESC,NODETYPE,ROLE_ID,EXECSCRIPT) values ('TX1','Cek Kwitansi','Human',4,null);
+Insert into DCV.WF_NODE (NODECODE,NODE_DESC,NODETYPE,ROLE_ID,EXECSCRIPT) values ('TX2','Cetak Faktur','Human',4,null);
+Insert into DCV.WF_NODE (NODECODE,NODE_DESC,NODETYPE,ROLE_ID,EXECSCRIPT) values ('TX3','Update PPH','Human',4,null);
+Insert into DCV.WF_NODE (NODECODE,NODE_DESC,NODETYPE,ROLE_ID,EXECSCRIPT) values ('PR1','Create PO GR','Human',5,null);
+Insert into DCV.WF_NODE (NODECODE,NODE_DESC,NODETYPE,ROLE_ID,EXECSCRIPT) values ('END','End','End',null,null);
 
 REM INSERTING into DCV.HOLIDAY
 SET DEFINE OFF;
