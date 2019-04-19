@@ -1,12 +1,12 @@
 create or replace PACKAGE DCV_PKG AS
     FUNCTION get_dcv_no RETURN VARCHAR2;
     FUNCTION cek_new_request (nopc VARCHAR2, keypc VARCHAR2, period1 DATE, period2 DATE) RETURN INTEGER;
-    FUNCTION get_sla (role NUMBER, startdt DATE, enddt DATE) RETURN NUMBER;
+    FUNCTION get_elapsed_day (startdt DATE, enddt DATE) RETURN INTEGER;
     FUNCTION get_uom_conversion (uomfrom VARCHAR2, uomto VARCHAR2) RETURN NUMBER;
 END DCV_PKG;
 /
 
-CREATE OR REPLACE PACKAGE BODY DCV_PKG AS
+create or replace PACKAGE BODY DCV_PKG AS
 
   FUNCTION get_dcv_no RETURN VARCHAR2 AS
     lnumber NUMBER;
@@ -59,49 +59,50 @@ CREATE OR REPLACE PACKAGE BODY DCV_PKG AS
     RETURN (1);
   END get_uom_conversion;
 
+
+
 END DCV_PKG;
 /
 
-CREATE OR REPLACE PACKAGE WF_PKG AS
+create or replace PACKAGE WF_PKG AS
     FUNCTION post_action (pTask_id NUMBER, pAction_id NUMBER, pPesan VARCHAR2, pUser VARCHAR2) return NUMBER;
     FUNCTION sla_pct (psla NUMBER, startdate DATE, enddate DATE) RETURN NUMBER;
+    FUNCTION get_pr_cm (pTaskId NUMBER) RETURN NUMBER ;
 END WF_PKG;
 /
 
 create or replace PACKAGE BODY WF_PKG AS
-    vCurrentNode  wf_node%ROWTYPE;
-    vCurrentTask  wf_task%ROWTYPE;
-    vNextNode wf_node%ROWTYPE;
-    vOption    wf_node_route%ROWTYPE;
+    vNoDCV  dcv_request.no_dcv%TYPE;
+    vDept sec_dept.dept_code%TYPE;
+    vUser sec_user.username%TYPE;
 
-
-FUNCTION post_human  RETURN NUMBER
-    AS
-      newId NUMBER;
+FUNCTION get_pr_cm (pTaskId NUMBER) RETURN NUMBER AS
+    vmethod VARCHAR2(5);
 BEGIN
-        INSERT INTO wf_task (id, no_dcv, task_type, assign_time, assign_to_bu, progress_status, nodecode,
-                        prev_task, prev_node, prime_route, return_task, execscript)
-        VALUES (dcv_seq.nextval, vCurrentTask.no_dcv, vNextNode.nodetype, SYSDATE, vNextNode.department, 'WAIT',
-            vNextNode.nodecode, vCurrentTask.id, vCurrentNode.nodecode, NVL(vNextNode.prime_route,'Y'),
-            vOption.return_task, vNextNode.execscript)
-        RETURNING id into newId;
-        RETURN newId; --newtask;
-END post_human;
+    SELECT NVL(metode_bayar,'PR') INTO vmethod
+    FROM dcv_request WHERE no_dcv = (
+        SELECT no_dcv FROM wf_task WHERE id = pTaskId);
 
-FUNCTION post_merge
+    IF vmethod = 'PR' THEN RETURN (1);
+    ELSE RETURN (2);
+    END IF;
+END get_pr_cm;
+
+
+FUNCTION post_merge (pNextNode wf_node%ROWTYPE)
     RETURN NUMBER AS
         vcnt NUMBER;
         newId NUMBER;
         vMergeTask wf_task%ROWTYPE;
-        vNextNodeCode wf_node_route.refnode%TYPE;
+        vNextNode wf_node%ROWTYPE;
 BEGIN
     -- cari task yg M1 jika sudah ada
     SELECT * INTO vMergeTask
       FROM wf_task
-      WHERE no_dcv = vCurrentTask.no_dcv
-      AND nodecode = vNextNode.nodecode
+      WHERE no_dcv = vNoDcv
+      AND nodecode = pNextNode.nodecode
       AND progress_status = 'WAIT' FOR UPDATE;
-
+dbms_output.put_line('Sisa rotue '||vMergeTask.decision);
     UPDATE wf_task SET
         decision = decision -1,
         progress_status = DECODE(decision, 1, 'DONE', 'WAIT'),
@@ -113,18 +114,25 @@ BEGIN
     IF vcnt = 0 THEN       -- merge sudah komplit
 
         --cek node selanjutnya apa
-        SELECT o.refnode INTO vNextNodeCode
-        FROM wf_node_route o
-        WHERE o.node_id = vNextNode.nodecode;
         SELECT * INTO vNextNode
         FROM wf_node
-        WHERE nodecode = vNextNodeCode;
+        WHERE nodecode = (SELECT o.refnode FROM wf_node_route o
+                          WHERE o.node_id = pNextNode.nodecode);
 
         INSERT INTO wf_task (id, no_dcv, task_type, assign_time, assign_to_bu, progress_status, nodecode,
                         prev_task, prev_node, prime_route)
-        VALUES (dcv_seq.nextval, vCurrentTask.no_dcv, vNextNode.nodetype, SYSDATE, vNextNode.department, 'WAIT',
-            vNextNode.nodecode, vMergeTask.id, vCurrentNode.nodecode, NVL(vNextNode.prime_route,'Y'))
-        RETURNING id into newId;
+            VALUES (dcv_seq.nextval, vNoDcv, vNextNode.nodetype, SYSDATE, vNextNode.department, 'WAIT',
+            vNextNode.nodecode, vMergeTask.id, vMergeTask.nodecode, NVL(vNextNode.prime_route,'Y'))
+            RETURNING id into newId;
+ dbms_output.put_line('update merge');
+        UPDATE wf_task SET
+                decision = vcnt,
+                progress_status = 'DONE',
+                next_task = newId,
+                next_node = vNextNode.nodecode,
+                process_by = 'SYSTEM',
+                process_time = SYSDATE
+            WHERE id = vMergeTask.id;
         RETURN (newId);
 
       ELSE
@@ -132,87 +140,109 @@ BEGIN
       END IF;
 
     EXCEPTION WHEN NO_DATA_FOUND THEN
-    dbms_output.put_line('new merge task');
+    dbms_output.put_line('new merge task'|| pNextNode.nodecode ||' - '|| pnextnode.department);
         INSERT INTO wf_task (id, no_dcv, task_type, assign_to_bu, assign_time, progress_status, nodecode, decision)
-                VALUES (dcv_seq.nextval,vCurrentTask.no_dcv, vNextNode.nodetype, vNextNode.department,
-                SYSDATE, 'WAIT', vNextNode.nodecode, vNextNode.merge_count-1)
+                VALUES (dcv_seq.nextval, vNoDcv, pNextNode.nodetype, pNextNode.department,
+                SYSDATE, 'WAIT', pNextNode.nodecode, pNextNode.merge_count-1)
         RETURNING id INTO newId;
+    dbms_output.put_line('seribu tiga ');
         RETURN (newId);
 END post_merge;
 
-FUNCTION post_split
-    RETURN NUMBER AS
-      CURSOR cSplit(thenode VARCHAR2) IS
-            SELECT n.nodetype, n.department, n.nodecode,
-                   NVL(n.prime_route,'Y') AS prime_route, NVL(o.return_task,'T') AS return_task
-            FROM wf_node n JOIN wf_node_route o
-            ON n.nodecode = o.refnode
-            WHERE   o.node_id = thenode;
-      newId NUMBER;
-BEGIN
-    FOR i IN cSplit(vNextNode.nodecode) LOOP
-        IF (i.return_task = 'T') OR (i.prime_route = 'Y') THEN
-            INSERT INTO wf_task (id, no_dcv, task_type, assign_time, assign_to_bu, progress_status,
-                        nodecode, prev_task, prev_node, prime_route, return_task)
-            VALUES (dcv_seq.nextval, vCurrentTask.no_dcv, i.nodetype, SYSDATE, i.department, 'WAIT',
-            i.nodecode, vCurrentTask.id, vCurrentNode.nodecode, NVL(i.prime_route,'Y'), i.return_task)
-            RETURNING id into newId;
-        END IF;
-    END LOOP;
-    RETURN (newId);
-END post_split;
 
 FUNCTION post_action (pTask_id NUMBER, pAction_id NUMBER, pPesan VARCHAR2, pUser VARCHAR2)
   RETURN NUMBER AS
+    CURSOR cSplit(thenode VARCHAR2) IS
+            SELECT n.nodetype, n.department, n.nodecode, n.execscript,
+                   NVL(n.prime_route,'Y') AS prime_route, NVL(o.return_task,'T') AS return_task
+            FROM wf_node n JOIN wf_node_route o
+            ON n.nodecode = o.refnode
+            WHERE o.node_id = thenode;
+    newTaskId NUMBER;
     newid NUMBER;
-    vDept sec_dept.dept_code%TYPE;
+    vTask wf_task%ROWTYPE;
+    vnewTask wf_task%ROWTYPE;
+    vLockedTask wf_task%ROWTYPE;
+    vOption wf_node_route%ROWTYPE;
+    vNextNode wf_node%ROWTYPE;
+    res NUMBER;
+    vscript VARCHAR2(40);
+    vRoute NUMBER;
 BEGIN
-
-    SELECT d.dept_code INTO vdept
+    -- get dept info
+    SELECT u.username, d.dept_code INTO vuser, vdept
     FROM sec_user u JOIN sec_dept d
     ON u.department = d.id
     WHERE u.username = pUser;
+    dbms_output.put('Satu - ');
 
-    SELECT t.* INTO vCurrentTask
+    -- retrieve & lock current task
+    SELECT t.* INTO vLockedTask
     FROM wf_task t
     WHERE t.id = pTask_id FOR UPDATE NOWAIT;
+    vnoDCV := vLockedTask.no_dcv;
+    dbms_output.put_line('Dua');
 
-    SELECT * INTO vCurrentNode
-    FROM wf_node
-    WHERE nodecode = vCurrentTask.nodecode;
+    IF vLockedTask.task_type = 'Script' THEN
+            vscript := 'Begin :a := '|| vLockedTask.execscript || '(:id); End;';
+            dbms_output.put_line(vscript);
+            EXECUTE IMMEDIATE vscript USING OUT vRoute, pTask_id;
+            dbms_output.put_line('Res : '||vRoute);
+    ELSE
+      vRoute := pAction_id;
+    END IF;
 
+    dbms_output.put('Option : ');
     SELECT * INTO vOption
     FROM wf_node_route
-    WHERE node_id = vCurrentNode.nodecode
-    AND pilihan = pAction_Id;
+    WHERE node_id = vLockedTask.nodecode
+    AND pilihan = vRoute;
+    dbms_output.put_line(vOPtion.refnode);
 
-    SELECT * INTO vNextNode
-    FROM wf_node
+    -- retrieve option & next node
+    SELECT n.* INTO vNextNode
+    FROM wf_node n
     WHERE nodecode = vOption.refnode;
+    --vNextNodeType := vNextNode.nodetype;
 
-    IF vNextNode.NodeType IN ('Human','Job') THEN
-      newId := post_human;
-    dbms_output.put_line('Newid : '||newId);
+dbms_output.put_line('Node Type: '|| vNextNode.NodeType);
+    -- create new task based on next node type
+    IF vNextNode.nodetype = 'Split' THEN
 
-    ELSIF vNextNode.NodeType = 'Split' THEN
-      newId := post_split;
+        FOR i IN cSplit(vNextNode.nodecode) LOOP
+            IF (i.return_task = 'T') OR (i.prime_route = 'Y') THEN
+                INSERT INTO wf_task (id, no_dcv, task_type, assign_time, assign_to_bu, progress_status,
+                        nodecode, prev_task, prev_node, prime_route, return_task, execscript)
+                VALUES (dcv_seq.nextval, vNoDcv, i.nodetype, SYSDATE, i.department, 'WAIT',
+                i.nodecode, pTask_id, vLockedTask.nodecode, NVL(i.prime_route,'Y'), i.return_task, i.execscript)
+                RETURNING id into newTaskId;
+            END IF;
+        END LOOP;
 
-    ELSIF vNextNode.NodeType = 'Merge' THEN
-        newid := post_merge;
-        dbms_output.put_line ('Merge id:'|| newid);
-    ELSIF vNextNode.NodeType = 'Script' THEN
-    null;
+    ELSIF vNextNode.nodetype = 'Merge' THEN
+       newTaskId := post_merge (vNextNode);
+
+    ELSE
+        dbms_output.put('newTaskId: ');
+        INSERT INTO wf_task (id, no_dcv, task_type, assign_time, assign_to_bu, progress_status, nodecode,
+                        prev_task, prev_node, prime_route, return_task, execscript)
+        VALUES (dcv_seq.nextval, vNoDcv, vNextNode.nodetype, SYSDATE, vNextNode.department, 'WAIT',
+            vNextNode.nodecode, pTask_id, vLockedTask.nodecode, NVL(vNextNode.prime_route,'Y'),
+            vOption.return_task, vNextNode.execscript)
+        RETURNING id into newTaskId;
+        dbms_output.put_line(newTaskId);
     END IF;
 
     UPDATE wf_task SET
         decision = pAction_id,
         pesan = pPesan,
         progress_status = 'DONE',
-        next_task = newId,
-        next_node = vNextNode.nodecode,
+        next_task = DECODE(vNextNode.nodetype,'Split','',newTaskId),
+        next_node = DECODE(vNextNode.nodetype,'Split','',vNextNode.nodecode),
         process_by = pUser,
         process_time = SYSDATE
-    WHERE id = ptask_id;
+    WHERE id = vLockedTask.id;
+dbms_output.put_line('wf task updated');
 
     UPDATE dcv_request SET
         dcv_status = DECODE(vNextNode.nodetype,'Stop','CANCEL','End','PAID','ON-PROCESS'),
@@ -220,12 +250,16 @@ BEGIN
         current_step = vNextNode.node_desc,
         modified_dt = SYSDATE,
         modified_by = pUser
-    WHERE no_dcv = vCurrentTask.no_dcv;
+    WHERE no_dcv = vNoDcv;
 
+    IF vNextNode.nodetype = 'Script' THEN
+      newid := post_action (newTaskId, null, '', pUser);
+    END IF;
   --  COMMIT;
-    RETURN (newId);
+    RETURN (newTaskId);
 
 EXCEPTION WHEN OTHERS THEN
+dbms_output.put_line(sqlerrm);
     RETURN (-1);
 END post_action;
 
@@ -256,86 +290,4 @@ BEGIN
 END sla_pct;
 
 END WF_PKG;
-/
-
-create or replace PACKAGE WF_JOB AS
-
-    FUNCTION run_ap2 (pTask_id NUMBER) RETURN NUMBER;
-    PROCEDURE run_wf_jobs;
-END WF_JOB;
-/
-
-create or replace PACKAGE BODY WF_JOB AS
-
-FUNCTION run_ap2 (pTask_id NUMBER) RETURN NUMBER AS
-  vcomplete BOOLEAN := TRUE;
-  BEGIN
-
-    -- custom logic
-
-
-    IF vcomplete THEN
-        RETURN (1); -- any number > 0
-    ELSE
-      RETURN(-1);
-    END IF;
-END run_ap2;
-
-PROCEDURE run_wf_jobs AS
-    CURSOR cJob IS SELECT t.id, t.nodecode, t.no_dcv, t.execscript, d.dept_code
-            FROM wf_task t JOIN sec_dept d
-            ON t.assign_to_bu = d.id
-            WHERE t.task_type = 'Job'
-            AND t.progress_status = 'WAIT'
-            ORDER BY t.assign_time;
-    vstring VARCHAR2(100);
-    res NUMBER;
-    vNextNode wf_node%ROWTYPE;
-    vOption wf_node_route%ROWTYPE;
-BEGIN
-    FOR t IN cJob LOOP
-        vstring := 'Begin :a := '|| t.execscript || '(:id); End;';
-        EXECUTE IMMEDIATE vstring USING OUT res, t.id;
-        dbms_output.put_line('Hasil : '|| res);
-
-        IF res <> -1 THEN
-
-            SELECT * INTO vOption
-                FROM wf_node_route
-                WHERE node_id = t.nodecode
-                AND pilihan = res;
-
-            SELECT * INTO vNextNode FROM wf_node
-            WHERE nodecode = vOption.refnode;
-
-            UPDATE wf_task SET
-                decision = res,
-                progress_status = 'DONE',
-                process_by = 'SYSTEM',
-                process_time = SYSDATE
-            WHERE id = t.id;
-
-            UPDATE dcv_request SET
-                dcv_status = DECODE(vNextNode.nodetype,'Stop','CANCEL','End','PAID','ON-PROCESS'),
-                last_step = vOption.description ||' - '|| t.dept_code,
-                current_step = vNextNode.node_desc,
-                modified_dt = SYSDATE,
-                modified_by = 'SYSTEM'
-            WHERE no_dcv = t.no_dcv;
-
-            IF vNextNode.nodetype NOT IN ('End', 'Stop') THEN
-            -- create new task
-                INSERT INTO wf_task (id, no_dcv, task_type, assign_time, assign_to_bu, progress_status, nodecode,
-                        prev_task, prev_node, prime_route)
-                VALUES (dcv_seq.nextval, t.no_dcv, vNextNode.nodetype, SYSDATE, vNextNode.department, 'WAIT',
-                    vNextNode.nodecode, t.id, t.nodecode, NVL(vNextNode.prime_route,'Y'));
-
-            END IF;
-        END IF;
-
-    END LOOP;
-
-END run_wf_jobs;
-
-END WF_JOB;
 /
