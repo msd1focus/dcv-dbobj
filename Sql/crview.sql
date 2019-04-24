@@ -51,8 +51,8 @@ LEFT OUTER JOIN wf_task t
 ON
 t.no_dcv = r.no_dcv
 AND t.progress_status = 'WAIT'
-AND t.nodetype <> 'Merge'
-JOIN sec_dept dept ON
+AND t.task_type <> 'Merge'
+LEFT OUTER JOIN sec_dept dept ON
 dept.id = t.assign_to_bu;
 
 CREATE OR REPLACE FORCE VIEW "DCV"."UOM_LIST" ("UOMCODE", "UOMDESC", "UOMTYPE") AS
