@@ -41,7 +41,7 @@ create or replace PACKAGE BODY DCV_PKG AS
   BEGIN
     vujung := SUBSTR(nopc, -1,1);
     CASE TRUE
-        WHEN vujung NOT IN ('1','2','3','4','5','6','7','8') THEN
+        WHEN vujung NOT IN ('1','2','3','4','5','6','7','8','9','0') THEN
             vres := -9;
             vErr := 'No PC '||nopc||' tidak ada.';
         WHEN vujung = '1' THEN
