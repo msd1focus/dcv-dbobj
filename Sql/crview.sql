@@ -1,4 +1,23 @@
 CREATE OR REPLACE FORCE VIEW "DCV_MONITOR" AS
+WITH task_query AS
+(SELECT t1.*
+FROM wf_task t1
+WHERE t1.progress_status = 'WAIT'
+AND t1.task_type <> 'Merge'
+AND CASE WHEN t1.prime_route = 'Y' THEN 'A'
+      WHEN t1.prime_route = 'N' AND EXISTS (SELECT 'X' FROM wf_task t2
+               WHERE t1.no_dcv = t2.no_dcv
+              AND progress_status = 'WAIT'
+              AND t1.assign_to_bu = t2.assign_to_bu
+              AND t1.id <> t2.id
+              AND t2.prime_route = 'Y') THEN 'B'
+      WHEN t1.prime_route = 'N' AND NOT EXISTS (SELECT 'X' FROM wf_task t2
+               WHERE t1.no_dcv = t2.no_dcv
+              AND progress_status = 'WAIT'
+              AND t1.assign_to_bu = t2.assign_to_bu
+              AND t1.id <> t2.id
+              AND t2.prime_route = 'Y') THEN 'A'
+  END = 'A' )
 SELECT
 r.dcv_hdr_id
 ,r.customer_code
@@ -47,11 +66,9 @@ LEFT OUTER JOIN dcv_documents d
 ON
 d.dcv_hdr_id = r.dcv_hdr_id AND
 d.doc_type = 'FAKTUR'
-LEFT OUTER JOIN wf_task t
+LEFT OUTER JOIN task_query t
 ON
 t.no_dcv = r.no_dcv
-AND t.progress_status = 'WAIT'
-AND t.task_type <> 'Merge'
 LEFT OUTER JOIN sec_dept dept ON
 dept.id = t.assign_to_bu;
 
