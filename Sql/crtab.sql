@@ -155,8 +155,7 @@ ALTER TABLE doc_movement ADD CONSTRAINT doc_movement_pk PRIMARY KEY ( id );
 
 CREATE TABLE holiday (
     id            INTEGER NOT NULL,
-    start_dt      DATE,
-    end_dt        DATE,
+    tgl_libur      DATE,
     description   VARCHAR2(50 CHAR)
 );
 
