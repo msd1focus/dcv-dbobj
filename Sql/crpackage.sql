@@ -1,8 +1,12 @@
 create or replace PACKAGE DCV_PKG AS
     FUNCTION get_dcv_no RETURN VARCHAR2;
     FUNCTION cek_new_request (nopc VARCHAR2, keypc VARCHAR2, period1 DATE, period2 DATE) RETURN INTEGER;
-    FUNCTION get_elapsed_day (startdt DATE, enddt DATE) RETURN INTEGER;
     FUNCTION get_uom_conversion (uomfrom VARCHAR2, uomto VARCHAR2) RETURN NUMBER;
+    PROCEDURE cek_new_request (nopc VARCHAR2, keypc VARCHAR2, period1 DATE, period2 DATE,
+                                response OUT NUMBER, errm OUT VARCHAR2) ;
+    FUNCTION cek_stm_report (custcode VARCHAR2, periode1 DATE, periode2 DATE) RETURN NUMBER;
+    FUNCTION new_dcv_req (pCustcode VARCHAR2, pNoPc VARCHAR2, pDcvPeriod1 DATE, pDcvPeriod2 DATE) RETURN NUMBER;
+
 END DCV_PKG;
 /
 
@@ -28,6 +32,33 @@ create or replace PACKAGE BODY DCV_PKG AS
     -- TODO: Implementation required for FUNCTION DCV_PKG.cek_new_request
     RETURN NULL;
   END cek_new_request;
+
+  PROCEDURE cek_new_request (nopc VARCHAR2, keypc VARCHAR2, period1 DATE, period2 DATE,
+                                response OUT NUMBER, errm OUT VARCHAR2) AS
+    vres NUMBER;
+    vErr VARCHAR2(100);
+    vujung CHAR(1);
+  BEGIN
+    vujung := SUBSTR(nopc, -1,1);
+    CASE TRUE
+        WHEN vujung NOT IN ('1','2','3','4','5','6','7','8') THEN
+            vres := -9;
+            vErr := 'No PC '||nopc||' tidak ada.';
+        WHEN vujung = '1' THEN
+            vres := -1;
+            vErr := 'No PC '||nopc||' tidak ada.';
+        WHEN vujung = '2' THEN
+            vres := -2;
+            vErr := 'Periode tidak sesuai.';
+        WHEN vujung = '3' THEN
+            vres := 0;
+        ELSE
+            vres := 1;
+    END CASE;
+    response := vres;
+    errm := vErr;
+  END cek_new_request;
+
 
   FUNCTION get_sla (role NUMBER, startdt DATE, enddt DATE)
   RETURN NUMBER AS
@@ -59,6 +90,26 @@ create or replace PACKAGE BODY DCV_PKG AS
     RETURN (1);
   END get_uom_conversion;
 
+  FUNCTION cek_stm_report (custcode VARCHAR2, periode1 DATE, periode2 DATE) RETURN NUMBER AS
+  BEGIN
+
+    RETURN(-1);
+  END cek_stm_report;
+
+  FUNCTION new_dcv_req (pCustcode VARCHAR2, pNoPc VARCHAR2, pDcvPeriod1 DATE, pDcvPeriod2 DATE) RETURN NUMBER AS
+    vnodcv VARCHAR2(15);
+  BEGIN
+/*    vno
+    INSERT INTO dcv_request (dcv_hdr_id, customer_code, customer_name, company, no_pc, key_pc,
+                periode_dcv_start, periode_dcv_end, pc_kategori, pc_tipe, periode_pc_start, periode_pc_end,
+                pc_initiator, ppn, region_code, region_desc, area_code, area_desc, loc_code,
+                loc_desc, discount_type, modified_dt, modified_by)
+    SELECT dcv_seq.nextval, custcode, '..', 'FDI', pNoPc,
+    FROM proposal
+    WHERE confirm_no = no_pc;
+*/
+    RETURN(112);
+  END;
 
 
 END DCV_PKG;
