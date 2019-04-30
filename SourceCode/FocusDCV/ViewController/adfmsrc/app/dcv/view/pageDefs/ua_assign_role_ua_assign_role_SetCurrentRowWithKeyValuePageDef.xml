@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93"
+                id="ua_assign_role_ua_assign_role_SetCurrentRowWithKeyValuePageDef"
+                Package="app.dcv.view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="AppUserAccessRolesView1" RangeSize="25"
+              DataControl="UserAccessAMDataControl"
+              id="AppUserAccessRolesView1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="AppUserAccessRolesView1Iterator"
+            id="setCurrentRowWithKeyValue" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDValue="#{pageFlowScope.userName}"
+                 NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

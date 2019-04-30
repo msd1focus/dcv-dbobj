@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelSplitter id="ps2" orientation="vertical" splitterPosition="45"
+                    disabled="true">
+    <f:facet name="first">
+      <af:panelStretchLayout id="psl1" endWidth="311px"
+                             inlineStyle="border-bottom-width:1px; border-bottom-color:rgb(231,231,231); border-bottom-style:solid;"
+                             startWidth="350px">
+        <f:facet name="start">
+          <af:panelGroupLayout id="panelGroupLayout1"
+                               inlineStyle="padding-top:12px; padding-left:5px; color:rgb(28,65,126);"
+                               layout="vertical">
+            <af:outputText value="User Access: Manage Menu" id="outputText6"
+                           inlineStyle="font-weight:bold; font-size:18.0px;margin-left:16px;"/>
+          </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="end"/>
+      </af:panelStretchLayout>
+    </f:facet>
+    <f:facet name="second">
+      <af:panelSplitter id="panelSplitter1" splitterPosition="300"
+                        disabled="true">
+        <f:facet name="first">
+          <af:panelCollection id="pc2" styleClass="AFStretchWidth"
+                              featuresOff="detach viewMenu columnsMenuItem">
+            <f:facet name="toolbar">
+              <af:toolbar id="t2">
+                <af:commandToolbarButton text="Edit"
+                                         id="ctb2">
+                  <af:showPopupBehavior popupId="p1" triggerType="action"/>
+                </af:commandToolbarButton>
+                <af:popup id="p1" contentDelivery="lazyUncached"
+                          autoCancel="disabled" childCreation="deferred">
+                  <af:dialog id="d1"
+                             title="Edit Menu: #{bindings.Name.inputValue}"
+                             dialogListener="#{UserAccessBean.editMenuDialogListener}">
+                    <af:panelFormLayout id="pfl1" labelWidth="80">
+                      <af:inputText value="#{bindings.Label.inputValue}"
+                                    label="#{bindings.Label.hints.label}"
+                                    required="#{bindings.Label.hints.mandatory}"
+                                    columns="#{bindings.Label.hints.displayWidth}"
+                                    maximumLength="#{bindings.Label.hints.precision}"
+                                    shortDesc="#{bindings.Label.hints.tooltip}"
+                                    id="it3">
+                        <f:validator binding="#{bindings.Label.validator}"/>
+                      </af:inputText>
+                      <af:inputText value="#{bindings.DisplaySequence.inputValue}"
+                                    label="#{bindings.DisplaySequence.hints.label}"
+                                    required="#{bindings.DisplaySequence.hints.mandatory}"
+                                    columns="#{bindings.DisplaySequence.hints.displayWidth}"
+                                    maximumLength="#{bindings.DisplaySequence.hints.precision}"
+                                    shortDesc="#{bindings.DisplaySequence.hints.tooltip}"
+                                    id="it4">
+                        <f:validator binding="#{bindings.DisplaySequence.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.DisplaySequence.format}"/>
+                      </af:inputText>
+                      <af:inputText value="#{bindings.Icon.inputValue}"
+                                    label="#{bindings.Icon.hints.label}"
+                                    required="#{bindings.Icon.hints.mandatory}"
+                                    columns="#{bindings.Icon.hints.displayWidth}"
+                                    maximumLength="#{bindings.Icon.hints.precision}"
+                                    shortDesc="#{bindings.Icon.hints.tooltip}"
+                                    id="it1">
+                        <f:validator binding="#{bindings.Icon.validator}"/>
+                      </af:inputText>
+                    </af:panelFormLayout>
+                  </af:dialog>
+                </af:popup>
+              </af:toolbar>
+            </f:facet>
+            <af:table value="#{bindings.AppMenuView1.collectionModel}" var="row"
+                      rows="#{bindings.AppMenuView1.rangeSize}"
+                      emptyText="#{bindings.AppMenuView1.viewable ? 'Tidak ada data yang ditampilkan.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.AppMenuView1.rangeSize}"
+                      rowBandingInterval="0"
+                      filterModel="#{bindings.AppMenuView1Query.queryDescriptor}"
+                      queryListener="#{bindings.AppMenuView1Query.processQuery}"
+                      filterVisible="true" varStatus="vs"
+                      selectedRowKeys="#{bindings.AppMenuView1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.AppMenuView1.collectionModel.makeCurrent}"
+                      rowSelection="single" id="t1" columnStretching="last"
+                      partialTriggers="::d1">
+              <af:column sortProperty="#{bindings.AppMenuView1.hints.DisplaySequence.name}"
+                         filterable="true" sortable="true"
+                         headerText="Seq. No"
+                         id="c2" width="50" align="center">
+                <af:outputText value="#{row.DisplaySequence}" id="ot2">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.AppMenuView1.hints.DisplaySequence.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.AppMenuView1.hints.Name.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.AppMenuView1.hints.Name.label}"
+                         id="c1">
+                <af:outputText value="#{row.Label}" id="ot1"/>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </f:facet>
+        <f:facet name="second">
+          <af:panelCollection id="pc1"
+                              featuresOff="detach viewMenu columnsMenuItem"
+                              styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar">
+              <af:toolbar id="t4">
+                <af:commandToolbarButton text="Edit Item"
+                                         id="ctb5">
+                  <af:showPopupBehavior popupId="p2" triggerType="action"/>
+                </af:commandToolbarButton>
+                <af:popup id="p2" contentDelivery="lazyUncached"
+                          autoCancel="disabled" childCreation="deferred">
+                  <af:dialog id="d2"
+                             title="Edit Menu Item: #{bindings.Name1.inputValue}"
+                             dialogListener="#{UserAccessBean.editMenuItemDialogListener}">
+                    <af:panelFormLayout id="pfl2" labelWidth="110">
+                      <af:inputText value="#{bindings.Label1.inputValue}"
+                                    label="#{bindings.Label1.hints.label}"
+                                    required="#{bindings.Label1.hints.mandatory}"
+                                    columns="#{bindings.Label1.hints.displayWidth}"
+                                    maximumLength="#{bindings.Label1.hints.precision}"
+                                    shortDesc="#{bindings.Label1.hints.tooltip}"
+                                    id="it6">
+                        <f:validator binding="#{bindings.Label1.validator}"/>
+                      </af:inputText>
+                      <af:inputText value="#{bindings.Icon1.inputValue}"
+                                    label="#{bindings.Icon1.hints.label}"
+                                    required="#{bindings.Icon1.hints.mandatory}"
+                                    columns="#{bindings.Icon1.hints.displayWidth}"
+                                    maximumLength="#{bindings.Icon1.hints.precision}"
+                                    shortDesc="#{bindings.Icon1.hints.tooltip}"
+                                    id="it7">
+                        <f:validator binding="#{bindings.Icon1.validator}"/>
+                      </af:inputText>
+                      <af:inputText value="#{bindings.DisplaySequence1.inputValue}"
+                                    label="#{bindings.DisplaySequence1.hints.label}"
+                                    required="#{bindings.DisplaySequence1.hints.mandatory}"
+                                    columns="#{bindings.DisplaySequence1.hints.displayWidth}"
+                                    maximumLength="#{bindings.DisplaySequence1.hints.precision}"
+                                    shortDesc="#{bindings.DisplaySequence1.hints.tooltip}"
+                                    id="it5">
+                        <f:validator binding="#{bindings.DisplaySequence1.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.DisplaySequence1.format}"/>
+                      </af:inputText>
+                    </af:panelFormLayout>
+                  </af:dialog>
+                </af:popup>
+              </af:toolbar>
+            </f:facet>
+            <af:table value="#{bindings.AppMenuItemsView1.collectionModel}"
+                      var="row" rows="#{bindings.AppMenuItemsView1.rangeSize}"
+                      emptyText="#{bindings.AppMenuItemsView1.viewable ? 'Tidak ada data yang ditampilkan.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.AppMenuItemsView1.rangeSize}"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.AppMenuItemsView1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.AppMenuItemsView1.collectionModel.makeCurrent}"
+                      rowSelection="single" id="t3" columnStretching="last"
+                      partialTriggers=":::pc2:t1 ::d2">
+              <af:column sortProperty="#{bindings.AppMenuItemsView1.hints.DisplaySequence.name}"
+                         sortable="true"
+                         headerText="Seq. No"
+                         id="c3" width="50" align="center">
+                <af:outputText value="#{row.DisplaySequence}" id="ot6">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.AppMenuItemsView1.hints.DisplaySequence.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.AppMenuItemsView1.hints.Label.name}"
+                         sortable="true"
+                         headerText="Menu Item"
+                         id="c6" width="200">
+                <af:outputText value="#{row.Label}" id="ot3"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.AppMenuItemsView1.hints.Icon.name}"
+                         sortable="true"
+                         headerText="#{bindings.AppMenuItemsView1.hints.Icon.label}"
+                         id="c5">
+                <af:outputText value="#{row.Icon}" id="ot5"/>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </f:facet>
+      </af:panelSplitter>
+    </f:facet>
+  </af:panelSplitter>
+</jsp:root>

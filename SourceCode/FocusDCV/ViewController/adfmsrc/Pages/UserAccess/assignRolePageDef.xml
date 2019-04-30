@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="assignRolePageDef"
+                Package="Pages.UserAccess">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator id="AllRolesShuttleView1Iterator" Binds="AllRolesShuttleView1"
+              DataControl="UserAccessAMDataControl" RangeSize="-1"/>
+    <iterator id="AppUserAccessRolesView1Iterator"
+              Binds="AppUserAccessRolesView1"
+              DataControl="UserAccessAMDataControl" RangeSize="-1"/>
+  </executables>
+  <bindings>
+    <action id="Commit" DataControl="UserAccessAMDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="UserAccessAMDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,326 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelSplitter id="ps2" orientation="vertical" splitterPosition="45"
+                    disabled="true">
+    <f:facet name="first">
+      <af:panelStretchLayout id="psl1" endWidth="311px"
+                             inlineStyle="border-bottom-width:1px; border-bottom-color:rgb(231,231,231); border-bottom-style:solid;"
+                             startWidth="350px">
+        <f:facet name="start">
+          <af:panelGroupLayout id="panelGroupLayout1"
+                               inlineStyle="padding-top:12px; padding-left:5px; color:rgb(28,65,126);"
+                               layout="vertical">
+            <af:outputText value="User Access: Manage User" id="outputText6"
+                           inlineStyle="font-weight:bold; font-size:18.0px;margin-left:16px;">
+                  
+            </af:outputText>
+          </af:panelGroupLayout>
+        </f:facet>
+      </af:panelStretchLayout>
+    </f:facet>
+    <f:facet name="second">
+      <af:panelSplitter id="panelSplitter1" splitterPosition="300"
+                        disabled="true">
+        <f:facet name="first">
+            <af:panelSplitter id="ps4" orientation="vertical"
+                              splitterPosition="85" disabled="true">
+              <f:facet name="first">
+                  <af:query id="qryId1" headerText="Search" disclosed="true" type="stretch"
+                            value="#{bindings.AppUserAccessViewCriteriaQuery.queryDescriptor}"
+                            saveQueryMode="hidden" modeChangeVisible="false" displayMode="compact"
+                            model="#{bindings.AppUserAccessViewCriteriaQuery.queryModel}"
+                            inlineStyle="margin-top:-20px; margin-right:0px;"
+                            queryListener="#{bindings.AppUserAccessViewCriteriaQuery.processQuery}"
+                            queryOperationListener="#{bindings.AppUserAccessViewCriteriaQuery.processQueryOperation}"
+                            resultComponentId="::pc2:t1"/>
+            </f:facet>
+              <f:facet name="second">
+                <af:panelCollection id="pc2" styleClass="AFStretchWidth"
+                                    featuresOff="detach viewMenu columnsMenuItem">
+                  <f:facet name="toolbar">
+                    <af:toolbar id="t2">
+                      <af:commandToolbarButton actionListener="#{bindings.Execute.execute}"
+                                               disabled="#{!bindings.Execute.enabled}"
+                                               id="ctb2"
+                                               icon="/Images/arrow_refresh_small.png"/>
+                      <af:image source="/Images/v_spacer_toolbar.png" id="i1"
+                                shortDesc=" "/>
+                      <af:commandToolbarButton text="Add" id="ctb1">
+                        <af:showPopupBehavior popupId="p1"
+                                              triggerType="action"/>
+                      </af:commandToolbarButton>
+                      <af:popup id="p1"
+                                popupFetchListener="#{UserAccessBean.addUserPopupFetchListener}"
+                                contentDelivery="lazyUncached"
+                                autoCancel="enabled" childCreation="immediate"
+                                popupCanceledListener="#{UserAccessBean.addUserPopupCanceledListener}">
+                        <af:dialog id="d1" closeIconVisible="false" resize="off"
+                                   stretchChildren="none" title="Add User"
+                                   dialogListener="#{UserAccessBean.addUserDialogListener}">
+                          <af:panelFormLayout id="pfl2" labelWidth="130"
+                                              inlineStyle="width:410px;">
+                            <af:group id="g1">
+                              <af:inputText value="#{bindings.UserName.inputValue}"
+                                            label="#{bindings.UserName.hints.label}"
+                                            required="#{bindings.UserName.hints.mandatory}"
+                                            columns="#{bindings.UserName.hints.displayWidth}"
+                                            maximumLength="#{bindings.UserName.hints.precision}"
+                                            shortDesc="#{bindings.UserName.hints.tooltip}"
+                                            id="it3">
+                                <f:validator binding="#{bindings.UserName.validator}"/>
+                              </af:inputText>
+                              <af:inputText value="#{bindings.UserInitial.inputValue}"
+                                            label="#{bindings.UserInitial.hints.label}"
+                                            required="#{bindings.UserInitial.hints.mandatory}"
+                                            columns="#{bindings.UserInitial.hints.displayWidth}"
+                                            maximumLength="#{bindings.UserInitial.hints.precision}"
+                                            shortDesc="#{bindings.UserInitial.hints.tooltip}"
+                                            id="it10">
+                                <f:validator binding="#{bindings.UserInitial.validator}"/>
+                              </af:inputText>
+                              <af:inputText value="#{bindings.FullName.inputValue}"
+                                            label="#{bindings.FullName.hints.label}"
+                                            required="#{bindings.FullName.hints.mandatory}"
+                                            columns="#{bindings.FullName.hints.displayWidth}"
+                                            maximumLength="#{bindings.FullName.hints.precision}"
+                                            shortDesc="#{bindings.FullName.hints.tooltip}"
+                                            id="it8">
+                                <f:validator binding="#{bindings.FullName.validator}"/>
+                              </af:inputText>
+                            </af:group>
+                            <af:inputText value="#{bindings.Password.inputValue}"
+                                          label="#{bindings.Password.hints.label}"
+                                          required="#{bindings.Password.hints.mandatory}"
+                                          columns="#{bindings.Password.hints.displayWidth}"
+                                          maximumLength="#{bindings.Password.hints.precision}"
+                                          shortDesc="#{bindings.Password.hints.tooltip}"
+                                          id="it1">
+                              <f:validator binding="#{bindings.Password.validator}"/>
+                            </af:inputText>
+                            <af:inputText label="Re-Type Password" id="it6"
+                                          showRequired="true"
+                                          contentStyle="width:255px;"/>
+                          </af:panelFormLayout>
+                        </af:dialog>
+                      </af:popup>
+                      <af:commandToolbarButton text="Remove" id="ctb4">
+                        <af:showPopupBehavior popupId="p2"
+                                              triggerType="action"/>
+                      </af:commandToolbarButton>
+                      <af:popup id="p2" contentDelivery="lazyUncached">
+                        <af:dialog id="d2" title="Remove User"
+                                   closeIconVisible="false" resize="off"
+                                   stretchChildren="none"
+                                   dialogListener="#{UserAccessBean.removeUserDialogListener}">
+                          <af:panelGroupLayout id="pgl5" layout="horizontal">
+                            <af:outputText value="Yakin akan menghapus user"
+                                           id="ot7"/>
+                            <af:spacer width="5" height="10" id="s11"/>
+                            <af:outputText value='"#{bindings.FullName.inputValue}'
+                                           id="ot2"/>
+                            <af:spacer width="5" height="10" id="s10"/>
+                            <af:outputText value='[#{bindings.UserName.inputValue}]" ?'
+                                           id="ot3"/>
+                          </af:panelGroupLayout>
+                        </af:dialog>
+                      </af:popup>
+                    </af:toolbar>
+                  </f:facet>
+                  <af:table value="#{bindings.AppUserAccessView1.collectionModel}"
+                            var="row"
+                            rows="#{bindings.AppUserAccessView1.rangeSize}"
+                            emptyText="#{bindings.AppUserAccessView1.viewable ? 'Tidak ada data yang ditampilkan.' : 'Access Denied.'}"
+                            fetchSize="#{bindings.AppUserAccessView1.rangeSize}"
+                            rowBandingInterval="0"
+                            filterModel="#{bindings.AppUserAccessView1Query.queryDescriptor}"
+                            queryListener="#{bindings.AppUserAccessView1Query.processQuery}"
+                            filterVisible="true" varStatus="vs"
+                            selectedRowKeys="#{bindings.AppUserAccessView1.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.AppUserAccessView1.collectionModel.makeCurrent}"
+                            rowSelection="single" id="t1"
+                            partialTriggers="::ctb2 ::d1 ::d2"
+                            columnStretching="last"
+                            binding="#{UserAccessBean.tblUserList}">
+                    <af:column sortProperty="#{bindings.AppUserAccessView1.hints.UserName.name}"
+                               filterable="false" sortable="true"
+                               headerText="#{bindings.AppUserAccessView1.hints.UserName.label}"
+                               id="c3">
+                      <af:panelGroupLayout id="pgl3" layout="vertical"
+                                               inlineStyle="padding-top:2px; padding-left:5px;padding-bottom:2px;">
+                            <af:outputText value="#{row.FullName}" id="ot4"
+                                           inlineStyle="font-weight:bold;text-transform: uppercase;"/>
+                            <af:outputText value="Username: #{row.UserName}"
+                                           id="ot1"
+                                           inlineStyle="font-size:xx-small;padding-top:2px;"/>
+                          </af:panelGroupLayout>
+                    </af:column>
+                  </af:table>
+                </af:panelCollection>
+              </f:facet>
+            </af:panelSplitter>
+        </f:facet>
+        <f:facet name="second">
+          <af:panelGroupLayout id="pgl8" layout="scroll"
+                               partialTriggers="pc2:t1 qryId1">
+            <af:panelGroupLayout id="pgl31" layout="horizontal"
+                                 inlineStyle="margin-top:10px;"
+                                 visible="#{bindings.AppUserAccessView1Iterator.estimatedRowCount == 0}">
+              <af:outputText value="Tidak ada data yang ditampilkan."
+                             id="outputText3"/>
+            </af:panelGroupLayout>
+            <af:panelHeader text=" " id="ph1"
+                            inlineStyle="padding-right:15px; padding-top:6px; height:500px;"
+                            visible="#{bindings.AppUserAccessView1Iterator.estimatedRowCount > 0}"
+                            type="default">
+              <f:facet name="toolbar">
+                <af:toolbar id="t3">
+                  <af:commandToolbarButton text="Reset Password" id="ctb3"
+                                           inlineStyle="padding:2px;">
+                    <af:showPopupBehavior popupId="p3" triggerType="action"/>
+                  </af:commandToolbarButton>
+                  <af:popup id="p3"
+                            popupFetchListener="#{UserAccessBean.resetPasswordPopupFetchListener}">
+                    <af:dialog id="d3"
+                               title="Reset Password: #{bindings.UserName.inputValue}"
+                               dialogListener="#{UserAccessBean.resetPasswordDialogListener}">
+                      <af:inputText value="#{bindings.Password.inputValue}"
+                                    label="#{bindings.Password.hints.label}"
+                                    required="#{bindings.Password.hints.mandatory}"
+                                    columns="#{bindings.Password.hints.displayWidth}"
+                                    maximumLength="#{bindings.Password.hints.precision}"
+                                    shortDesc="#{bindings.Password.hints.tooltip}"
+                                    id="it9"
+                                    binding="#{UserAccessBean.itUserPassword}"
+                                    visible="false">
+                        <f:validator binding="#{bindings.Password.validator}"/>
+                      </af:inputText>
+                      <af:panelGroupLayout id="pgl9"
+                                           inlineStyle="padding-top:5px;padding-bottom:10px;"
+                                           layout="vertical">
+                        <af:outputText value='Password user akan direset menjadi \"welcome1\"'
+                                       id="ot10"/>
+                      </af:panelGroupLayout>
+                    </af:dialog>
+                  </af:popup>
+                  <af:image source="/Images/v_spacer_toolbar.png" id="i2"
+                            shortDesc=" "/>
+                  <af:commandToolbarButton actionListener="#{bindings.Commit.execute}"
+                                           text="Save" id="ctb5"
+                                           inlineStyle="padding:2px;"/>
+                  <af:commandToolbarButton actionListener="#{bindings.Rollback.execute}"
+                                           text="Cancel" immediate="true"
+                                           id="commandToolbarButton1"
+                                           inlineStyle="padding:2px;">
+                    <af:resetActionListener/>
+                    <af:resetActionListener/>
+                  </af:commandToolbarButton>
+                </af:toolbar>
+              </f:facet>
+              <af:panelGroupLayout layout="scroll"
+                                   xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                                   id="pgl15">
+                <af:panelSplitter id="ps1" orientation="horizontal"
+                                  styleClass="AFStretchWidth"
+                                  splitterPosition="420" dimensionsFrom="auto"
+                                  disabled="true"
+                                  inlineStyle="padding-top:20px;padding-bottom:30px;"
+                                  binding="#{UserAccessBean.psUserData}">
+                  <f:facet name="first">
+                    <af:panelFormLayout id="pfl1" labelWidth="150"
+                                        partialTriggers="pc2:t1">
+                      <af:spacer width="10" height="10" id="s4"/>
+                      <af:panelLabelAndMessage label="#{bindings.UserName.hints.label}"
+                                               id="plam5">
+                        <af:panelGroupLayout id="pgl10" layout="horizontal">
+                          <af:inputText value="#{bindings.UserName.inputValue}"
+                                        label="#{bindings.UserName.hints.label}"
+                                        required="#{bindings.UserName.hints.mandatory}"
+                                        columns="#{bindings.UserName.hints.displayWidth}"
+                                        maximumLength="#{bindings.UserName.hints.precision}"
+                                        shortDesc="#{bindings.UserName.hints.tooltip}"
+                                        id="it4" readOnly="true"
+                                        contentStyle="font-weight:bold;"
+                                        simple="true">
+                            <f:validator binding="#{bindings.UserName.validator}"/>
+                          </af:inputText>
+                          <af:outputText value="," id="outputText1"/>
+                          <af:spacer width="10" height="10" id="spacer2"/>
+                          <af:inputText value="#{bindings.UserInitial.inputValue}"
+                                        label="#{bindings.UserInitial.hints.label}"
+                                        required="#{bindings.UserInitial.hints.mandatory}"
+                                        columns="#{bindings.UserInitial.hints.displayWidth}"
+                                        maximumLength="#{bindings.UserInitial.hints.precision}"
+                                        shortDesc="#{bindings.UserInitial.hints.tooltip}"
+                                        id="it11" readOnly="true"
+                                        contentStyle="font-weight:bold;">
+                            <f:validator binding="#{bindings.UserInitial.validator}"/>
+                          </af:inputText>
+                        </af:panelGroupLayout>
+                      </af:panelLabelAndMessage>
+                      <af:spacer width="10" height="7" id="s6"/>
+                      <af:inputText value="#{bindings.FullName.inputValue}"
+                                    label="#{bindings.FullName.hints.label}"
+                                    required="#{bindings.FullName.hints.mandatory}"
+                                    columns="#{bindings.FullName.hints.displayWidth}"
+                                    maximumLength="#{bindings.FullName.hints.precision}"
+                                    shortDesc="#{bindings.FullName.hints.tooltip}"
+                                    id="it5">
+                        <f:validator binding="#{bindings.FullName.validator}"/>
+                      </af:inputText>
+                      <af:spacer width="10" height="7" id="spacer1"/>
+                      <af:panelLabelAndMessage label="User Role" id="plam3"
+                                               labelStyle="vertical-align: top;padding-top:13px;">
+                        <af:panelGroupLayout id="pgl6" layout="horizontal"
+                                             valign="top">
+                          <af:table value="#{bindings.AppUserAccessRolesView1.collectionModel}"
+                                    var="row"
+                                    rows="#{bindings.AppUserAccessRolesView1.rangeSize}"
+                                    emptyText="#{bindings.AppUserAccessRolesView1.viewable ? 'Tidak ada data yang ditampilkan.' : 'Access Denied.'}"
+                                    fetchSize="#{bindings.AppUserAccessRolesView1.rangeSize}"
+                                    rowBandingInterval="0" id="t4"
+                                    inlineStyle="height:34px; width:348px; margin-left:3px;"
+                                    columnStretching="last"
+                                    binding="#{UserAccessBean.tblAssignedRole}">
+                            <af:column sortProperty="#{bindings.AppUserAccessRolesView1.hints.Label.name}"
+                                       sortable="false" id="c1">
+                              <af:outputText value="#{row.Label}" id="ot8"
+                                             inlineStyle="padding-left:5px;"/>
+                            </af:column>
+                          </af:table>
+                          <af:spacer width="10" height="10" id="s12"/>
+                          <af:panelGroupLayout id="pgl1" layout="vertical">
+                            <af:spacer width="10" height="3" id="s1"/>
+                            <af:commandButton id="cmdRole"
+                                              icon="/Images/edit_list.png"
+                                              inlineStyle="padding:5px;"
+                                              action="assignrole"
+                                              useWindow="true"
+                                              windowHeight="230"
+                                              windowWidth="500"
+                                              windowModalityType="applicationModal"
+                                              returnListener="#{UserAccessBean.windowRoleReturnListener}"
+                                              shortDesc=" "
+                                              windowEmbedStyle="window">
+                              <af:setPropertyListener from="#{bindings.UserName.inputValue}"
+                                                      to="#{pageFlowScope.userName}"
+                                                      type="action"/>
+                              <af:setPropertyListener from="#{bindings.FullName.inputValue}"
+                                                      to="#{pageFlowScope.fullName}"
+                                                      type="action"/>
+                            </af:commandButton>
+                          </af:panelGroupLayout>
+                        </af:panelGroupLayout>
+                      </af:panelLabelAndMessage>
+                    </af:panelFormLayout>
+                  </f:facet>
+                </af:panelSplitter>
+              </af:panelGroupLayout>
+            </af:panelHeader>
+          </af:panelGroupLayout>
+        </f:facet>
+      </af:panelSplitter>
+    </f:facet>
+  </af:panelSplitter>
+</jsp:root>

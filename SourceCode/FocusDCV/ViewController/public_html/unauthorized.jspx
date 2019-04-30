@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" title="Focus PCPP | Error Page">
+    <f:facet name="metaContainer">
+      <af:group id="g1">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/> 
+      </af:group>
+    </f:facet>
+      <af:form id="f1" defaultCommand="cb1">
+        <af:panelStretchLayout id="psl1"
+                               inlineStyle='background-image:url("images/wp-aurora-blue.png");'
+                               topHeight="121px">
+          <f:facet name="center">
+            <af:panelGroupLayout id="pgl1" layout="vertical" halign="center">
+              <af:image source="/Images/logout.png"
+                        shortDesc="FDI FDN" id="i1"/>
+              <af:spacer width="10" height="50" id="s1"/>
+              <af:outputText value="Oops sorry! I think you didnt have an authorization to view the page."
+                             id="ot1"
+                             inlineStyle="color:White; font-size:small; font-weight:bold;"/>
+              <af:spacer width="10" height="10" id="s2"/>
+              <af:outputText value="If you feel entitled to view the page please contact the admin so that you will be given access to view the page."
+                             id="ot2"
+                             inlineStyle="color:White; font-size:small;"/>
+              <af:spacer width="10" height="40" id="s3"/>
+              <af:commandButton text="Back to Login Page" id="cb1"
+                                action="login" inlineStyle="padding:5px;"/>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:facet name="top">
+            <af:spacer width="10" height="50" id="s4"/>
+          </f:facet>
+        </af:panelStretchLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

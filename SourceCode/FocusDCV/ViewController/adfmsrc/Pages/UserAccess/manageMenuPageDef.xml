@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="manageMenuPageDef"
+                Package="Pages.UserAccess">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="AppMenuView1" RangeSize="25"
+              DataControl="UserAccessAMDataControl" id="AppMenuView1Iterator"/>
+    <searchRegion Binds="AppMenuView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="AppMenuView1Query"/>
+    <iterator Binds="AppMenuItemsView1" RangeSize="25"
+              DataControl="UserAccessAMDataControl"
+              id="AppMenuItemsView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="AppMenuView1Iterator" id="AppMenuView1">
+      <nodeDefinition DefName="app.dcv.model.views.useraccess.AppMenuView"
+                      Name="AppMenuView10">
+        <AttrNames>
+          <Item Value="DisplaySequence"/>
+          <Item Value="Name"/>
+          <Item Value="Label"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="AppMenuItemsView1Iterator" id="AppMenuItemsView1">
+      <nodeDefinition DefName="app.dcv.model.views.useraccess.AppMenuItemsView"
+                      Name="AppMenuItemsView10">
+        <AttrNames>
+          <Item Value="DisplaySequence"/>
+          <Item Value="Name"/>
+          <Item Value="Icon"/>
+          <Item Value="Label"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="AppMenuView1Iterator" id="Name">
+      <AttrNames>
+        <Item Value="Name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AppMenuView1Iterator" id="Label">
+      <AttrNames>
+        <Item Value="Label"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AppMenuView1Iterator" id="DisplaySequence">
+      <AttrNames>
+        <Item Value="DisplaySequence"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AppMenuView1Iterator" id="Icon">
+      <AttrNames>
+        <Item Value="Icon"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AppMenuItemsView1Iterator" id="Name1">
+      <AttrNames>
+        <Item Value="Name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AppMenuItemsView1Iterator" id="Label1">
+      <AttrNames>
+        <Item Value="Label"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AppMenuItemsView1Iterator" id="Icon1">
+      <AttrNames>
+        <Item Value="Icon"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AppMenuItemsView1Iterator"
+                     id="DisplaySequence1">
+      <AttrNames>
+        <Item Value="DisplaySequence"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="UserAccessAMDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="UserAccessAMDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="assignMenuItemPageDef"
+                Package="Pages.UserAccess">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator id="AllMenuItemShuttleView1Iterator"
+              Binds="AllMenuItemShuttleView1"
+              DataControl="UserAccessAMDataControl" RangeSize="-1"/>
+    <iterator id="AppRoleMenuItemsView1Iterator" Binds="AppRoleMenuItemsView1"
+              DataControl="UserAccessAMDataControl" RangeSize="-1"/>
+  </executables>
+  <bindings>
+    <action id="Commit" DataControl="UserAccessAMDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="UserAccessAMDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+  </bindings>
+</pageDefinition>

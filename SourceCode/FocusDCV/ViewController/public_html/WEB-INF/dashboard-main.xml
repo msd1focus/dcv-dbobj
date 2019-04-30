@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="dashboard-main">
+    <default-activity id="__30">dashboardMain</default-activity>
+    <view id="dashboardMain">
+      <page>/Pages/Dashboard/dashboardMain.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

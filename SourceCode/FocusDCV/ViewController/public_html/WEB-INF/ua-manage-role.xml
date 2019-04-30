@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="ua-manage-role">
+    <default-activity id="__1">manageRole</default-activity>
+    <managed-bean id="__5">
+      <managed-bean-name id="__2">UserAccessBean</managed-bean-name>
+      <managed-bean-class id="__3">app.dcv.bean.useraccess.UserAccessBean</managed-bean-class>
+      <managed-bean-scope id="__4">request</managed-bean-scope>
+    </managed-bean>
+    <view id="manageRole">
+      <page>/Pages/UserAccess/manageRole.jsff</page>
+    </view>
+    <task-flow-call id="ua-assign-menu-item">
+      <task-flow-reference>
+        <document>/WEB-INF/ua-assign-menu-item.xml</document>
+        <id>ua-assign-menu-item</id>
+      </task-flow-reference>
+      <input-parameter id="__14">
+        <name>roleId</name>
+        <value>#{pageFlowScope.roleId}</value>
+      </input-parameter>
+      <input-parameter id="__15">
+        <name>roleName</name>
+        <value>#{pageFlowScope.roleName}</value>
+      </input-parameter>
+      <run-as-dialog>
+        <display-type id="__7">
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <control-flow-rule id="__8">
+      <from-activity-id id="__9">manageRole</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome id="__12">assignmenuitem</from-outcome>
+        <to-activity-id id="__10">ua-assign-menu-item</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

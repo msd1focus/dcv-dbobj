@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" title="Add Menu Item to #{pageFlowScope.roleName}">
+      <af:form id="f1">
+        <af:panelGroupLayout id="pgl1" layout="vertical" halign="center"
+                             inlineStyle="background-color:#f9f9f9;">
+          <af:spacer width="10" height="15" id="s1"/>
+          <af:selectManyShuttle label="User Role(s)" id="sms1"
+                                value="#{backingBeanScope.AssignMenuItemRoleBackingBean.selectedMenuItems}"
+                                contentStyle="width:220px; height:180px;"
+                                simple="true" leadingHeader=" "
+                                trailingHeader=" ">
+            <f:selectItems value="#{backingBeanScope.AssignMenuItemRoleBackingBean.allMenuItems}"
+                           id="si5"/>
+          </af:selectManyShuttle>
+          <af:spacer width="10" height="10" id="s2"/>
+          <af:panelGroupLayout id="pgl2" layout="vertical" halign="end">
+            <af:panelGroupLayout id="pgl3">
+              <af:commandButton text="Apply" id="commandButton1"
+                                inlineStyle="padding-right:8px;padding-left:8px;padding-top:3px;padding-bottom:3px;"
+                                action="#{backingBeanScope.AssignMenuItemRoleBackingBean.processShuttle}"/>
+              <af:spacer width="3" height="10" id="s4"/>
+              <af:commandButton text="Cancel" id="cb1"
+                                inlineStyle="padding-right:8px;padding-left:8px;padding-top:3px;padding-bottom:3px;"
+                                action="#{backingBeanScope.AssignMenuItemRoleBackingBean.processCancel}"/>
+              <af:spacer width="10" height="10" id="s3"/>
+            </af:panelGroupLayout>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

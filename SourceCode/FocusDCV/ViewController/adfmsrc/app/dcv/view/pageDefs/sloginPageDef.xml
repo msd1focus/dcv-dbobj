@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="sloginPageDef"
+                Package="app.dcv.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="Templates.FPPLoginPageDef" id="pageTemplateBinding"
+          Refresh="ifNeeded"/>
+  </executables>
+  <bindings>
+    <methodAction id="authenticateUser"
+                  InstanceName="SecurityAMDataControl.dataProvider"
+                  DataControl="SecurityAMDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="authenticateUser"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.SecurityAMDataControl.methodResults.authenticateUser_SecurityAMDataControl_dataProvider_authenticateUser_result">
+      <NamedData NDName="userLogin" NDValue="#{SLoginbean.inputLogin.value}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="userPassword"
+                 NDValue="#{SLoginbean.inputPassword.value}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="setLoginToSession_DashboardAM"
+                  InstanceName="DashboardAMDataControl.dataProvider"
+                  DataControl="DashboardAMDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="setLoginToSession_DashboardAM"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="key" NDValue="UserId" NDType="java.lang.String"/>
+      <NamedData NDName="val" NDValue="#{UserData.userNameLogin}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

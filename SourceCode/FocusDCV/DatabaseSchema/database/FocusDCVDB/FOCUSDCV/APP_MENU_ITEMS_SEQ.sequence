@@ -1,0 +1,12 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<sequence xmlns="http://xmlns.oracle.com/jdeveloper/1111/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">3d34c9a6-01a2-46a9-8c40-1eba1b49ae0b</identifier>
+  </ID>
+  <name>APP_MENU_ITEMS_SEQ</name>
+  <cycleFlag>false</cycleFlag>
+  <orderFlag>false</orderFlag>
+  <schema>
+    <name>FOCUSPP</name>
+  </schema>
+</sequence>

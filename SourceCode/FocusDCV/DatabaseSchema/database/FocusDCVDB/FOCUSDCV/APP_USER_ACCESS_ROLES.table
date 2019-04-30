@@ -1,0 +1,323 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1111/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">47387241-fa2c-44a2-83b9-268a25f00288</identifier>
+  </ID>
+  <name>APP_USER_ACCESS_ROLES</name>
+  <columns>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">5326d900-99b0-4809-b3e1-edcbf29306c3</identifier>
+      </ID>
+      <name>ROLE</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">2b5fef00-5c90-4459-baba-8baff427d7fb</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">30</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>ROLE</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>APP_USER_ACCESS_ROLES</name>
+                  <identifier class="java.math.BigDecimal">90091</identifier>
+                  <schemaName>FOCUSPP</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ROLE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>APP_USER_ACCESS_ROLES</name>
+              <identifier class="java.math.BigDecimal">90091</identifier>
+              <schemaName>FOCUSPP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">c5406970-1aa7-48a0-a942-0f37668391c7</identifier>
+      </ID>
+      <name>USER_NAME</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">e670d3c8-3b7a-401d-b41f-6ab0383fe10d</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">30</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>USER_NAME</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>APP_USER_ACCESS_ROLES</name>
+                  <identifier class="java.math.BigDecimal">90091</identifier>
+                  <schemaName>FOCUSPP</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>USER_NAME</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>APP_USER_ACCESS_ROLES</name>
+              <identifier class="java.math.BigDecimal">90091</identifier>
+              <schemaName>FOCUSPP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">59631308-96af-47ac-a148-f361a6640c85</identifier>
+      </ID>
+      <name>APP_USER_ACCESS_ROLES_APP_FK1</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>ROLE</name>
+          <identifier class="java.lang.String">5326d900-99b0-4809-b3e1-edcbf29306c3</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>APP_USER_ACCESS_ROLES</name>
+            <identifier class="java.lang.String">47387241-fa2c-44a2-83b9-268a25f00288</identifier>
+            <schemaName>FOCUSPP</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>1</deleteMode>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>APP_USER_ACCESS_ROLES_APP_FK1</name>
+            <childObjectNames>
+              <childObjectName>ROLE</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>APP_USER_ACCESS_ROLES</name>
+              <identifier class="java.math.BigDecimal">90091</identifier>
+              <schemaName>FOCUSPP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>FKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>APP_ROLES_UK</name>
+        <identifier class="java.lang.String">a9e722e6-d057-4a7b-b46d-d47a061905a3</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>APP_ROLES</name>
+          <identifier class="java.lang.String">539899af-873e-4a11-ad7d-78d9fa4482c5</identifier>
+          <schemaName>FOCUSPP</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>FOCUSPP</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">89f1a744-ac4d-457c-827f-75a7deeb158c</identifier>
+      </ID>
+      <name>APP_USER_ACCESS_ROLES_APP_FK2</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>USER_NAME</name>
+          <identifier class="java.lang.String">c5406970-1aa7-48a0-a942-0f37668391c7</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>APP_USER_ACCESS_ROLES</name>
+            <identifier class="java.lang.String">47387241-fa2c-44a2-83b9-268a25f00288</identifier>
+            <schemaName>FOCUSPP</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>1</deleteMode>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>APP_USER_ACCESS_UK1</name>
+        <identifier class="java.lang.String">0ea864e0-f313-446c-b79d-7eb96a7537ce</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>APP_USER_ACCESS</name>
+          <identifier class="java.lang.String">265ed33c-4d38-4649-b1f1-aca8671145ac</identifier>
+          <schemaName>FOCUSPP</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">0b5d6ac7-9227-41da-b9e4-06cf62af9869</identifier>
+      </ID>
+      <name>APP_USER_ACCESS_ROLES_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>ROLE</name>
+          <identifier class="java.lang.String">5326d900-99b0-4809-b3e1-edcbf29306c3</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>APP_USER_ACCESS_ROLES</name>
+            <identifier class="java.lang.String">47387241-fa2c-44a2-83b9-268a25f00288</identifier>
+            <schemaName>FOCUSPP</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>USER_NAME</name>
+          <identifier class="java.lang.String">c5406970-1aa7-48a0-a942-0f37668391c7</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>APP_USER_ACCESS_ROLES</name>
+            <identifier class="java.lang.String">47387241-fa2c-44a2-83b9-268a25f00288</identifier>
+            <schemaName>FOCUSPP</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>APP_USER_ACCESS_ROLES_PK</name>
+            <childObjectNames>
+              <childObjectName>ROLE</childObjectName>
+              <childObjectName>USER_NAME</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>APP_USER_ACCESS_ROLES</name>
+              <identifier class="java.math.BigDecimal">90091</identifier>
+              <schemaName>FOCUSPP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>PKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+    </constraint>
+  </constraints>
+  <properties>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_CONNECTION</key>
+      <value class="java.lang.String">focuspp</value>
+    </entry>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+      <value class="oracle.javatools.db.ReferenceID">
+        <name>APP_USER_ACCESS_ROLES</name>
+        <identifier class="java.math.BigDecimal">90091</identifier>
+        <schemaName>FOCUSPP</schemaName>
+        <type>TABLE</type>
+      </value>
+    </entry>
+    <entry>
+      <key>OracleStorageProperties</key>
+      <value class="oracle.javatools.db.ora.OracleStorageProperties">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">ed8e53d8-3277-4c8f-896d-49f60de520f7</identifier>
+        </ID>
+        <bufferMode>DEFAULT</bufferMode>
+        <freelistGroups>1</freelistGroups>
+        <freelists>1</freelists>
+        <initialExtent>65536</initialExtent>
+        <initrans>1</initrans>
+        <logging>true</logging>
+        <maxExtent>2147483645</maxExtent>
+        <minExtent>1</minExtent>
+        <nextExtent>1048576</nextExtent>
+        <percentFree>10</percentFree>
+        <percentUsed>0</percentUsed>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>APP_USER_ACCESS_ROLES</name>
+                <identifier class="java.math.BigDecimal">90091</identifier>
+                <schemaName>FOCUSPP</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <type>OracleStorageProperties</type>
+            </value>
+          </entry>
+        </properties>
+        <tablespaceID class="oracle.javatools.db.ReferenceID">
+          <name>FOCUSPP</name>
+          <type>TABLESPACE</type>
+        </tablespaceID>
+      </value>
+    </entry>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>FOCUSPP</name>
+  </schema>
+</table>

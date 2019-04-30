@@ -1,0 +1,343 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1111/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">d551fedb-3433-417e-be60-e9916e46f883</identifier>
+  </ID>
+  <name>APP_ROLE_MENU_ITEMS</name>
+  <columns>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">819b8d8b-7e30-4ffc-aaf4-0444579bed74</identifier>
+      </ID>
+      <name>ROL_ID</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">bb5ab623-7182-4e5a-beb7-03c352178f50</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">10</value>
+          </entry>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>ROL_ID</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>APP_ROLE_MENU_ITEMS</name>
+                  <identifier class="java.math.BigDecimal">90096</identifier>
+                  <schemaName>FOCUSPP</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ROL_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>APP_ROLE_MENU_ITEMS</name>
+              <identifier class="java.math.BigDecimal">90096</identifier>
+              <schemaName>FOCUSPP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">7ad8ec76-f299-4551-9955-8ad43b983267</identifier>
+      </ID>
+      <name>MIT_ID</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">6fa2dea6-0546-4cc7-95f6-097c66f1aa87</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">10</value>
+          </entry>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>MIT_ID</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>APP_ROLE_MENU_ITEMS</name>
+                  <identifier class="java.math.BigDecimal">90096</identifier>
+                  <schemaName>FOCUSPP</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>MIT_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>APP_ROLE_MENU_ITEMS</name>
+              <identifier class="java.math.BigDecimal">90096</identifier>
+              <schemaName>FOCUSPP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">cbb33d0c-91dd-4000-a189-7aca079185e4</identifier>
+      </ID>
+      <name>APP_ROLE_MENU_ITEMS_APP_M_FK1</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>MIT_ID</name>
+          <identifier class="java.lang.String">7ad8ec76-f299-4551-9955-8ad43b983267</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>APP_ROLE_MENU_ITEMS</name>
+            <identifier class="java.lang.String">d551fedb-3433-417e-be60-e9916e46f883</identifier>
+            <schemaName>FOCUSPP</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>1</deleteMode>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>APP_ROLE_MENU_ITEMS_APP_M_FK1</name>
+            <childObjectNames>
+              <childObjectName>MIT_ID</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>APP_ROLE_MENU_ITEMS</name>
+              <identifier class="java.math.BigDecimal">90096</identifier>
+              <schemaName>FOCUSPP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>FKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>APP_MENU_ITEMS_PK</name>
+        <identifier class="java.lang.String">3392b77d-af29-4d24-b160-7c395aa4642d</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>APP_MENU_ITEMS</name>
+          <identifier class="java.lang.String">99d03354-2d77-45c2-b367-a90605b6800f</identifier>
+          <schemaName>FOCUSPP</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>FOCUSPP</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">a6ceca3e-e47a-464f-b074-7df1f25ffc72</identifier>
+      </ID>
+      <name>APP_ROLE_MENU_ITEMS_APP_R_FK2</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>ROL_ID</name>
+          <identifier class="java.lang.String">819b8d8b-7e30-4ffc-aaf4-0444579bed74</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>APP_ROLE_MENU_ITEMS</name>
+            <identifier class="java.lang.String">d551fedb-3433-417e-be60-e9916e46f883</identifier>
+            <schemaName>FOCUSPP</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>1</deleteMode>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>APP_ROLE_MENU_ITEMS_APP_R_FK2</name>
+            <childObjectNames>
+              <childObjectName>ROL_ID</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>APP_ROLE_MENU_ITEMS</name>
+              <identifier class="java.math.BigDecimal">90096</identifier>
+              <schemaName>FOCUSPP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>FKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>APP_ROLES_PK</name>
+        <identifier class="java.lang.String">941d937f-6627-4c6f-ace6-649c607e1658</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>APP_ROLES</name>
+          <identifier class="java.lang.String">539899af-873e-4a11-ad7d-78d9fa4482c5</identifier>
+          <schemaName>FOCUSPP</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>FOCUSPP</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">d28c4716-eab1-4ba8-b3b6-dde94b51cbfb</identifier>
+      </ID>
+      <name>APP_ROLE_MENU_ITEMS_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>ROL_ID</name>
+          <identifier class="java.lang.String">819b8d8b-7e30-4ffc-aaf4-0444579bed74</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>APP_ROLE_MENU_ITEMS</name>
+            <identifier class="java.lang.String">d551fedb-3433-417e-be60-e9916e46f883</identifier>
+            <schemaName>FOCUSPP</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>MIT_ID</name>
+          <identifier class="java.lang.String">7ad8ec76-f299-4551-9955-8ad43b983267</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>APP_ROLE_MENU_ITEMS</name>
+            <identifier class="java.lang.String">d551fedb-3433-417e-be60-e9916e46f883</identifier>
+            <schemaName>FOCUSPP</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>APP_ROLE_MENU_ITEMS_PK</name>
+            <childObjectNames>
+              <childObjectName>ROL_ID</childObjectName>
+              <childObjectName>MIT_ID</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>APP_ROLE_MENU_ITEMS</name>
+              <identifier class="java.math.BigDecimal">90096</identifier>
+              <schemaName>FOCUSPP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>PKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+    </constraint>
+  </constraints>
+  <properties>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_CONNECTION</key>
+      <value class="java.lang.String">focuspp</value>
+    </entry>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+      <value class="oracle.javatools.db.ReferenceID">
+        <name>APP_ROLE_MENU_ITEMS</name>
+        <identifier class="java.math.BigDecimal">90096</identifier>
+        <schemaName>FOCUSPP</schemaName>
+        <type>TABLE</type>
+      </value>
+    </entry>
+    <entry>
+      <key>OracleStorageProperties</key>
+      <value class="oracle.javatools.db.ora.OracleStorageProperties">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">791fbe7a-e9fc-42e3-b869-85ad35c11808</identifier>
+        </ID>
+        <bufferMode>DEFAULT</bufferMode>
+        <freelistGroups>1</freelistGroups>
+        <freelists>1</freelists>
+        <initialExtent>65536</initialExtent>
+        <initrans>1</initrans>
+        <logging>true</logging>
+        <maxExtent>2147483645</maxExtent>
+        <minExtent>1</minExtent>
+        <nextExtent>1048576</nextExtent>
+        <percentFree>10</percentFree>
+        <percentUsed>0</percentUsed>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>APP_ROLE_MENU_ITEMS</name>
+                <identifier class="java.math.BigDecimal">90096</identifier>
+                <schemaName>FOCUSPP</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <type>OracleStorageProperties</type>
+            </value>
+          </entry>
+        </properties>
+        <tablespaceID class="oracle.javatools.db.ReferenceID">
+          <name>FOCUSPP</name>
+          <type>TABLESPACE</type>
+        </tablespaceID>
+      </value>
+    </entry>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>FOCUSPP</name>
+  </schema>
+</table>

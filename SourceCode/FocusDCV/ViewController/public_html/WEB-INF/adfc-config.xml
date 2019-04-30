@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="dashboard">
+    <page>/dashboard.jspx</page>
+  </view>
+  <method-call id="logout">
+    <method>#{Login.doLogout}</method>
+    <outcome id="__28">
+      <fixed-outcome>home</fixed-outcome>
+    </outcome>
+  </method-call>
+  <view id="userAccess">
+    <page>/userAccess.jspx</page>
+  </view>
+  <task-flow-call id="ua-change-password">
+    <task-flow-reference>
+      <document>/WEB-INF/ua-change-password.xml</document>
+      <id>ua-change-password</id>
+    </task-flow-reference>
+    <return-value id="__63">
+      <name>usrPassChanged</name>
+      <value>#{pageFlowScope.usrPassChanged}</value>
+    </return-value>
+    <after-listener>#{backingBeanScope.ChangePasswordBackingBean.changePasswordReturnListener}</after-listener>
+    <run-as-dialog>
+      <display-type id="__58">
+        <inline-popup/>
+      </display-type>
+    </run-as-dialog>
+  </task-flow-call>
+  <view id="login">
+    <page>/login.jspx</page>
+  </view>
+  <control-flow-rule id="__18">
+    <from-activity-id id="__19">logout</from-activity-id>
+    <control-flow-case id="__21">
+      <from-outcome id="__22">home</from-outcome>
+      <to-activity-id id="__20">dashboard</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__23">
+    <from-activity-id id="__24">*</from-activity-id>
+    <control-flow-case id="__25">
+      <from-outcome id="__27">logout</from-outcome>
+      <to-activity-id id="__26">logout</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__39">
+      <from-outcome id="__40">useraccess</from-outcome>
+      <to-activity-id id="__38">userAccess</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__56">
+      <from-outcome id="__57">changepassword</from-outcome>
+      <to-activity-id id="__55">ua-change-password</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__71">
+      <from-outcome id="__72">dashhome</from-outcome>
+      <to-activity-id id="__70">dashboard</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__77">
+    <from-activity-id id="__78">login</from-activity-id>
+    <control-flow-case id="__79">
+      <from-outcome id="__81">success</from-outcome>
+      <to-activity-id id="__80">dashboard</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__8">
+    <managed-bean-name id="__7">Login</managed-bean-name>
+    <managed-bean-class id="__5">app.dcv.bean.LoginBean</managed-bean-class>
+    <managed-bean-scope id="__6">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__10">
+    <managed-bean-name id="__9">UserData</managed-bean-name>
+    <managed-bean-class id="__12">app.dcv.bean.useraccessmenu.UserData</managed-bean-class>
+    <managed-bean-scope id="__11">session</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__15">
+    <managed-bean-name id="__13">Menu</managed-bean-name>
+    <managed-bean-class id="__14">app.dcv.bean.useraccessmenu.MenuBean</managed-bean-class>
+    <managed-bean-scope id="__16">session</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__54">
+    <managed-bean-name id="__53">UserAccessMenuLeftManagedBean</managed-bean-name>
+    <managed-bean-class id="__51">app.dcv.bean.useraccess.UserAccessMenuLeftManagedBean</managed-bean-class>
+    <managed-bean-scope id="__52">view</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__62">
+    <managed-bean-name id="__59">ChangePasswordBackingBean</managed-bean-name>
+    <managed-bean-class id="__61">app.dcv.bean.useraccess.ChangePasswordBackingBean</managed-bean-class>
+    <managed-bean-scope id="__60">backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__76">
+    <managed-bean-name id="__73">SLoginbean</managed-bean-name>
+    <managed-bean-class id="__75">app.dcv.bean.shiro.SecurityHandlerBean</managed-bean-class>
+    <managed-bean-scope id="__74">request</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

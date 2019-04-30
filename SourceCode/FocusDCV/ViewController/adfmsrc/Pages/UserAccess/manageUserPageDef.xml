@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="manageUserPageDef"
+                Package="Pages.UserAccess">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="AppUserAccessView1" RangeSize="25"
+              DataControl="UserAccessAMDataControl"
+              id="AppUserAccessView1Iterator"/>
+    <searchRegion Binds="AppUserAccessView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="AppUserAccessView1Query"/>
+    <iterator Binds="AppUserAccessRolesView1" RangeSize="25"
+              DataControl="UserAccessAMDataControl"
+              id="AppUserAccessRolesView1Iterator"/>
+    <searchRegion Criteria="AppUserAccessViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="AppUserAccessView1Iterator"
+                  id="AppUserAccessViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="AppUserAccessView1Iterator" id="AppUserAccessView1">
+      <nodeDefinition DefName="app.dcv.model.views.useraccess.AppUserAccessView"
+                      Name="AppUserAccessView10">
+        <AttrNames>
+          <Item Value="FullName"/>
+          <Item Value="UserName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="AppUserAccessView1Iterator" id="UserName">
+      <AttrNames>
+        <Item Value="UserName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AppUserAccessView1Iterator" id="FullName">
+      <AttrNames>
+        <Item Value="FullName"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="AppUserAccessView1Iterator" id="Execute"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="UserAccessAMDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction" DataControl="UserAccessAMDataControl"/>
+    <attributeValues IterBinding="AppUserAccessView1Iterator" id="Password">
+      <AttrNames>
+        <Item Value="Password"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="AppUserAccessView1Iterator" id="CreateInsert"
+            InstanceName="UserAccessAMDataControl.AppUserAccessView1"
+            DataControl="UserAccessAMDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="AppUserAccessView1Iterator" id="Delete"
+            InstanceName="UserAccessAMDataControl.AppUserAccessView1"
+            DataControl="UserAccessAMDataControl" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <tree IterBinding="AppUserAccessRolesView1Iterator"
+          id="AppUserAccessRolesView1">
+      <nodeDefinition DefName="app.dcv.model.views.useraccess.AppUserAccessRolesView"
+                      Name="AppUserAccessRolesView10">
+        <AttrNames>
+          <Item Value="Label"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="AppUserAccessRolesView1Iterator" id="ExecuteRoles"
+            InstanceName="UserAccessAMDataControl.AppUserAccessRolesView1"
+            DataControl="UserAccessAMDataControl" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <attributeValues IterBinding="AppUserAccessView1Iterator" id="UserInitial">
+      <AttrNames>
+        <Item Value="UserInitial"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

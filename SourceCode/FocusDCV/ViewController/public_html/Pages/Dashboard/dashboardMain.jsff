@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelTabbed id="pt1" inlineStyle="margin:5px;">
+    <af:showDetailItem text="Home" id="sdi1" stretchChildren="first">
+      <af:outputText value="Hi, you're logged in as #{UserData.fullName}" id="ot1"
+                     inlineStyle="padding:20px;"/>
+    </af:showDetailItem>
+  </af:panelTabbed>
+</jsp:root>

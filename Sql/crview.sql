@@ -1,9 +1,10 @@
 CREATE OR REPLACE FORCE VIEW "DCV_MONITOR" AS
 WITH task_query AS
-(SELECT t1.*
-FROM wf_task t1
+(SELECT t1.*, dp.dept_code
+FROM wf_task t1, sec_dept dp
 WHERE t1.progress_status = 'WAIT'
 AND t1.task_type <> 'Merge'
+and t1.assign_to_bu = dp.id
 AND CASE WHEN t1.prime_route = 'Y' THEN 'A'
       WHEN t1.prime_route = 'N' AND EXISTS (SELECT 'X' FROM wf_task t2
                WHERE t1.no_dcv = t2.no_dcv
@@ -58,7 +59,7 @@ r.dcv_hdr_id
 ,t.nodecode
 ,t.prev_node
 ,t.pesan
-,dept.dept_code AS dept
+,t.dept_code
 ,NVL(t.return_task,'T') return_task
 ,t.sla
 FROM dcv_request r
@@ -68,9 +69,7 @@ d.dcv_hdr_id = r.dcv_hdr_id AND
 d.doc_type = 'FAKTUR'
 LEFT OUTER JOIN task_query t
 ON
-t.no_dcv = r.no_dcv
-LEFT OUTER JOIN sec_dept dept ON
-dept.id = t.assign_to_bu;
+t.no_dcv = r.no_dcv;
 
 CREATE OR REPLACE FORCE VIEW "DCV"."UOM_LIST" ("UOMCODE", "UOMDESC", "UOMTYPE") AS
 select 'uom_code' uomcode, 'uom_desc' uomdesc, 'uom_type' uomtype from dual;

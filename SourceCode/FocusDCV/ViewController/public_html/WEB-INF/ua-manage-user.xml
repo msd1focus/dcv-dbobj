@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="ua-manage-user">
+    <default-activity id="__1">manageUser</default-activity>
+    <managed-bean id="__4">
+      <managed-bean-name id="__3">UserAccessBean</managed-bean-name>
+      <managed-bean-class id="__2">app.dcv.bean.useraccess.UserAccessBean</managed-bean-class>
+      <managed-bean-scope id="__5">request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__7">
+      <managed-bean-name id="__6">AssignRoleUserBackingBean</managed-bean-name>
+      <managed-bean-class id="__9">app.dcv.bean.useraccess.AssignRoleUserBackingBean</managed-bean-class>
+      <managed-bean-scope id="__8">backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="manageUser">
+      <page>/Pages/UserAccess/manageUser.jsff</page>
+    </view>
+    <task-flow-call id="ua-assign-role">
+      <task-flow-reference>
+        <document>/WEB-INF/ua-assign-role.xml</document>
+        <id>ua-assign-role</id>
+      </task-flow-reference>
+      <input-parameter id="__22">
+        <name>userName</name>
+        <value>#{pageFlowScope.userName}</value>
+      </input-parameter>
+      <input-parameter id="__23">
+        <name>fullName</name>
+        <value>#{pageFlowScope.fullName}</value>
+      </input-parameter>
+      <input-parameter id="__24">
+        <name>userType</name>
+        <value>#{pageFlowScope.userType}</value>
+      </input-parameter>
+      <run-as-dialog>
+        <display-type id="__16">
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <control-flow-rule id="__17">
+      <from-activity-id id="__18">manageUser</from-activity-id>
+      <control-flow-case id="__20">
+        <from-outcome id="__21">assignrole</from-outcome>
+        <to-activity-id id="__19">ua-assign-role</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

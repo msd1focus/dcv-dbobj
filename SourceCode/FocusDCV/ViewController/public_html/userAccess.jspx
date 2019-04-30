@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view beforePhase="#{Menu.createMenus}">
+    <af:document id="d1" title="Focus PCPP | User Access">
+      <af:form id="f1"
+               usesUpload="true">
+        <af:pageTemplate viewId="/Templates/DCVDashboard.jspx"
+                         value="#{bindings.pageTemplateBinding}" id="pt1">
+          <f:facet name="leftBar">
+            <af:panelGroupLayout id="pgl1" layout="vertical"
+                                 styleClass="AFStretchWidth" halign="center">
+              <af:spacer width="10" height="20" id="s1"/>
+              <af:commandImageLink id="musr" partialSubmit="true"
+                                   disabled="#{viewScope.UserAccessMenuLeftManagedBean.currentTF == 'main'}"
+                                   icon="/Images/user_manage_dis.png"
+                                   hoverIcon="/Images/user_manage_hov.png"
+                                   depressedIcon="/Images/user_manage_hov.png"
+                                   disabledIcon="/Images/user_manage.png"
+                                   partialTriggers="mrol mmen">
+                <af:setPropertyListener from="main"
+                                        to="#{viewScope.UserAccessMenuLeftManagedBean.currentTF}"
+                                        type="action"/>
+              </af:commandImageLink>
+              <af:spacer width="10" height="15" id="s2"/>
+              <af:commandImageLink id="mrol" partialSubmit="true"
+                                   disabled="#{viewScope.UserAccessMenuLeftManagedBean.currentTF == 'role'}"
+                                   icon="/Images/role_dis.png"
+                                   hoverIcon="/Images/role_hov.png"
+                                   depressedIcon="/Images/role_hov.png"
+                                   disabledIcon="/Images/role.png"
+                                   partialTriggers="musr mmen">
+                <af:setPropertyListener from="role"
+                                        to="#{viewScope.UserAccessMenuLeftManagedBean.currentTF}"
+                                        type="action"/>
+              </af:commandImageLink>
+              <af:spacer width="10" height="15" id="spacer1"/>
+              <af:commandImageLink id="mmen" partialSubmit="true"
+                                   disabled="#{viewScope.UserAccessMenuLeftManagedBean.currentTF == 'menu'}"
+                                   icon="/Images/menu_dis.png"
+                                   hoverIcon="/Images/menu_hov.png"
+                                   depressedIcon="/Images/menu_hov.png"
+                                   disabledIcon="/Images/menu.png"
+                                   partialTriggers="musr mrol">
+                <af:setPropertyListener from="menu"
+                                        to="#{viewScope.UserAccessMenuLeftManagedBean.currentTF}"
+                                        type="action"/>
+              </af:commandImageLink>
+              <af:spacer width="10" height="15" id="spacer2"/>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:facet name="mainWindow">
+            <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
+                       partialTriggers="::musr ::mrol ::mmen"
+                       showDisclosure="false"/>
+          </f:facet>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

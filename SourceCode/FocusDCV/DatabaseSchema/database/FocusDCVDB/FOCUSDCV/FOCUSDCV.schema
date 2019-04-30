@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<schema xmlns="http://xmlns.oracle.com/jdeveloper/1111/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">c406b784-38bc-4665-96f2-d7e6920d60aa</identifier>
+  </ID>
+  <name>FOCUSDCV</name>
+</schema>
