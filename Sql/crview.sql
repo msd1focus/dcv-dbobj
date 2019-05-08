@@ -1,5 +1,6 @@
 CREATE OR REPLACE FORCE VIEW "DCV_MONITOR" AS
-WITH task_query AS
+WITH
+task_query AS
 (SELECT t1.*, dp.dept_code
 FROM wf_task t1, sec_dept dp
 WHERE t1.progress_status = 'WAIT'
@@ -18,7 +19,14 @@ AND CASE WHEN t1.prime_route = 'Y' THEN 'A'
               AND t1.assign_to_bu = t2.assign_to_bu
               AND t1.id <> t2.id
               AND t2.prime_route = 'Y') THEN 'A'
-  END = 'A' )
+  END = 'A'
+),
+sales_hierarchy as
+(  SELECT username, CONNECT_BY_ROOT username AS AuthAppr, LEVEL-1 AS Pathlen
+   FROM sec_user
+   WHERE department = 2
+   CONNECT BY PRIOR id = report_to
+)
 SELECT
 r.dcv_hdr_id
 ,r.customer_code
@@ -62,11 +70,16 @@ r.dcv_hdr_id
 ,t.dept_code
 ,NVL(t.return_task,'T') return_task
 ,t.sla
+,CASE WHEN t.dept_code = 'DISTI' THEN r.customer_code
+      WHEN t.dept_code = 'SALES' THEN sh.AuthAppr
+      ELSE '' END AS auth_appr
 FROM dcv_request r
 LEFT OUTER JOIN dcv_documents d
 ON
 d.dcv_hdr_id = r.dcv_hdr_id AND
 d.doc_type = 'FAKTUR'
+LEFT OUTER JOIN sales_hierarchy sh
+ON r.pc_initiator = sh.username
 LEFT OUTER JOIN task_query t
 ON
 t.no_dcv = r.no_dcv;

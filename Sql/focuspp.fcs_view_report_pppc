@@ -1,0 +1,787 @@
+CREATE OR REPLACE FORCE EDITIONABLE VIEW "FOCUSPP"."FCS_VIEW_REPORT_PCPP" ("PROPOSAL_NO", "LINE_NO", "COMPANY_ID", "PEMOHON", "PP", "PP_DATE", "PP_REFERENCE", "PP_STATUS", "PC", "ADDENDUM_KE", "PC_DATE", "DISCOUNT_TYPE", "PC_STATUS", "START_DATE", "END_DATE", "MONTH_START", "MONTH_END", "YEAR_PROMO", "PROG_PROMO", "PROPOSAL_TYPE", "MEKANISME_PENAGIHAN", "HIST_START_DATE", "HIST_END_DATE", "FLAG_APPROVED_LINE", "CUST_REGION", "CUST_AREA", "CUST_LOC", "CUST_TYPE", "CUST_GROUP", "CUST_DETAIL", "EXCLUDED_CUST", "PRODUCT_CATEGORY", "PRODUCT_CLASS", "PRODUCT_BRAND", "PRODUCT_EXTENSION", "PRODUCT_PACKAGING", "PRODUCT_VARIANT", "PRODUCT_DETAIL", "PRODUCT_CATEGORY_CODE", "PRODUCT_CLASS_CODE", "PRODUCT_BRAND_CODE", "PRODUCT_EXTENSION_CODE", "PRODUCT_PACKAGING_CODE", "PRODUCT_VARIANT_CODE", "PRODUCT_DETAIL_CODE", "MEKANISME", "DESCRIPTION", "QTY_AVG_SALES", "QTY_TARGET", "UOM_QTY_TARGET", "UNIT_PRICE", "VALUE_TARGET", "DETIL_PROMO", "ON_TOP_TPB", "MF_PB", "TOTAL_ON_TOP_TPB", "TOTAL_MF_PB", "RASIO_ON_TOP_TPB", "RASIO_MF_PB", "RASIO_TOTAL", "KODE_POSTING_ON_TOP", "KODE_POSTING_MF", "ITEM_EXPENSE", "BUDGET_KOMBINASI", "VALUE_BUDGET_KOMBINASI", "REALISASI_ON_TOP_TPB", "REALISASI_MF_PB", "FLAG_CLOSE_CANCEL", "CLOSE_CANCEL_BY", "CLOSE_CANCEL_DATE", "CLOSE_CANCEL_OT_TPB", "CLOSE_CANCEL_MF_PB", "CLOSE_CANCEL_REM_OT_TPB", "CLOSE_CANCEL_REM_MF_PB", "NET_ON_TOP_TPB", "NET_MF_PB", "FLAG_OUTSTD_OT_TPB", "FLAG_OUTSTD_MF_PB") AS 
+  SELECT                                                         --PROPOSAL
+           PPPC.PROPOSAL_NO,
+            PROD.LINE_NO,
+            CASE WHEN PPPC.COMPANY_ID = 'I' THEN 'FDI' ELSE 'FDN' END
+               AS COMPANY_ID,
+            PPPC.PEMOHON,
+            PPPC.PROPOSAL_NO AS PP,
+            PPPC.PROPOSAL_DATE AS PP_DATE,
+            PPPC.COPY_SOURCE AS PP_REFERENCE,
+            PPPC.STATUS AS PP_STATUS,
+            PPPC.CONFIRM_NO AS PC,
+            PPPC.ADDENDUM_KE,
+            PPPC.CONFIRM_DATE AS PC_DATE,
+            PPPC.DISCOUNT_TYPE,
+            CASE
+               WHEN PPPC.PR_REQUEST_ID IS NOT NULL
+               THEN
+                  PPPC.EBS_PR_STATUS
+               WHEN PPPC.PR_REQUEST_ID IS NOT NULL
+               THEN
+                  PPPC.EBS_MODIFIER_STATUS
+               ELSE
+                  NULL
+            END
+               AS PC_STATUS,
+            PPPC.PERIODE_PROG_FROM AS START_DATE,
+            PPPC.PERIODE_PROG_TO AS END_DATE,
+            TO_CHAR (PPPC.PERIODE_PROG_FROM, 'MONTH') AS MONTH_START,
+            TO_CHAR (PPPC.PERIODE_PROG_TO, 'MONTH') AS MONTH_END,
+            TO_CHAR (PPPC.PERIODE_PROG_FROM, 'YYYY') AS YEAR_PROMO,
+            PPPC.PROG_PROMO,
+            PPPC.PROPOSAL_TYPE,
+            PPPC.MEKANISME_PENAGIHAN,
+            PPPC.HIST_TRAN_DT_FROM AS HIST_START_DATE,
+            PPPC.HIST_TRAN_DT_TO AS HIST_END_DATE,
+            --PRODUK
+            PROD.PRODUCT_APPROVAL AS FLAG_APPROVED_LINE,
+            CASE
+               WHEN PPPC.USER_TYPE_CREATOR = 'AREA'
+               THEN
+                  (SELECT LISTAGG (CREG.DESCRIPTION, ', ')
+                             WITHIN GROUP (ORDER BY CREG.DESCRIPTION)
+                     FROM (SELECT b.PROMO_PRODUK_ID, a.REGION_DESC AS DESCRIPTION
+                             FROM FOCUSPP.PROMO_CUSTOMER_AREA a, FOCUSPP.PROMO_PRODUK b
+                            WHERE a.PROPOSAL_ID = b.PROPOSAL_ID) CREG
+                    WHERE CREG.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID
+                          AND CREG."DESCRIPTION" IS NOT NULL)
+               ELSE
+                  (SELECT LISTAGG (CREG.DESCRIPTION, ', ')
+                             WITHIN GROUP (ORDER BY CREG.DESCRIPTION)
+                     FROM (SELECT a.PROMO_PRODUK_ID, a.REGION_DESC AS DESCRIPTION
+                             FROM FOCUSPP.PROMO_CUSTOMER_HO a) CREG
+                    WHERE CREG.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID
+                          AND CREG."DESCRIPTION" IS NOT NULL)
+            END
+               AS CUST_REGION,
+            CASE
+               WHEN PPPC.USER_TYPE_CREATOR = 'AREA'
+               THEN
+                  (SELECT LISTAGG (CAREA.DESCRIPTION, ', ')
+                             WITHIN GROUP (ORDER BY CAREA.DESCRIPTION)
+                     FROM (SELECT b.PROMO_PRODUK_ID,
+                                  a.AREA_DESC AS DESCRIPTION
+                             FROM FOCUSPP.PROMO_CUSTOMER_AREA a,
+                                  FOCUSPP.PROMO_PRODUK b
+                            WHERE a.PROPOSAL_ID = b.PROPOSAL_ID) CAREA
+                    WHERE CAREA.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID
+                          AND CAREA."DESCRIPTION" IS NOT NULL)
+               ELSE
+                  (SELECT LISTAGG (CAREA.DESCRIPTION, ', ')
+                             WITHIN GROUP (ORDER BY CAREA.DESCRIPTION)
+                     FROM (SELECT a.PROMO_PRODUK_ID, a.AREA_DESC AS DESCRIPTION
+                             FROM FOCUSPP.PROMO_CUSTOMER_HO a) CAREA
+                    WHERE CAREA.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID
+                          AND CAREA."DESCRIPTION" IS NOT NULL)
+            END
+               AS CUST_AREA,
+            CASE
+               WHEN PPPC.USER_TYPE_CREATOR = 'AREA'
+               THEN
+                  (SELECT LISTAGG (CLOC.DESCRIPTION, ', ')
+                             WITHIN GROUP (ORDER BY CLOC.DESCRIPTION)
+                     FROM (SELECT b.PROMO_PRODUK_ID,
+                                  a.LOC_DESC AS DESCRIPTION
+                             FROM FOCUSPP.PROMO_CUSTOMER_AREA a,
+                                  FOCUSPP.PROMO_PRODUK b
+                            WHERE a.PROPOSAL_ID = b.PROPOSAL_ID) CLOC
+                    WHERE CLOC.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID
+                          AND CLOC."DESCRIPTION" IS NOT NULL)
+               ELSE
+                  (SELECT LISTAGG (CLOC.DESCRIPTION, ', ')
+                             WITHIN GROUP (ORDER BY CLOC.DESCRIPTION)
+                     FROM (SELECT a.PROMO_PRODUK_ID, a.LOC_DESC AS DESCRIPTION
+                             FROM FOCUSPP.PROMO_CUSTOMER_HO a) CLOC
+                    WHERE CLOC.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID
+                          AND CLOC."DESCRIPTION" IS NOT NULL)
+            END
+               AS CUST_LOC,
+            CASE
+               WHEN PPPC.USER_TYPE_CREATOR = 'AREA'
+               THEN
+                  (SELECT LISTAGG (CTYPE.DESCRIPTION, ', ')
+                             WITHIN GROUP (ORDER BY CTYPE.DESCRIPTION)
+                     FROM (SELECT b.PROMO_PRODUK_ID,
+                                  a.CUSTTYP_DESC AS DESCRIPTION
+                             FROM FOCUSPP.PROMO_CUSTOMER_AREA a,
+                                  FOCUSPP.PROMO_PRODUK b
+                            WHERE a.PROPOSAL_ID = b.PROPOSAL_ID) CTYPE
+                    WHERE CTYPE.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID
+                          AND CTYPE."DESCRIPTION" IS NOT NULL)
+               ELSE
+                  (SELECT LISTAGG (CTYPE.DESCRIPTION, ', ')
+                             WITHIN GROUP (ORDER BY CTYPE.DESCRIPTION)
+                     FROM (SELECT a.PROMO_PRODUK_ID, a.CUSTTYP_DESC AS DESCRIPTION
+                             FROM FOCUSPP.PROMO_CUSTOMER_HO a) CTYPE
+                    WHERE CTYPE.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID
+                          AND CTYPE."DESCRIPTION" IS NOT NULL)
+            END
+               AS CUST_TYPE,
+            CASE
+               WHEN PPPC.USER_TYPE_CREATOR = 'AREA'
+               THEN
+                  (SELECT LISTAGG (CGROUP.DESCRIPTION, ', ')
+                             WITHIN GROUP (ORDER BY CGROUP.DESCRIPTION)
+                     FROM (SELECT b.PROMO_PRODUK_ID,
+                                  a.CUSTGRP_DESC AS DESCRIPTION
+                             FROM FOCUSPP.PROMO_CUSTOMER_AREA a,
+                                  FOCUSPP.PROMO_PRODUK b
+                            WHERE a.PROPOSAL_ID = b.PROPOSAL_ID) CGROUP
+                    WHERE CGROUP.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID
+                          AND CGROUP."DESCRIPTION" IS NOT NULL)
+               ELSE
+                  (SELECT LISTAGG (CGROUP.DESCRIPTION, ', ')
+                             WITHIN GROUP (ORDER BY CGROUP.DESCRIPTION)
+                     FROM (SELECT a.PROMO_PRODUK_ID, a.CUSTGRP_DESC AS DESCRIPTION
+                             FROM FOCUSPP.PROMO_CUSTOMER_HO a) CGROUP
+                    WHERE CGROUP.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID
+                          AND CGROUP."DESCRIPTION" IS NOT NULL)
+            END
+               AS CUST_GROUP,
+            CASE
+               WHEN PPPC.USER_TYPE_CREATOR = 'AREA'
+               THEN
+                  (SELECT LISTAGG (CCUST.DESCRIPTION, ', ')
+                             WITHIN GROUP (ORDER BY CCUST.DESCRIPTION)
+                     FROM (SELECT b.PROMO_PRODUK_ID,
+                                  a.CUSTOMER_NAME AS DESCRIPTION
+                             FROM FOCUSPP.PROMO_CUSTOMER_AREA a,
+                                  FOCUSPP.PROMO_PRODUK b
+                            WHERE a.PROPOSAL_ID = b.PROPOSAL_ID) CCUST
+                    WHERE CCUST.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID
+                          AND CCUST."DESCRIPTION" IS NOT NULL)
+               ELSE
+                  (SELECT LISTAGG (CCUST.DESCRIPTION, ', ')
+                             WITHIN GROUP (ORDER BY CCUST.DESCRIPTION)
+                     FROM (SELECT a.PROMO_PRODUK_ID, a.CUSTOMER_NAME AS DESCRIPTION
+                             FROM FOCUSPP.PROMO_CUSTOMER_HO a) CCUST
+                    WHERE CCUST.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID
+                          AND CCUST."DESCRIPTION" IS NOT NULL)
+            END
+               AS CUST_DETAIL,
+            CASE
+               WHEN PROD.EXCL_CUST_BY = 'REGION'
+               THEN
+                  CASE
+                     WHEN PPPC.USER_TYPE_CREATOR = 'AREA'
+                     THEN
+                        (SELECT LISTAGG (XREG.DESCRIPTION, ', ')
+                                   WITHIN GROUP (ORDER BY XREG.DESCRIPTION)
+                           FROM (SELECT ECR.PROMO_PRODUK_ID, FVL.DESCRIPTION
+                                   FROM PROMO_CUSTX_AREA ECR,
+                                        APPS.FCS_FLEX_VALUES_VL FVL
+                                  WHERE FVL.FLEX_VALUE = ECR.REGION_CODE) XREG
+                          WHERE XREG.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID)
+                     ELSE
+                        (SELECT LISTAGG (XREG.DESCRIPTION, ', ')
+                                   WITHIN GROUP (ORDER BY XREG.DESCRIPTION)
+                           FROM (SELECT ECR.PROMO_PRODUK_ID, FVL.DESCRIPTION
+                                   FROM PROMO_CUSTX_HO ECR,
+                                        APPS.FCS_FLEX_VALUES_VL FVL
+                                  WHERE FVL.FLEX_VALUE = ECR.REGION_CODE) XREG
+                          WHERE XREG.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID)
+                  END
+               WHEN PROD.EXCL_CUST_BY = 'AREA'
+               THEN
+                  CASE
+                     WHEN PPPC.USER_TYPE_CREATOR = 'AREA'
+                     THEN
+                        (SELECT LISTAGG (XAREA.DESCRIPTION, ', ')
+                                   WITHIN GROUP (ORDER BY XAREA.DESCRIPTION)
+                           FROM (SELECT ECA.PROMO_PRODUK_ID, FVL.DESCRIPTION
+                                   FROM PROMO_CUSTX_AREA ECA,
+                                        APPS.FCS_FLEX_VALUES_VL FVL
+                                  WHERE FVL.FLEX_VALUE = ECA.AREA_CODE) XAREA
+                          WHERE XAREA.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID)
+                     ELSE
+                        (SELECT LISTAGG (XAREA.DESCRIPTION, ', ')
+                                   WITHIN GROUP (ORDER BY XAREA.DESCRIPTION)
+                           FROM (SELECT ECA.PROMO_PRODUK_ID, FVL.DESCRIPTION
+                                   FROM PROMO_CUSTX_HO ECA,
+                                        APPS.FCS_FLEX_VALUES_VL FVL
+                                  WHERE FVL.FLEX_VALUE = ECA.AREA_CODE) XAREA
+                          WHERE XAREA.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID)
+                  END
+               WHEN PROD.EXCL_CUST_BY = 'LOCATION'
+               THEN
+                  CASE
+                     WHEN PPPC.USER_TYPE_CREATOR = 'AREA'
+                     THEN
+                        (SELECT LISTAGG (XLOC.DESCRIPTION, ', ')
+                                   WITHIN GROUP (ORDER BY XLOC.DESCRIPTION)
+                           FROM (SELECT ECL.PROMO_PRODUK_ID, FVL.DESCRIPTION
+                                   FROM PROMO_CUSTX_AREA ECL,
+                                        APPS.FCS_FLEX_VALUES_VL FVL
+                                  WHERE FVL.FLEX_VALUE = ECL.LOC_CODE) XLOC
+                          WHERE XLOC.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID)
+                     ELSE
+                        (SELECT LISTAGG (XLOC.DESCRIPTION, ', ')
+                                   WITHIN GROUP (ORDER BY XLOC.DESCRIPTION)
+                           FROM (SELECT ECL.PROMO_PRODUK_ID, FVL.DESCRIPTION
+                                   FROM PROMO_CUSTX_HO ECL,
+                                        APPS.FCS_FLEX_VALUES_VL FVL
+                                  WHERE FVL.FLEX_VALUE = ECL.LOC_CODE) XLOC
+                          WHERE XLOC.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID)
+                  END
+               WHEN PROD.EXCL_CUST_BY = 'CUSTTYPE'
+               THEN
+                  CASE
+                     WHEN PPPC.USER_TYPE_CREATOR = 'AREA'
+                     THEN
+                        (SELECT LISTAGG (XCTY.DESCRIPTION, ', ')
+                                   WITHIN GROUP (ORDER BY XCTY.DESCRIPTION)
+                           FROM (SELECT ECTY.PROMO_PRODUK_ID, FVL.DESCRIPTION
+                                   FROM PROMO_CUSTX_AREA ECTY,
+                                        APPS.FCS_FLEX_VALUES_VL FVL
+                                  WHERE FVL.FLEX_VALUE = ECTY.CUSTTYP_CODE) XCTY
+                          WHERE XCTY.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID)
+                     ELSE
+                        (SELECT LISTAGG (XCTY.DESCRIPTION, ', ')
+                                   WITHIN GROUP (ORDER BY XCTY.DESCRIPTION)
+                           FROM (SELECT ECTY.PROMO_PRODUK_ID, FVL.DESCRIPTION
+                                   FROM PROMO_CUSTX_HO ECTY,
+                                        APPS.FCS_FLEX_VALUES_VL FVL
+                                  WHERE FVL.FLEX_VALUE = ECTY.CUSTTYP_CODE) XCTY
+                          WHERE XCTY.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID)
+                  END
+               WHEN PROD.EXCL_CUST_BY = 'CUSTGROUP'
+               THEN
+                  CASE
+                     WHEN PPPC.USER_TYPE_CREATOR = 'AREA'
+                     THEN
+                        (SELECT LISTAGG (XCGR.DESCRIPTION, ', ')
+                                   WITHIN GROUP (ORDER BY XCGR.DESCRIPTION)
+                           FROM (SELECT ECGR.PROMO_PRODUK_ID, FVL.DESCRIPTION
+                                   FROM PROMO_CUSTX_AREA ECGR,
+                                        APPS.FCS_FLEX_VALUES_VL FVL
+                                  WHERE FVL.FLEX_VALUE = ECGR.CUSTGRP_CODE) XCGR
+                          WHERE XCGR.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID)
+                     ELSE
+                        (SELECT LISTAGG (XCGR.DESCRIPTION, ', ')
+                                   WITHIN GROUP (ORDER BY XCGR.DESCRIPTION)
+                           FROM (SELECT ECGR.PROMO_PRODUK_ID, FVL.DESCRIPTION
+                                   FROM PROMO_CUSTX_HO ECGR,
+                                        APPS.FCS_FLEX_VALUES_VL FVL
+                                  WHERE FVL.FLEX_VALUE = ECGR.CUSTGRP_CODE) XCGR
+                          WHERE XCGR.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID)
+                  END
+               WHEN PROD.EXCL_CUST_BY = 'CUSTOMER'
+               THEN
+                  CASE
+                     WHEN PPPC.USER_TYPE_CREATOR = 'AREA'
+                     THEN
+                        (SELECT LISTAGG (XCCS.CUSTOMER_NAME, ', ')
+                                   WITHIN GROUP (ORDER BY XCCS.CUSTOMER_NAME)
+                           FROM (SELECT ECCS.PROMO_PRODUK_ID, ARC.CUSTOMER_NAME
+                                   FROM PROMO_CUSTX_AREA ECCS,
+                                        APPS.AR_CUSTOMERS ARC
+                                  WHERE ARC.CUSTOMER_ID = ECCS.CUSTOMER_ID) XCCS
+                          WHERE XCCS.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID)
+                     ELSE
+                        (SELECT LISTAGG (XCCS.CUSTOMER_NAME, ', ')
+                                   WITHIN GROUP (ORDER BY XCCS.CUSTOMER_NAME)
+                           FROM (SELECT ECCS.PROMO_PRODUK_ID, ARC.CUSTOMER_NAME
+                                   FROM PROMO_CUSTX_HO ECCS,
+                                        APPS.AR_CUSTOMERS ARC
+                                  WHERE ARC.CUSTOMER_ID = ECCS.CUSTOMER_ID) XCCS
+                          WHERE XCCS.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID)
+                  END
+               ELSE
+                  NULL
+            END
+               AS EXCLUDED_CUST,
+            (SELECT MCV.DESCRIPTION
+               FROM APPS.MTL_CATEGORIES_V MCV
+              WHERE MCV.CATEGORY_CONCAT_SEGS = PROD.PRODUCT_CATEGORY
+                    AND MCV.STRUCTURE_NAME = 'FCS_CATEGORY')
+               AS PRODUCT_CATEGORY,
+            (SELECT MCV.DESCRIPTION
+               FROM APPS.MTL_CATEGORIES_V MCV
+              WHERE MCV.CATEGORY_CONCAT_SEGS = PROD.PRODUCT_CLASS
+                    AND MCV.STRUCTURE_NAME = 'FCS_CLASS')
+               AS PRODUCT_CLASS,
+            (SELECT MCV.DESCRIPTION
+               FROM APPS.MTL_CATEGORIES_V MCV
+              WHERE MCV.CATEGORY_CONCAT_SEGS = PROD.PRODUCT_BRAND
+                    AND MCV.STRUCTURE_NAME = 'FCS_BRAND')
+               AS PRODUCT_BRAND,
+            (SELECT MCV.DESCRIPTION
+               FROM APPS.MTL_CATEGORIES_V MCV
+              WHERE MCV.CATEGORY_CONCAT_SEGS = PROD.PRODUCT_EXT
+                    AND MCV.STRUCTURE_NAME = 'FCS_EXTENTION')
+               AS PRODUCT_EXTENSION,
+            (SELECT MCV.DESCRIPTION
+               FROM APPS.MTL_CATEGORIES_V MCV
+              WHERE MCV.CATEGORY_CONCAT_SEGS = PROD.PRODUCT_PACK
+                    AND MCV.STRUCTURE_NAME = 'FCS_PACKAGING')
+               AS PRODUCT_PACKAGING,
+            (SELECT LISTAGG (VAR."VARIANT_DESC", ', ')
+                       WITHIN GROUP (ORDER BY VAR."VARIANT_DESC")
+               FROM FOCUSPP.PRODUK_VARIANT VAR
+              WHERE VAR.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID
+                    AND VAR."VARIANT_DESC" IS NOT NULL)
+               AS PRODUCT_VARIANT,
+            (SELECT LISTAGG (
+                       CONCAT (ITM."PROD_ITEM", CONCAT (' ', ITM."ITEM_DESC")),
+                       ', ')
+                    WITHIN GROUP (ORDER BY
+                                     CONCAT (ITM."PROD_ITEM",
+                                             CONCAT (' ', ITM."ITEM_DESC")))
+               FROM FOCUSPP.PRODUK_ITEM ITM
+              WHERE ITM.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID
+                    AND CONCAT (ITM."PROD_ITEM", CONCAT (' ', ITM."ITEM_DESC"))
+                           IS NOT NULL
+                    AND ROWNUM <= 80)
+               AS PRODUCT_DETAIL,
+            PROD.PRODUCT_CATEGORY AS PRODUCT_CATEGORY_CODE,
+            PROD.PRODUCT_CLASS AS PRODUCT_CLASS_CODE,
+            PROD.PRODUCT_BRAND AS PRODUCT_BRAND_CODE,
+            PROD.PRODUCT_EXT AS PRODUCT_EXTENSION_CODE,
+            PROD.PRODUCT_PACK AS PRODUCT_PACKAGING_CODE,
+            (SELECT LISTAGG (VAR."PROD_VARIANT", ', ')
+                       WITHIN GROUP (ORDER BY VAR."PROD_VARIANT")
+               FROM FOCUSPP.PRODUK_VARIANT VAR
+              WHERE VAR.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID
+                    AND VAR."PROD_VARIANT" IS NOT NULL)
+               AS PRODUCT_VARIANT_CODE,
+            (SELECT LISTAGG (ITM."PROD_ITEM", ', ')
+                       WITHIN GROUP (ORDER BY ITM."PROD_ITEM")
+               FROM FOCUSPP.PRODUK_ITEM ITM
+              WHERE     ITM.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID
+                    AND ITM."PROD_ITEM" IS NOT NULL
+                    AND ROWNUM <= 80)
+               AS PRODUCT_DETAIL_CODE,
+            PROD.MEKANISME,
+            PROD.DESCR AS DESCRIPTION,
+            TGT.AVG_QTY AS QTY_AVG_SALES,
+            TGT.QTY AS QTY_TARGET,
+            TGT.UOM AS UOM_QTY_TARGET,
+            TGT.PRICE AS UNIT_PRICE,
+            TGT.VALUE AS VALUE_TARGET,
+            CASE
+               WHEN DISCOUNT_TYPE = 'POTONGAN'
+               THEN
+                     POT.TIPE_PERHITUNGAN
+                  || '; Qty From '
+                  || POT.QTY_FROM
+                  || ' To '
+                  || POT.QTY_TO
+                  || ' Disc By '
+                  || POT.TIPE_POTONGAN
+               WHEN DISCOUNT_TYPE = 'BIAYA'
+               THEN
+                  BIA.DESCR
+               WHEN DISCOUNT_TYPE = 'PROMOBARANG'
+                    AND ( (SELECT LISTAGG (BRI."ITEM_DESC", ', ')
+                                     WITHIN GROUP (ORDER BY BRI."ITEM_DESC")
+                             FROM FOCUSPP.PROMO_BONUS_PROD_ITEM BRI
+                            WHERE     BRI.PROMO_BONUS_ID = BNS.PROMO_BONUS_ID
+                                  AND BRI."ITEM_DESC" IS NOT NULL
+                                  AND ROWNUM <= 80))
+                           IS NULL
+               THEN
+                  (SELECT MCV.DESCRIPTION
+                     FROM APPS.MTL_CATEGORIES_V MCV
+                    WHERE MCV.CATEGORY_CONCAT_SEGS = BNS.PRODUCT_CATEGORY
+                          AND MCV.STRUCTURE_NAME = 'FCS_CATEGORY')
+                  || ' - '
+                  || (SELECT MCV.DESCRIPTION
+                        FROM APPS.MTL_CATEGORIES_V MCV
+                       WHERE MCV.CATEGORY_CONCAT_SEGS = BNS.PRODUCT_CLASS
+                             AND MCV.STRUCTURE_NAME = 'FCS_CLASS')
+                  || ' - '
+                  || (SELECT MCV.DESCRIPTION
+                        FROM APPS.MTL_CATEGORIES_V MCV
+                       WHERE MCV.CATEGORY_CONCAT_SEGS = BNS.PRODUCT_BRAND
+                             AND MCV.STRUCTURE_NAME = 'FCS_BRAND')
+                  || ' - '
+                  || (SELECT MCV.DESCRIPTION
+                        FROM APPS.MTL_CATEGORIES_V MCV
+                       WHERE MCV.CATEGORY_CONCAT_SEGS = BNS.PRODUCT_EXT
+                             AND MCV.STRUCTURE_NAME = 'FCS_EXTENTION')
+                  || ' - '
+                  || (SELECT MCV.DESCRIPTION
+                        FROM APPS.MTL_CATEGORIES_V MCV
+                       WHERE MCV.CATEGORY_CONCAT_SEGS = BNS.PRODUCT_PACK
+                             AND MCV.STRUCTURE_NAME = 'FCS_PACKAGING')
+                  || ' - '
+                  || (SELECT LISTAGG (BRV."VARIANT_DESC", ', ')
+                                WITHIN GROUP (ORDER BY BRV."VARIANT_DESC")
+                        FROM FOCUSPP.PROMO_BONUS_VARIANT BRV
+                       WHERE BRV.PROMO_BONUS_ID = BNS.PROMO_BONUS_ID
+                             AND BRV."VARIANT_DESC" IS NOT NULL)
+                  || ' - Qty: '
+                  || BNS.QTY_FROM
+                  || ' '
+                  || BNS.UOM
+                  || ' @ Rp. '
+                  || BNS.PRICE_VAL
+               WHEN DISCOUNT_TYPE = 'PROMOBARANG'
+                    AND ( (SELECT LISTAGG (BRI."ITEM_DESC", ', ')
+                                     WITHIN GROUP (ORDER BY BRI."ITEM_DESC")
+                             FROM FOCUSPP.PROMO_BONUS_PROD_ITEM BRI
+                            WHERE     BRI.PROMO_BONUS_ID = BNS.PROMO_BONUS_ID
+                                  AND BRI."ITEM_DESC" IS NOT NULL
+                                  AND ROWNUM <= 80))
+                           IS NOT NULL
+               THEN
+                  (SELECT MCV.DESCRIPTION
+                     FROM APPS.MTL_CATEGORIES_V MCV
+                    WHERE MCV.CATEGORY_CONCAT_SEGS = BNS.PRODUCT_CATEGORY
+                          AND MCV.STRUCTURE_NAME = 'FCS_CATEGORY')
+                  || ' - '
+                  || (SELECT MCV.DESCRIPTION
+                        FROM APPS.MTL_CATEGORIES_V MCV
+                       WHERE MCV.CATEGORY_CONCAT_SEGS = BNS.PRODUCT_CLASS
+                             AND MCV.STRUCTURE_NAME = 'FCS_CLASS')
+                  || ' - '
+                  || (SELECT MCV.DESCRIPTION
+                        FROM APPS.MTL_CATEGORIES_V MCV
+                       WHERE MCV.CATEGORY_CONCAT_SEGS = BNS.PRODUCT_BRAND
+                             AND MCV.STRUCTURE_NAME = 'FCS_BRAND')
+                  || ' - '
+                  || (SELECT MCV.DESCRIPTION
+                        FROM APPS.MTL_CATEGORIES_V MCV
+                       WHERE MCV.CATEGORY_CONCAT_SEGS = BNS.PRODUCT_EXT
+                             AND MCV.STRUCTURE_NAME = 'FCS_EXTENTION')
+                  || ' - '
+                  || (SELECT MCV.DESCRIPTION
+                        FROM APPS.MTL_CATEGORIES_V MCV
+                       WHERE MCV.CATEGORY_CONCAT_SEGS = BNS.PRODUCT_PACK
+                             AND MCV.STRUCTURE_NAME = 'FCS_PACKAGING')
+                  || ' - '
+                  || (SELECT LISTAGG (BRV."VARIANT_DESC", ', ')
+                                WITHIN GROUP (ORDER BY BRV."VARIANT_DESC")
+                        FROM FOCUSPP.PROMO_BONUS_VARIANT BRV
+                       WHERE BRV.PROMO_BONUS_ID = BNS.PROMO_BONUS_ID
+                             AND BRV."VARIANT_DESC" IS NOT NULL)
+                  || ' - '
+                  || (SELECT LISTAGG (BRI."ITEM_DESC", ', ')
+                                WITHIN GROUP (ORDER BY BRI."ITEM_DESC")
+                        FROM FOCUSPP.PROMO_BONUS_PROD_ITEM BRI
+                       WHERE     BRI.PROMO_BONUS_ID = BNS.PROMO_BONUS_ID
+                             AND BRI."ITEM_DESC" IS NOT NULL
+                             AND ROWNUM <= 80)
+                  || ' - Qty: '
+                  || BNS.QTY_FROM
+                  || ' '
+                  || BNS.UOM
+                  || ' @ Rp. '
+                  || BNS.PRICE_VAL
+               ELSE
+                  NULL
+            END
+               AS DETIL_PROMO,
+            CASE
+               WHEN DISCOUNT_TYPE = 'POTONGAN' THEN POT.DISC_NON_YEARLY
+               WHEN DISCOUNT_TYPE = 'BIAYA' THEN BIA.BIAYA_NON_YEARLY
+               WHEN DISCOUNT_TYPE = 'PROMOBARANG' THEN BNS.DISC_NON_YEARLY
+               ELSE NULL
+            END
+               AS ON_TOP_TPB,
+            CASE
+               WHEN DISCOUNT_TYPE = 'POTONGAN' THEN POT.DISC_YEARLY
+               WHEN DISCOUNT_TYPE = 'BIAYA' THEN BIA.BIAYA_YEARLY
+               WHEN DISCOUNT_TYPE = 'PROMOBARANG' THEN BNS.DISC_YEARLY
+               ELSE NULL
+            END
+               AS MF_PB,
+            CASE
+               WHEN DISCOUNT_TYPE = 'POTONGAN' THEN PROD.DISC_ON_TOP
+               WHEN DISCOUNT_TYPE = 'BIAYA' THEN PROD.BIA_ONTOP
+               WHEN DISCOUNT_TYPE = 'PROMOBARANG' THEN PROD.BRG_BONUS_ON_TOP
+               ELSE NULL
+            END
+               AS TOTAL_ON_TOP_TPB,
+            CASE
+               WHEN DISCOUNT_TYPE = 'POTONGAN' THEN PROD.DISC_MF
+               WHEN DISCOUNT_TYPE = 'BIAYA' THEN PROD.BIA_MF
+               WHEN DISCOUNT_TYPE = 'PROMOBARANG' THEN PROD.BRG_BONUS_MF
+               ELSE NULL
+            END
+               AS TOTAL_MF_PB,
+            CASE
+               WHEN DISCOUNT_TYPE = 'POTONGAN'
+               THEN
+                  PROD.DISC_RASIO_ON_TOP
+               WHEN DISCOUNT_TYPE = 'BIAYA'
+               THEN
+                  PROD.BIA_RASION_ONTOP
+               WHEN DISCOUNT_TYPE = 'PROMOBARANG'
+               THEN
+                  PROD.BRG_BONUS_RASIO_ON_TOP
+               ELSE
+                  NULL
+            END
+               AS RASIO_ON_TOP_TPB,
+            CASE
+               WHEN DISCOUNT_TYPE = 'POTONGAN' THEN PROD.DISC_RASIO_MF
+               WHEN DISCOUNT_TYPE = 'BIAYA' THEN PROD.BIA_RASIO_MF
+               WHEN DISCOUNT_TYPE = 'PROMOBARANG' THEN PROD.BRG_BONUS_RASIO_MF
+               ELSE NULL
+            END
+               AS RASIO_MF_PB,
+            CASE
+               WHEN DISCOUNT_TYPE = 'POTONGAN'
+               THEN
+                  PROD.DISC_RASIO_TOTAL
+               WHEN DISCOUNT_TYPE = 'BIAYA'
+               THEN
+                  PROD.BIA_RASIO_TOTAL
+               WHEN DISCOUNT_TYPE = 'PROMOBARANG'
+               THEN
+                  PROD.BRG_BONUS_RASIO_TOTAL
+               ELSE
+                  NULL
+            END
+               AS RASIO_TOTAL,
+            (  SELECT PROD.KODE_POSTING || ' ' || UPPER (MSI.DESCRIPTION)
+                         AS DESCRIPTION
+                 FROM APPS.MTL_SYSTEM_ITEMS_B MSI
+                WHERE MSI.SEGMENT1 = PROD.KODE_POSTING
+                      AND MSI.ORGANIZATION_ID = 83
+             GROUP BY PROD.KODE_POSTING, MSI.DESCRIPTION)
+               AS KODE_POSTING_ON_TOP,
+            (  SELECT PROD.KODE_POSTING_MF || ' ' || UPPER (MSI.DESCRIPTION)
+                         AS DESCRIPTION
+                 FROM APPS.MTL_SYSTEM_ITEMS_B MSI
+                WHERE MSI.SEGMENT1 = PROD.KODE_POSTING_MF
+                      AND MSI.ORGANIZATION_ID = 83
+             GROUP BY PROD.KODE_POSTING, MSI.DESCRIPTION)
+               AS KODE_POSTING_MF,
+            (  SELECT PROD.ITEM_EXPENSE || ' ' || UPPER (MSI.DESCRIPTION)
+                         AS DESCRIPTION
+                 FROM APPS.MTL_SYSTEM_ITEMS_B MSI
+                WHERE MSI.SEGMENT1 = PROD.ITEM_EXPENSE
+                      AND MSI.ORGANIZATION_ID = 83
+             GROUP BY PROD.ITEM_EXPENSE, MSI.DESCRIPTION)
+               AS ITEM_EXPENSE,
+            PBUD.KOMBINASI_BUDGET AS BUDGET_KOMBINASI,
+            PBUD.AMOUNT AS VALUE_BUDGET_KOMBINASI,
+            CASE
+               WHEN PPPC.DISCOUNT_TYPE = 'POTONGAN'
+                    AND PPPC.MEKANISME_PENAGIHAN = 'ONINVOICE'
+               THEN
+                  FVRMT.AMOUNT_OT
+               WHEN PPPC.MEKANISME_PENAGIHAN = 'OFFINVOICE'
+               THEN
+                  NVL (
+                     CASE
+                        WHEN PROD.DISC_MF + PROD.BRG_BONUS_MF + PROD.BIA_MF = 0
+                             AND   PROD.DISC_ON_TOP
+                                 + PROD.BRG_BONUS_ON_TOP
+                                 + PROD.BIA_ONTOP > 0
+                        THEN
+                           FVRD.AMOUNT_CM
+                        WHEN   FVRD.AMOUNT_CM
+                             - PROD.DISC_MF
+                             - PROD.BRG_BONUS_MF
+                             - PROD.BIA_MF > 0
+                             AND   PROD.DISC_ON_TOP
+                                 + PROD.BRG_BONUS_ON_TOP
+                                 + PROD.BIA_ONTOP > 0
+                             AND PROD.DISC_MF + PROD.BRG_BONUS_MF + PROD.BIA_MF >
+                                    0
+                        THEN
+                             FVRD.AMOUNT_CM
+                           - PROD.DISC_MF
+                           - PROD.BRG_BONUS_MF
+                           - PROD.BIA_MF
+                        ELSE
+                           0
+                     END,
+                     0)
+                  + NVL (
+                       CASE
+                          WHEN PROD.DISC_MF + PROD.BRG_BONUS_MF + PROD.BIA_MF =
+                                  0
+                               AND   PROD.DISC_ON_TOP
+                                   + PROD.BRG_BONUS_ON_TOP
+                                   + PROD.BIA_ONTOP > 0
+                          THEN
+                             FVRG.TOTAL
+                          WHEN       FVRG.TOTAL
+                                   - PROD.DISC_MF
+                                   - PROD.BRG_BONUS_MF
+                                   - PROD.BIA_MF > 0
+                               AND   PROD.DISC_ON_TOP
+                                   + PROD.BRG_BONUS_ON_TOP
+                                   + PROD.BIA_ONTOP > 0
+                               AND   PROD.DISC_MF
+                                   + PROD.BRG_BONUS_MF
+                                   + PROD.BIA_MF > 0
+                          THEN
+                               FVRG.TOTAL
+                             - PROD.DISC_MF
+                             - PROD.BRG_BONUS_MF
+                             - PROD.BIA_MF
+                          ELSE
+                             0
+                       END,
+                       0)
+               ELSE
+                  NULL
+            END
+               AS REALISASI_ON_TOP_TPB,
+            CASE
+               WHEN PPPC.DISCOUNT_TYPE = 'POTONGAN'
+                    AND PPPC.MEKANISME_PENAGIHAN = 'ONINVOICE'
+               THEN
+                  FVRMT.AMOUNT_MF
+               WHEN PPPC.MEKANISME_PENAGIHAN = 'OFFINVOICE'
+               THEN
+                  NVL (
+                     CASE
+                        WHEN PROD.DISC_MF + PROD.BRG_BONUS_MF + PROD.BIA_MF > 0
+                             AND   PROD.DISC_ON_TOP
+                                 + PROD.BRG_BONUS_ON_TOP
+                                 + PROD.BIA_ONTOP = 0
+                        THEN
+                           FVRD.AMOUNT_CM
+                        WHEN PROD.DISC_ON_TOP + PROD.BRG_BONUS_ON_TOP + PROD.BIA_ONTOP >
+                                0
+                             AND PROD.DISC_MF + PROD.BRG_BONUS_MF + PROD.BIA_MF >
+                                    0
+                             AND FVRD.AMOUNT_CM > 0
+                        THEN
+                           CASE
+                              WHEN   FVRD.AMOUNT_CM
+                                   - PROD.DISC_MF
+                                   - PROD.BRG_BONUS_MF
+                                   - PROD.BIA_MF < 0
+                              THEN
+                                 FVRD.AMOUNT_CM
+                              ELSE
+                                 PROD.DISC_MF + PROD.BRG_BONUS_MF + PROD.BIA_MF
+                           END
+                        ELSE
+                           FVRD.AMOUNT_CM
+                     END,
+                     0)
+                  + NVL (
+                       CASE
+                          WHEN PROD.DISC_MF + PROD.BRG_BONUS_MF + PROD.BIA_MF >
+                                  0
+                               AND   PROD.DISC_ON_TOP
+                                   + PROD.BRG_BONUS_ON_TOP
+                                   + PROD.BIA_ONTOP = 0
+                          THEN
+                             FVRG.TOTAL
+                          WHEN PROD.DISC_ON_TOP + PROD.BRG_BONUS_ON_TOP + PROD.BIA_ONTOP >
+                                  0
+                               AND   PROD.DISC_MF
+                                   + PROD.BRG_BONUS_MF
+                                   + PROD.BIA_MF > 0
+                          THEN
+                             CASE
+                                WHEN   FVRG.TOTAL
+                                     - PROD.DISC_MF
+                                     - PROD.BRG_BONUS_MF
+                                     - PROD.BIA_MF < 0
+                                THEN
+                                   FVRG.TOTAL
+                                ELSE
+                                     PROD.DISC_MF
+                                   + PROD.BRG_BONUS_MF
+                                   + PROD.BIA_MF
+                             END
+                          ELSE
+                             0
+                       END,
+                       0)
+               ELSE
+                  NULL
+            END
+               AS REALISASI_MF_PB,
+            PROD.CLOSE_FLAG AS FLAG_CLOSE_CANCEL,
+            NULL AS CLOSE_CANCEL_BY,
+            NULL AS CLOSE_CANCEL_DATE,
+            NULL AS CLOSE_CANCEL_OT_TPB,
+            NULL AS CLOSE_CANCEL_MF_PB,
+            NULL AS CLOSE_CANCEL_REM_OT_TPB,
+            NULL AS CLOSE_CANCEL_REM_MF_PB,
+            NULL AS NET_ON_TOP_TPB,
+            NULL AS NET_MF_PB,
+            NULL AS FLAG_OUTSTD_OT_TPB,
+            NULL AS FLAG_OUTSTD_MF_PB
+       FROM FOCUSPP.PROPOSAL PPPC,
+            (SELECT ROW_NUMBER ()
+                    OVER (PARTITION BY pp.proposal_id
+                          ORDER BY pp.proposal_id, pp.PROMO_PRODUK_ID)
+                       AS LINE_NO,
+                    pp.*
+               FROM FOCUSPP.PROMO_PRODUK pp) PROD,
+            FOCUSPP.TARGET TGT,
+            FOCUSPP.DISCOUNT POT,
+            FOCUSPP.BIAYA BIA,
+            FOCUSPP.PROMO_BONUS BNS,
+            FOCUSPP.PROD_BUDGET_BY PBUD,
+            APPS.FCS_VIEW_REALISASI_GR FVRG,
+            APPS.FCS_VIEW_REALISASI_DCV FVRD,
+            (  SELECT LINE_NO,
+                      MAX (CONFIRM_NO) CONFIRM_NO,
+                      SUM (OT) AMOUNT_MF,
+                      SUM (MF) AMOUNT_OT
+                 FROM (SELECT FVRM.PROPOSAL_ID,
+                              FVRM.PROPOSAL_NO,
+                              FVRM.CONFIRM_NO,
+                              FVRM.CONFIRM_NO_ORIG,
+                              FVRM.PROMO_PRODUK_ID,
+                              FVRM.LINE_NO,
+                              FVRM.AMOUNT OT,
+                              0 MF
+                         FROM APPS.FCS_VIEW_REALISASI_MODIFIER FVRM
+                        WHERE KET = 'OT'
+                       UNION ALL
+                       SELECT FVRM.PROPOSAL_ID,
+                              FVRM.PROPOSAL_NO,
+                              FVRM.CONFIRM_NO,
+                              FVRM.CONFIRM_NO_ORIG,
+                              FVRM.PROMO_PRODUK_ID,
+                              FVRM.LINE_NO,
+                              0 OT,
+                              FVRM.AMOUNT MF
+                         FROM APPS.FCS_VIEW_REALISASI_MDF_DETIL FVRM
+                        WHERE KET = 'MF')
+                WHERE 1 = 1
+             GROUP BY LINE_NO, CONFIRM_NO_ORIG) FVRMT
+      WHERE     PROD.PROPOSAL_ID = PPPC.PROPOSAL_ID
+            AND TGT.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID
+            AND POT.PROMO_PRODUK_ID(+) = PROD.PROMO_PRODUK_ID
+            AND BIA.PROMO_PRODUK_ID(+) = PROD.PROMO_PRODUK_ID
+            AND BNS.PROMO_PRODUK_ID(+) = PROD.PROMO_PRODUK_ID
+            AND PBUD.PROMO_PRODUK_ID(+) = PROD.PROMO_PRODUK_ID
+            --            AND PPPC.STATUS <> 'CANCELED'
+            --            AND PPPC.PROPOSAL_NO = 'SIS18010003'
+            AND FVRG.NO_KONFIRMASI(+) =
+                   PPPC.CONFIRM_NO
+                   || DECODE (PPPC.ADDENDUM_KE,
+                              NULL, '',
+                              '-' || PPPC.ADDENDUM_KE)
+            AND FVRG.PROMO_PRODUK_ID(+) = PROD.PROMO_PRODUK_ID
+            AND FVRG.LINE_NO(+) = NVL (PROD.PRODUK_ROW_NUM, PROD.LINE_NO)
+            AND FVRD.PROPOSAL_ID(+) = PPPC.PROPOSAL_ID
+            AND FVRD.PROMO_PRODUK_ID(+) = PROD.PROMO_PRODUK_ID
+            AND FVRD.LINE_NUM_PC(+) = NVL (PROD.PRODUK_ROW_NUM, PROD.LINE_NO)
+            AND FVRMT.LINE_NO(+) = NVL (PROD.PRODUK_ROW_NUM, PROD.LINE_NO)
+            AND FVRMT.CONFIRM_NO(+) =
+                   PPPC.CONFIRM_NO
+                   || DECODE (PPPC.ADDENDUM_KE,
+                              NULL, '',
+                              '-' || PPPC.ADDENDUM_KE)
+            AND NOT EXISTS
+                       (SELECT 1
+                          FROM (SELECT PC.PROPOSAL_ID,
+                                       PC.CONFIRM_NO,
+                                       PC.STATUS,
+                                       (SELECT SUM (NVL (PC1.ADDENDUM_KE, 0))
+                                          FROM FOCUSPP.PROPOSAL PC1
+                                         WHERE PC1.CONFIRM_NO = PC.CONFIRM_NO)
+                                          JUMLAH_ADDENDUM
+                                  FROM FOCUSPP.PROPOSAL PC
+                                 WHERE PC.STATUS = 'CANCELED'
+                                       AND PC.CONFIRM_NO IS NOT NULL) PC
+                         WHERE PC.JUMLAH_ADDENDUM = 0
+                               AND PC.PROPOSAL_ID = PPPC.PROPOSAL_ID)
+   ORDER BY PPPC.PROPOSAL_NO, PROD.LINE_NO;
