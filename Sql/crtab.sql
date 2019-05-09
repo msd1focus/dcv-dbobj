@@ -3,34 +3,7 @@
 --   site:      Oracle Database 12c
 --   type:      Oracle Database 12c
 
-
-
 DROP TABLE dcv_documents CASCADE CONSTRAINTS;
-
-DROP TABLE dcv_number CASCADE CONSTRAINTS;
-
-DROP TABLE dcv_request CASCADE CONSTRAINTS;
-
-DROP TABLE doc_movement CASCADE CONSTRAINTS;
-
-DROP TABLE holiday CASCADE CONSTRAINTS;
-
-DROP TABLE lookup_code CASCADE CONSTRAINTS;
-
-DROP TABLE pcline_tc_appr CASCADE CONSTRAINTS;
-
-DROP TABLE request_dtl CASCADE CONSTRAINTS;
-
-DROP TABLE sec_dept CASCADE CONSTRAINTS;
-
-DROP TABLE sec_user CASCADE CONSTRAINTS;
-
-DROP TABLE wf_node CASCADE CONSTRAINTS;
-
-DROP TABLE wf_route CASCADE CONSTRAINTS;
-
-DROP TABLE wf_task CASCADE CONSTRAINTS;
-
 CREATE TABLE dcv_documents (
     id            INTEGER NOT NULL,
     dcv_hdr_id    INTEGER NOT NULL,
@@ -50,13 +23,12 @@ COMMENT ON COLUMN dcv_documents.doc_type IS
 
 CREATE INDEX dcv_document_no_idx ON
     dcv_documents (
-        doc_type
-    ASC,
-        doc_no
-    ASC );
+        doc_type ASC,
+        doc_no ASC );
 
 ALTER TABLE dcv_documents ADD CONSTRAINT files_pk PRIMARY KEY ( id );
 
+DROP TABLE dcv_number CASCADE CONSTRAINTS;
 CREATE TABLE dcv_number (
     period        INTEGER NOT NULL,
     lastnum       INTEGER NOT NULL,
@@ -65,6 +37,7 @@ CREATE TABLE dcv_number (
 
 ALTER TABLE dcv_number ADD CONSTRAINT dcv_number_pk PRIMARY KEY ( period );
 
+DROP TABLE dcv_request CASCADE CONSTRAINTS;
 CREATE TABLE dcv_request (
     dcv_hdr_id          INTEGER NOT NULL,
     customer_code       VARCHAR2(25 CHAR) NOT NULL,
@@ -140,6 +113,7 @@ CREATE UNIQUE INDEX dcv_no_idx ON
 
 ALTER TABLE dcv_request ADD CONSTRAINT request_hdr_pk PRIMARY KEY ( dcv_hdr_id );
 
+DROP TABLE doc_movement CASCADE CONSTRAINTS;
 CREATE TABLE doc_movement (
     id              INTEGER NOT NULL,
     dcv_id          INTEGER NOT NULL,
@@ -153,6 +127,7 @@ CREATE TABLE doc_movement (
 
 ALTER TABLE doc_movement ADD CONSTRAINT doc_movement_pk PRIMARY KEY ( id );
 
+DROP TABLE holiday CASCADE CONSTRAINTS;
 CREATE TABLE holiday (
     id            INTEGER NOT NULL,
     tgl_libur     DATE,
@@ -161,6 +136,7 @@ CREATE TABLE holiday (
 
 ALTER TABLE holiday ADD CONSTRAINT holiday_pk PRIMARY KEY ( id );
 
+DROP TABLE lookup_code CASCADE CONSTRAINTS;
 CREATE TABLE lookup_code (
     id      INTEGER NOT NULL,
     title   VARCHAR2(60 CHAR),
@@ -170,6 +146,7 @@ CREATE TABLE lookup_code (
 
 ALTER TABLE lookup_code ADD CONSTRAINT lookup_code_pk PRIMARY KEY ( id );
 
+DROP TABLE pcline_tc_appr CASCADE CONSTRAINTS;
 CREATE TABLE pcline_tc_appr (
     id               INTEGER NOT NULL,
     request_dtl_id   INTEGER NOT NULL,
@@ -188,6 +165,7 @@ CREATE TABLE pcline_tc_appr (
 
 ALTER TABLE pcline_tc_appr ADD CONSTRAINT req_line_breakdown_pk PRIMARY KEY ( id );
 
+DROP TABLE request_dtl CASCADE CONSTRAINTS;
 CREATE TABLE request_dtl (
     id                    INTEGER NOT NULL,
     dcv_hdr_id            INTEGER NOT NULL,
@@ -226,6 +204,7 @@ CREATE TABLE request_dtl (
 
 ALTER TABLE request_dtl ADD CONSTRAINT request_dtl_pk PRIMARY KEY ( id );
 
+DROP TABLE sec_dept CASCADE CONSTRAINTS;
 CREATE TABLE sec_dept (
     id            INTEGER NOT NULL,
     dept_code     VARCHAR2(15 CHAR) NOT NULL,
@@ -249,17 +228,26 @@ COMMENT ON COLUMN sec_dept.role_parent IS
 
 ALTER TABLE sec_dept ADD CONSTRAINT role_pk PRIMARY KEY ( id );
 
+DROP TABLE sec_user CASCADE CONSTRAINTS;
 CREATE TABLE sec_user (
     id             INTEGER NOT NULL,
     username       VARCHAR2(50 CHAR) NOT NULL,
     passwd         VARCHAR2(50 CHAR),
+    fullname       VARCHAR2(200 CHAR),
+    company        VARCHAR2(3 CHAR),
     department     INTEGER NOT NULL,
+    email_addr     VARCHAR2(60 CHAR),
+    contact_no     VARCHAR2(20 CHAR),
     pangkat        VARCHAR2(15 CHAR),
     sp_assign1     VARCHAR2(50 CHAR),
     sp_assign2     VARCHAR2(50 CHAR),
-    report_to      INTEGER,
+    user_type      VARCHAR2(50 CHAR),
+    user_status    VARCHAR2(20 CHAR),
+    report_to_id   INTEGER,
+    report_to_un   VARCHAR2(50 CHAR),
     aktif_sejak    DATE,
-    aktif_hingga   DATE
+    aktif_hingga   DATE,
+    last_active_time  DATE
 );
 
 COMMENT ON COLUMN sec_user.pangkat IS
@@ -275,6 +263,7 @@ ALTER TABLE sec_user ADD CONSTRAINT user_pk PRIMARY KEY ( id );
 
 ALTER TABLE sec_user ADD CONSTRAINT sec_user_username_un UNIQUE ( username );
 
+DROP TABLE wf_node CASCADE CONSTRAINTS;
 CREATE TABLE wf_node (
     nodecode         VARCHAR2(10 CHAR) NOT NULL,
     node_desc        VARCHAR2(50 CHAR),
@@ -298,8 +287,8 @@ serahterima dok
 end';
 
 COMMENT ON COLUMN wf_node.pangkat IS
-    'member 
-supervisor 
+    'member
+supervisor
 member ; supervisor
 ';
 
@@ -320,6 +309,7 @@ COMMENT ON COLUMN wf_node.merge_count IS
 
 ALTER TABLE wf_node ADD CONSTRAINT node_pk PRIMARY KEY ( nodecode );
 
+DROP TABLE wf_route CASCADE CONSTRAINTS;
 CREATE TABLE wf_route (
     id              INTEGER NOT NULL,
     node_id         VARCHAR2(10 CHAR) NOT NULL,
@@ -331,17 +321,12 @@ CREATE TABLE wf_route (
     return_task     VARCHAR2(1 CHAR)
 );
 
-COMMENT ON COLUMN wf_route.pilihan IS
-    '1. Approve1
-2. Approve2
-3. Return/Back
-4. Terminate/Cancel';
-
 COMMENT ON COLUMN wf_route.pangkat IS
     'rank tertentu yg bisa lakukan action ini';
 
 ALTER TABLE wf_route ADD CONSTRAINT node_option_pk PRIMARY KEY ( id );
 
+DROP TABLE wf_task CASCADE CONSTRAINTS;
 CREATE TABLE wf_task (
     id                INTEGER NOT NULL,
     no_dcv            VARCHAR2(20 CHAR) NOT NULL,
@@ -386,19 +371,14 @@ COMMENT ON COLUMN wf_task.sla IS
 
 CREATE INDEX wf_task_dcvno_idx ON
     wf_task (
-        no_dcv
-    ASC,
-        nodecode
-    ASC,
-        progress_status
-    ASC );
+        no_dcv    ASC,
+        nodecode    ASC,
+        progress_status    ASC );
 
 CREATE INDEX wf_task_type_idx ON
     wf_task (
-        task_type
-    ASC,
-        progress_status
-    ASC );
+        task_type    ASC,
+        progress_status    ASC );
 
 ALTER TABLE wf_task ADD CONSTRAINT task_pk PRIMARY KEY ( id );
 
@@ -446,48 +426,3 @@ ALTER TABLE wf_route
 ALTER TABLE wf_task
     ADD CONSTRAINT wf_task_wf_node_fk FOREIGN KEY ( nodecode )
         REFERENCES wf_node ( nodecode );
-
-
-
--- Oracle SQL Developer Data Modeler Summary Report: 
--- 
--- CREATE TABLE                            13
--- CREATE INDEX                             4
--- ALTER TABLE                             25
--- CREATE VIEW                              0
--- ALTER VIEW                               0
--- CREATE PACKAGE                           0
--- CREATE PACKAGE BODY                      0
--- CREATE PROCEDURE                         0
--- CREATE FUNCTION                          0
--- CREATE TRIGGER                           0
--- ALTER TRIGGER                            0
--- CREATE COLLECTION TYPE                   0
--- CREATE STRUCTURED TYPE                   0
--- CREATE STRUCTURED TYPE BODY              0
--- CREATE CLUSTER                           0
--- CREATE CONTEXT                           0
--- CREATE DATABASE                          0
--- CREATE DIMENSION                         0
--- CREATE DIRECTORY                         0
--- CREATE DISK GROUP                        0
--- CREATE ROLE                              0
--- CREATE ROLLBACK SEGMENT                  0
--- CREATE SEQUENCE                          0
--- CREATE MATERIALIZED VIEW                 0
--- CREATE SYNONYM                           0
--- CREATE TABLESPACE                        0
--- CREATE USER                              0
--- 
--- DROP TABLESPACE                          0
--- DROP DATABASE                            0
--- 
--- REDACTION POLICY                         0
--- TSDP POLICY                              0
--- 
--- ORDS DROP SCHEMA                         0
--- ORDS ENABLE SCHEMA                       0
--- ORDS ENABLE OBJECT                       0
--- 
--- ERRORS                                   0
--- WARNINGS                                 0
