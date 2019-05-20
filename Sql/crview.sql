@@ -85,35 +85,55 @@ ON
 t.no_dcv = r.no_dcv;
 
 
-CREATE VIEW pc_produk_vw AS
-SELECT p.proposal_id
-, p.proposal_no
-, p.proposal_date
-, p.periode_prog_from
-, p.periode_prog_to
-, p.prog_promo
-, p.proposal_type
-, p.discount_type
-, p.mekanisme_penagihan
-, p.status
-, p.pemohon
+CREATE OR REPLACE FORCE VIEW DCV.PC_PRODUK_HO as
+WITH pp_loc AS
+(select r.promo_produk_id, ral.location_code
+from prod_region r
+join region_area_loc ral
+on r.region_code = ral.region_code
+union
+select a.promo_produk_id, ral.location_code
+from prod_region_area a
+join region_area_loc ral
+on a.area_code = ral.area_code
+union
+select l.promo_produk_id, l.location_code
+from prod_region_loc l
+minus
+select xca.promo_produk_id, ral.location_code
+from excl_cust_area xca
+join region_area_loc ral
+on xca.area_code = ral.area_code
+),
+loc_cust as
+(select l.promo_produk_id, c.cust_code
+from pp_loc l
+join master_customer c
+on l.location_code = c.location_code)
+-- query utama
+select pp.promo_produk_id
+, pp.product_category
+, pp.product_class
+, pp.product_brand
+, pp.product_ext
+, pp.product_pack
+--, cg.cust_group
+, lc.cust_code
+, p.proposal_id
 , p.confirm_no
 , p.user_type_creator
-, p.report_run_number
-, pp.product_category
-, pp.product_category_desc
-, pp.product_class
-, pp.product_class_desc
-, pp.product_brand
-, pp.product_brand_desc
-, pp.product_ext
-, pp.product_ext_desc
-, pp.product_pack
-, pp.product_pack_desc
-FROM promo_produk pp
-, proposal p
-WHERE p.proposal_id = pp.proposal_id
-AND NVL(p.confirm_no,'Auto Generated') <> 'Auto Generated';
+from promo_produk pp
+join proposal p
+on p.proposal_id = pp.proposal_id
+--and NVL(p.confirm_no,'Auto Generated') <> 'Auto Generated'
+and user_type_Creator = 'HO'
+-- join untuk cust_group
+left outer join prod_region_cust_group cg
+on cg.promo_produk_id = pp.promo_produk_id
+-- join untuk region gabung dg region-area-loc
+left outer join loc_cust lc
+on pp.promo_produk_id = lc.promo_produk_id;
+
 
 
 CREATE OR REPLACE FORCE EDITIONABLE VIEW MASTER_CUSTOMER AS

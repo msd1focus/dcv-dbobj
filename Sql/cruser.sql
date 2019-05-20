@@ -14,6 +14,13 @@ grant create view to focusdcv;
 grant create synonym to focusdcv;
 
 grant select on focuspp.proposal to focusdcv;
+grant select on focuspp.prod_region to focusdcv;
+grant select on focuspp.prod_region_area to focusdcv;
+grant select on focuspp.prod_region_loc to focusdcv;
+grant select on focuspp.promo_produk to focusdcv;
+grant select on focuspp.prod_region_cust_group to focusdcv;
+
+
 grant select on apps.fcs_view_item_uom to focusdcv;
 grant select on apps.fcs_view_uom_conversion to focusdcv;
 grant select on apps.ar_customers to focusdcv;
