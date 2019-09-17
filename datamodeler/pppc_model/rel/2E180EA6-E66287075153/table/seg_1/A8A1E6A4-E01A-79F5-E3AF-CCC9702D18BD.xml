@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_1" id="A8A1E6A4-E01A-79F5-E3AF-CCC9702D18BD" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="UT_USER_PRODUK_BRAND">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>UT_USER_PRODUK_BRAND</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:38 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="USER_NAME" id="D40C7E52-472E-01CE-5C4E-661665B16EC9">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>UT_USER_PRODUK_BRAND</sourceObjSchema>
+<sourceObjName>USER_NAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROD_BRAND" id="E9CD6AAE-FD90-53F7-D3B5-2D8C8C27FE48">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>UT_USER_PRODUK_BRAND</sourceObjSchema>
+<sourceObjName>PROD_BRAND</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BRAND_DESC" id="38290F0D-1EA6-FAB2-E40B-150CE7B3CB83">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>UT_USER_PRODUK_BRAND</sourceObjSchema>
+<sourceObjName>BRAND_DESC</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E776AF70-AB2E-328A-A5F3-D439242A2C74" name="UT_USER_PRODUK_BRAND_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>UT_USER_PRODUK_BRAND_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:17 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D40C7E52-472E-01CE-5C4E-661665B16EC9"/>
+<colUsage columnID="E9CD6AAE-FD90-53F7-D3B5-2D8C8C27FE48"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C70CDE11-618D-FE5B-9A23-03B5933B6F81" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="UT_USER_PRODUK_BRAND_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>UT_USER_PRODUK_BRAND_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:58 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D40C7E52-472E-01CE-5C4E-661665B16EC9"/>
+<colUsage columnID="E9CD6AAE-FD90-53F7-D3B5-2D8C8C27FE48"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableViewProxyOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TableViewProxyOraclev10g" name="FCS_AUDIT_PP_BIAYA" directorySegmentName="seg_0" id="9E6A0648-5171-E6DC-4DE6-3BB158682AAB">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:28 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<schemaObject>7CBB1AB6-5E3C-CEFF-688A-822A0E866097</schemaObject>
+</TableViewProxyOraclev10g>

@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_1" id="D927E6AA-B729-5F91-D6D7-E70B65343667" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="UT_USER_CUST">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>UT_USER_CUST</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:37 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="USER_NAME" id="54EF829A-4E50-9062-1671-6E8A3939C609">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>UT_USER_CUST</sourceObjSchema>
+<sourceObjName>USER_NAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUSTOMER_ID" id="A6A042AD-274D-EFEE-1E16-FACDDB8FB01E">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>UT_USER_CUST</sourceObjSchema>
+<sourceObjName>CUSTOMER_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>15</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,15,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUSTOMER_CODE" id="5FAD5AAB-A7A8-190C-64CA-C323366376C6">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>UT_USER_CUST</sourceObjSchema>
+<sourceObjName>CUSTOMER_CODE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+</Table>

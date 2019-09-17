@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4C4A7BA8-D319-D3F6-7FAD-4B810742EBA7" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="AUDIT_PROMO_BONUS_ITEM">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>AUDIT_PROMO_BONUS_ITEM</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:35 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PROMO_BONUS_ID" id="B7F75018-E0CA-6FBF-2027-BB6384AE6123">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS_ITEM</sourceObjSchema>
+<sourceObjName>PROMO_BONUS_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AUDIT_ID" id="198F2333-F8C5-DE44-2F14-49A21D9D6668">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS_ITEM</sourceObjSchema>
+<sourceObjName>AUDIT_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROD_ITEM" id="688EEF6C-467C-A8AC-9006-73BCDDA29507">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS_ITEM</sourceObjSchema>
+<sourceObjName>PROD_ITEM</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ITEM_DESC" id="31E48D35-4C44-3F48-6E3C-42958A89F711">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS_ITEM</sourceObjSchema>
+<sourceObjName>ITEM_DESC</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+</Table>

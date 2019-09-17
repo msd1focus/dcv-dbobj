@@ -1,0 +1,100 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_1" id="6D8FAE94-8861-95A3-9831-50DD9B7DD833" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="PROD_REGION_CUST_GROUP">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PROD_REGION_CUST_GROUP</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:36 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PROMO_PRODUK_ID" id="B515D4F2-3BF3-ABC9-A19B-4F76A9C74140">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROD_REGION_CUST_GROUP</sourceObjSchema>
+<sourceObjName>PROMO_PRODUK_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:48 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A54D9D51-8CFF-8E48-68BE-BE8477506F4C" referredColumn="A9CDBC24-84A0-79ED-BC01-41C4C6CF0944"/>
+</associations>
+</Column>
+<Column name="CUST_GROUP" id="D2F5A572-191F-8F94-DCDA-52B400551E1C">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROD_REGION_CUST_GROUP</sourceObjSchema>
+<sourceObjName>CUST_GROUP</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:48 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOTES" id="BFDCE2E7-5E6D-F5C4-8FA1-FD21F8CA4F09">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROD_REGION_CUST_GROUP</sourceObjSchema>
+<sourceObjName>NOTES</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:48 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500 BYTE</dataTypeSize>
+<ownDataTypeParameters>500 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="11C9B337-CDA3-D476-2DEA-12A40184036F" name="PROD_REGION_CUST_GROUP_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PROD_REGION_CUST_GROUP_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:13 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B515D4F2-3BF3-ABC9-A19B-4F76A9C74140"/>
+<colUsage columnID="D2F5A572-191F-8F94-DCDA-52B400551E1C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="848BCE5A-321F-5956-E62A-938AD010C72D" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="PROD_REGION_CUST_GROUP_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PROD_REGION_CUST_GROUP_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:40 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B515D4F2-3BF3-ABC9-A19B-4F76A9C74140"/>
+<colUsage columnID="D2F5A572-191F-8F94-DCDA-52B400551E1C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="77CF0E43-248F-A6FD-2AB0-CE5261FD04BB" name="PROD_REGION_CUST_GROUP_PR_FK1">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:23 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B515D4F2-3BF3-ABC9-A19B-4F76A9C74140"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

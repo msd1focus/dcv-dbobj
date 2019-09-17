@@ -1,0 +1,41 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="wf_rollback_approver" directorySegmentName="seg_0" id="4A9C0A04-3A3D-935B-E4ED-4C6FA4206B46">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="bagian" id="16E1E38A-07D5-C741-0A38-4550BE285FFC">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="approver_name" id="2F70C15F-D1E3-C0D7-351F-D61465DF6580">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="approver_id" id="46F0BFA1-4B9C-6095-DA06-A88F13F09795">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="id" id="C57E9386-F195-4354-5EE8-2AFF2892025C">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="wf_rollback_approver_PK" id="B1D038E0-DFF7-773E-E353-504C2C3B1AA9">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

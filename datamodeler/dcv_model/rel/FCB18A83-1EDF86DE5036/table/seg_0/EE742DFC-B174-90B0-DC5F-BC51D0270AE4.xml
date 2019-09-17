@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EE742DFC-B174-90B0-DC5F-BC51D0270AE4" name="LOOKUP_CODE">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-01 12:59:50 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<ordsAlias>table_14</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="C59D0314-D3AD-1C07-6256-A5FF4456FA09">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-01 13:00:43 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TITLE" id="D9BD14E1-703E-4FCD-AF6D-1CE7EAE68D8F">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-01 13:00:43 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60 CHAR</dataTypeSize>
+<ownDataTypeParameters>60 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VALUE" id="6A3C7D0B-81C0-FA53-D83B-1D5E8A786EE4">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-01 13:00:55 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60 CHAR</dataTypeSize>
+<ownDataTypeParameters>60 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCR" id="456070DF-6B31-DE2A-5762-6A543E6D0FA9">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-01 13:01:09 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120 CHAR</dataTypeSize>
+<ownDataTypeParameters>120 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="24DFAF07-A5C9-E833-ECEC-76541760946D" name="LOOKUP_CODE_PK">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-01 13:01:18 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C59D0314-D3AD-1C07-6256-A5FF4456FA09"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,162 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="APP_USER_CUST_INC" directorySegmentName="seg_1" id="FFAF1F2C-51ED-CAAD-9E87-FD9D97F6A3F1">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:35 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<schemaObject>7CBB1AB6-5E3C-CEFF-688A-822A0E866097</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>1787D469-091D-0FE1-D59A-088585D3ED61</segment>
+<tableSpace>0347D509-A3C7-2CBC-6C69-17C7E52E950A</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="CUST_NAME" id="115EBB45-8301-7A63-9627-59510EBE13C6">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LOCATION_CODE" id="20D06F22-3E75-FA4C-1968-A6770255081A">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TYPE_NAME" id="22C2C4CC-F8BD-A9A2-4394-AE52195E8EF5">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="USER_NAME" id="35E2089D-8F9E-5120-76E8-37139525F66D">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CALC_TIME" id="39D92134-747F-A527-C2CA-33C08D5DC5B7">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LOCATION_NAME" id="45711DD7-CDDB-9849-B5D8-C78072E2AE41">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REGION_NAME" id="4CC724BF-4CB0-592B-401C-133AC7BCD9F7">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="GROUP_FULLNAME" id="53C7F43C-6AC3-26D5-0102-843300E692C0">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REGION_FULLNAME" id="57217A50-A1BA-7F66-61C4-C9778F89B4F1">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CUST_CODE" id="6A79E72C-2C17-5CF0-8F5D-10F56B9D2966">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REGION_CODE" id="705A512B-581C-2250-79E2-6D113112C5A6">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="AREA_FULLNAME" id="ABACB2A1-B6EC-4F59-7800-3510DCF418AA">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="AREA_NAME" id="AC186D8F-3B7A-AC61-9200-90266A8691E5">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LOCATION_FULLNAME" id="ACB3650E-E2FC-BB67-C61A-4FE4060B3F5E">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="UPDATE_TIME" id="C3E510C8-F59C-30FC-D729-36F12663EF07">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="AREA_CODE" id="CDD9B1A8-E57A-33A5-04CB-4EE39E764AA9">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="GROUP_CODE" id="D505243B-503F-E23D-3299-6B762E1C8B40">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="GROUP_NAME" id="D9512C87-2E19-1440-75DE-1233B6D58114">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CUST_FULLNAME" id="DAF79653-FFCB-EF20-DD31-AF1487609583">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CUST_ID" id="DB653797-75B6-9FAF-0E78-20FF63FCB010">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TYPE_FULLNAME" id="ED671218-107E-2A8B-6BA4-70FF1D19BBDA">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID" id="FDC4D3B6-646A-60AE-5DB7-CE0ECC281245">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TYPE_CODE" id="FFCC1326-1D49-35AA-1C89-C21133D399DE">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="APP_USER_CUST_INC_PK" id="114ACE7D-4F12-CEE7-C562-483AB46810B5">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:07 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<schemaObject>7CBB1AB6-5E3C-CEFF-688A-822A0E866097</schemaObject>
+<segment>321D8EFE-1933-B3D2-C907-96E21E62493D</segment>
+<tableSpace>0347D509-A3C7-2CBC-6C69-17C7E52E950A</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="APP_USER_CUST_INC_APP_USE_FK1" id="A3E5144C-9526-1FE6-E2FB-A58FFC60B653">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:23 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="APP_USER_CUST_INC_PK" id="D28E4B74-6831-02EB-C60A-07FFF6239853">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:07 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<segment>321D8EFE-1933-B3D2-C907-96E21E62493D</segment>
+<tableSpace>0347D509-A3C7-2CBC-6C69-17C7E52E950A</tableSpace>
+<existingIndex>114ACE7D-4F12-CEE7-C562-483AB46810B5</existingIndex>
+<indexSegment>321D8EFE-1933-B3D2-C907-96E21E62493D</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

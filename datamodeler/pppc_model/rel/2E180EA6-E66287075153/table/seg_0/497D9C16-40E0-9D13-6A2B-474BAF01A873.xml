@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="497D9C16-40E0-9D13-6A2B-474BAF01A873" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="LOOKUP_CODE">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>LOOKUP_CODE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:36 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="LOOKUP_ID" id="C70B5016-3C68-14EA-CE30-285536FC5E34">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>LOOKUP_CODE</sourceObjSchema>
+<sourceObjName>LOOKUP_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:48 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TITLE" id="4AD7C9D5-F6E1-E9F5-8DE1-545AE4CF3FA0">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>LOOKUP_CODE</sourceObjSchema>
+<sourceObjName>TITLE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:48 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60 CHAR</dataTypeSize>
+<ownDataTypeParameters>60 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VALUE" id="1C88B46B-A845-08B9-FC81-1FBAE354907E">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>LOOKUP_CODE</sourceObjSchema>
+<sourceObjName>VALUE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:48 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60 CHAR</dataTypeSize>
+<ownDataTypeParameters>60 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCR" id="16F600C7-9BE6-F1EC-C746-090D2821DE70">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>LOOKUP_CODE</sourceObjSchema>
+<sourceObjName>DESCR</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:48 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120 CHAR</dataTypeSize>
+<ownDataTypeParameters>120 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="01A25067-4B14-481A-16A5-3D7F240F098F" name="LOOKUP_CODE_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>LOOKUP_CODE_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:12 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C70B5016-3C68-14EA-CE30-285536FC5E34"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5C1FD6DC-E4AC-622D-AA22-6077D58E376A" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="LOOKUP_CODE_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>LOOKUP_CODE_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:35 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C70B5016-3C68-14EA-CE30-285536FC5E34"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

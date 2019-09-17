@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="wf_rollback_flow" directorySegmentName="seg_0" id="0A858212-0DEA-8BFA-7AB3-0D79D883FD4B">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="modify_dt" id="25B3177D-90E8-6D08-FFB0-969C4A8A66FA">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="modify_by" id="27917497-16F1-6568-2188-343C5F7795EE">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="nourut" id="3093B2FE-775D-2164-41EC-89794AE0E4DE">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="rb_in" id="33C8E0CA-FD5D-C8C2-1354-EEFDCB06CFD8">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="id" id="5E14BB70-E364-B9A4-DB21-59666789635A">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="node_code" id="A97F8BB8-3CE3-EBA6-2487-B44720165C32">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="rb_request_id" id="A98B43AB-29BA-3FDF-F332-053724C3DFF6">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="flag_approval" id="DE0B4DF7-8D25-44BC-9479-084AB8AD441D">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="bagian" id="FF662EF3-1B3C-C3BA-EB81-87E593F4C9B3">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="wf_rollback_flow_FK" id="1F47DCE6-6BB1-F30A-A7A0-0B3B65A91486">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="wf_rollback_flow_PK" id="3C9D197C-F576-4A8B-FDC6-2CF7F4EBBB16">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

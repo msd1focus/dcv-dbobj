@@ -1,0 +1,228 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_1" id="FF65BBD8-54DB-629A-E821-2326DDD1C782" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="TARGET">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>TARGET</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:37 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="TARGET_ID" id="8FF2F872-2523-D1DC-0308-E01D39EEECFA">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>TARGET</sourceObjSchema>
+<sourceObjName>TARGET_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROMO_PRODUK_ID" id="A5F3C4BE-D49C-D0CE-9195-15926DF86A50">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>TARGET</sourceObjSchema>
+<sourceObjName>PROMO_PRODUK_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="GROWTH_BY" id="A5283F83-BB2A-FB3F-1F2C-65F3836EE276">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>TARGET</sourceObjSchema>
+<sourceObjName>GROWTH_BY</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="GROWTH_PERCENT" id="A1272C27-62E2-CBD0-F338-FE3FEFA26B8A">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>TARGET</sourceObjSchema>
+<sourceObjName>GROWTH_PERCENT</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRICE" id="DB45666E-6865-ACED-0F14-494B0B16ADA2">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>TARGET</sourceObjSchema>
+<sourceObjName>PRICE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="QTY" id="81BE3092-57DF-4BFC-14F9-134EBC3FD385">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>TARGET</sourceObjSchema>
+<sourceObjName>QTY</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UOM" id="372224C5-330F-0C63-54A0-C070FF83541B">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>TARGET</sourceObjSchema>
+<sourceObjName>UOM</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TARGET_VALUE" id="D1A82E02-BA42-71DF-C79B-10E632E48A66">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>TARGET</sourceObjSchema>
+<sourceObjName>TARGET_VALUE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRICE_BASED" id="7220E2F0-0880-6609-750E-7D65F97244B3">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>TARGET</sourceObjSchema>
+<sourceObjName>PRICE_BASED</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<defaultValue>&apos;MANUAL&apos;</defaultValue>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRICE_LIST" id="37167A00-56AC-AABE-07BD-AFFF2C1089DE">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>TARGET</sourceObjSchema>
+<sourceObjName>PRICE_LIST</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VALUE" id="CE1D7381-FA79-F0D0-571F-05F6B6632C23">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>TARGET</sourceObjSchema>
+<sourceObjName>VALUE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AVG_QTY" id="027C76DF-CB36-B653-DCDC-49F4659D5C24">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>TARGET</sourceObjSchema>
+<sourceObjName>AVG_QTY</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C7F4BC7A-7B72-CC7B-0609-F1A6B7E62AE5" name="TARGET_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>TARGET_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:17 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8FF2F872-2523-D1DC-0308-E01D39EEECFA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="548860CB-6686-2EB1-486A-997DFB521799" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="TARGET_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>TARGET_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:53 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8FF2F872-2523-D1DC-0308-E01D39EEECFA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

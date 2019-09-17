@@ -1,0 +1,65 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="TEST_HEADER" directorySegmentName="seg_0" id="623D9D3B-79DF-B9E6-C89C-DAF4E280318D">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:37 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<schemaObject>7CBB1AB6-5E3C-CEFF-688A-822A0E866097</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>BF0D484B-E49A-8489-BF37-B5157328BC42</segment>
+<tableSpace>0347D509-A3C7-2CBC-6C69-17C7E52E950A</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="HV3" id="1070EEEC-7BE5-F4EF-43AA-2A8FBC42F5FC">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="HV4" id="3B211D65-8AE4-7C4E-993F-691D05AD7426">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="HID" id="7DB57445-431C-5D5B-6B71-CC6AE1978F6E">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="HV2" id="BF93707F-F0C7-6796-1E72-A72EA3C553E6">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="HV1" id="D20904A5-1D06-A4B0-F425-61D4E95CF688">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="TEST_HEADER_PK" id="E340256B-BC92-ACFB-8B7C-E59A414F9C22">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:54 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<schemaObject>7CBB1AB6-5E3C-CEFF-688A-822A0E866097</schemaObject>
+<segment>0D140CA2-AE9A-30DD-EEB7-BD1F73F8D06E</segment>
+<tableSpace>0347D509-A3C7-2CBC-6C69-17C7E52E950A</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="TEST_HEADER_PK" id="BAB12026-3029-6FF0-75EA-B4DBE74D4AAC">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:17 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<segment>0D140CA2-AE9A-30DD-EEB7-BD1F73F8D06E</segment>
+<tableSpace>0347D509-A3C7-2CBC-6C69-17C7E52E950A</tableSpace>
+<existingIndex>E340256B-BC92-ACFB-8B7C-E59A414F9C22</existingIndex>
+<indexSegment>0D140CA2-AE9A-30DD-EEB7-BD1F73F8D06E</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

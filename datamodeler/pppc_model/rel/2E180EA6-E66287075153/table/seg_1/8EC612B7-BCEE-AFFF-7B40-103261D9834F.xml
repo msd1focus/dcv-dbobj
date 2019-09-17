@@ -1,0 +1,139 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_1" id="8EC612B7-BCEE-AFFF-7B40-103261D9834F" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="SALES_REGION">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>SALES_REGION</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:37 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SALES_REGION_ID" id="C6C2E517-A196-D25A-54BF-8BAC02F51DD2">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>SALES_REGION</sourceObjSchema>
+<sourceObjName>SALES_REGION_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="REGION_CODE" id="E3E1C1DD-C7CE-920E-6BFC-4F89F2E8FDFE">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>SALES_REGION</sourceObjSchema>
+<sourceObjName>REGION_CODE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="REGION_LABEL" id="A98E35C4-5799-2D9F-B183-38DB4C009590">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>SALES_REGION</sourceObjSchema>
+<sourceObjName>REGION_LABEL</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCR" id="8789F174-8530-F1EB-B6B8-593FA33528B0">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>SALES_REGION</sourceObjSchema>
+<sourceObjName>DESCR</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60 BYTE</dataTypeSize>
+<ownDataTypeParameters>60 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STATUS" id="D99374B4-4E25-A925-9F66-6F4A7765AFD2">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>SALES_REGION</sourceObjSchema>
+<sourceObjName>STATUS</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A3904306-E379-C260-5CA7-F102560BC3AB" name="SALES_REGION_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>SALES_REGION_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:16 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C6C2E517-A196-D25A-54BF-8BAC02F51DD2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="80890A3F-02D2-C6D4-A178-4F98022441B6" name="SALES_REGION_UK1">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>SALES_REGION_UK1</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:16 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E3E1C1DD-C7CE-920E-6BFC-4F89F2E8FDFE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6A0BEE46-5016-FD3B-3487-2927D1890D37" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="SALES_REGION_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>SALES_REGION_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:53 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C6C2E517-A196-D25A-54BF-8BAC02F51DD2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DB1E41F5-7E40-A717-8905-AE193A31E382" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="SALES_REGION_UK1">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>SALES_REGION_UK1</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:53 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E3E1C1DD-C7CE-920E-6BFC-4F89F2E8FDFE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<RoleOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.RoleOraclev10g" name="APPS" directorySegmentName="seg_0" id="B6D46DA3-1A43-EBCA-9FCA-38F98B0FFCE2">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjName>APPS</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:43 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<permissions>
+<Permission class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PermissionsOraclev10g" name="Permissions1" id="3233D8C7-6FFF-11AA-2E79-5A767CFA5CE4">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:43 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<privileges>SELECT</privileges>
+<table>50B2C853-875B-CE20-8DF5-691B165FE19E</table>
+</Permission>
+</permissions>
+</RoleOraclev10g>

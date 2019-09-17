@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableViewProxyOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TableViewProxyOraclev10g" name="FCS_EXCL_SHUTTLE_LOCATION" directorySegmentName="seg_0" id="54BA191D-63BD-F33C-A6B8-DBF6535FFB34">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<schemaObject>7CBB1AB6-5E3C-CEFF-688A-822A0E866097</schemaObject>
+</TableViewProxyOraclev10g>

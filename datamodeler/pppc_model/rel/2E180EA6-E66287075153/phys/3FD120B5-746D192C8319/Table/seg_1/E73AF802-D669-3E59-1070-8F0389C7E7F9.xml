@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="EXCL_PROP_CUST_TYPE" directorySegmentName="seg_1" id="E73AF802-D669-3E59-1070-8F0389C7E7F9">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:36 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<schemaObject>7CBB1AB6-5E3C-CEFF-688A-822A0E866097</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>C1B0CDE2-8A19-9E8E-DD2C-CC3D226E1357</segment>
+<tableSpace>0347D509-A3C7-2CBC-6C69-17C7E52E950A</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="CUST_TYPE" id="0B1B710E-4CBF-0796-8098-0D339E8432F5">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:48 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PROMO_PRODUK_ID" id="88370FA0-01BD-1433-8267-D6A572C45F7A">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:47 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NOTES" id="99999251-78E8-068E-A335-B06489996054">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:48 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="EXCL_PROP_CUST_TYPE_PK" id="39255618-1CDF-1A71-5278-9860517B580A">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:34 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<schemaObject>7CBB1AB6-5E3C-CEFF-688A-822A0E866097</schemaObject>
+<segment>38056733-DA46-2798-E4D6-F4D8D78EE7E9</segment>
+<tableSpace>0347D509-A3C7-2CBC-6C69-17C7E52E950A</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="EXCL_PROP_CUST_TYPE_PROMO_FK1" id="9C7EDB33-6F66-7985-1CE5-400BCE012669">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:23 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="EXCL_PROP_CUST_TYPE_PK" id="39C23A9B-590F-FC03-F634-14AD8F755C23">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:12 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<segment>38056733-DA46-2798-E4D6-F4D8D78EE7E9</segment>
+<tableSpace>0347D509-A3C7-2CBC-6C69-17C7E52E950A</tableSpace>
+<existingIndex>39255618-1CDF-1A71-5278-9860517B580A</existingIndex>
+<indexSegment>38056733-DA46-2798-E4D6-F4D8D78EE7E9</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="UT_USER_ACCESS" directorySegmentName="seg_1" id="DF79EF43-0390-1068-DD65-33F86D7B41CC">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:37 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<schemaObject>7CBB1AB6-5E3C-CEFF-688A-822A0E866097</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>BF0D484B-E49A-8489-BF37-B5157328BC42</segment>
+<tableSpace>0347D509-A3C7-2CBC-6C69-17C7E52E950A</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="DESCR" id="0B269883-0787-725E-E42E-E2F5E51B1F9A">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PASSWORD" id="0EC98EB2-BA9D-33AE-8509-D30EB3000581">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="USER_NAME" id="170C1395-6489-F50A-67A5-E3E9E404B8A1">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="UT_USER_ACCESS_ID" id="18324371-AE5B-F75D-2F1A-137763D3B088">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ACTIVE_PERIOD_TO" id="25986F09-F546-1FE8-2812-4FF53DE93B22">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="USER_TYPE" id="2BCCC770-5194-79D3-A48D-2F073DDFE9F8">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FULL_NAME" id="2FBB36E4-8FAB-B2A1-E806-4D2966FBD628">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ACTIVE_PERIOD_FROM" id="377DD42E-5747-A763-D15C-1F4257B75A79">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="COMPANY_ID" id="3795F156-5A5B-119B-6E18-276195B684A3">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="USER_DIVISION" id="3EDC8554-7164-D768-6932-97D381C3E4FD">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TITLE" id="52CC9FAA-4D66-E788-FA2C-B023AD93B9D1">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DIRECT_SPV" id="7391BAE8-99E3-11F0-CA7A-9A1BF78A5505">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CONTACT_NO" id="87527F3F-396E-EFA8-98E1-278F1C1FD100">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="USER_INITIAL" id="8CA77F2E-67D3-620F-42C5-D51C90FCCD4A">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CUST_AUTH_FLAG" id="E78EABC7-0E9B-8A98-065A-29202BE301F3">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+</TableProxyOraclev12c>

@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SchemaObject class="oracle.dbtools.crest.model.design.relational.SchemaObject" name="DCV" directorySegmentName="seg_0" id="E8996374-8A35-64DF-72F1-6129B860CE41">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:40:40 UTC</createdTime>
+<ownerDesignName>entity1</ownerDesignName>
+<ordsAlias>schema_1</ordsAlias>
+</SchemaObject>

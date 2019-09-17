@@ -1,0 +1,31 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<StructuredType class="oracle.dbtools.crest.model.design.datatypes.StructuredType" name="periode" directorySegmentName="seg_0" id="8DD4F776-1DD4-AD1A-A6E0-9657689488FE">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:32:16 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<predefined>false</predefined>
+<final>false</final>
+<instantiable>true</instantiable>
+<attributes itemClass="oracle.dbtools.crest.model.design.datatypes.TypeElement">
+<Attribute name="period_from" id="5B11DC2D-BC78-E8B3-C1B4-067F5ED75C76">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:32:26 UTC</createdTime>
+<ownerDesignName>entity1</ownerDesignName>
+<mandatory>false</mandatory>
+<precision>0</precision>
+<reference>false</reference>
+<scale>0</scale>
+<type>LOGDT007</type>
+</Attribute>
+<Attribute name="period_to" id="B3EDABAC-896E-6287-30E1-2E795720A0E2">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:32:38 UTC</createdTime>
+<ownerDesignName>entity1</ownerDesignName>
+<mandatory>false</mandatory>
+<precision>0</precision>
+<reference>false</reference>
+<scale>0</scale>
+<type>LOGDT007</type>
+</Attribute>
+</attributes>
+</StructuredType>

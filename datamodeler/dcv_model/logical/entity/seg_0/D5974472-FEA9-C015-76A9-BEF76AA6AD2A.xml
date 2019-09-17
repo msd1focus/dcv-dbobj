@@ -1,0 +1,108 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D5974472-FEA9-C015-76A9-BEF76AA6AD2A" name="File Pendukung">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 14:25:18 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="B8A324C6-6898-2C89-FCD0-1140DA1CF77F">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 14:28:14 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="file_name" id="073688B8-FAEA-B337-E710-3C6E863D85E7">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 14:28:21 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="doc_type" id="0991D84D-2164-10F1-514A-B25E1509A0CB">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 14:28:30 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="file_loc" id="354029BC-3850-CF0C-7CE9-F9D7AF777B93">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 14:31:48 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500 CHAR</dataTypeSize>
+<ownDataTypeParameters>500 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="upload_time" id="04C36EE3-90D7-FEF1-20C7-C63725E6BBBF">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 14:28:45 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="req_id" id="84A1E8F2-4DCF-D68C-9B19-FEF45C4EDB1D">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:27:52 UTC</createdTime>
+<generatorID>D4B5C5F3-0B2E-DC56-3770-C9C40C9BCE53</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<referedAttribute>5D41D61F-C350-EC93-D935-94994AD56CAF</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<structuredType>47E390DE-0671-C4B1-8428-0F45CBEE18F8</structuredType>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="320D5F2B-9E4A-CD15-4634-4AC4D57586F4" name="File Pendukung PK">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 14:28:18 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<pk>true</pk>
+</identifier>
+</identifiers>
+</Entity>

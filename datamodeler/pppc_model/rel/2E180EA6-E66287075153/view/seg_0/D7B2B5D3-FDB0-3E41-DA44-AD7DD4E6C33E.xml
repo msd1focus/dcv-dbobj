@@ -1,0 +1,158 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="D7B2B5D3-FDB0-3E41-DA44-AD7DD4E6C33E" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="FCS_USER_CUST_PRIV">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_USER_CUST_PRIV</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:30 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL>CREATE OR REPLACE VIEW FCS_USER_CUST_PRIV&lt;br/&gt;AS &lt;br/&gt;SELECT CASE&lt;br/&gt;             WHEN    region = &apos;Y&apos;&lt;br/&gt;                  OR area = &apos;Y&apos;&lt;br/&gt;                  OR loc = &apos;Y&apos;&lt;br/&gt;                  OR custtype = &apos;Y&apos;&lt;br/&gt;                  OR custgroup = &apos;Y&apos;&lt;br/&gt;                  OR cust = &apos;Y&apos;&lt;br/&gt;             THEN&lt;br/&gt;                &apos;VALID&apos;&lt;br/&gt;             ELSE&lt;br/&gt;--                &apos;INVALID&apos;&lt;br/&gt;            &apos;VALID&apos;&lt;br/&gt;          END&lt;br/&gt;             AS user_customer,&lt;br/&gt;             region&lt;br/&gt;          || &apos;;&apos;&lt;br/&gt;          || area&lt;br/&gt;          || &apos;;&apos;&lt;br/&gt;          || loc&lt;br/&gt;          || &apos;;&apos;&lt;br/&gt;          || custtype&lt;br/&gt;          || &apos;;&apos;&lt;br/&gt;          || custgroup&lt;br/&gt;          || &apos;;&apos;&lt;br/&gt;          || cust&lt;br/&gt;             AS user_cust_priv,&lt;br/&gt;          user_name&lt;br/&gt;     FROM (  &lt;br/&gt;--     SELECT CASE WHEN SUM (uregion) &gt; 0 THEN &apos;Y&apos; ELSE &apos;Y&apos; END AS region,&lt;br/&gt;--                    CASE WHEN SUM (uarea) &gt; 0 THEN &apos;Y&apos; ELSE &apos;Y&apos; END AS area,&lt;br/&gt;--                    CASE WHEN SUM (uloc) &gt; 0 THEN &apos;Y&apos; ELSE &apos;Y&apos; END AS loc,&lt;br/&gt;--                    CASE WHEN SUM (ucusttype) &gt; 0 THEN &apos;Y&apos; ELSE &apos;Y&apos; END&lt;br/&gt;--                       AS custtype,&lt;br/&gt;--                    CASE WHEN SUM (ucustgroup) &gt; 0 THEN &apos;Y&apos; ELSE &apos;Y&apos; END&lt;br/&gt;--                       AS custgroup,&lt;br/&gt;--                    CASE WHEN SUM (ucust) &gt; 0 THEN &apos;Y&apos; ELSE &apos;Y&apos; END AS cust,&lt;br/&gt;     SELECT CASE WHEN SUM (uregion) &gt; 0 THEN &apos;Y&apos; ELSE &apos;N&apos; END AS region,&lt;br/&gt;                    CASE WHEN SUM (uarea) &gt; 0 THEN &apos;Y&apos; ELSE &apos;N&apos; END AS area,&lt;br/&gt;                    CASE WHEN SUM (uloc) &gt; 0 THEN &apos;Y&apos; ELSE &apos;N&apos; END AS loc,&lt;br/&gt;                    CASE WHEN SUM (ucusttype) &gt; 0 THEN &apos;Y&apos; ELSE &apos;N&apos; END&lt;br/&gt;                       AS custtype,&lt;br/&gt;                    CASE WHEN SUM (ucustgroup) &gt; 0 THEN &apos;Y&apos; ELSE &apos;N&apos; END&lt;br/&gt;                       AS custgroup,&lt;br/&gt;                    CASE WHEN SUM (ucust) &gt; 0 THEN &apos;Y&apos; ELSE &apos;N&apos; END AS cust,&lt;br/&gt;                    user_name&lt;br/&gt;               FROM (  SELECT COUNT (uc.region_code) AS uregion,&lt;br/&gt;                              0 AS uarea,&lt;br/&gt;                              0 AS uloc,&lt;br/&gt;                              0 AS ucusttype,&lt;br/&gt;                              0 AS ucustgroup,&lt;br/&gt;                              0 AS ucust,&lt;br/&gt;                              ua.user_name&lt;br/&gt;                         FROM app_user_region uc, app_user_access ua&lt;br/&gt;                        WHERE uc.user_name(+) = ua.user_name&lt;br/&gt;                     GROUP BY ua.user_name&lt;br/&gt;                     UNION&lt;br/&gt;                       SELECT 0 AS uregion,&lt;br/&gt;                              COUNT (uc.area_code) AS uarea,&lt;br/&gt;                              0 AS uloc,&lt;br/&gt;                              0 AS ucusttype,&lt;br/&gt;                              0 AS ucustgroup,&lt;br/&gt;                              0 AS ucust,&lt;br/&gt;                              ua.user_name&lt;br/&gt;                         FROM app_user_area uc, app_user_access ua&lt;br/&gt;                        WHERE uc.user_name(+) = ua.user_name&lt;br/&gt;                     GROUP BY ua.user_name&lt;br/&gt;                     UNION&lt;br/&gt;                       SELECT 0 AS uregion,&lt;br/&gt;                              0 AS uarea,&lt;br/&gt;                              COUNT (uc.location_code) AS uloc,&lt;br/&gt;                              0 AS ucusttype,&lt;br/&gt;                              0 AS ucustgroup,&lt;br/&gt;                              0 AS ucust,&lt;br/&gt;                              ua.user_name&lt;br/&gt;                         FROM app_user_loc uc, app_user_access ua&lt;br/&gt;                        WHERE uc.user_name(+) = ua.user_name&lt;br/&gt;                     GROUP BY ua.user_name&lt;br/&gt;                     UNION&lt;br/&gt;                       SELECT 0 AS uregion,&lt;br/&gt;                              0 AS uarea,&lt;br/&gt;                              0 AS uloc,&lt;br/&gt;                              COUNT (uc.cust_type) AS ucusttype,&lt;br/&gt;                              0 AS ucustgroup,&lt;br/&gt;                              0 AS ucust,&lt;br/&gt;                              ua.user_name&lt;br/&gt;                         FROM app_user_cust_type uc, app_user_access ua&lt;br/&gt;                        WHERE uc.user_name(+) = ua.user_name&lt;br/&gt;                     GROUP BY ua.user_name&lt;br/&gt;                     UNION&lt;br/&gt;                       SELECT 0 AS uregion,&lt;br/&gt;                              0 AS uarea,&lt;br/&gt;                              0 AS uloc,&lt;br/&gt;                              0 AS ucusttype,&lt;br/&gt;                              COUNT (uc.cust_group) AS ucustgroup,&lt;br/&gt;                              0 AS ucust,&lt;br/&gt;                              ua.user_name&lt;br/&gt;                         FROM app_user_cust_group uc, app_user_access ua&lt;br/&gt;                        WHERE uc.user_name(+) = ua.user_name&lt;br/&gt;                     GROUP BY ua.user_name&lt;br/&gt;                     UNION&lt;br/&gt;                       SELECT 0 AS uregion,&lt;br/&gt;                              0 AS uarea,&lt;br/&gt;                              0 AS uloc,&lt;br/&gt;                              0 AS ucusttype,&lt;br/&gt;                              0 AS ucustgroup,&lt;br/&gt;                              COUNT (uc.customer_id) AS ucust,&lt;br/&gt;                              ua.user_name&lt;br/&gt;                         FROM app_user_cust uc, app_user_access ua&lt;br/&gt;                        WHERE uc.user_name(+) = ua.user_name&lt;br/&gt;                     GROUP BY ua.user_name)&lt;br/&gt;           GROUP BY user_name)</userDefinedSQL>
+<parsed>true</parsed>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="USER_CUSTOMER" id="023586E1-469C-561A-3C6E-B89E0C61C34A">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_USER_CUST_PRIV</sourceObjSchema>
+<sourceObjName>USER_CUSTOMER</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:30 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>USER_CUSTOMER</alias>
+<dataType>CHAR (5 BYTE)</dataType>
+<headerAlias>USER_CUSTOMER</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="USER_CUST_PRIV" id="9C9629C2-0676-B69C-9ED2-D3B06494868C">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_USER_CUST_PRIV</sourceObjSchema>
+<sourceObjName>USER_CUST_PRIV</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:30 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>USER_CUST_PRIV</alias>
+<dataType>CHAR (11 BYTE)</dataType>
+<headerAlias>USER_CUST_PRIV</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="USER_NAME" id="104B90EA-5BA9-B39C-DB31-8BEA5610E8E8">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_USER_CUST_PRIV</sourceObjSchema>
+<sourceObjName>USER_NAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:30 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>USER_NAME</alias>
+<dataType>VARCHAR2 (30 BYTE)</dataType>
+<headerAlias>USER_NAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+</viewElements>
+<usedObjects>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="99A77F2B-A392-ED55-E1C2-3A1848DA6A61">
+<columnName>REGION_CODE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_REGION</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="3DF8FA23-FC41-75FE-C30D-E10B2CDAF324">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_REGION</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="6159C593-3DC4-C13A-031A-DC1C1AD9004D">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_ACCESS</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="9BDEA0E5-6EFA-C3D7-5ACC-A97B00F1D6CD">
+<columnName>USER_NAME</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_REGION</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="0D822FA2-D92A-72DE-E3E4-478D0C4A26D6">
+<columnName>AREA_CODE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_AREA</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="F4C0A838-34BE-BED1-7EEB-C704AE054FF3">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_AREA</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="3D079B9F-A97A-44DC-B566-D3EFA0563211">
+<columnName>USER_NAME</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_AREA</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="B97B1CCB-4BF0-489A-F284-33A7C7EE972C">
+<columnName>LOCATION_CODE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_LOC</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="9A969E5B-69E9-A3D2-F041-42DF1336394D">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_LOC</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="96529A3C-D1F9-886F-2EC0-9F281D54E118">
+<columnName>USER_NAME</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_LOC</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="E4B2592B-C74D-5B56-9D85-F040B64D4DFD">
+<columnName>CUST_TYPE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_CUST_TYPE</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="84E679AF-C997-A980-4E32-5BEC28AFA5C8">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_CUST_TYPE</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="04FDF1DD-6F04-D10F-F416-46CC825A0171">
+<columnName>USER_NAME</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_CUST_TYPE</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="B4F69666-6576-93E8-602A-B31515E7DAB6">
+<columnName>USER_NAME</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_ACCESS</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="88CE891E-E9C6-DC66-38DC-93288007073A">
+<columnName>CUST_GROUP</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_CUST_GROUP</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="03D1FB87-228E-9D4A-2CED-039CEC2A13D3">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_CUST_GROUP</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="4B7BAAA1-0661-7939-210F-D55990F127B0">
+<columnName>USER_NAME</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_CUST_GROUP</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="601B141E-7A72-2068-49EB-E563F274F675">
+<columnName>CUSTOMER_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_CUST</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="CAF455B6-5ED1-E43F-205E-0C1ADAC4F051">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_CUST</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="07BB1F8D-95A7-A78B-9E7D-BD8535D0764A">
+<columnName>USER_NAME</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_CUST</tableName>
+</UsedObject>
+</usedObjects>
+</TableView>

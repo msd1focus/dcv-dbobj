@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="WF_Route" directorySegmentName="seg_0" id="0F6A785F-8DB7-BDE7-E430-E6FFE03A01E8">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="description" id="0843ABE7-6549-29D9-4045-CC495EC06FCC">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="return_task" id="40F994AF-A2FA-5E6D-CF1B-33F9950791EC">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="pilihan" id="553C17A2-01AF-1701-A37D-5BBC48D91BC8">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="id" id="95611BA5-A785-DE5F-5DC0-AF48FF21FE30">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="refnode" id="D22AB96B-1E18-0DD7-613C-2F00B0B53043">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="node_id" id="D2A64971-1F37-A6EB-D7A6-07514BD79B26">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="WF_Node_option_WF_Node_FK" id="0DCE9A0A-F6C6-B9DE-AC08-5FD8AE73249A">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 13:08:50 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="WF_Node_option_WF_Node_FKv1" id="1C7E7793-00AA-17D4-8A6D-C30B447E6798">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 13:09:18 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="wf_route_PK" id="131C0B79-86E7-ABD5-6DBC-275F74AC92FA">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

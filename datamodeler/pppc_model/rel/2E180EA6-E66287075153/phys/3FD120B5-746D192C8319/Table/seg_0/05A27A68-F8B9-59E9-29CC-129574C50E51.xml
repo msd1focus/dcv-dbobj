@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="AUDIT_DISCOUNT" directorySegmentName="seg_0" id="05A27A68-F8B9-59E9-29CC-129574C50E51">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:35 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<schemaObject>7CBB1AB6-5E3C-CEFF-688A-822A0E866097</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>859AD641-27E6-B564-2742-7FA1AF7A0AEB</segment>
+<tableSpace>0347D509-A3C7-2CBC-6C69-17C7E52E950A</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="TIPE_POTONGAN" id="26F94DAD-7CF8-81D6-58DF-AF701CB6F973">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="QTY_FROM" id="3C538ED5-9961-93A2-374C-BC47269ED21D">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TIPE_PERHITUNGAN" id="4AC4932F-065D-BD43-FA59-55CA9B4E07BB">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DISCOUNT_ID" id="4D1A3C26-C387-87A6-F58E-70D4F7F91C31">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DISC_YEARLY" id="65D935F0-99B3-7C1A-2011-DB52227925A1">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="KELIPATAN" id="7150F8B6-4E98-1E03-E94C-89FAB1DCAA72">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="AUDIT_ID" id="7A48830C-C1DB-FA9C-A977-6AB657B79A9B">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PROMO_PRODUK_ID" id="BF2FEFD4-AC91-F308-8A4A-F37557CC8BAC">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="UOM" id="C9AF3069-9604-C221-327A-C7821964CDEE">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DISC_NON_YEARLY" id="CDA56F78-FDDF-5471-3F5C-F82E6790588D">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="QTY_TO" id="E544D433-5874-11CA-72AD-82D6730D2517">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:45 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+</TableProxyOraclev12c>

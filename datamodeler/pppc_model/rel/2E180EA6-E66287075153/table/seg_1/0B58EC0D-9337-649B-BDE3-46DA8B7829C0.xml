@@ -1,0 +1,832 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_1" id="0B58EC0D-9337-649B-BDE3-46DA8B7829C0" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="PROPOSAL">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PROPOSAL</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:37 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PROPOSAL_ID" id="DB25135F-F873-16D0-D9E6-435357EAC187">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>PROPOSAL_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="COMPANY_ID" id="D22B79E6-9B84-4485-8FA8-7387E8FFC74C">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>COMPANY_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROPOSAL_NO" id="138952DB-AD0D-3753-C31B-B6EF6521B456">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>PROPOSAL_NO</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROPOSAL_DATE" id="DEC83E28-7A78-98F8-A855-7AC354B6C3C8">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>PROPOSAL_DATE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PERIODE_PROG_FROM" id="469A2201-C45E-9318-50F5-898170367402">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>PERIODE_PROG_FROM</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PERIODE_PROG_TO" id="D965FF5D-74ED-C1D3-93AF-F9CDB668E598">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>PERIODE_PROG_TO</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROG_DAYS" id="9CBD9913-A52E-8B31-CD69-A106A74DD33D">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>PROG_DAYS</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROG_PROMO" id="115B218E-1ECD-7BE9-8A58-3FA1E91AE2B8">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>PROG_PROMO</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROPOSAL_TYPE" id="3B90BE0C-49C1-120F-E21F-FD9D19057FEC">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>PROPOSAL_TYPE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DISCOUNT_TYPE" id="1085103A-C9E3-C4EB-E1A7-3C5A1470A1FA">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>DISCOUNT_TYPE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STD_STM" id="71AF631C-9C56-02C0-3AB3-FC3CB7ACCDDD">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>STD_STM</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEKANISME_PENAGIHAN" id="AE17E298-28C0-E615-891A-6D3D27E319D4">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>MEKANISME_PENAGIHAN</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STATUS" id="7056442E-51CE-E5FC-D5F5-13E4EC370DEF">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>STATUS</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PEMOHON" id="80013C6D-9126-864F-AADE-EA75CEF2A3AA">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>PEMOHON</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CONTACT" id="D0AFADB1-4BF9-2BEF-111B-0F38ACDAEC55">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>CONTACT</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CURRENCY" id="A77B58B7-463C-8A8D-CA1E-4F933C611EB7">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>CURRENCY</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="KOMPENSASI_DIPEROLEH" id="A86D95DE-2013-CAEE-786B-11F01BCA802E">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>KOMPENSASI_DIPEROLEH</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000 CHAR</dataTypeSize>
+<ownDataTypeParameters>2000 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CONFIRM_NO" id="2E10BAF1-2B34-6042-B1BF-52F0E0241B1E">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>CONFIRM_NO</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PC_TYPE" id="A7213B15-8FB5-0AA5-3EAE-8D26A01844FB">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>PC_TYPE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ADDENDUM_KE" id="45030D54-B51F-9244-28DF-3C3577133C13">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>ADDENDUM_KE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CREATED_BY" id="6606A7EE-916D-35EA-D0A2-0715431CEB2F">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>CREATED_BY</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CREATION_DATE" id="9468213E-AFE8-6D85-DDF7-D22FBE19E2DE">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>CREATION_DATE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LAST_UPDATED_BY" id="64088845-CB0F-C2D2-FFC2-322DCBE34BDE">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>LAST_UPDATED_BY</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LAST_UPDATE_DATE" id="A4503420-3AEC-1205-AA77-EFC1A30685D0">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>LAST_UPDATE_DATE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUST_REG_FLAG" id="602F6478-10E6-A318-9DD7-68A0E5DA3B5D">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>CUST_REG_FLAG</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<commentInRDBMS>Target proposal untuk region, customer, area dan location</commentInRDBMS>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<defaultValue>NULL</defaultValue>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOTES" id="87B860E2-07BC-FE23-A6A9-FE873FDE647D">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>NOTES</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000 CHAR</dataTypeSize>
+<ownDataTypeParameters>2000 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USER_TYPE_CREATOR" id="0C107318-B45F-FA79-B3A1-077D45D1159C">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>USER_TYPE_CREATOR</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<defaultValue>&apos;AREA&apos;</defaultValue>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CONFIRM_DATE" id="DC4CA0E9-7FCA-BC2D-16A3-D6CFC6022FB5">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>CONFIRM_DATE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PR_CREATED" id="063826A4-52A5-3DAB-9EC4-36F89B84A12B">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>PR_CREATED</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="COPY_SOURCE" id="7FE3A356-1911-D5F3-514F-D23561F7A488">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>COPY_SOURCE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MODIFIER_TYPE" id="20AE1529-29F9-7C01-4BA4-680231000403">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>MODIFIER_TYPE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<defaultValue>NULL</defaultValue>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BJP_FLAG" id="B2CB5780-35A6-0737-10C9-C3C762628694">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>BJP_FLAG</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<defaultValue>&apos;N&apos;</defaultValue>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ARCHIEVE_FLAG" id="85E293DD-8EBA-4AE3-090E-AA8C56C171C8">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>ARCHIEVE_FLAG</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<defaultValue>&apos;N&apos;</defaultValue>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PR_REQUEST_ID" id="F0FE9D59-034E-5231-1285-210E0ABE4901">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>PR_REQUEST_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MOD_REQUEST_ID" id="281A88D5-C4CD-53D5-E5B0-4704D896CDC4">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>MOD_REQUEST_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HIST_TRAN_DT_FROM" id="BF116429-7029-542E-8477-2B7D37809E73">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>HIST_TRAN_DT_FROM</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HIST_TRAN_DT_TO" id="67608082-82CB-CE3F-A58D-BF014C0DE44A">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>HIST_TRAN_DT_TO</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HIST_REMARK" id="80DC3813-CC2B-1818-F1E0-F026976CDF51">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>HIST_REMARK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000 CHAR</dataTypeSize>
+<ownDataTypeParameters>2000 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CATEGORY_PC" id="43D61E46-E152-6A86-25F8-CFF682B73E8E">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>CATEGORY_PC</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 BYTE</dataTypeSize>
+<ownDataTypeParameters>5 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUST_REG_FLAG_LOV" id="3E93A55F-E897-1EA9-E4C9-4E1542BE9399">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>CUST_REG_FLAG_LOV</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MIX_QTY_PROMO" id="A01E14B8-ECD7-907B-5EF9-9AFD8FB21B21">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>MIX_QTY_PROMO</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<defaultValue>&apos;N&apos;</defaultValue>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="REPORT_RUN_NUMBER" id="81B84DD9-8A0D-45AC-1AC0-8AF2F9366F87">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>REPORT_RUN_NUMBER</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>14 CHAR</dataTypeSize>
+<defaultValue>&apos;00000000000000&apos;</defaultValue>
+<ownDataTypeParameters>14 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EBS_PR_STATUS" id="2C8E4C29-117F-21CD-8CA3-AFC4811C8D83">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>EBS_PR_STATUS</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EBS_MODIFIER_STATUS" id="F0AFABF3-4CA8-998B-3C23-1BA08B02831D">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>EBS_MODIFIER_STATUS</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PP_PROG_FROM_ORI" id="04FD3D71-E3EE-D4CD-DD65-0E2D58D54916">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>PP_PROG_FROM_ORI</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PP_PROG_TO_ORI" id="58929EBE-BCF2-0504-D9C7-F682A25E74D1">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>PP_PROG_TO_ORI</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PPN_FLAG" id="C7D25BC4-A1D0-5AFE-B83E-FDA13EA1A96B">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>PPN_FLAG</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<defaultValue>&apos;INCLUDE&apos;</defaultValue>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EBS_DCV_STATUS" id="126A9DBF-03F2-4515-5AE7-41B9FAE0AD53">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>EBS_DCV_STATUS</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="GROUP_PP_COMPANY" id="5A768FC7-FFBB-8770-35BE-8133CE581EE2">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>GROUP_PP_COMPANY</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>3 BYTE</dataTypeSize>
+<defaultValue>null</defaultValue>
+<ownDataTypeParameters>3 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="GROUP_PP_PROPOSAL_NO" id="674E760A-F317-2859-82D4-0906A1B67A4F">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROPOSAL</sourceObjSchema>
+<sourceObjName>GROUP_PP_PROPOSAL_NO</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>11 BYTE</dataTypeSize>
+<defaultValue>null</defaultValue>
+<ownDataTypeParameters>11 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CC455003-C385-6CA6-842C-A31C9D47A9A6" name="PROPOSAL_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PROPOSAL_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:14 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DB25135F-F873-16D0-D9E6-435357EAC187"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1BD28621-C0B8-2493-E371-5CE01F9775D7" name="PROPOSAL_UK1">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PROPOSAL_UK1</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:14 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="138952DB-AD0D-3753-C31B-B6EF6521B456"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B400252A-0493-195B-A4C9-B6FB842AC1DE" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="CONFIRM_NO_IDX">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>CONFIRM_NO_IDX</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:47 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2E10BAF1-2B34-6042-B1BF-52F0E0241B1E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4D9AEFA5-D244-A56B-146D-F12EB5CDC412" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="PROPOSAL_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PROPOSAL_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:47 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DB25135F-F873-16D0-D9E6-435357EAC187"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9A8216A1-01FE-C8FA-FF2E-D465AFEB2D4F" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="PROPOSAL_UK1">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PROPOSAL_UK1</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:47 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="138952DB-AD0D-3753-C31B-B6EF6521B456"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

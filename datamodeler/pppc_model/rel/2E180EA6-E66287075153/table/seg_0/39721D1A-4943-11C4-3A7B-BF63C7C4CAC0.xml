@@ -1,0 +1,167 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="39721D1A-4943-11C4-3A7B-BF63C7C4CAC0" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="APPROVAL_STEPS">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APPROVAL_STEPS</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:35 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_APRVL_STEP" id="6D82FA86-E6B6-2E52-FDA2-8595970484CF">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APPROVAL_STEPS</sourceObjSchema>
+<sourceObjName>ID_APRVL_STEP</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_APRVL_FLOW" id="BA1A6422-95A0-273A-13AB-F07785BEDA1F">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APPROVAL_STEPS</sourceObjSchema>
+<sourceObjName>ID_APRVL_FLOW</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B33129AF-E421-B35C-BC27-95CEA33A7C15" referredColumn="BE13487C-8C40-FF5F-8C33-8FB2AB6E6634"/>
+</associations>
+</Column>
+<Column name="STEP_SEQUENCE" id="AF69D49E-980E-B5BA-4E2B-CBECBB5CD9F4">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APPROVAL_STEPS</sourceObjSchema>
+<sourceObjName>STEP_SEQUENCE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ROLE_NAME" id="E51864DC-539B-4CF3-84CF-DC97EC617676">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APPROVAL_STEPS</sourceObjSchema>
+<sourceObjName>ROLE_NAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0AD12D07-2FF3-8D73-E906-EEAE6A859B6A" name="APPROVAL_STEPS_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APPROVAL_STEPS_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:06 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6D82FA86-E6B6-2E52-FDA2-8595970484CF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="56DCC012-6FFA-4362-EC7D-EE69A64B09D6" name="APPROVAL_STEPS_UK1">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APPROVAL_STEPS_UK1</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:06 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BA1A6422-95A0-273A-13AB-F07785BEDA1F"/>
+<colUsage columnID="AF69D49E-980E-B5BA-4E2B-CBECBB5CD9F4"/>
+<colUsage columnID="E51864DC-539B-4CF3-84CF-DC97EC617676"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D09FE6CD-C3BF-4897-16E4-21351868AB24" name="APPROVAL_STEPS_UK2">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APPROVAL_STEPS_UK2</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:06 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BA1A6422-95A0-273A-13AB-F07785BEDA1F"/>
+<colUsage columnID="E51864DC-539B-4CF3-84CF-DC97EC617676"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="619DB1B1-1765-E1E2-1C52-C1D20FFE3B8C" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="APPROVAL_STEPS_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APPROVAL_STEPS_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:00 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6D82FA86-E6B6-2E52-FDA2-8595970484CF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A7222929-F496-B293-58BB-1292C6E3DA67" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="APPROVAL_STEPS_UK1">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APPROVAL_STEPS_UK1</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:00 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BA1A6422-95A0-273A-13AB-F07785BEDA1F"/>
+<colUsage columnID="AF69D49E-980E-B5BA-4E2B-CBECBB5CD9F4"/>
+<colUsage columnID="E51864DC-539B-4CF3-84CF-DC97EC617676"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1D557EAB-A40E-661F-6964-7CDC0212440C" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="APPROVAL_STEPS_UK2">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APPROVAL_STEPS_UK2</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:00 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BA1A6422-95A0-273A-13AB-F07785BEDA1F"/>
+<colUsage columnID="E51864DC-539B-4CF3-84CF-DC97EC617676"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="747290A4-707A-6B53-FF73-C84C4426F3E5" name="APPROVAL_STEPS_APPROVAL_F_FK1">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:23 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BA1A6422-95A0-273A-13AB-F07785BEDA1F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

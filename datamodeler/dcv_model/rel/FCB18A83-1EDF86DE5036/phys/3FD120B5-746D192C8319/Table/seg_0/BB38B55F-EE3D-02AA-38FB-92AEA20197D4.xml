@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="rpt_sla_distributor" directorySegmentName="seg_0" id="BB38B55F-EE3D-02AA-38FB-92AEA20197D4">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="tgl_kalkulasi" id="0299196F-784F-ABFC-0516-B1C2C9235CB5">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="customer_code" id="102561F7-EC46-86D1-FF1B-604042CD2BA8">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="tgl_dcv" id="25CE5EC5-F2B2-A1D3-C762-1E69EBCF340F">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="due_date_dcv" id="917450C2-D52C-384D-1754-EC25BB0588D8">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="periode_laporan" id="93B1D04B-BC36-63C1-A121-30F9B26DED9A">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="sisa_nilai_tagihan" id="968BEC53-EC9F-EECA-0D55-07D37F270E81">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="nilai_denda" id="ADD857C6-CBC4-D476-7852-54092EA0D828">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="no_dcv" id="C608846D-B16E-DEAD-86B0-EBC573D912FF">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+</TableProxyOraclev12c>

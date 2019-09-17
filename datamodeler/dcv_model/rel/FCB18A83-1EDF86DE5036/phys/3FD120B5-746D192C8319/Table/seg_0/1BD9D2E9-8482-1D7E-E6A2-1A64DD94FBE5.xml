@@ -1,0 +1,140 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="TC_approval" directorySegmentName="seg_0" id="1BD9D2E9-8482-1D7E-E6A2-1A64DD94FBE5">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="no_pr" id="10B6D228-F06A-EE92-BA8A-6F7F738B2C9E">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="prod_code" id="1173C0DA-993B-F781-AA4E-7CD906C499D5">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="qty_converted" id="15F5C770-1CCC-B658-4DAD-ADF130493BF3">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="flag_budget" id="1B4B1C5E-CF15-2DFA-7A47-475612A8221B">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="no_po" id="24A713D4-2C56-0C92-7B27-3D2F78E18EBD">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="notes" id="2DED7CBD-6720-39C2-05A9-DCF60B9C0015">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="id" id="304EAD8B-A5DD-8E96-E01E-B7BEB848413F">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="modified_dt" id="34C27E62-3B0C-DAFE-2112-1BDA546D0951">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="line_pr" id="3D089E52-259D-8075-18FC-A61149BEA83D">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="uom" id="499EAD84-4879-F9C8-F8F2-1764FE9E82AB">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="pc_tambahan" id="5214E703-2C04-5A43-36C1-5FD29575151B">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="pc_pengganti_promo_produk_id" id="5AB31FCA-456F-3D4E-350A-4D25FD1C8301">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="harga_satuan" id="70466B14-B2DE-F040-C7E2-C25517A426D0">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="uom_dcv" id="7DD4017A-3E25-5406-049D-43457EC830F6">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="pc_pengganti" id="B0FE88C5-73F6-6864-8004-5944388BB778">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="dcvl_id" id="C9C1928D-7180-0A6B-44DA-0951985838CD">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="nilai_total" id="CB3B62DB-A167-194D-582A-4E2EB784CE98">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="qty" id="E324FFD7-B6A4-91A7-0D92-BFCF75ADD407">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="prod_name" id="E4D0A92B-CD6A-9E24-65BB-B35BCBE429DC">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="pc_tambahan_promo_produk_id" id="E7CC8684-8700-1AF2-DA2E-BA1437004A73">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="line_po" id="E8D2682D-C157-A53A-9D56-78582F1D96F6">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="modified_by" id="EC6A84E8-F128-97F6-CF98-1E5CC43EBF4B">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="req_line_breakdown_FK" id="DC8C6C97-E71C-2BB0-015F-C96A65E547FF">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="tc_approval_PK" id="8B90FB2D-50CA-CCE4-F57A-4E56C3CD52FE">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

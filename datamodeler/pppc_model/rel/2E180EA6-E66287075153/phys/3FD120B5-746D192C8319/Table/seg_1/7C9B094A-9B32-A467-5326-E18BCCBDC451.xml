@@ -1,0 +1,205 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="REP_FRM_PP_DOUBLE" directorySegmentName="seg_1" id="7C9B094A-9B32-A467-5326-E18BCCBDC451">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:37 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<schemaObject>7CBB1AB6-5E3C-CEFF-688A-822A0E866097</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>BF0D484B-E49A-8489-BF37-B5157328BC42</segment>
+<tableSpace>0347D509-A3C7-2CBC-6C69-17C7E52E950A</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="CREATED_ON" id="028A8556-A2C6-9051-E7B5-BEC868553AD2">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRODUCT_CLASS" id="18089672-5A45-0FDD-0308-1A5AD9DCD57F">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CUST_TYPE" id="18FE00CE-F86F-688D-A74A-4B48F99AF67E">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CUST_TYPE_DESC" id="1A61F76A-D8B9-23C5-EA32-5661082803E6">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LOCATION_DESC" id="27FFB359-708B-8A3B-DF76-748D2724F60C">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MODIFIED_ON" id="36119B07-2D39-2F55-A060-1D0EC0A8BF08">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRODUCT_CLASS_DESC" id="3B7989E7-7C3C-8CB4-9C33-E67AAB374E50">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRODUCT_EXT_DESC" id="4287135A-689B-492A-FA45-9F8D6D0F4AAC">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRODUCT_CATEGORY_DESC" id="5D773683-BEC1-AFDC-E215-31702F613C90">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRODUCT_VARIANT" id="67114991-D273-EE84-6BCF-737927CC9018">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LOCATION_CODE" id="6A41E124-E98E-48F6-D805-2AF78616B843">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRODUCT_BRAND_DESC" id="6E7F68AB-53B4-2687-D31B-5BD74D85ABF9">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REP_FRM_PP_DOUBLE_ID" id="79FC4A5F-BB80-4774-C965-823972DF47D0">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CREATED_BY" id="7A3EA334-A521-A9A1-DA72-44CDE136F2E2">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRODUCT_VARIANT_DESC" id="8E959BB2-3E56-0A3C-B116-FDF2234F3E67">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CUST_NUMBER" id="8F3342AA-C79E-9AE3-07FB-E403F76F0F13">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CUST_GROUP_DESC" id="93A82295-7B37-0F93-0274-7D7897516559">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRODUCT_EXT" id="94471871-E079-7C60-930A-19C2351EDD5A">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REGION_DESC" id="9900F79A-A099-1FEF-AF59-33BE82BC9652">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MODIFIED_BY" id="A5139805-3FB9-F9E9-816E-B9C096C8C336">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PERIODE_END" id="A7BC7184-4E09-9FD8-769B-4E3DA638C4D4">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRODUCT_PACK" id="A902DB5B-1198-57FD-D584-3F32B016056A">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRODUCT_ITEM_DESC" id="AA155A79-841D-63DA-DBC4-CDDC2B93EAE1">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CUST_NAME_DESC" id="B457D6C0-6C94-CECC-E619-263AD25B7F3D">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CUST_GROUP" id="C3B93BCC-0AC5-0CBC-C3FA-7052AD59CEDF">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRODUCT_ITEM" id="C78C1A44-9AC5-2D42-D005-5F1B5EFB7290">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRODUCT_BRAND" id="CB91EE8F-2FB5-3216-DB89-D0645D02DB48">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRODUCT_PACK_DESC" id="D1CB5612-E95D-D303-0B11-2ADC7D2CA2C0">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="AREA_DESC" id="DAF95D4A-2AA3-C68B-3C2A-E56C5DA772A4">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REGION_CODE" id="E1B582E6-33D4-C94A-F2A9-4563CAB61AAB">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRODUCT_CATEGORY" id="F6747832-5FD0-6B45-2368-F10AB8ADC0D4">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PERIODE_START" id="FB86ADF2-39E4-5205-8D08-2814CB1E643E">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="AREA_CODE" id="FBB97198-7503-17AF-3016-97B7039FA10B">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="REP_FRM_PP_DOUBLE_PK" id="4E78C239-4CBD-C55D-A035-24B99FB87CBA">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<schemaObject>7CBB1AB6-5E3C-CEFF-688A-822A0E866097</schemaObject>
+<segment>0D140CA2-AE9A-30DD-EEB7-BD1F73F8D06E</segment>
+<tableSpace>0347D509-A3C7-2CBC-6C69-17C7E52E950A</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="REP_FRM_PP_DOUBLE_PK" id="D3A1D745-A50C-A805-9686-74FCB6B459A2">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:16 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<segment>0D140CA2-AE9A-30DD-EEB7-BD1F73F8D06E</segment>
+<tableSpace>0347D509-A3C7-2CBC-6C69-17C7E52E950A</tableSpace>
+<existingIndex>4E78C239-4CBD-C55D-A035-24B99FB87CBA</existingIndex>
+<indexSegment>0D140CA2-AE9A-30DD-EEB7-BD1F73F8D06E</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

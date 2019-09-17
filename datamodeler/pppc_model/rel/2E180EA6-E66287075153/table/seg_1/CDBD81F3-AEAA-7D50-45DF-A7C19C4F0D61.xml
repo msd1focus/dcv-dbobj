@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_1" id="CDBD81F3-AEAA-7D50-45DF-A7C19C4F0D61" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="UPDATE_BUDGET_CUSTOMER">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>UPDATE_BUDGET_CUSTOMER</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:37 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="BUDGET_CUST_HDR_ID" id="00E35F05-FE7F-3107-794D-145F4B38E356">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>UPDATE_BUDGET_CUSTOMER</sourceObjSchema>
+<sourceObjName>BUDGET_CUST_HDR_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BUDGET_CUST_ID" id="AE72E338-865F-6D7D-F90D-7F2B4D0F9307">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>UPDATE_BUDGET_CUSTOMER</sourceObjSchema>
+<sourceObjName>BUDGET_CUST_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="POTONG_BUDGET" id="5AD544C3-5B50-5BFB-534B-44A4426AC600">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>UPDATE_BUDGET_CUSTOMER</sourceObjSchema>
+<sourceObjName>POTONG_BUDGET</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STATUS" id="BF6E8C03-F893-A3B4-AECC-91D261631B1E">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>UPDATE_BUDGET_CUSTOMER</sourceObjSchema>
+<sourceObjName>STATUS</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+</Table>

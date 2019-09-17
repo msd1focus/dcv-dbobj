@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E96580EE-E99F-C6B3-43C5-2FFE6E1DDA8A" name="dcv_user_role">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-04 04:05:37 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<ordsAlias>table_30</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="user_id" id="215DAC4B-048B-021C-4D22-F33FEE2505C7">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-04 04:06:04 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9E4AC23F-03A9-7876-4120-4ECD93C15359" referredColumn="C1AD44FE-2FD1-2307-E6A2-6E2D367DCD62"/>
+</associations>
+</Column>
+<Column name="role_code" id="444B3889-1316-1D60-8EFB-2BCF4466EC93">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-04 04:06:21 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="ED2E28F4-7658-5FE8-C441-D8C1CDFC8057" referredColumn="1F4A9F18-5022-1293-2D09-5FC0258F1C09"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CA4DB055-4490-3720-656F-152964C0B849" name="dcv_user_role_PK">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-04 04:06:04 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="215DAC4B-048B-021C-4D22-F33FEE2505C7"/>
+<colUsage columnID="444B3889-1316-1D60-8EFB-2BCF4466EC93"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C1C5FD37-B340-4C5D-3F0A-87352FC039C7" name="dcv_user_role_user_id_FK">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-04 04:09:25 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="215DAC4B-048B-021C-4D22-F33FEE2505C7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="990C66FF-6B38-2A41-3A99-9CC3035E98A3" name="dcv_role_user_role_FK">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-05 10:24:07 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="444B3889-1316-1D60-8EFB-2BCF4466EC93"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

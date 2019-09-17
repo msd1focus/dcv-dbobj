@@ -1,0 +1,159 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BAFB8F90-8D05-D39D-2E60-BAD77B0CF389" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="APP_MENU">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APP_MENU</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:35 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="E15D6DD7-5A83-D4E9-E28E-13C5215F787E">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APP_MENU</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,10,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="1211DCE5-1012-1122-1B43-0836B8072408">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APP_MENU</sourceObjSchema>
+<sourceObjName>NAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DISPLAY_SEQUENCE" id="D4EB43B8-BA4E-8E9C-D77E-F62F4A7793DC">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APP_MENU</sourceObjSchema>
+<sourceObjName>DISPLAY_SEQUENCE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,2,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SHORTCUT" id="BB7AD2CC-3CB7-1BC1-3A0C-5AA06909D8C7">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APP_MENU</sourceObjSchema>
+<sourceObjName>SHORTCUT</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ICON" id="64D28855-22F7-35ED-AE27-6B06D1CDB29F">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APP_MENU</sourceObjSchema>
+<sourceObjName>ICON</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60 BYTE</dataTypeSize>
+<ownDataTypeParameters>60 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LABEL" id="536C333D-A6F5-DA12-11D4-73041A4B169A">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APP_MENU</sourceObjSchema>
+<sourceObjName>LABEL</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3FAA798B-70F0-3693-089C-03CFC2DC7675" name="APP_MENU_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APP_MENU_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:06 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E15D6DD7-5A83-D4E9-E28E-13C5215F787E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A6C1AC51-D81F-9477-51ED-D337271C69E2" name="APP_MENU_UK1">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APP_MENU_UK1</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:06 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1211DCE5-1012-1122-1B43-0836B8072408"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="00C39E81-46FD-5A80-4C18-B147FE752C28" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="APP_MENU_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APP_MENU_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:01 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E15D6DD7-5A83-D4E9-E28E-13C5215F787E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="533CDD75-7263-B7EC-C875-72C03BB343B1" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="APP_MENU_UK1">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APP_MENU_UK1</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:01 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1211DCE5-1012-1122-1B43-0836B8072408"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

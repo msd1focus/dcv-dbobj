@@ -1,0 +1,121 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0605CD5C-1E0A-BC1D-0A7F-5804278300F5" name="DISPOSISI">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-28 01:37:45 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<ordsAlias>table_19</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="dcvh_id" id="66F00EF9-E0A2-392B-FB1E-3D6FFD235317">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-28 01:39:38 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="73C5D515-C08B-286E-ECAD-C179DFE603FD" referredColumn="9F9235EF-ABA9-FEE2-A3D5-7727C998FADD"/>
+</associations>
+</Column>
+<Column name="disposisi_type" id="54CA4069-9B26-6ADF-5FB5-222AD312460D">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-28 01:39:38 UTC</createdTime>
+<commentInRDBMS>BAYAR / HOLD</commentInRDBMS>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="beban_sla" id="7DD645D3-716E-D33C-BD5A-5CDB17E96174">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-28 01:40:45 UTC</createdTime>
+<commentInRDBMS>bagian yg menanggung sla</commentInRDBMS>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="hold_status" id="D9AA249B-FBB3-FAC9-EEA0-8EB2F45AB0D2">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-28 01:41:53 UTC</createdTime>
+<commentInRDBMS>HOLD / RELEASE</commentInRDBMS>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="start_dt" id="0ABB54C8-6290-086B-4F28-F989F4AAD609">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-28 01:42:31 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="release_dt" id="034744FF-E8C5-D3CA-E88B-26192C15B8F7">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-28 01:41:53 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="note" id="D73A597A-A984-C3E8-187B-04104076D88C">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-28 01:46:14 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500 CHAR</dataTypeSize>
+<ownDataTypeParameters>500 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="32D6424D-0C80-C53B-5A61-3AD3C7A2DE48" name="DISPOSISI_PK">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-28 01:40:45 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="66F00EF9-E0A2-392B-FB1E-3D6FFD235317"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8F1825AB-48E7-FA61-C436-A45C93D3478C" name="DISPOSISI_DCV_FK">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-28 01:44:46 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="66F00EF9-E0A2-392B-FB1E-3D6FFD235317"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

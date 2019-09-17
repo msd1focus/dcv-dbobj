@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="BUDGET_CUSTOMER" directorySegmentName="seg_1" id="EF780B7F-7D79-C8CC-9A98-F7B39DBD0813">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:35 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<schemaObject>7CBB1AB6-5E3C-CEFF-688A-822A0E866097</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>BF0D484B-E49A-8489-BF37-B5157328BC42</segment>
+<tableSpace>0347D509-A3C7-2CBC-6C69-17C7E52E950A</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="BUDGET_CUSTOMER_IDREF" id="080EA796-4F9F-31A5-16D4-63082E502F76">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="YEARLY_BUDGET_AMOUNT" id="090C775A-DBAB-A7FC-0EFB-64E2AF5C94FA">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BUDGET_CUST_HDR_ID" id="12685F64-8AA5-2966-E3FE-9C10AC2E67CC">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BUDGET_BRAND" id="1AEFA404-C05B-582A-7042-D2B980502DB3">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BUDGET_CLASS" id="356546FB-04FA-C4A2-54A0-C6A83CC78F4E">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BUDGET_CATEGORY" id="3CE173B1-7DD0-0AFE-5CEF-35ADC1DA73EF">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MODIFIED_BY" id="5F48F0CE-070A-E577-C610-1BAACC76C122">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BUDGET_VARIANT" id="86440EF9-491C-9FBA-5B5E-EB6B8FCDECFD">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BUDGET_EXTENTION" id="8E65614E-1264-606D-C868-0C414BBCE22A">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MODIFIED_ON" id="8F0BAADD-C534-42C6-815E-6547330EA329">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BUDGET_AS_TO_DATE_USED" id="91C618F9-C3A4-7102-3C29-FFE844A557E6">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BUDGET_CUSTOMER_ID" id="A6EFD6F1-5D37-B454-16C5-CBD506874C47">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="OVER_BUDGET" id="B2DC14CF-9FD9-7080-FF71-774B0A3C16B5">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BUDGET_AS_TO_DATE" id="B854365C-83BA-5D4D-F487-DA1A866AFF1F">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="STATUS" id="D1B06A79-D770-B1FB-D098-EBFF5A7265CD">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CREATION_DATE" id="F2F53EB3-5CDF-F312-2A48-2DA8FB554298">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BUDGET_PACKAGING" id="F633062D-35C9-D8CC-3B07-1EB331EE0B69">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CREATED_BY" id="FB4843C0-AB36-8256-58F8-F2FDFBA9B579">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+</TableProxyOraclev12c>

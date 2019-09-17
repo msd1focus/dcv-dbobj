@@ -1,0 +1,55 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="BBE44FAE-CF30-CCBE-B7A9-D1D355C9710E" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="GROUP_PP_VIEW">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>GROUP_PP_VIEW</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL>CREATE OR REPLACE VIEW GROUP_PP_VIEW&lt;br/&gt;AS &lt;br/&gt;SELECT&lt;br/&gt;	&apos;I&apos; AS GROUP_PP_COMPANY,&lt;br/&gt;	PROPOSAL_NO AS GROUP_PP_PROPOSAL_NO&lt;br/&gt;FROM&lt;br/&gt;	PROPOSAL&lt;br/&gt;UNION&lt;br/&gt;SELECT&lt;br/&gt;        &apos;N&apos; AS GROUP_PP_COMPANY,&lt;br/&gt;        PROPOSAL_NO AS GROUP_PP_PROPOSAL_NO&lt;br/&gt;FROM&lt;br/&gt;        PROPOSAL@DBA_FCS_FDN.FOCUS.CO.ID</userDefinedSQL>
+<parsed>true</parsed>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="GROUP_PP_COMPANY" id="62BD3AA5-9EBB-B588-70D0-F247F87A16FB">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>GROUP_PP_VIEW</sourceObjSchema>
+<sourceObjName>GROUP_PP_COMPANY</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>GROUP_PP_COMPANY</alias>
+<dataType>VARCHAR2 (100 CHAR)</dataType>
+<headerAlias>GROUP_PP_COMPANY</headerAlias>
+<reference>false</reference>
+<referencedColumn>138952DB-AD0D-3753-C31B-B6EF6521B456</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="GROUP_PP_PROPOSAL_NO" id="8C55DB0F-AB15-3511-E699-2BCD376DAB53">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>GROUP_PP_VIEW</sourceObjSchema>
+<sourceObjName>GROUP_PP_PROPOSAL_NO</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>GROUP_PP_PROPOSAL_NO</alias>
+<dataType>VARCHAR2 (100 CHAR)</dataType>
+<headerAlias>GROUP_PP_PROPOSAL_NO</headerAlias>
+<reference>false</reference>
+</viewElement>
+</viewElements>
+<usedObjects>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="138952DB-AD0D-3753-C31B-B6EF6521B456">
+<columnName>PROPOSAL_NO</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROPOSAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="0B58EC0D-9337-649B-BDE3-46DA8B7829C0">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>PROPOSAL</tableName>
+</UsedObject>
+</usedObjects>
+</TableView>

@@ -1,0 +1,162 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_1" id="5B597B5F-6A8D-07D9-2A80-CCDB531358A1" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="USER_UPLOAD_LOG">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>USER_UPLOAD_LOG</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:37 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="UT_CODE" id="010784AB-EF45-19B4-49EB-9126A05EA1D1">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>USER_UPLOAD_LOG</sourceObjSchema>
+<sourceObjName>UT_CODE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USER_UPLOAD_LOG_ID" id="D47141AE-E13A-59BA-DA32-08AF4B29C57B">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>USER_UPLOAD_LOG</sourceObjSchema>
+<sourceObjName>USER_UPLOAD_LOG_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UT_STATUS" id="5B70B82D-3484-DDA7-E6C2-AF9F9C095514">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>USER_UPLOAD_LOG</sourceObjSchema>
+<sourceObjName>UT_STATUS</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UT_EXEC_DATE" id="2C9F8E8E-0802-C115-FBA2-E2B8FDE47F0A">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>USER_UPLOAD_LOG</sourceObjSchema>
+<sourceObjName>UT_EXEC_DATE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VAL_CODE" id="133202C2-3533-5292-1A5C-8621B9F6DEAC">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>USER_UPLOAD_LOG</sourceObjSchema>
+<sourceObjName>VAL_CODE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VAL_MSG" id="A14215ED-1D40-BADF-7D72-0BD5C3D275C5">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>USER_UPLOAD_LOG</sourceObjSchema>
+<sourceObjName>VAL_MSG</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000 BYTE</dataTypeSize>
+<ownDataTypeParameters>2000 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VAL_EXEC_DATE" id="94BAF362-9479-D514-D4F4-7FCB1F0BFC39">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>USER_UPLOAD_LOG</sourceObjSchema>
+<sourceObjName>VAL_EXEC_DATE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SYNC_CODE" id="3C18A514-EF8B-8D48-1443-7FF70E92499D">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>USER_UPLOAD_LOG</sourceObjSchema>
+<sourceObjName>SYNC_CODE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SYNC_STATUS" id="22B0B3F8-0554-704C-2490-77C0A15321D0">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>USER_UPLOAD_LOG</sourceObjSchema>
+<sourceObjName>SYNC_STATUS</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SYNC_EXEC_DATE" id="3D4E56DF-263C-8844-1341-EF307BCD23AD">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>USER_UPLOAD_LOG</sourceObjSchema>
+<sourceObjName>SYNC_EXEC_DATE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:52 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+</Table>

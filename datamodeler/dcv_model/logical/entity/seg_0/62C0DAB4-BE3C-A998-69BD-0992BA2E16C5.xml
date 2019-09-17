@@ -1,0 +1,212 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="62C0DAB4-BE3C-A998-69BD-0992BA2E16C5" name="Request_dtl">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:44:58 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="E1D1CCEC-1B28-CD3D-793E-FC679B53D27D">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:45:50 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="line_no" id="A00A36F1-581B-C5B3-679B-FFAD46640FDC">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:46:22 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="prod_class" id="2064C2E1-8698-6452-03E7-D7C4E19F68B9">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:48:08 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="prod_brand" id="E2436C7D-E2F8-9A11-5BC2-DCD1E31C2759">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:48:30 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="prod_ext" id="A2A092D0-4B39-2443-FD81-A4A76CDAACAE">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:48:42 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="prod_packaging" id="0D2D3AEF-ED43-622E-A927-F425DFA27263">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:48:50 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="prod_variant" id="748EF83B-552D-58CA-266F-3ED6A1592FF7">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:49:10 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="prod_item" id="FC2C085E-F9BA-8A25-0610-977E73EA2A32">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:49:25 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="req_qty" id="5346909A-E207-9E90-0544-8ABC2B8D9489">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:49:43 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="req_uom" id="EABA5B49-20CC-5E56-BD70-C05E80D440B1">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:49:47 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="req_value_exc" id="3E390A93-193B-F3B9-C321-DFA27EB73771">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:49:51 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="apr_value_exc" id="DEF1E370-CAAF-668A-479C-E1F2EBA2BF7B">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 14:51:09 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tax" id="4890C424-B989-DC43-1A4B-C95AE9B806F3">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 14:57:47 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ppn" id="9AB3759D-BB79-546E-72DC-793637D3668D">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 14:58:25 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="req_id" id="0E7749CB-E87C-7341-AE76-1023B7D5BE23">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:27:52 UTC</createdTime>
+<generatorID>3F25C0C2-461F-51D4-01D9-5FA80764D00D</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<referedAttribute>5D41D61F-C350-EC93-D935-94994AD56CAF</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<structuredType>47E390DE-0671-C4B1-8428-0F45CBEE18F8</structuredType>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="5CD45A9B-256E-1FA7-5789-0C1AA7271C43" name="Request_dtl PK">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:46:05 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<pk>true</pk>
+</identifier>
+</identifiers>
+</Entity>

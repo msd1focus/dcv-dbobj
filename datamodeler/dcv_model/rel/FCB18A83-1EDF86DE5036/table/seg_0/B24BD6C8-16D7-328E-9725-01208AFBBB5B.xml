@@ -1,0 +1,56 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B24BD6C8-16D7-328E-9725-01208AFBBB5B" name="DCV_NUMBER">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-20 00:36:09 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<ordsAlias>table_13</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="period" id="D2B76EA6-A01A-F0A8-3B4A-BB4743693B04">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-20 00:38:27 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="lastnum" id="681237B1-5292-9E31-6735-4ADC612A95DE">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-20 00:37:38 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="modified_dt" id="628DB815-A6A6-0DA4-A4B7-A2F98DF8DF70">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-20 00:39:53 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="42F8749A-CFCA-2D19-4611-B6B36B2F01A6" name="DCV_NUMBER_PK">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-20 00:37:38 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D2B76EA6-A01A-F0A8-3B4A-BB4743693B04"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

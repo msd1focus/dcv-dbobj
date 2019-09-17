@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D5F4D753-2050-4BED-110F-4FD687B2DAAF" name="SEC_DEPT">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-15 01:26:50 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="854FF148-599E-55E6-F232-9486B2334972">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-15 01:27:30 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dept_code" id="35788BA4-70F1-2B00-B43B-685F38D87637">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-15 01:27:52 UTC</createdTime>
+<commentInRDBMS>DISTRI, SALES, TC, TAX, PROMO, AP, AR, CASSIER</commentInRDBMS>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dept_desc" id="74D4304B-0DD4-EDB9-A936-E400C13639E9">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-15 01:28:10 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="role_parent" id="8C887B55-32A4-EF9C-4EDD-E2A2C9192E66">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:28:01 UTC</createdTime>
+<commentInRDBMS>hirarchy</commentInRDBMS>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="10F4CB6F-53C9-CCC2-9F68-6549559616C2" name="dept_PK">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-15 01:27:30 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="854FF148-599E-55E6-F232-9486B2334972"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,114 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1200C52B-E439-1599-C215-3FE884B66266" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="PRINT_PREV_LOG">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PRINT_PREV_LOG</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:36 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PROPOSAL_ID" id="6C2B5DB7-5663-2694-02E3-B23F5687A218">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PRINT_PREV_LOG</sourceObjSchema>
+<sourceObjName>PROPOSAL_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:48 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6F249750-302D-98FE-7FE9-28E8CE568E27" referredColumn="DB25135F-F873-16D0-D9E6-435357EAC187"/>
+</associations>
+</Column>
+<Column name="USER_NAME" id="0CB25625-05C7-C82C-06F2-37F30FF43554">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PRINT_PREV_LOG</sourceObjSchema>
+<sourceObjName>USER_NAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:48 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NUM_VIEW" id="BBD2E832-4363-3B27-463F-C3F0D8D8F376">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PRINT_PREV_LOG</sourceObjSchema>
+<sourceObjName>NUM_VIEW</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:48 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LAST_VIEW_ON" id="F9C3BF0A-BD51-7BF1-56EB-547CF12824AE">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PRINT_PREV_LOG</sourceObjSchema>
+<sourceObjName>LAST_VIEW_ON</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:48 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C1EAB6AF-826E-5381-9C8F-6230D8164343" name="PRINT_PREV_LOG_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PRINT_PREV_LOG_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:12 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6C2B5DB7-5663-2694-02E3-B23F5687A218"/>
+<colUsage columnID="0CB25625-05C7-C82C-06F2-37F30FF43554"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="530CF896-E638-465A-AE95-5518818034F6" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="PRINT_PREV_LOG_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PRINT_PREV_LOG_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:36 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6C2B5DB7-5663-2694-02E3-B23F5687A218"/>
+<colUsage columnID="0CB25625-05C7-C82C-06F2-37F30FF43554"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7A861273-8621-1C27-8BEE-39AD47AE6F49" name="PRINT_PREV_LOG_PROPOSAL_FK1">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:23 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6C2B5DB7-5663-2694-02E3-B23F5687A218"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

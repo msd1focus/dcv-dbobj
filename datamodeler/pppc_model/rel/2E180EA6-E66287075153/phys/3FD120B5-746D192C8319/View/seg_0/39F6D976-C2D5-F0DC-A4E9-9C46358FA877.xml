@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableViewProxyOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TableViewProxyOraclev10g" name="FCS_YEARLY_BUDGET_DETAIL_V" directorySegmentName="seg_0" id="39F6D976-C2D5-F0DC-A4E9-9C46358FA877">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<schemaObject>7CBB1AB6-5E3C-CEFF-688A-822A0E866097</schemaObject>
+</TableViewProxyOraclev10g>

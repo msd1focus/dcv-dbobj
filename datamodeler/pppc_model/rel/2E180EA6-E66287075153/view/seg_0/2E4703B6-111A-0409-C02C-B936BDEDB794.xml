@@ -1,0 +1,126 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="2E4703B6-111A-0409-C02C-B936BDEDB794" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="FCS_PPPC_PRICE_LIST">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_PPPC_PRICE_LIST</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL>CREATE OR REPLACE VIEW FCS_PPPC_PRICE_LIST&lt;br/&gt;AS &lt;br/&gt;SELECT PL.PRICE_NAME, PL.PRICE_DESC, PL.PRICE_CATEGORY, PL.PRICE_CATEGORY_DESC, PL.TYPE_CUSTOMER, PL.PRICE, PL.USER_NAME, PL.LINE_ID&lt;br/&gt;FROM APPS.FCS_PPPC_PRICE_LIST PL&lt;br/&gt;GROUP BY PL.PRICE_NAME, PL.PRICE_DESC, PL.PRICE_CATEGORY, PL.PRICE_CATEGORY_DESC, PL.TYPE_CUSTOMER, PL.PRICE, PL.USER_NAME, PL.LINE_ID</userDefinedSQL>
+<parsed>true</parsed>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PRICE_NAME" id="D901AF23-EE19-49F4-BE1A-882B3A54C129">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_PPPC_PRICE_LIST</sourceObjSchema>
+<sourceObjName>PRICE_NAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PRICE_NAME</alias>
+<dataType>VARCHAR2 (250 BYTE)</dataType>
+<headerAlias>PRICE_NAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PRICE_DESC" id="2B9D183C-7752-5732-ABD3-2EF7C7A668B0">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_PPPC_PRICE_LIST</sourceObjSchema>
+<sourceObjName>PRICE_DESC</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PRICE_DESC</alias>
+<dataType>VARCHAR2 (400 BYTE)</dataType>
+<headerAlias>PRICE_DESC</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PRICE_CATEGORY" id="CD9E034D-22F4-3915-2DB4-6BD435E8F643">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_PPPC_PRICE_LIST</sourceObjSchema>
+<sourceObjName>PRICE_CATEGORY</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PRICE_CATEGORY</alias>
+<dataType>VARCHAR2 (250 BYTE)</dataType>
+<headerAlias>PRICE_CATEGORY</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PRICE_CATEGORY_DESC" id="CE333224-12EA-4CCF-FD5A-4B79C6B91F67">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_PPPC_PRICE_LIST</sourceObjSchema>
+<sourceObjName>PRICE_CATEGORY_DESC</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PRICE_CATEGORY_DESC</alias>
+<dataType>VARCHAR2 (400 BYTE)</dataType>
+<headerAlias>PRICE_CATEGORY_DESC</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="TYPE_CUSTOMER" id="21D7C6E4-0347-E3D3-2006-C0AD875214DF">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_PPPC_PRICE_LIST</sourceObjSchema>
+<sourceObjName>TYPE_CUSTOMER</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>TYPE_CUSTOMER</alias>
+<dataType>VARCHAR2 (10 BYTE)</dataType>
+<headerAlias>TYPE_CUSTOMER</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PRICE" id="44E1A6DC-FBBF-7C47-8507-B2B7E61BEDAC">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_PPPC_PRICE_LIST</sourceObjSchema>
+<sourceObjName>PRICE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PRICE</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>PRICE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="USER_NAME" id="B0EF99E8-70AC-AE33-4FE8-5BCB66676A10">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_PPPC_PRICE_LIST</sourceObjSchema>
+<sourceObjName>USER_NAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>USER_NAME</alias>
+<dataType>VARCHAR2 (100 BYTE)</dataType>
+<headerAlias>USER_NAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="LINE_ID" id="4F9861FE-E118-6037-2ABB-34B87DD8A8E9">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_PPPC_PRICE_LIST</sourceObjSchema>
+<sourceObjName>LINE_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>LINE_ID</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>LINE_ID</headerAlias>
+<reference>false</reference>
+</viewElement>
+</viewElements>
+</TableView>

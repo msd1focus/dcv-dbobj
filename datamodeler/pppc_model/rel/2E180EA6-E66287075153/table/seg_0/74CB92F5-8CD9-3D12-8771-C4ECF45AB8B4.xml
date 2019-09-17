@@ -1,0 +1,162 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="74CB92F5-8CD9-3D12-8771-C4ECF45AB8B4" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="BONUS_ADD_BUY">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>BONUS_ADD_BUY</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:35 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="BONUS_ADD_BUY_ID" id="66C45F36-FAB0-57D9-AFF8-0BCEBE3A8A3E">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BONUS_ADD_BUY</sourceObjSchema>
+<sourceObjName>BONUS_ADD_BUY_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROMO_PRODUK_ID" id="5D98BEB9-CB75-B2C1-3667-A96B2320A3F0">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BONUS_ADD_BUY</sourceObjSchema>
+<sourceObjName>PROMO_PRODUK_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BONUS_GROUP" id="DA2C34C7-B04C-81B8-D64D-D6BDDAF3AEE2">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BONUS_ADD_BUY</sourceObjSchema>
+<sourceObjName>BONUS_GROUP</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROMO_PROG_PER" id="67DA44AA-3D53-5DE9-F306-15FCA7F49617">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BONUS_ADD_BUY</sourceObjSchema>
+<sourceObjName>PROMO_PROG_PER</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUCT_VALUE" id="9A97D05C-77EE-3F88-5CE2-3224614AF726">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BONUS_ADD_BUY</sourceObjSchema>
+<sourceObjName>PRODUCT_VALUE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="QTY_FROM" id="ED646CB3-C2F4-B076-D15D-7433F41EABCB">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BONUS_ADD_BUY</sourceObjSchema>
+<sourceObjName>QTY_FROM</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="QTY_TO" id="890D5433-9D0B-BE05-D916-F958D67B5B7B">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BONUS_ADD_BUY</sourceObjSchema>
+<sourceObjName>QTY_TO</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UOM" id="AB0E1A59-BF2A-F6D1-2E30-81ABCBC17374">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BONUS_ADD_BUY</sourceObjSchema>
+<sourceObjName>UOM</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="915E412D-D793-2774-4D52-25ABA7FAD5BD" name="BONUS_ADD_BUY_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>BONUS_ADD_BUY_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:10 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="66C45F36-FAB0-57D9-AFF8-0BCEBE3A8A3E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CFDBFB33-615B-912D-A6F8-7A3314451A1B" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="BONUS_ADD_BUY_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>BONUS_ADD_BUY_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:20 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="66C45F36-FAB0-57D9-AFF8-0BCEBE3A8A3E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

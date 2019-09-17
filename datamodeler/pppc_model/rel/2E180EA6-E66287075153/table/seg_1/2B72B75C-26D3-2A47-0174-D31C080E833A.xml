@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_1" id="2B72B75C-26D3-2A47-0174-D31C080E833A" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="PROMO_BONUS_PROD_ITEM">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PROMO_BONUS_PROD_ITEM</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:36 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PROMO_BONUS_ID" id="F028389C-F003-6333-BD62-36B7591EB7CF">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROMO_BONUS_PROD_ITEM</sourceObjSchema>
+<sourceObjName>PROMO_BONUS_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:49 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROD_ITEM" id="DF13494E-2DBB-102F-1516-1D9A571F33C6">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROMO_BONUS_PROD_ITEM</sourceObjSchema>
+<sourceObjName>PROD_ITEM</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:49 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ITEM_DESC" id="B87394FF-4433-91F6-8035-C3F3CEEFE95D">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>PROMO_BONUS_PROD_ITEM</sourceObjSchema>
+<sourceObjName>ITEM_DESC</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:49 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B3EB9A22-857A-880F-8F65-DE888A2246CE" name="PROMO_BONUS_PROD_ITEM_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PROMO_BONUS_PROD_ITEM_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:13 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F028389C-F003-6333-BD62-36B7591EB7CF"/>
+<colUsage columnID="DF13494E-2DBB-102F-1516-1D9A571F33C6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="620E1DCD-E07E-FADC-0114-3F4BADBBB94E" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="PROMO_BONUS_PROD_ITEM_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PROMO_BONUS_PROD_ITEM_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:43 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F028389C-F003-6333-BD62-36B7591EB7CF"/>
+<colUsage columnID="DF13494E-2DBB-102F-1516-1D9A571F33C6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

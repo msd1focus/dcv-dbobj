@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="PROP_REGION_AREA" directorySegmentName="seg_0" id="0BA424B1-C83E-CA62-530C-8DF8982DFCA8">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:37 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<schemaObject>7CBB1AB6-5E3C-CEFF-688A-822A0E866097</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>4FB60280-9DF1-41F1-7977-36015BA735A4</segment>
+<tableSpace>0347D509-A3C7-2CBC-6C69-17C7E52E950A</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="PROPOSAL_ID" id="19C71D12-3EC9-8247-6943-B74360812F16">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="AREADISCRIPTION" id="C76321CB-6DD0-1704-8730-25A946F63F9D">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="AREA_CODE" id="E63D83BC-24E1-0F41-9538-6339CA7DBBFF">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:50 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PROP_REGION_AREA_PK" id="D0988C9D-AFA2-70D4-8068-A1725BFEC4CC">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:48 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<schemaObject>7CBB1AB6-5E3C-CEFF-688A-822A0E866097</schemaObject>
+<segment>7F2401F9-33FB-291C-2EA4-E64D86C85B1B</segment>
+<tableSpace>0347D509-A3C7-2CBC-6C69-17C7E52E950A</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="PROP_REGION_AREA_PROPOSAL_FK1" id="6EBCEE26-1515-B363-910A-E32BC2279C95">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:23 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PROP_REGION_AREA_PK" id="6B41DDBF-61D9-A1CC-1878-27CBA4D09E46">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:15 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<segment>7F2401F9-33FB-291C-2EA4-E64D86C85B1B</segment>
+<tableSpace>0347D509-A3C7-2CBC-6C69-17C7E52E950A</tableSpace>
+<existingIndex>D0988C9D-AFA2-70D4-8068-A1725BFEC4CC</existingIndex>
+<indexSegment>7F2401F9-33FB-291C-2EA4-E64D86C85B1B</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

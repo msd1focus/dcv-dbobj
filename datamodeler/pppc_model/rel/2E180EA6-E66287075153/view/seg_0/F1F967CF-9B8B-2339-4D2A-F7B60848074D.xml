@@ -1,0 +1,111 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="F1F967CF-9B8B-2339-4D2A-F7B60848074D" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="FCS_VIEW_REALISASI_SALESORDER">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_VIEW_REALISASI_SALESORDER</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:30 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL>CREATE OR REPLACE VIEW FCS_VIEW_REALISASI_SALESORDER&lt;br/&gt;AS &lt;br/&gt;SELECT pr.proposal_no, pr.confirm_no, &apos;Yes&apos; order_ket&lt;br/&gt;     FROM proposal pr&lt;br/&gt;    WHERE pr.mekanisme_penagihan = &apos;ONINVOICE&apos;&lt;br/&gt;          AND EXISTS&lt;br/&gt;                 (SELECT 1&lt;br/&gt;                    FROM promo_produk pp,&lt;br/&gt;                         realisasi_item_paket rip,&lt;br/&gt;                         apps.oe_order_headers_all ooh,&lt;br/&gt;                         apps.oe_order_lines_all ool,&lt;br/&gt;                         apps.mtl_system_items_b msi&lt;br/&gt;                   WHERE     pr.proposal_id = pp.proposal_id&lt;br/&gt;                         AND rip.promo_produk_id = pp.promo_produk_id&lt;br/&gt;                         AND rip.kd_item_paket = msi.segment1&lt;br/&gt;                         AND msi.inventory_item_id = ool.inventory_item_id&lt;br/&gt;                         AND msi.organization_id = ool.ship_from_org_id&lt;br/&gt;                         AND ooh.header_id = ool.header_id&lt;br/&gt;                         AND TRUNC (ooh.ordered_date) &gt;=&lt;br/&gt;                                TRUNC (pr.periode_prog_from)&lt;br/&gt;                         AND TRUNC (ooh.ordered_date) &lt;=&lt;br/&gt;                                TRUNC (pr.periode_prog_to))</userDefinedSQL>
+<parsed>true</parsed>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PROPOSAL_NO" id="1C770C26-C73D-93E0-61ED-51550C484B36">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_VIEW_REALISASI_SALESORDER</sourceObjSchema>
+<sourceObjName>PROPOSAL_NO</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:30 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PROPOSAL_NO</alias>
+<dataType>VARCHAR2 (100 CHAR)</dataType>
+<headerAlias>PROPOSAL_NO</headerAlias>
+<reference>false</reference>
+<referencedColumn>138952DB-AD0D-3753-C31B-B6EF6521B456</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="CONFIRM_NO" id="17B6176B-5603-8686-D3E2-069CD40BB4C6">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_VIEW_REALISASI_SALESORDER</sourceObjSchema>
+<sourceObjName>CONFIRM_NO</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:30 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>CONFIRM_NO</alias>
+<dataType>VARCHAR2 (100 CHAR)</dataType>
+<headerAlias>CONFIRM_NO</headerAlias>
+<reference>false</reference>
+<referencedColumn>2E10BAF1-2B34-6042-B1BF-52F0E0241B1E</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="ORDER_KET" id="032AFB7A-F687-151C-42A7-82849297D058">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_VIEW_REALISASI_SALESORDER</sourceObjSchema>
+<sourceObjName>ORDER_KET</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:30 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>ORDER_KET</alias>
+<dataType>VARCHAR2 (50 CHAR)</dataType>
+<headerAlias>ORDER_KET</headerAlias>
+<reference>false</reference>
+<referencedColumn>AE17E298-28C0-E615-891A-6D3D27E319D4</referencedColumn>
+</viewElement>
+</viewElements>
+<usedObjects>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="138952DB-AD0D-3753-C31B-B6EF6521B456">
+<columnName>PROPOSAL_NO</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROPOSAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="2E10BAF1-2B34-6042-B1BF-52F0E0241B1E">
+<columnName>CONFIRM_NO</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROPOSAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="0B58EC0D-9337-649B-BDE3-46DA8B7829C0">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>PROPOSAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="AE17E298-28C0-E615-891A-6D3D27E319D4">
+<columnName>MEKANISME_PENAGIHAN</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROPOSAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="91E05B52-035E-2397-2209-933F68A754F2">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>PROMO_PRODUK</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="32417DA9-8CB6-A498-F7A6-FD1A79512C0B">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>REALISASI_ITEM_PAKET</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="DA64E5C3-987C-CBC1-D50F-D0345C622BDB">
+<columnName>PROPOSAL_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROMO_PRODUK</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="E8A700CC-320C-BD3A-E4DB-6176A848D98D">
+<columnName>PROMO_PRODUK_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>REALISASI_ITEM_PAKET</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="A9CDBC24-84A0-79ED-BC01-41C4C6CF0944">
+<columnName>PROMO_PRODUK_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROMO_PRODUK</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="F509E6AB-9DC5-DB90-E87B-6C992BD21838">
+<columnName>KD_ITEM_PAKET</columnName>
+<schema>FOCUSPP</schema>
+<tableName>REALISASI_ITEM_PAKET</tableName>
+</UsedObject>
+</usedObjects>
+</TableView>

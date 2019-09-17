@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="DISCOUNT" directorySegmentName="seg_0" id="69D4D997-6C5E-8861-E03A-4A5CF7CE529D">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:36 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<schemaObject>7CBB1AB6-5E3C-CEFF-688A-822A0E866097</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>C7AC53FB-7262-6181-D083-09B3F90E66BE</segment>
+<tableSpace>0347D509-A3C7-2CBC-6C69-17C7E52E950A</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="QTY_FROM" id="088490ED-4B04-0E39-B118-B8F5AE1A28CA">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:47 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DISC_NON_YEARLY" id="1825EA89-26EA-F080-1D86-A69C5B8C872E">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:47 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DISCOUNT_ID" id="2F806BE3-2E68-F87C-78B8-51E0B39AC71E">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DISC_YEARLY" id="3681928A-2F10-6B0B-2BB5-58C22D166062">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:47 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TIPE_POTONGAN" id="3F903738-42D2-EAAB-975F-E456A0301F66">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:47 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TIPE_PERHITUNGAN" id="4579E515-58B7-5757-4B1B-66ED60C9EB9B">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="QTY_TO" id="7617E646-0C12-F799-4B3A-969C15BEC7F4">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:47 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="KELIPATAN" id="8DEEC0C8-34ED-D7DE-41CD-F3001CF2F21E">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:47 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PROMO_PRODUK_ID" id="D59C3E6E-3D60-B5EE-5D03-00D14A90DE8B">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="UOM" id="FEE509FB-4889-7F14-3864-1CA5886370E6">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="DISCOUNT_PK" id="C68C0C6F-F144-C660-8834-B5A360CBF7A8">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:26 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<schemaObject>7CBB1AB6-5E3C-CEFF-688A-822A0E866097</schemaObject>
+<segment>8F2B29C7-1867-5996-D3C3-47E355E5CE77</segment>
+<tableSpace>0347D509-A3C7-2CBC-6C69-17C7E52E950A</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="DISCOUNT_PK" id="9D03D662-4FB1-7F43-1C42-45B9D0A6A8EB">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:11 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<segment>8F2B29C7-1867-5996-D3C3-47E355E5CE77</segment>
+<tableSpace>0347D509-A3C7-2CBC-6C69-17C7E52E950A</tableSpace>
+<existingIndex>C68C0C6F-F144-C660-8834-B5A360CBF7A8</existingIndex>
+<indexSegment>8F2B29C7-1867-5996-D3C3-47E355E5CE77</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

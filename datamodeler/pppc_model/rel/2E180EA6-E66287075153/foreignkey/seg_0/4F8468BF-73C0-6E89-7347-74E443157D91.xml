@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="4F8468BF-73C0-6E89-7347-74E443157D91" containerWithKeyObject="EDB4B8F6-771B-EBA9-3406-F7FF7130F682" localFKIndex="030040E9-09FB-B03B-7930-C633C4CD1ECA" name="APP_USER_ACCESS_ROLES_APP_FK1">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APP_USER_ACCESS_ROLES_APP_FK1</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:23 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<referredTableLongName>FOCUSPP.APP_ROLES</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>729F7664-65B5-9693-D602-E35851BCB367</referredTableID>
+<keyObject>09BBB3E4-175C-743E-52DD-8A53FC577B2D</keyObject>
+<referredKeyID>09BBB3E4-175C-743E-52DD-8A53FC577B2D</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>NAME</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

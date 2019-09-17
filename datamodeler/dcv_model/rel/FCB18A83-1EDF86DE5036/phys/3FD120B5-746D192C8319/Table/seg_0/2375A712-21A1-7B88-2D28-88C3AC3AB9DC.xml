@@ -1,0 +1,160 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="DCV_Request" directorySegmentName="seg_0" id="2375A712-21A1-7B88-2D28-88C3AC3AB9DC">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="dcvh_pc_tipe" id="0F81FBB9-E4B7-80FB-2AA1-4B36DE29F707">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="dcvh_appv_value" id="2A24B56D-BA94-BF4E-C48C-BEFF42C90714">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="dcvh_current_step" id="348D7D5F-6148-9FF8-5481-FDAD2D90B239">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="dcvh_no_pp_id" id="45B398E3-013A-D9D7-ECBD-D5A25AFEAB63">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="dcvh_cust_name" id="49B686E6-659B-10A8-8876-175D55C9F697">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="dcvh_last_step" id="5275B3DE-4835-7511-76C0-D39AF370911A">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="dcvh_no_pc" id="5A1B6243-7F97-0CC0-078C-BF0C4D7BF003">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="dcvh_periode_dcv_start" id="5C6AD1C7-38E2-7B90-10BB-6447B9B874C5">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="dcvh_periode_pc_start" id="6372C033-6508-E44F-127A-BC41C226A81A">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="dcvh_metode_bayar" id="7B3E93A2-7273-61A4-B035-2AA106FEFF5C">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="modified_dt" id="824BECB7-DB90-27CE-D7D7-B7DE52930AB6">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="dcvh_periode_dcv_end" id="8889E7D5-2365-9A82-BA96-A44B136661B2">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="dcvh_selisih_hari" id="920FCB83-A708-08D4-2E85-7E7F94288759">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="dcvh_no_dcv" id="93191EC8-F38B-F41A-8224-0CC7EE506D5E">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="dcvh_id" id="9F9235EF-ABA9-FEE2-A3D5-7727C998FADD">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="dcvh_status" id="A13B2B09-7BE8-EEB8-CE4E-8015234B9CC0">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="dcvh_periode_pc_end" id="A215BA57-D81F-D169-71D1-5D248E84486E">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="modified_by" id="A2222802-C7DD-3A3D-8F72-EA3B4DABFD0D">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="dcvh_no_pp" id="A91F1C0B-73D2-C767-57ED-B11D727B6CC7">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="dcvh_company" id="BDA629E2-59F8-588C-B03C-6E9723DA8FAC">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="dcvh_value" id="BFA3B173-9D66-DA08-E456-F12D215B7A99">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="dcvh_ketr_kwitansi" id="C268652C-F114-1166-0C98-D8F4B9D88221">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="dcvh_key_pc" id="C4164D58-91ED-99BA-213E-C994E5105DA8">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="dcvh_pc_kategori" id="D1382B35-F32B-2529-DD09-5DC67ACE21A9">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="dcvh_submit_time" id="D7B05D62-1CC6-CC26-940C-5B4F180330AC">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="dcvh_cust_code" id="EB91AB20-FCBD-AA91-39CC-E65D2BB3C48C">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="DCV_No_IDX" id="82C56AE4-EFD5-5334-0F4F-B2E7E2B21CDA">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-17 11:46:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="Request_hdr_PK" id="BD3A9024-A516-2C6F-D9B0-4BF18EF48A29">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

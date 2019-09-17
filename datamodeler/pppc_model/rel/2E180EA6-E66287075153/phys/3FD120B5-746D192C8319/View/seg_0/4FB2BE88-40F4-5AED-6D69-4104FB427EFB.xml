@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableViewProxyOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TableViewProxyOraclev10g" name="FCS_AUDIT_PP_POTONGAN" directorySegmentName="seg_0" id="4FB2BE88-40F4-5AED-6D69-4104FB427EFB">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<schemaObject>7CBB1AB6-5E3C-CEFF-688A-822A0E866097</schemaObject>
+</TableViewProxyOraclev10g>

@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="pppc_model" id="934F9A8C-88DA-B782-A3D3-A4B7862CAC3C" version="3.5">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:44:35 UTC</createdTime>
+<ownerDesignName>pppc</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>934F9A8C-88DA-B782-A3D3-A4B7862CAC3C</designId>
+</OSDM_Design>

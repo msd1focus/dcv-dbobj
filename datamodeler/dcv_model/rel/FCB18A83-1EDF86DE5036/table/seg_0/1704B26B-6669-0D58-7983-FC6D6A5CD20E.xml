@@ -1,0 +1,394 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1704B26B-6669-0D58-7983-FC6D6A5CD20E" name="Request_dtl">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>62C0DAB4-BE3C-A998-69BD-0992BA2E16C5</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="dcvl_id" id="508FA4B4-054B-8C4E-810A-AA133B1992FD">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>E1D1CCEC-1B28-CD3D-793E-FC679B53D27D</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvh_id" id="D1C52DDF-05FF-B345-9BEC-05BCAA2E3950">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>0E7749CB-E87C-7341-AE76-1023B7D5BE23</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<structuredType>47E390DE-0671-C4B1-8428-0F45CBEE18F8</structuredType>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5A31152D-2271-3A53-3523-C5BD90441A97" referredColumn="9F9235EF-ABA9-FEE2-A3D5-7727C998FADD"/>
+</associations>
+</Column>
+<Column name="dcvl_promo_product_id" id="5EE59FFC-AE20-DBE3-B3E9-4CEB653ECB8A">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-05 00:28:47 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_prod_class" id="8DCCC903-1FC0-7003-3F07-7E29E2AB32DB">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>2064C2E1-8698-6452-03E7-D7C4E19F68B9</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_prod_class_desc" id="19E7624C-2C08-A87F-4537-BCB8B4DF7F46">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-12 06:10:42 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_prod_brand" id="A13BC572-28A3-B7AA-2487-AE179BF1199E">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>E2436C7D-E2F8-9A11-5BC2-DCD1E31C2759</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_prod_brand_desc" id="048A989E-7BC9-1E76-C2A0-5296F2A87153">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-12 06:11:08 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_prod_ext" id="329AB3EB-0BC3-A0AA-D4CC-4D6520AA1BDA">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>A2A092D0-4B39-2443-FD81-A4A76CDAACAE</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_prod_ext_desc" id="1DBCE0F4-C314-C0E4-E394-5438D80BAA36">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-12 06:11:42 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_prod_packaging" id="6A4F3239-C699-9CCB-FA31-EDCCB21F9731">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>0D2D3AEF-ED43-622E-A927-F425DFA27263</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_prod_packaging_desc" id="07762AB6-FEBF-D495-ED2A-33628E03BBF6">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-12 06:12:05 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_prod_variant" id="E8E10A25-966C-ECB5-4A6D-C036877DF611">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>748EF83B-552D-58CA-266F-3ED6A1592FF7</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_prod_variant_desc" id="2B9FBE62-E477-0F0C-1CDC-BBF2A16E8960">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-12 06:12:26 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_prod_item" id="915FB1AC-C060-66F9-7394-7B805B8CD08D">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>FC2C085E-F9BA-8A25-0610-977E73EA2A32</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_prod_item_desc" id="41D38073-8C37-268A-833E-DA7977B74D59">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-12 06:12:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_qty" id="4AC33EFE-047C-4CBB-8DE6-18702275A934">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>5346909A-E207-9E90-0544-8ABC2B8D9489</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_uom" id="1FB5E9A8-DEDC-15F0-6821-1A18B52B9FD3">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>EABA5B49-20CC-5E56-BD70-C05E80D440B1</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_val_exc" id="35121010-6C50-55FD-BF03-BC08A0E1140D">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>3E390A93-193B-F3B9-C321-DFA27EB73771</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_catatan_distributor" id="3A80F1E8-5E03-CCD9-09DE-B6125AD9EFA9">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-05 00:34:00 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_appv_val_exc" id="8EC2DF89-3767-2D4A-9268-6FE52C94AF43">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>DEF1E370-CAAF-668A-479C-E1F2EBA2BF7B</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_ppn_code" id="F676D709-294E-44E4-9850-F3983CDDE0EC">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-07 15:20:18 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 CHAR</dataTypeSize>
+<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_ppn_val" id="D5D1EDF6-2374-707B-98D6-343D1DFFE3A2">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>9AB3759D-BB79-546E-72DC-793637D3668D</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_pph_code" id="18C41D0E-4010-BA86-3201-B8C088BBAF97">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-19 02:52:02 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>25 CHAR</dataTypeSize>
+<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_pph_val" id="5D277511-0E89-6689-5F56-F2454EEAC41C">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>4890C424-B989-DC43-1A4B-C95AE9B806F3</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_total_val_appv_inc" id="2B4E5B91-22A3-279C-6C36-FE05CF73CCC6">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-07 15:13:23 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_selisih" id="988B816F-5CA3-9504-0CFE-B31AC4F3DBF9">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-07 15:24:17 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_catatan_tc" id="6DEFCB51-93D1-6C91-5E9A-6980B2019C61">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-07 15:24:34 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500 CHAR</dataTypeSize>
+<ownDataTypeParameters>500 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="modified_dt" id="5481F026-33A8-521F-0667-D0BC36FBED49">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-13 10:55:11 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="modified_by" id="0EFC8CAA-BA5F-DED2-1CDB-0263414640C7">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-13 10:55:26 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E0D03141-604F-6BBF-8C62-169ACA247512" name="Request_dtl_PK">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>5CD45A9B-256E-1FA7-5789-0C1AA7271C43</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="508FA4B4-054B-8C4E-810A-AA133B1992FD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CF80D9CA-D00D-3BE9-1708-9C20FD527534" name="Request_dtl_hdr_FK">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:58 UTC</createdTime>
+<generatorID>3F25C0C2-461F-51D4-01D9-5FA80764D00D</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D1C52DDF-05FF-B345-9BEC-05BCAA2E3950"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

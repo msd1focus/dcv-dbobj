@@ -1,0 +1,294 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="F8FD3482-4A02-B782-DF0A-2838DF6B1487" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="MASTER_CUSTOMER">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>MASTER_CUSTOMER</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL>CREATE OR REPLACE VIEW MASTER_CUSTOMER&lt;br/&gt;AS &lt;br/&gt;select &lt;br/&gt;    a.customer_id as cust_id,&lt;br/&gt;    a.customer_number as cust_code,&lt;br/&gt;    a.customer_name as cust_name,&lt;br/&gt;    (a.customer_number || &apos; - &apos; || a.customer_name || &apos; - &apos; || b.description) as cust_fullname,&lt;br/&gt;    a.attribute3 as region_code,&lt;br/&gt;	c.description as region_name,&lt;br/&gt;    (a.attribute3 || &apos; &apos; || c.description) as region_fullname,&lt;br/&gt;    a.attribute4 as area_code,&lt;br/&gt;	d.description as area_name,&lt;br/&gt;    (a.attribute4 || &apos; &apos; || d.description) as area_fullname,&lt;br/&gt;    a.attribute5 as location_code,&lt;br/&gt;	b.description as location_name,&lt;br/&gt;    (a.attribute5 || &apos; &apos; || b.description) as location_fullname,&lt;br/&gt;    a.attribute8 as type_code,&lt;br/&gt;	f.description as type_name,&lt;br/&gt;    (a.attribute8 || &apos; &apos; || f.description) as type_fullname,&lt;br/&gt;    a.attribute1 as group_code,&lt;br/&gt;	e.description as group_name,&lt;br/&gt;    (a.attribute1 || &apos; &apos; || e.description) as group_fullname,&lt;br/&gt;	a.status as cust_status&lt;br/&gt;from &lt;br/&gt;    apps.ar_customers a,&lt;br/&gt;    apps.fcs_flex_values_vl b,&lt;br/&gt;    apps.fcs_flex_values_vl c,&lt;br/&gt;    apps.fcs_flex_values_vl d,&lt;br/&gt;    apps.fcs_flex_values_vl e,&lt;br/&gt;    apps.fcs_flex_values_vl f&lt;br/&gt;where a.attribute5 = b.flex_value&lt;br/&gt;    and a.attribute3 = c.flex_value&lt;br/&gt;    and a.attribute4 = d.flex_value&lt;br/&gt;    and a.attribute1 = e.flex_value&lt;br/&gt;    and a.attribute8 = f.flex_value&lt;br/&gt;order by region_code, area_code, location_code, cust_fullname</userDefinedSQL>
+<parsed>true</parsed>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="CUST_ID" id="CEDE34E6-9B65-D351-43AA-47EA22B31761">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>MASTER_CUSTOMER</sourceObjSchema>
+<sourceObjName>CUST_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>CUST_ID</alias>
+<dataType>NUMBER (15)</dataType>
+<headerAlias>CUST_ID</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="CUST_CODE" id="BABFDD48-010A-C2A6-C17A-84339AC787DF">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>MASTER_CUSTOMER</sourceObjSchema>
+<sourceObjName>CUST_CODE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>CUST_CODE</alias>
+<dataType>VARCHAR2 (30 BYTE)</dataType>
+<headerAlias>CUST_CODE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="CUST_NAME" id="98A747B5-8AC3-DC3C-5BEB-243592622BC4">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>MASTER_CUSTOMER</sourceObjSchema>
+<sourceObjName>CUST_NAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>CUST_NAME</alias>
+<dataType>VARCHAR2 (50 BYTE)</dataType>
+<headerAlias>CUST_NAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="CUST_FULLNAME" id="8B8F7389-E97D-4A53-A069-2C185E2CAD37">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>MASTER_CUSTOMER</sourceObjSchema>
+<sourceObjName>CUST_FULLNAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>CUST_FULLNAME</alias>
+<dataType>VARCHAR2 (326 BYTE)</dataType>
+<headerAlias>CUST_FULLNAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="REGION_CODE" id="87D2F5CE-56EE-8E22-DF46-52E9CBE14B0B">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>MASTER_CUSTOMER</sourceObjSchema>
+<sourceObjName>REGION_CODE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>REGION_CODE</alias>
+<dataType>VARCHAR2 (150 BYTE)</dataType>
+<headerAlias>REGION_CODE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="REGION_NAME" id="97807ECD-5777-8255-CF39-D7C8CD695DBF">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>MASTER_CUSTOMER</sourceObjSchema>
+<sourceObjName>REGION_NAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>REGION_NAME</alias>
+<dataType>VARCHAR2 (240 BYTE)</dataType>
+<headerAlias>REGION_NAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="REGION_FULLNAME" id="FFE733ED-D8FD-2356-281E-2731C3B9BFB2">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>MASTER_CUSTOMER</sourceObjSchema>
+<sourceObjName>REGION_FULLNAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>REGION_FULLNAME</alias>
+<dataType>VARCHAR2 (391 BYTE)</dataType>
+<headerAlias>REGION_FULLNAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="AREA_CODE" id="F47CF846-0BAE-2F21-0AE6-0BA53AF29324">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>MASTER_CUSTOMER</sourceObjSchema>
+<sourceObjName>AREA_CODE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>AREA_CODE</alias>
+<dataType>VARCHAR2 (150 BYTE)</dataType>
+<headerAlias>AREA_CODE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="AREA_NAME" id="D991E137-7B54-1A12-87ED-539618F1539A">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>MASTER_CUSTOMER</sourceObjSchema>
+<sourceObjName>AREA_NAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>AREA_NAME</alias>
+<dataType>VARCHAR2 (240 BYTE)</dataType>
+<headerAlias>AREA_NAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="AREA_FULLNAME" id="D479EEB5-5E60-BAE8-9B55-FE16506264E4">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>MASTER_CUSTOMER</sourceObjSchema>
+<sourceObjName>AREA_FULLNAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>AREA_FULLNAME</alias>
+<dataType>VARCHAR2 (391 BYTE)</dataType>
+<headerAlias>AREA_FULLNAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="LOCATION_CODE" id="F697F3E0-81C1-450B-6AC5-75D4DEAAB69E">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>MASTER_CUSTOMER</sourceObjSchema>
+<sourceObjName>LOCATION_CODE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>LOCATION_CODE</alias>
+<dataType>VARCHAR2 (150 BYTE)</dataType>
+<headerAlias>LOCATION_CODE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="LOCATION_NAME" id="A74B4D31-881A-9CB4-7107-DF72175A4B21">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>MASTER_CUSTOMER</sourceObjSchema>
+<sourceObjName>LOCATION_NAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>LOCATION_NAME</alias>
+<dataType>VARCHAR2 (240 BYTE)</dataType>
+<headerAlias>LOCATION_NAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="LOCATION_FULLNAME" id="99DA9846-D2FA-65B2-0390-99BE339C6393">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>MASTER_CUSTOMER</sourceObjSchema>
+<sourceObjName>LOCATION_FULLNAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>LOCATION_FULLNAME</alias>
+<dataType>VARCHAR2 (391 BYTE)</dataType>
+<headerAlias>LOCATION_FULLNAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="TYPE_CODE" id="9894BF56-A3D4-8F75-30E6-9F20D9BD42EC">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>MASTER_CUSTOMER</sourceObjSchema>
+<sourceObjName>TYPE_CODE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>TYPE_CODE</alias>
+<dataType>VARCHAR2 (150 BYTE)</dataType>
+<headerAlias>TYPE_CODE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="TYPE_NAME" id="19601588-2AD2-4DBC-639B-E18294AF5D81">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>MASTER_CUSTOMER</sourceObjSchema>
+<sourceObjName>TYPE_NAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>TYPE_NAME</alias>
+<dataType>VARCHAR2 (240 BYTE)</dataType>
+<headerAlias>TYPE_NAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="TYPE_FULLNAME" id="602A5BC3-8822-EF3D-20B2-8961D910DD55">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>MASTER_CUSTOMER</sourceObjSchema>
+<sourceObjName>TYPE_FULLNAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>TYPE_FULLNAME</alias>
+<dataType>VARCHAR2 (391 BYTE)</dataType>
+<headerAlias>TYPE_FULLNAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="GROUP_CODE" id="555B2ECB-E9F5-125D-A282-CAF434299A30">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>MASTER_CUSTOMER</sourceObjSchema>
+<sourceObjName>GROUP_CODE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>GROUP_CODE</alias>
+<dataType>VARCHAR2 (150 BYTE)</dataType>
+<headerAlias>GROUP_CODE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="GROUP_NAME" id="D63B079D-D349-5EA9-EF22-13896AD4FA3D">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>MASTER_CUSTOMER</sourceObjSchema>
+<sourceObjName>GROUP_NAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>GROUP_NAME</alias>
+<dataType>VARCHAR2 (240 BYTE)</dataType>
+<headerAlias>GROUP_NAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="GROUP_FULLNAME" id="FE37421C-2681-842B-9E05-0E79842E9DB9">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>MASTER_CUSTOMER</sourceObjSchema>
+<sourceObjName>GROUP_FULLNAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>GROUP_FULLNAME</alias>
+<dataType>VARCHAR2 (391 BYTE)</dataType>
+<headerAlias>GROUP_FULLNAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="CUST_STATUS" id="67382EA7-8FEC-DB83-3C25-0CF5A3BD96E4">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>MASTER_CUSTOMER</sourceObjSchema>
+<sourceObjName>CUST_STATUS</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>CUST_STATUS</alias>
+<dataType>VARCHAR2 (1 BYTE)</dataType>
+<headerAlias>CUST_STATUS</headerAlias>
+<reference>false</reference>
+</viewElement>
+</viewElements>
+</TableView>

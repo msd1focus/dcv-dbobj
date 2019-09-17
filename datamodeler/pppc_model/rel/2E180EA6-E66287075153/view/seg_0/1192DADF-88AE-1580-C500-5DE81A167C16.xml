@@ -1,0 +1,464 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="1192DADF-88AE-1580-C500-5DE81A167C16" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="FCS_YEARLY_BUDGET_SUMMARY_V">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL>CREATE OR REPLACE VIEW FCS_YEARLY_BUDGET_SUMMARY_V&lt;br/&gt;AS &lt;br/&gt;SELECT &lt;br/&gt;HDR.BUDGET_CUST_HDR_ID YB_ID,&lt;br/&gt;HDR.BUDGET_TYPE YB_TYPE,&lt;br/&gt;HDR.BUDGET_YEAR YB_YEAR,&lt;br/&gt;CASE WHEN HDR.BUDGET_TYPE = &apos;CUSTOMER&apos; THEN HDR.CUSTOMER_ID&lt;br/&gt;     WHEN HDR.BUDGET_TYPE = &apos;POSTING&apos; THEN HDR.KODE_POSTING&lt;br/&gt;ELSE NULL&lt;br/&gt;END AS YB_CODE,&lt;br/&gt;CASE WHEN HDR.BUDGET_TYPE = &apos;CUSTOMER&apos; THEN&lt;br/&gt;          (SELECT ffv.description&lt;br/&gt;             FROM apps.fnd_flex_value_sets ffvs, apps.fnd_flex_values_vl ffv&lt;br/&gt;            WHERE ffv.flex_value_set_id = ffvs.flex_value_set_id&lt;br/&gt;              AND ffvs.flex_value_set_name = &apos;FCSAR_CUSTOMER_GROUP&apos;&lt;br/&gt;              AND ffv.flex_value = HDR.CUSTOMER_ID) &lt;br/&gt;     WHEN HDR.BUDGET_TYPE = &apos;POSTING&apos; THEN&lt;br/&gt;          (SELECT msi.description&lt;br/&gt;             FROM apps.fcs_inv_view_mstr_item msi&lt;br/&gt;            WHERE msi.item_type = &apos;PST&apos;&lt;br/&gt;              AND msi.item = HDR.KODE_POSTING)&lt;br/&gt;ELSE NULL&lt;br/&gt;END AS YB_DESC,&lt;br/&gt;DET.BUDGET_CATEGORY PCATEGORY_CODE,&lt;br/&gt;(SELECT MCV.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MCV WHERE MCV.CATEGORY_CONCAT_SEGS = DET.BUDGET_CATEGORY AND MCV.STRUCTURE_NAME = &apos;FCS_CATEGORY&apos;) AS PCATEGORY_DESC,&lt;br/&gt;DET.BUDGET_CLASS PCLASS_CODE,&lt;br/&gt;(SELECT MCV.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MCV WHERE MCV.CATEGORY_CONCAT_SEGS = DET.BUDGET_CLASS AND MCV.STRUCTURE_NAME = &apos;FCS_CLASS&apos;) AS PCLASS_DESC,&lt;br/&gt;DET.BUDGET_BRAND PBRAND_CODE,&lt;br/&gt;(SELECT MCV.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MCV WHERE MCV.CATEGORY_CONCAT_SEGS = DET.BUDGET_BRAND AND MCV.STRUCTURE_NAME = &apos;FCS_BRAND&apos;) AS PBRAND_DESC,&lt;br/&gt;DET.BUDGET_EXTENTION PEXT_CODE,&lt;br/&gt;(SELECT MCV.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MCV WHERE MCV.CATEGORY_CONCAT_SEGS = DET.BUDGET_EXTENTION AND MCV.STRUCTURE_NAME = &apos;FCS_EXTENTION&apos;) AS PEXT_DESC,&lt;br/&gt;DET.BUDGET_PACKAGING PPACKAGING_CODE,&lt;br/&gt;(SELECT MCV.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MCV WHERE MCV.CATEGORY_CONCAT_SEGS = DET.BUDGET_PACKAGING AND MCV.STRUCTURE_NAME = &apos;FCS_PACKAGING&apos;) AS PPACKAGING_DESC,&lt;br/&gt;DET.BUDGET_VARIANT PVARIANT_CODE,&lt;br/&gt;(SELECT MCV.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MCV WHERE MCV.CATEGORY_CONCAT_SEGS = DET.BUDGET_VARIANT AND MCV.STRUCTURE_NAME = &apos;FCS_VARIANT&apos;) AS PVARIANT_DESC,&lt;br/&gt;DET.STATUS,&lt;br/&gt;DET.YEARLY_BUDGET_AMOUNT,&lt;br/&gt;DET.YEARLY_BUDGET_AMOUNT - DET.BUDGET_AS_TO_DATE YEARLY_BUDGET_REMAINING,&lt;br/&gt;DET.BUDGET_AS_TO_DATE,&lt;br/&gt;DET.BUDGET_AS_TO_DATE_USED,&lt;br/&gt;DET.OVER_BUDGET,&lt;br/&gt;DET.BUDGET_AS_TO_DATE - DET.BUDGET_AS_TO_DATE_USED - (CASE WHEN DET.OVER_BUDGET IS NULL THEN 0 ELSE DET.OVER_BUDGET END) BUDGET_AS_TO_DATE_REMAINING&lt;br/&gt;FROM&lt;br/&gt;FOCUSPP.BUDGET_CUSTOMER DET,&lt;br/&gt;FOCUSPP.BUDGET_CUST_HDR HDR&lt;br/&gt;WHERE&lt;br/&gt;DET.BUDGET_CUST_HDR_ID = HDR.BUDGET_CUST_HDR_ID</userDefinedSQL>
+<parsed>true</parsed>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="YB_ID" id="20BAAE51-110D-D639-975E-C99344A405E4">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjSchema>
+<sourceObjName>YB_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>YB_ID</alias>
+<dataType>VARCHAR2 (4 BYTE)</dataType>
+<headerAlias>YB_ID</headerAlias>
+<reference>false</reference>
+<referencedColumn>D17CB08B-0094-1834-3F16-95B69DFF893E</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="YB_TYPE" id="C0B287B7-237B-C41B-1EA8-55F3A2378E78">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjSchema>
+<sourceObjName>YB_TYPE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>YB_TYPE</alias>
+<dataType>VARCHAR2 (40 BYTE)</dataType>
+<headerAlias>YB_TYPE</headerAlias>
+<reference>false</reference>
+<referencedColumn>6C87E283-A121-176C-D0B7-3A4724FC30EA</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="YB_YEAR" id="A2EE922C-042C-2534-E83C-136569E54D04">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjSchema>
+<sourceObjName>YB_YEAR</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>YB_YEAR</alias>
+<dataType>VARCHAR2 (40 BYTE)</dataType>
+<headerAlias>YB_YEAR</headerAlias>
+<reference>false</reference>
+<referencedColumn>BB5622A8-CFC8-BC92-9ACD-C677143F8679</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="YB_CODE" id="603DE358-653B-F605-357B-B254D7EB48E4">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjSchema>
+<sourceObjName>YB_CODE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>YB_CODE</alias>
+<dataType>VARCHAR2 (20 CHAR)</dataType>
+<headerAlias>YB_CODE</headerAlias>
+<reference>false</reference>
+<referencedColumn>CB61FD22-F24D-DB30-9070-9F00DB4A777C</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="YB_DESC" id="1385F7E2-2C19-0E11-13DC-897574C6F8AB">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjSchema>
+<sourceObjName>YB_DESC</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>YB_DESC</alias>
+<dataType>VARCHAR2 (40 BYTE)</dataType>
+<headerAlias>YB_DESC</headerAlias>
+<reference>false</reference>
+<referencedColumn>3CE173B1-7DD0-0AFE-5CEF-35ADC1DA73EF</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PCATEGORY_CODE" id="F620E51E-F656-369C-DC0E-09B4681FF9AB">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjSchema>
+<sourceObjName>PCATEGORY_CODE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PCATEGORY_CODE</alias>
+<dataType>VARCHAR2 (40 BYTE)</dataType>
+<headerAlias>PCATEGORY_CODE</headerAlias>
+<reference>false</reference>
+<referencedColumn>356546FB-04FA-C4A2-54A0-C6A83CC78F4E</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PCATEGORY_DESC" id="23588E24-2C6F-46C4-E6CE-59DA32D5CBB6">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjSchema>
+<sourceObjName>PCATEGORY_DESC</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PCATEGORY_DESC</alias>
+<dataType>VARCHAR2 (40 BYTE)</dataType>
+<headerAlias>PCATEGORY_DESC</headerAlias>
+<reference>false</reference>
+<referencedColumn>1AEFA404-C05B-582A-7042-D2B980502DB3</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PCLASS_CODE" id="BCCCED22-D281-8E7C-EBCF-A2F4E61E91B1">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjSchema>
+<sourceObjName>PCLASS_CODE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PCLASS_CODE</alias>
+<dataType>VARCHAR2 (40 BYTE)</dataType>
+<headerAlias>PCLASS_CODE</headerAlias>
+<reference>false</reference>
+<referencedColumn>8E65614E-1264-606D-C868-0C414BBCE22A</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PCLASS_DESC" id="260F36AA-A890-8EA1-9AAA-08C1F5374037">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjSchema>
+<sourceObjName>PCLASS_DESC</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PCLASS_DESC</alias>
+<dataType>VARCHAR2 (40 BYTE)</dataType>
+<headerAlias>PCLASS_DESC</headerAlias>
+<reference>false</reference>
+<referencedColumn>F633062D-35C9-D8CC-3B07-1EB331EE0B69</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PBRAND_CODE" id="A5898DE5-1E23-80FB-4324-33F87BA710F4">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjSchema>
+<sourceObjName>PBRAND_CODE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PBRAND_CODE</alias>
+<dataType>VARCHAR2 (40 BYTE)</dataType>
+<headerAlias>PBRAND_CODE</headerAlias>
+<reference>false</reference>
+<referencedColumn>86440EF9-491C-9FBA-5B5E-EB6B8FCDECFD</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PBRAND_DESC" id="89ABB190-8BA2-8D90-D904-BA081C6D65E7">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjSchema>
+<sourceObjName>PBRAND_DESC</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PBRAND_DESC</alias>
+<dataType>VARCHAR2 (10 BYTE)</dataType>
+<headerAlias>PBRAND_DESC</headerAlias>
+<reference>false</reference>
+<referencedColumn>D1B06A79-D770-B1FB-D098-EBFF5A7265CD</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PEXT_CODE" id="A083FD9B-7C80-481D-E41F-9CBBC653CCBE">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjSchema>
+<sourceObjName>PEXT_CODE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PEXT_CODE</alias>
+<dataType>NUMBER (18,2)</dataType>
+<headerAlias>PEXT_CODE</headerAlias>
+<reference>false</reference>
+<referencedColumn>090C775A-DBAB-A7FC-0EFB-64E2AF5C94FA</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PEXT_DESC" id="56FDCD52-AEC0-D35F-AE3B-65250E473055">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjSchema>
+<sourceObjName>PEXT_DESC</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PEXT_DESC</alias>
+<dataType>NUMBER (18,2)</dataType>
+<headerAlias>PEXT_DESC</headerAlias>
+<reference>false</reference>
+<referencedColumn>B854365C-83BA-5D4D-F487-DA1A866AFF1F</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PPACKAGING_CODE" id="4469F327-4556-79C6-9D59-CADF488A3BDA">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjSchema>
+<sourceObjName>PPACKAGING_CODE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PPACKAGING_CODE</alias>
+<dataType>NUMBER (18,2)</dataType>
+<headerAlias>PPACKAGING_CODE</headerAlias>
+<reference>false</reference>
+<referencedColumn>91C618F9-C3A4-7102-3C29-FFE844A557E6</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PPACKAGING_DESC" id="B8505900-C614-12FD-88FD-A7ABB9E2A93C">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjSchema>
+<sourceObjName>PPACKAGING_DESC</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PPACKAGING_DESC</alias>
+<dataType>NUMBER (18,2)</dataType>
+<headerAlias>PPACKAGING_DESC</headerAlias>
+<reference>false</reference>
+<referencedColumn>B2DC14CF-9FD9-7080-FF71-774B0A3C16B5</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PVARIANT_CODE" id="96B53A7A-9AF6-DEB3-3C09-626BCD11B018">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjSchema>
+<sourceObjName>PVARIANT_CODE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PVARIANT_CODE</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>PVARIANT_CODE</headerAlias>
+<reference>false</reference>
+<referencedColumn>12685F64-8AA5-2966-E3FE-9C10AC2E67CC</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PVARIANT_DESC" id="880BE05B-62A4-B7ED-1E1B-C5FF12A1526F">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjSchema>
+<sourceObjName>PVARIANT_DESC</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PVARIANT_DESC</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>PVARIANT_DESC</headerAlias>
+<reference>false</reference>
+<referencedColumn>4CC01F10-BFD0-DD56-FCAC-D962072145CE</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="STATUS" id="ACE1DE51-1121-EEF8-CB38-1C94D18CE922">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjSchema>
+<sourceObjName>STATUS</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>STATUS</alias>
+<dataType>VARCHAR2 (10 BYTE)</dataType>
+<headerAlias>STATUS</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="YEARLY_BUDGET_AMOUNT" id="FD924B03-216C-CCE4-137A-0CE41FEE4B5D">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjSchema>
+<sourceObjName>YEARLY_BUDGET_AMOUNT</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>YEARLY_BUDGET_AMOUNT</alias>
+<dataType>NUMBER (18, 2)</dataType>
+<headerAlias>YEARLY_BUDGET_AMOUNT</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="YEARLY_BUDGET_REMAINING" id="FA319583-5C25-F364-E823-2B239E0BC18D">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjSchema>
+<sourceObjName>YEARLY_BUDGET_REMAINING</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>YEARLY_BUDGET_REMAINING</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>YEARLY_BUDGET_REMAINING</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="BUDGET_AS_TO_DATE" id="96EF7E32-DE29-12FC-8F82-D91C8B0D9162">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjSchema>
+<sourceObjName>BUDGET_AS_TO_DATE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>BUDGET_AS_TO_DATE</alias>
+<dataType>NUMBER (18, 2)</dataType>
+<headerAlias>BUDGET_AS_TO_DATE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="BUDGET_AS_TO_DATE_USED" id="5AD15C22-1132-F548-64FF-AB9990A12F7A">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjSchema>
+<sourceObjName>BUDGET_AS_TO_DATE_USED</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>BUDGET_AS_TO_DATE_USED</alias>
+<dataType>NUMBER (18, 2)</dataType>
+<headerAlias>BUDGET_AS_TO_DATE_USED</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="OVER_BUDGET" id="82D911FC-2F29-3CF3-30A0-88A2AD445257">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjSchema>
+<sourceObjName>OVER_BUDGET</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>OVER_BUDGET</alias>
+<dataType>NUMBER (18, 2)</dataType>
+<headerAlias>OVER_BUDGET</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="BUDGET_AS_TO_DATE_REMAINING" id="0A00C421-704F-94AD-F3C7-3B5FD31178BE">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_SUMMARY_V</sourceObjSchema>
+<sourceObjName>BUDGET_AS_TO_DATE_REMAINING</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>BUDGET_AS_TO_DATE_REMAINING</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>BUDGET_AS_TO_DATE_REMAINING</headerAlias>
+<reference>false</reference>
+</viewElement>
+</viewElements>
+<usedObjects>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="D17CB08B-0094-1834-3F16-95B69DFF893E">
+<columnName>BUDGET_YEAR</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_HDR</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="6C87E283-A121-176C-D0B7-3A4724FC30EA">
+<columnName>CUSTOMER_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_HDR</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="BB5622A8-CFC8-BC92-9ACD-C677143F8679">
+<columnName>KODE_POSTING</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_HDR</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="CB61FD22-F24D-DB30-9070-9F00DB4A777C">
+<columnName>BUDGET_TYPE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_HDR</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="3CE173B1-7DD0-0AFE-5CEF-35ADC1DA73EF">
+<columnName>BUDGET_CATEGORY</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="356546FB-04FA-C4A2-54A0-C6A83CC78F4E">
+<columnName>BUDGET_CLASS</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="1AEFA404-C05B-582A-7042-D2B980502DB3">
+<columnName>BUDGET_BRAND</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="8E65614E-1264-606D-C868-0C414BBCE22A">
+<columnName>BUDGET_EXTENTION</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="F633062D-35C9-D8CC-3B07-1EB331EE0B69">
+<columnName>BUDGET_PACKAGING</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="86440EF9-491C-9FBA-5B5E-EB6B8FCDECFD">
+<columnName>BUDGET_VARIANT</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="D1B06A79-D770-B1FB-D098-EBFF5A7265CD">
+<columnName>STATUS</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="090C775A-DBAB-A7FC-0EFB-64E2AF5C94FA">
+<columnName>YEARLY_BUDGET_AMOUNT</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="B854365C-83BA-5D4D-F487-DA1A866AFF1F">
+<columnName>BUDGET_AS_TO_DATE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="91C618F9-C3A4-7102-3C29-FFE844A557E6">
+<columnName>BUDGET_AS_TO_DATE_USED</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="B2DC14CF-9FD9-7080-FF71-774B0A3C16B5">
+<columnName>OVER_BUDGET</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="EF780B7F-7D79-C8CC-9A98-F7B39DBD0813">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="29B45B11-8016-1F28-57EA-D5BB03D80F02">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_HDR</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="12685F64-8AA5-2966-E3FE-9C10AC2E67CC">
+<columnName>BUDGET_CUST_HDR_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="4CC01F10-BFD0-DD56-FCAC-D962072145CE">
+<columnName>BUDGET_CUST_HDR_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_HDR</tableName>
+</UsedObject>
+</usedObjects>
+</TableView>

@@ -1,0 +1,312 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="24FAA156-FBF5-56FB-393A-6BFD609ADD88" name="Request_hdr">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:29:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<shortName>Request</shortName>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="req_id" id="5D41D61F-C350-EC93-D935-94994AD56CAF">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:30:46 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<structuredType>47E390DE-0671-C4B1-8428-0F45CBEE18F8</structuredType>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="customer" id="F6B9CFBA-91B2-4022-3858-2CF1A197E5FE">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:31:18 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 CHAR</dataTypeSize>
+<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="company" id="75EEA128-C90F-5F54-B42E-68A6FF0C6C02">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:33:06 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="no_pc" id="452F7F1A-326D-1BC1-5E80-BA7B9E30C8FC">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:33:25 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="key_pc" id="BF94CEFD-3607-245A-C429-4C8C1D4F6BFC">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:33:42 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="periode_dcv" id="A6B47285-9DDD-C494-D673-E4D065019C1B">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:33:47 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>3</use>
+<structuredType>8DD4F776-1DD4-AD1A-A6E0-9657689488FE</structuredType>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pc_kategori" id="F4749459-32EA-48BC-258C-F97952362EF9">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:34:36 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pc_tipe" id="0C3FB3AB-41CE-0ED9-4A27-DF8975C36C79">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:34:47 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="periode_pc" id="94CA4F72-D3D9-584B-4267-6A0716BD1360">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:35:14 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>3</use>
+<structuredType>8DD4F776-1DD4-AD1A-A6E0-9657689488FE</structuredType>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="no_dcv" id="A33796A9-537C-91CA-F925-5AB5AA4783D8">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:37:12 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="prod_type" id="EB665679-0AE1-D2B4-FEA3-AE0404D4A1AE">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:10:48 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="req_value" id="60E721BD-BA61-7229-FA43-7C0A8C199ED3">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 14:18:17 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="apr_value" id="D88AF280-F474-66CD-274D-527862B2F3BF">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 14:34:13 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="req_time" id="152BCEF2-2145-9F61-6B8E-D41A2C1D6677">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 14:32:55 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="file_complete" id="215A4C55-A301-A014-10F5-632F743E639B">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 14:44:50 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="reg_area_loc" id="E299C0DC-215E-2D49-7B6E-5964AE98E9C7">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:11:34 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60</dataTypeSize>
+<ownDataTypeParameters>60,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="last_status" id="0C0B4CF5-35FD-11C6-98E0-03853A36E143">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:13:22 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<nestedAttributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<nestedAttribute name="periode_dcv.period_from" directorySegmentName="seg_0" id="97128663-A36A-6C8B-9AE6-3E0D674248C5">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:33:12 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<parentObject>A6B47285-9DDD-C494-D673-E4D065019C1B</parentObject>
+<structAttributeID>5B11DC2D-BC78-E8B3-C1B4-067F5ED75C76</structAttributeID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,0,0</ownDataTypeParameters>
+</nestedAttribute>
+<nestedAttribute name="periode_dcv.period_to" directorySegmentName="seg_0" id="05086C44-31E6-194C-B47C-D502AFC71E86">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:33:12 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<parentObject>A6B47285-9DDD-C494-D673-E4D065019C1B</parentObject>
+<structAttributeID>B3EDABAC-896E-6287-30E1-2E795720A0E2</structAttributeID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,0,0</ownDataTypeParameters>
+</nestedAttribute>
+<nestedAttribute name="periode_pc.period_from" directorySegmentName="seg_0" id="3F9118A7-FFD1-3E61-E416-7CF600AE1D99">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:33:26 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<parentObject>94CA4F72-D3D9-584B-4267-6A0716BD1360</parentObject>
+<structAttributeID>5B11DC2D-BC78-E8B3-C1B4-067F5ED75C76</structAttributeID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,0,0</ownDataTypeParameters>
+</nestedAttribute>
+<nestedAttribute name="periode_pc.period_to" directorySegmentName="seg_0" id="7DFF5986-1223-0FD3-0A6D-34FEAA48481D">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:33:26 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<parentObject>94CA4F72-D3D9-584B-4267-6A0716BD1360</parentObject>
+<structAttributeID>B3EDABAC-896E-6287-30E1-2E795720A0E2</structAttributeID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,0,0</ownDataTypeParameters>
+</nestedAttribute>
+</nestedAttributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="E26B114C-A808-5F3E-2877-FB14994DC8E5" name="Request_hdr PK">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 13:32:17 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<engineerTo>
+<item key="FCB18A83-C573-0C1C-855D-1EDF86DE5036" value="true"/>
+</engineerTo>
+<pk>true</pk>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,141 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0A858212-0DEA-8BFA-7AB3-0D79D883FD4B" name="wf_rollback_flow">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-29 13:44:22 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<ordsAlias>table_21</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="5E14BB70-E364-B9A4-DB21-59666789635A">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-29 13:46:26 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="rb_request_id" id="A98B43AB-29BA-3FDF-F332-053724C3DFF6">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-29 13:46:09 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FF81F7DF-9A9F-15BC-8930-D4486DE01DE4" referredColumn="51D7B7C6-7152-4144-C58F-DA0D6587BFF9"/>
+</associations>
+</Column>
+<Column name="nourut" id="3093B2FE-775D-2164-41EC-89794AE0E4DE">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-30 00:09:24 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="bagian" id="FF662EF3-1B3C-C3BA-EB81-87E593F4C9B3">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-30 00:10:09 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 CHAR</dataTypeSize>
+<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="node_code" id="A97F8BB8-3CE3-EBA6-2487-B44720165C32">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-29 13:45:06 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="rb_in" id="33C8E0CA-FD5D-C8C2-1354-EEFDCB06CFD8">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-29 13:47:12 UTC</createdTime>
+<commentInRDBMS>Y = include N = skip</commentInRDBMS>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>3 CHAR</dataTypeSize>
+<ownDataTypeParameters>3 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="flag_approval" id="DE0B4DF7-8D25-44BC-9479-084AB8AD441D">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-05 05:02:48 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>5 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="modify_by" id="27917497-16F1-6568-2188-343C5F7795EE">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-05 05:03:33 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="modify_dt" id="25B3177D-90E8-6D08-FFB0-969C4A8A66FA">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-05 05:03:52 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3C9D197C-F576-4A8B-FDC6-2CF7F4EBBB16" name="wf_rollback_flow_PK">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-29 13:49:19 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5E14BB70-E364-B9A4-DB21-59666789635A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1F47DCE6-6BB1-F30A-A7A0-0B3B65A91486" name="wf_rollback_flow_FK">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-29 13:48:57 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A98B43AB-29BA-3FDF-F332-053724C3DFF6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,315 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1BD9D2E9-8482-1D7E-E6A2-1A64DD94FBE5" name="TC_approval">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>308515E0-905E-AA09-85E4-8C3DE25DC9DA</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<ordsAlias>req_line_breakdown</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="304EAD8B-A5DD-8E96-E01E-B7BEB848413F">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>609A7B19-3511-5084-309C-80A27AA94A3F</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvl_id" id="C9C1928D-7180-0A6B-44DA-0951985838CD">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>6148410E-EC06-7F54-006C-DD35FA5C5120</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E109D855-25A9-8799-13F6-389ACFB233B7" referredColumn="508FA4B4-054B-8C4E-810A-AA133B1992FD"/>
+</associations>
+</Column>
+<Column name="no_po" id="24A713D4-2C56-0C92-7B27-3D2F78E18EBD">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-28 02:52:20 UTC</createdTime>
+<commentInRDBMS>No PO dari EBS</commentInRDBMS>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="line_po" id="E8D2682D-C157-A53A-9D56-78582F1D96F6">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-28 02:52:39 UTC</createdTime>
+<commentInRDBMS>Line no dari PO yang dipilih</commentInRDBMS>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="no_pr" id="10B6D228-F06A-EE92-BA8A-6F7F738B2C9E">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-05 04:23:06 UTC</createdTime>
+<commentInRDBMS>No PR unt. PO tsb</commentInRDBMS>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="line_pr" id="3D089E52-259D-8075-18FC-A61149BEA83D">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-05 04:23:15 UTC</createdTime>
+<commentInRDBMS>No line PR</commentInRDBMS>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pc_pengganti" id="B0FE88C5-73F6-6864-8004-5944388BB778">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-28 02:54:32 UTC</createdTime>
+<commentInRDBMS>No PC Pengganti + Line PC</commentInRDBMS>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pc_pengganti_promo_produk_id" id="5AB31FCA-456F-3D4E-350A-4D25FD1C8301">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-05 04:24:35 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pc_tambahan" id="5214E703-2C04-5A43-36C1-5FD29575151B">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-28 02:57:36 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pc_tambahan_promo_produk_id" id="E7CC8684-8700-1AF2-DA2E-BA1437004A73">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-05 04:25:53 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="prod_code" id="1173C0DA-993B-F781-AA4E-7CD906C499D5">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>4875FA4F-1F13-26F2-7C5A-631D77D7F61B</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="prod_name" id="E4D0A92B-CD6A-9E24-65BB-B35BCBE429DC">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>C7714DCE-576F-3DE7-ED5E-FEDFB33D7395</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="flag_budget" id="1B4B1C5E-CF15-2DFA-7A47-475612A8221B">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-11 01:01:36 UTC</createdTime>
+<commentInRDBMS>PB / TPB</commentInRDBMS>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>5 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="qty" id="E324FFD7-B6A4-91A7-0D92-BFCF75ADD407">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<commentInRDBMS>Jumlah yang disetujui TC</commentInRDBMS>
+<generatorID>008103C3-A1E3-589F-B941-57C9EA774912</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="uom" id="499EAD84-4879-F9C8-F8F2-1764FE9E82AB">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<commentInRDBMS>uom jumlah yg disetujui, list dari EBS</commentInRDBMS>
+<generatorID>7196B126-AB3F-E1F3-6626-CD3408F4EC88</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="harga_satuan" id="70466B14-B2DE-F040-C7E2-C25517A426D0">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<commentInRDBMS>excl ppn</commentInRDBMS>
+<generatorID>02867549-FA3E-6B04-99E9-11EA429370EC</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nilai_total" id="CB3B62DB-A167-194D-582A-4E2EB784CE98">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<commentInRDBMS>Nilai total sesuai uom dan nilai satuan</commentInRDBMS>
+<generatorID>7A5413D4-58AB-62E8-384A-91D3332D95B9</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="qty_converted" id="15F5C770-1CCC-B658-4DAD-ADF130493BF3">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-07 15:21:47 UTC</createdTime>
+<commentInRDBMS>Nilai hasil konversi uom dari uom ebs ke uom dcv</commentInRDBMS>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="uom_dcv" id="7DD4017A-3E25-5406-049D-43457EC830F6">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-28 02:57:36 UTC</createdTime>
+<commentInRDBMS>Uom dcv yg direquest distributor</commentInRDBMS>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="notes" id="2DED7CBD-6720-39C2-05A9-DCF60B9C0015">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-07 15:23:57 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="modified_dt" id="34C27E62-3B0C-DAFE-2112-1BDA546D0951">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-13 10:53:17 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="modified_by" id="EC6A84E8-F128-97F6-CF98-1E5CC43EBF4B">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-13 10:53:17 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8B90FB2D-50CA-CCE4-F57A-4E56C3CD52FE" name="tc_approval_PK">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>D22A5B72-935A-ED29-09A2-DA2CDF0A5FC3</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="304EAD8B-A5DD-8E96-E01E-B7BEB848413F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DC8C6C97-E71C-2BB0-015F-C96A65E547FF" name="req_line_breakdown_FK">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:58 UTC</createdTime>
+<generatorID>A4BB5B6F-7AEB-6C6A-8F2C-176A619C0CC4</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C9C1928D-7180-0A6B-44DA-0951985838CD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

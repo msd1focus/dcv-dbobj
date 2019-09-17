@@ -1,0 +1,36 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="holiday" directorySegmentName="seg_0" id="050CE2FE-5009-DCFA-8C8A-ACAA340418F1">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="id" id="8F1A3BC9-DE27-9648-5500-8D0DA2DAB265">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="tgl_libur" id="B2662EFB-8F66-5CF5-8FFD-04DFF5C4AF4A">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="description" id="E49399CF-F374-EDE9-7AE9-59C01D1734F1">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="holiday_PK" id="73316FD9-A6F6-879E-1852-0DDE4E4BD4ED">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:37:54 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

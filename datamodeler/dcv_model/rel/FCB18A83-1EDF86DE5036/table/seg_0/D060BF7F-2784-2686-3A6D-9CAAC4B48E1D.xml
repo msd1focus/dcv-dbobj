@@ -1,0 +1,142 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D060BF7F-2784-2686-3A6D-9CAAC4B48E1D" name="WF_Node">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 00:21:28 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<ordsAlias>table_10</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="nodecode" id="6411B5D7-F3E7-79AA-AB65-D611FC83EB73">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 00:22:14 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="node_desc" id="F59194F7-1079-616C-C4C7-525C61CF2DFA">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 10:54:49 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nodetype" id="BAE1F55A-0F9B-0A10-49EF-783EBFAD7B06">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 00:22:29 UTC</createdTime>
+<commentInRDBMS>normal: decission&lt;br/&gt;split: jadi banyak&lt;br/&gt;merge: jadi satu&lt;br/&gt;autocheck: scheduled check&lt;br/&gt;serahterima dok&lt;br/&gt;end</commentInRDBMS>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="no_urut" id="7CB49E2D-662F-FD4B-AFD0-1B0DA6FB5145">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-30 00:42:44 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="bagian" id="DCA1A2E9-987E-E6E7-CFA3-6BBA1F886882">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 00:23:17 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 CHAR</dataTypeSize>
+<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="execscript" id="6311AB65-3762-61B9-3589-7F4646149129">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-19 03:33:53 UTC</createdTime>
+<commentInRDBMS>nama db function unt di-execute</commentInRDBMS>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="prime_route" id="3ACDB587-B381-61C8-385B-8B12860EDF35">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-11 09:40:51 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="merge_count" id="8B16E3F4-1AA5-6D4E-1650-CE28FA8DD444">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-17 00:03:56 UTC</createdTime>
+<commentInRDBMS>jumlah route yg merge ke node ini</commentInRDBMS>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="sla1" id="300E544E-4A7F-D4B4-2331-000CDD192299">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-13 03:31:37 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="sla2" id="51758CC7-DAF7-3D40-D238-F644E0402B5F">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-13 03:32:18 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D96F0AB7-FBC2-FFE9-3F31-F7D8DF403AF0" name="Node_PK">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 00:22:14 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6411B5D7-F3E7-79AA-AB65-D611FC83EB73"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

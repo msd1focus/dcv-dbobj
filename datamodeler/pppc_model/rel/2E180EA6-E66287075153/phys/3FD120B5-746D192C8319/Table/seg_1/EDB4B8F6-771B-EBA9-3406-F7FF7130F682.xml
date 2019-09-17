@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="APP_USER_ACCESS_ROLES" directorySegmentName="seg_1" id="EDB4B8F6-771B-EBA9-3406-F7FF7130F682">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:35 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<schemaObject>7CBB1AB6-5E3C-CEFF-688A-822A0E866097</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>835E9FBE-F97D-6AEF-C032-096BD61638FB</segment>
+<tableSpace>0347D509-A3C7-2CBC-6C69-17C7E52E950A</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="USER_NAME" id="3DB4E946-3F9A-7F49-4709-E8326CB18249">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ROLE" id="E38CFC40-2D84-2CCC-C345-205BCF7CC03F">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="APP_USER_ACCESS_ROLES_PK" id="CA5F00F8-D63D-181E-B8FF-77063A9C8589">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:05 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<schemaObject>7CBB1AB6-5E3C-CEFF-688A-822A0E866097</schemaObject>
+<segment>8F2B29C7-1867-5996-D3C3-47E355E5CE77</segment>
+<tableSpace>0347D509-A3C7-2CBC-6C69-17C7E52E950A</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="APP_USER_ACCESS_ROLES_APP_FK1" id="030040E9-09FB-B03B-7930-C633C4CD1ECA">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:23 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="APP_USER_ACCESS_ROLES_PK" id="2D798991-35FB-D077-08F1-BA7F1778E22F">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:07 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<segment>8F2B29C7-1867-5996-D3C3-47E355E5CE77</segment>
+<tableSpace>0347D509-A3C7-2CBC-6C69-17C7E52E950A</tableSpace>
+<existingIndex>CA5F00F8-D63D-181E-B8FF-77063A9C8589</existingIndex>
+<indexSegment>8F2B29C7-1867-5996-D3C3-47E355E5CE77</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

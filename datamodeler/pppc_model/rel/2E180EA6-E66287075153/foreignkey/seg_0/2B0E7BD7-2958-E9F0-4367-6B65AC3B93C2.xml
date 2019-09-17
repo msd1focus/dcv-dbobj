@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="2B0E7BD7-2958-E9F0-4367-6B65AC3B93C2" containerWithKeyObject="4CB7D9DD-F34F-6393-C124-0EA7158F340B" localFKIndex="A9264DA2-E6CB-BEA8-C051-0DFF8FF3F364" name="BUDGET_POST_TRAN_BUDGET_P_FK1">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>BUDGET_POST_TRAN_BUDGET_P_FK1</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:23 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<referredTableLongName>FOCUSPP.BUDGET_POSTING</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>CB13E2D2-5E4C-0E51-0E41-15858571FED8</referredTableID>
+<keyObject>53AFD464-CD5F-ECF9-34C8-3FDF86555AE3</keyObject>
+<referredKeyID>53AFD464-CD5F-ECF9-34C8-3FDF86555AE3</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>BUDGET_POSTING_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

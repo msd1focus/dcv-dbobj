@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SchemaObject class="oracle.dbtools.crest.model.design.relational.SchemaObject" name="FOCUSPP" directorySegmentName="seg_0" id="7CBB1AB6-5E3C-CEFF-688A-822A0E866097">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:25 UTC</createdTime>
+<ownerDesignName>pppc</ownerDesignName>
+</SchemaObject>

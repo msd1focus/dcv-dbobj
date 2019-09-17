@@ -1,0 +1,326 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="78EC2C8B-8DA7-E79A-BBE0-1407781CF780" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="BUDGET_CUSTOMER_TES">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>BUDGET_CUSTOMER_TES</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:35 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="BUDGET_CUSTOMER_ID" id="25046676-E018-844B-1D8E-7FF6D3367AAB">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BUDGET_CUSTOMER_TES</sourceObjSchema>
+<sourceObjName>BUDGET_CUSTOMER_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="YEARLY_BUDGET_AMOUNT" id="3099460A-93A0-6279-F09D-F980FB8B42FB">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BUDGET_CUSTOMER_TES</sourceObjSchema>
+<sourceObjName>YEARLY_BUDGET_AMOUNT</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STATUS" id="78CBC065-D8FE-671D-96BB-9387BEE2B90E">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BUDGET_CUSTOMER_TES</sourceObjSchema>
+<sourceObjName>STATUS</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<defaultValue>&apos;ACTIVE&apos;</defaultValue>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CREATED_BY" id="E42C20C8-F6DE-8AE8-929E-179F190C0E55">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BUDGET_CUSTOMER_TES</sourceObjSchema>
+<sourceObjName>CREATED_BY</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CREATION_DATE" id="B48B07EB-BE06-13E4-5893-8B35D9B3E0D0">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BUDGET_CUSTOMER_TES</sourceObjSchema>
+<sourceObjName>CREATION_DATE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MODIFIED_BY" id="E977B924-63A2-4E7C-F138-1D7C6A987927">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BUDGET_CUSTOMER_TES</sourceObjSchema>
+<sourceObjName>MODIFIED_BY</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MODIFIED_ON" id="32ACB504-69FE-AFAD-291F-7C470106520B">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BUDGET_CUSTOMER_TES</sourceObjSchema>
+<sourceObjName>MODIFIED_ON</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BUDGET_CUST_HDR_ID" id="8E67917C-4862-FE94-7706-7719CF73693E">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BUDGET_CUSTOMER_TES</sourceObjSchema>
+<sourceObjName>BUDGET_CUST_HDR_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B19A82D9-B71F-39B1-54DF-3D3409EC4A01" referredColumn="4CC01F10-BFD0-DD56-FCAC-D962072145CE"/>
+</associations>
+</Column>
+<Column name="BUDGET_CATEGORY" id="951396D3-F46C-5E6D-AE0E-70C1B6F4342C">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BUDGET_CUSTOMER_TES</sourceObjSchema>
+<sourceObjName>BUDGET_CATEGORY</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BUDGET_CLASS" id="75C193D4-2770-F18D-2831-55FB3F1A1A04">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BUDGET_CUSTOMER_TES</sourceObjSchema>
+<sourceObjName>BUDGET_CLASS</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BUDGET_BRAND" id="D8C7DB73-B329-0B7B-D9E0-2670E0110B4B">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BUDGET_CUSTOMER_TES</sourceObjSchema>
+<sourceObjName>BUDGET_BRAND</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BUDGET_EXTENTION" id="16EAC852-2451-8A52-A523-19691CF1F7F7">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BUDGET_CUSTOMER_TES</sourceObjSchema>
+<sourceObjName>BUDGET_EXTENTION</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BUDGET_PACKAGING" id="787359F0-534D-46E9-1F14-C7AE3FBFB94F">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BUDGET_CUSTOMER_TES</sourceObjSchema>
+<sourceObjName>BUDGET_PACKAGING</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BUDGET_VARIANT" id="F7C4C927-057F-11B5-A545-6728D1BCFC27">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BUDGET_CUSTOMER_TES</sourceObjSchema>
+<sourceObjName>BUDGET_VARIANT</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BUDGET_AS_TO_DATE" id="6B98A88A-A6F2-B26D-79D0-2121720476BE">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BUDGET_CUSTOMER_TES</sourceObjSchema>
+<sourceObjName>BUDGET_AS_TO_DATE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BUDGET_AS_TO_DATE_USED" id="ABF62E12-C7B0-CA8B-504E-35836E1A7A62">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BUDGET_CUSTOMER_TES</sourceObjSchema>
+<sourceObjName>BUDGET_AS_TO_DATE_USED</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="OVER_BUDGET" id="B1A70D28-B252-F069-55FB-C2607F56AD28">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BUDGET_CUSTOMER_TES</sourceObjSchema>
+<sourceObjName>OVER_BUDGET</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BUDGET_CUSTOMER_IDREF" id="228D9068-A0F2-5C5D-7449-CCCC52EB781D">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>BUDGET_CUSTOMER_TES</sourceObjSchema>
+<sourceObjName>BUDGET_CUSTOMER_IDREF</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:46 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3E50FF8D-4BB2-2A23-0AF9-BC5842968728" name="BUDGET_CUSTOMER_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>BUDGET_CUSTOMER_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:10 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="25046676-E018-844B-1D8E-7FF6D3367AAB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DC6A72FC-6661-963A-99D9-08A71EC2E966" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="BUDGET_CUSTOMER_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>BUDGET_CUSTOMER_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:21 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="25046676-E018-844B-1D8E-7FF6D3367AAB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4C796403-656C-EF25-AF0A-0E2DFE63B6EF" name="BUDGET_CUSTOMER_BUDGET_CU_FK1">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:23 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8E67917C-4862-FE94-7706-7719CF73693E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

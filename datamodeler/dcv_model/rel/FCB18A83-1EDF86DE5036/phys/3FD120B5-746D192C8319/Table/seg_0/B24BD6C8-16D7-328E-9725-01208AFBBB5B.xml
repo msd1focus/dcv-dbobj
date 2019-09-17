@@ -1,0 +1,36 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="DCV_NUMBER" directorySegmentName="seg_0" id="B24BD6C8-16D7-328E-9725-01208AFBBB5B">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-20 00:36:09 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="modified_dt" id="628DB815-A6A6-0DA4-A4B7-A2F98DF8DF70">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-20 00:39:53 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="lastnum" id="681237B1-5292-9E31-6735-4ADC612A95DE">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-20 00:37:38 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="period" id="D2B76EA6-A01A-F0A8-3B4A-BB4743693B04">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-20 00:38:27 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="DCV_NUMBER_PK" id="42F8749A-CFCA-2D19-4611-B6B36B2F01A6">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-20 00:37:38 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

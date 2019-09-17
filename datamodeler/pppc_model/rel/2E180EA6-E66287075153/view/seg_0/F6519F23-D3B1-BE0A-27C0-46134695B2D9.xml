@@ -1,0 +1,191 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="F6519F23-D3B1-BE0A-27C0-46134695B2D9" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="FCS_EXCL_SHUTTLE_AREA_PROP">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_EXCL_SHUTTLE_AREA_PROP</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL>CREATE OR REPLACE VIEW FCS_EXCL_SHUTTLE_AREA_PROP&lt;br/&gt;AS &lt;br/&gt;select arc.attribute4 AS area_code,&lt;br/&gt;arc.attribute4 AS description,&lt;br/&gt;arc.attribute4 || &apos; &apos; || flex.description AS area_label,&lt;br/&gt;aur.user_name AS user_name,           &lt;br/&gt;arc.attribute1 AS cust_group_code,&lt;br/&gt;arc.attribute3 AS region_code,&lt;br/&gt;prod.promo_produk_id AS promo_produk_id,&lt;br/&gt;null AS proposal_id&lt;br/&gt;from apps.ar_customers arc, app_user_region aur, PROP_REGION_CUST_GROUP rcg, PROMO_PRODUK prod, APPS.FCS_FLEX_VALUES_VL flex&lt;br/&gt;where arc.attribute1 = rcg.cust_group&lt;br/&gt;and aur.region_code = arc.attribute3&lt;br/&gt;and arc.status = &apos;A&apos;&lt;br/&gt;and prod.proposal_id = rcg.proposal_id&lt;br/&gt;and flex.flex_value = arc.attribute4&lt;br/&gt;group by arc.attribute4, arc.attribute1, arc.attribute3, aur.user_name, prod.promo_produk_id, flex.description&lt;br/&gt;union&lt;br/&gt;select arc.attribute4 AS area_code,&lt;br/&gt;arc.attribute4 AS description,&lt;br/&gt;arc.attribute4 || &apos; &apos; || flex.description AS area_label,&lt;br/&gt;aur.user_name AS user_name,           &lt;br/&gt;arc.attribute1 AS cust_group_code,&lt;br/&gt;arc.attribute3 AS region_code,&lt;br/&gt;prod.promo_produk_id AS promo_produk_id,&lt;br/&gt;null AS proposal_id&lt;br/&gt;from apps.ar_customers arc, app_user_region aur, PROP_REGION pg, PROMO_PRODUK prod, APPS.FCS_FLEX_VALUES_VL flex&lt;br/&gt;where arc.attribute3 = pg.region_code&lt;br/&gt;and aur.region_code = arc.attribute3&lt;br/&gt;and arc.status = &apos;A&apos;&lt;br/&gt;and prod.proposal_id = pg.proposal_id&lt;br/&gt;and flex.flex_value = arc.attribute4&lt;br/&gt;group by arc.attribute4, arc.attribute1, arc.attribute3, aur.user_name, prod.promo_produk_id, flex.description&lt;br/&gt;order by 1</userDefinedSQL>
+<parsed>true</parsed>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="AREA_CODE" id="2DD798EB-B438-FD06-243A-F9427F882B8D">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_EXCL_SHUTTLE_AREA_PROP</sourceObjSchema>
+<sourceObjName>AREA_CODE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>AREA_CODE</alias>
+<dataType>VARCHAR2 (20 BYTE)</dataType>
+<headerAlias>AREA_CODE</headerAlias>
+<reference>false</reference>
+<referencedColumn>DDCDF0C8-0179-46D3-78F7-8DABF872076C</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="DESCRIPTION" id="68F05550-98D6-D75F-CC1D-0878A3B19DCB">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_EXCL_SHUTTLE_AREA_PROP</sourceObjSchema>
+<sourceObjName>DESCRIPTION</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>DESCRIPTION</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>DESCRIPTION</headerAlias>
+<reference>false</reference>
+<referencedColumn>16394033-3C0E-31D6-77E5-76E20CA2A60B</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="AREA_LABEL" id="01CE86CB-E822-A4DF-CE01-14178078247D">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_EXCL_SHUTTLE_AREA_PROP</sourceObjSchema>
+<sourceObjName>AREA_LABEL</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>AREA_LABEL</alias>
+<dataType>VARCHAR2 (30 BYTE)</dataType>
+<headerAlias>AREA_LABEL</headerAlias>
+<reference>false</reference>
+<referencedColumn>9BDEA0E5-6EFA-C3D7-5ACC-A97B00F1D6CD</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="USER_NAME" id="56AE6E80-11F7-9580-2330-498A3A09AF1C">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_EXCL_SHUTTLE_AREA_PROP</sourceObjSchema>
+<sourceObjName>USER_NAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>USER_NAME</alias>
+<dataType>VARCHAR2 (30 BYTE)</dataType>
+<headerAlias>USER_NAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="CUST_GROUP_CODE" id="64D9C254-3CC9-8264-6D51-6D87B3068C6C">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_EXCL_SHUTTLE_AREA_PROP</sourceObjSchema>
+<sourceObjName>CUST_GROUP_CODE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>CUST_GROUP_CODE</alias>
+<dataType>VARCHAR2 (150 BYTE)</dataType>
+<headerAlias>CUST_GROUP_CODE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="REGION_CODE" id="344AEF58-429C-643A-BFFB-F0E049398E90">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_EXCL_SHUTTLE_AREA_PROP</sourceObjSchema>
+<sourceObjName>REGION_CODE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>REGION_CODE</alias>
+<dataType>VARCHAR2 (150 BYTE)</dataType>
+<headerAlias>REGION_CODE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PROMO_PRODUK_ID" id="B3F43BF8-0BD3-55BE-DC28-CCFFF2DA39EB">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_EXCL_SHUTTLE_AREA_PROP</sourceObjSchema>
+<sourceObjName>PROMO_PRODUK_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PROMO_PRODUK_ID</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>PROMO_PRODUK_ID</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PROPOSAL_ID" id="36B51736-9AEB-6DF2-05A4-94234FE3F1E4">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_EXCL_SHUTTLE_AREA_PROP</sourceObjSchema>
+<sourceObjName>PROPOSAL_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PROPOSAL_ID</alias>
+<dataType>VARCHAR2</dataType>
+<headerAlias>PROPOSAL_ID</headerAlias>
+<reference>false</reference>
+</viewElement>
+</viewElements>
+<usedObjects>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="3DF8FA23-FC41-75FE-C30D-E10B2CDAF324">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_REGION</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="5972517E-CAD0-A552-2273-6D1BD832A875">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>PROP_REGION_CUST_GROUP</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="91E05B52-035E-2397-2209-933F68A754F2">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>PROMO_PRODUK</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="DDCDF0C8-0179-46D3-78F7-8DABF872076C">
+<columnName>CUST_GROUP</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROP_REGION_CUST_GROUP</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="16394033-3C0E-31D6-77E5-76E20CA2A60B">
+<columnName>PROPOSAL_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROP_REGION_CUST_GROUP</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="9BDEA0E5-6EFA-C3D7-5ACC-A97B00F1D6CD">
+<columnName>USER_NAME</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_REGION</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="6D5FDCC5-A2E7-1529-39EB-657BDC9F7086">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>PROP_REGION</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="B42FDBBD-980B-D006-8460-5804C4C919D0">
+<columnName>REGION_CODE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROP_REGION</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="99A77F2B-A392-ED55-E1C2-3A1848DA6A61">
+<columnName>REGION_CODE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_REGION</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="DA64E5C3-987C-CBC1-D50F-D0345C622BDB">
+<columnName>PROPOSAL_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROMO_PRODUK</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="7B9C633A-552B-F304-0562-0543A69992C1">
+<columnName>PROPOSAL_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROP_REGION</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="A9CDBC24-84A0-79ED-BC01-41C4C6CF0944">
+<columnName>PROMO_PRODUK_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROMO_PRODUK</tableName>
+</UsedObject>
+</usedObjects>
+</TableView>

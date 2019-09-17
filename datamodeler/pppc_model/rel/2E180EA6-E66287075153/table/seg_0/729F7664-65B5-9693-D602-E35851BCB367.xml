@@ -1,0 +1,232 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="729F7664-65B5-9693-D602-E35851BCB367" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="APP_ROLES">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APP_ROLES</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:35 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="8C60B8A9-7407-5630-29AC-A3F4BAA07104">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APP_ROLES</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,10,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="BED92552-314A-6528-08FA-8BBDCAC2B65F">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APP_ROLES</sourceObjSchema>
+<sourceObjName>NAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCR" id="4DAD4A48-C033-D1AC-DA69-EFF5FAAD749D">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APP_ROLES</sourceObjSchema>
+<sourceObjName>DESCR</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LABEL" id="F36FD23B-CA68-EA4A-87DF-0630AC0CFA7B">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APP_ROLES</sourceObjSchema>
+<sourceObjName>LABEL</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ROLE_TYPE" id="01045CAF-2864-E0E0-7675-3BE693CD7408">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APP_ROLES</sourceObjSchema>
+<sourceObjName>ROLE_TYPE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<defaultValue>&apos;AREA&apos;</defaultValue>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FORWARD_FLG" id="95852643-76D0-DEFC-887E-0A35A2661B0A">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APP_ROLES</sourceObjSchema>
+<sourceObjName>FORWARD_FLG</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<defaultValue>&apos;N&apos;</defaultValue>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ADDENDUM_AREA" id="8F281638-3F0A-BAC5-3343-D481C6E311BC">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APP_ROLES</sourceObjSchema>
+<sourceObjName>ADDENDUM_AREA</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<defaultValue>&apos;N&apos;</defaultValue>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UNAPPROVED" id="E5B45C04-25F3-3840-6D7F-47368438BB2D">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APP_ROLES</sourceObjSchema>
+<sourceObjName>UNAPPROVED</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<defaultValue>&apos;N&apos;</defaultValue>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRINT_COUNT" id="DCE4EB80-6269-26A3-7301-A54F154A224F">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APP_ROLES</sourceObjSchema>
+<sourceObjName>PRINT_COUNT</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<defaultValue>&apos;N&apos;</defaultValue>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BUDGET_STATUS" id="F650E578-2F70-1F00-8C0E-770AB0E90D8A">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APP_ROLES</sourceObjSchema>
+<sourceObjName>BUDGET_STATUS</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<defaultValue>&apos;N&apos;</defaultValue>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="APPROVAL_BUDGET" id="F4F9087E-62ED-8221-C86F-7950901B27D0">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APP_ROLES</sourceObjSchema>
+<sourceObjName>APPROVAL_BUDGET</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<defaultValue>&apos;N&apos;</defaultValue>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="474D6F4A-01BD-5977-5C7E-2EC432C4A36F" name="APP_ROLES_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APP_ROLES_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:06 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8C60B8A9-7407-5630-29AC-A3F4BAA07104"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="09BBB3E4-175C-743E-52DD-8A53FC577B2D" name="APP_ROLES_UK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APP_ROLES_UK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:06 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BED92552-314A-6528-08FA-8BBDCAC2B65F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1E58558C-4F98-783E-8747-ADF372271E2A" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="APP_ROLES_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APP_ROLES_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:02 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8C60B8A9-7407-5630-29AC-A3F4BAA07104"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AA1FB8AD-025E-4FB1-959F-790669718DF6" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="APP_ROLES_UK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APP_ROLES_UK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:02 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BED92552-314A-6528-08FA-8BBDCAC2B65F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

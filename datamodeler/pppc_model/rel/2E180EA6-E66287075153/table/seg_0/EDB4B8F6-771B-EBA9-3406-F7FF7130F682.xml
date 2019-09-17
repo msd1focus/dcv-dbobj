@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EDB4B8F6-771B-EBA9-3406-F7FF7130F682" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="APP_USER_ACCESS_ROLES">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APP_USER_ACCESS_ROLES</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:35 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ROLE" id="E38CFC40-2D84-2CCC-C345-205BCF7CC03F">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APP_USER_ACCESS_ROLES</sourceObjSchema>
+<sourceObjName>ROLE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4F8468BF-73C0-6E89-7347-74E443157D91" referredColumn="BED92552-314A-6528-08FA-8BBDCAC2B65F"/>
+</associations>
+</Column>
+<Column name="USER_NAME" id="3DB4E946-3F9A-7F49-4709-E8326CB18249">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APP_USER_ACCESS_ROLES</sourceObjSchema>
+<sourceObjName>USER_NAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2D798991-35FB-D077-08F1-BA7F1778E22F" name="APP_USER_ACCESS_ROLES_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APP_USER_ACCESS_ROLES_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:07 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E38CFC40-2D84-2CCC-C345-205BCF7CC03F"/>
+<colUsage columnID="3DB4E946-3F9A-7F49-4709-E8326CB18249"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CA5F00F8-D63D-181E-B8FF-77063A9C8589" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="APP_USER_ACCESS_ROLES_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APP_USER_ACCESS_ROLES_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:05 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E38CFC40-2D84-2CCC-C345-205BCF7CC03F"/>
+<colUsage columnID="3DB4E946-3F9A-7F49-4709-E8326CB18249"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="030040E9-09FB-B03B-7930-C633C4CD1ECA" name="APP_USER_ACCESS_ROLES_APP_FK1">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:23 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E38CFC40-2D84-2CCC-C345-205BCF7CC03F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

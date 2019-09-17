@@ -1,0 +1,42 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="97957BEA-5F74-D9E1-B5D9-82593703DCDC" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="FCS_VIEW_PRE_DCV_FLAG">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_VIEW_PRE_DCV_FLAG</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:30 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL>CREATE OR REPLACE VIEW FCS_VIEW_PRE_DCV_FLAG&lt;br/&gt;AS &lt;br/&gt;SELECT   COUNT (1) TOTAL, PRDCV.NO_PP&lt;br/&gt;       FROM   APPS.FCS_VIEW_REALISASI_DCV PRDCV&lt;br/&gt;   GROUP BY   PRDCV.NO_PP</userDefinedSQL>
+<parsed>true</parsed>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="TOTAL" id="BB278FB0-51D4-CC68-4A1C-93EC9C871A0E">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_VIEW_PRE_DCV_FLAG</sourceObjSchema>
+<sourceObjName>TOTAL</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:30 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>TOTAL</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>TOTAL</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="NO_PP" id="E50D923E-980B-9D81-C208-632FDA2E54E8">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_VIEW_PRE_DCV_FLAG</sourceObjSchema>
+<sourceObjName>NO_PP</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:30 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>NO_PP</alias>
+<dataType>VARCHAR2 (100 CHAR)</dataType>
+<headerAlias>NO_PP</headerAlias>
+<reference>false</reference>
+</viewElement>
+</viewElements>
+</TableView>

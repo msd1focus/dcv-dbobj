@@ -1,0 +1,42 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="7E6435FE-E4F9-8332-E39A-146C864D1DCB" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="FCS_VIEW_DCV_FLAG">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_VIEW_DCV_FLAG</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:30 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL>CREATE OR REPLACE VIEW FCS_VIEW_DCV_FLAG&lt;br/&gt;AS &lt;br/&gt;SELECT   COUNT (1) TOTAL, PRDCV.NO_PC_ORI&lt;br/&gt;       FROM   APPS.FCS_VIEW_REALISASI_DCV PRDCV&lt;br/&gt;   GROUP BY   PRDCV.NO_PC_ORI</userDefinedSQL>
+<parsed>true</parsed>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="TOTAL" id="79A11B0E-5A63-5C5E-F4B7-11E9EF7CEAB4">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_VIEW_DCV_FLAG</sourceObjSchema>
+<sourceObjName>TOTAL</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:30 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>TOTAL</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>TOTAL</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="NO_PC_ORI" id="B144BCC7-B2D4-98EC-1CDD-E79F56873485">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_VIEW_DCV_FLAG</sourceObjSchema>
+<sourceObjName>NO_PC_ORI</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:30 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>NO_PC_ORI</alias>
+<dataType>VARCHAR2 (100 CHAR)</dataType>
+<headerAlias>NO_PC_ORI</headerAlias>
+<reference>false</reference>
+</viewElement>
+</viewElements>
+</TableView>

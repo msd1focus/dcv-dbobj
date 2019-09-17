@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="FOCUSPP" directorySegmentName="seg_0" id="C0E782E6-EB7A-0CBE-800D-2B771EA4EA91">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjName>FOCUSPP</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:24 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<schemaObject>7CBB1AB6-5E3C-CEFF-688A-822A0E866097</schemaObject>
+</UserOraclev10g>

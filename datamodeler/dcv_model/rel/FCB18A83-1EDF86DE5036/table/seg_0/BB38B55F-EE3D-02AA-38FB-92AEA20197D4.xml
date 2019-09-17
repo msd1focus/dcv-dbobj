@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BB38B55F-EE3D-02AA-38FB-92AEA20197D4" name="rpt_sla_distributor">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-02 09:14:44 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<ordsAlias>table_23</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="customer_code" id="102561F7-EC46-86D1-FF1B-604042CD2BA8">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-02 09:15:08 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="no_dcv" id="C608846D-B16E-DEAD-86B0-EBC573D912FF">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-02 09:15:32 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tgl_dcv" id="25CE5EC5-F2B2-A1D3-C762-1E69EBCF340F">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-02 09:15:32 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="due_date_dcv" id="917450C2-D52C-384D-1754-EC25BB0588D8">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-02 09:15:32 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="sisa_nilai_tagihan" id="968BEC53-EC9F-EECA-0D55-07D37F270E81">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-02 09:16:50 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nilai_denda" id="ADD857C6-CBC4-D476-7852-54092EA0D828">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-02 09:16:58 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tgl_kalkulasi" id="0299196F-784F-ABFC-0516-B1C2C9235CB5">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-02 09:17:13 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="periode_laporan" id="93B1D04B-BC36-63C1-A121-30F9B26DED9A">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-02 09:17:25 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+</Table>

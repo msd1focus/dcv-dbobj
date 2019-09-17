@@ -1,0 +1,111 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1217A5AD-0B59-BD6F-4C7D-1118C045AF34" name="rpt_sla_internal">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-02 09:18:20 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<ordsAlias>table_24</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="no_dcv" id="2CF2DF10-BE26-75A6-CDF1-17ECE7B44E90">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-02 09:18:56 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="due_dt_pembayaran" id="103D3F93-18E3-A8F1-6983-91AFAD125307">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-02 09:28:15 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tgl_kalkulasi_report" id="876AC57A-E845-7D78-D2C8-4CE56716A9B2">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-02 09:20:19 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nilai_sisa_pembayaran" id="E84C8837-8185-B732-E6FE-75F7D9A57A0E">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-02 09:20:36 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nilai_denda" id="C7C091A9-58D5-C43C-F647-105F9AECF23F">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-02 09:25:34 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="denda_sales" id="999BFC99-B226-6779-CF32-5E0157CD4083">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-02 09:26:02 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="denda_tc" id="8E0F524A-8CA7-A988-5E0D-AFD8CF7A89B8">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-02 09:26:57 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="denda_tax" id="50E48D2F-650D-1D6C-E4A7-7BCEA9B4B8CD">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-02 09:27:04 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="denda_promo" id="893D36DC-10F5-0362-EA7A-793DD86C2631">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-02 09:27:18 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="denda_ap" id="96F7B9C0-3094-CC34-F0A3-BCA282396E42">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-02 09:27:23 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="denda_ar" id="DD769BA7-B46D-63B3-36EF-AF42E6A92510">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-02 09:27:28 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+</Table>

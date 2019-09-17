@@ -1,0 +1,118 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0F6A785F-8DB7-BDE7-E430-E6FFE03A01E8" name="WF_Route">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 00:32:59 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<ordsAlias>table_11</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="95611BA5-A785-DE5F-5DC0-AF48FF21FE30">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 00:33:35 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="node_id" id="D2A64971-1F37-A6EB-D7A6-07514BD79B26">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:11:28 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6E335168-2CF8-058E-8A7A-72DFE7876C9F" referredColumn="6411B5D7-F3E7-79AA-AB65-D611FC83EB73"/>
+</associations>
+</Column>
+<Column name="pilihan" id="553C17A2-01AF-1701-A37D-5BBC48D91BC8">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:11:28 UTC</createdTime>
+<commentInRDBMS>1. Approve1&lt;br/&gt;2. Approve2&lt;br/&gt;3. Return/Back&lt;br/&gt;4. Terminate/Cancel</commentInRDBMS>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="description" id="0843ABE7-6549-29D9-4045-CC495EC06FCC">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:11:28 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60 CHAR</dataTypeSize>
+<ownDataTypeParameters>60 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="refnode" id="D22AB96B-1E18-0DD7-613C-2F00B0B53043">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 01:12:09 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="00BB044A-ACDF-D618-9C1C-B31711014BF5" referredColumn="6411B5D7-F3E7-79AA-AB65-D611FC83EB73"/>
+</associations>
+</Column>
+<Column name="return_task" id="40F994AF-A2FA-5E6D-CF1B-33F9950791EC">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-12 13:45:47 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="131C0B79-86E7-ABD5-6DBC-275F74AC92FA" name="wf_route_PK">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 00:33:35 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="95611BA5-A785-DE5F-5DC0-AF48FF21FE30"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0DCE9A0A-F6C6-B9DE-AC08-5FD8AE73249A" name="WF_Node_option_WF_Node_FK">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 13:08:50 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D2A64971-1F37-A6EB-D7A6-07514BD79B26"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1C7E7793-00AA-17D4-8A6D-C30B447E6798" name="WF_Node_option_WF_Node_FKv1">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-17 13:09:18 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D22AB96B-1E18-0DD7-613C-2F00B0B53043"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

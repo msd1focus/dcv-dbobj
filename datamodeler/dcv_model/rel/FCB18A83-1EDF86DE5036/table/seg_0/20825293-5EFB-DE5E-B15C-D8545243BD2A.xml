@@ -1,0 +1,119 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="20825293-5EFB-DE5E-B15C-D8545243BD2A" name="wf_rollback_approval">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-04 03:23:16 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<ordsAlias>table_29</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="2B275460-8095-8BEC-F643-22CE07B57C24">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-04 03:23:51 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="rollback_id" id="ED3B97A7-1780-B160-3648-B892AE27A481">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-04 03:24:40 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="693F43ED-4CC9-3570-8671-21145E655BBC" referredColumn="51D7B7C6-7152-4144-C58F-DA0D6587BFF9"/>
+</associations>
+</Column>
+<Column name="bagian" id="B8C66084-41A2-3950-0EE9-FC32F42B7603">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-04 03:29:01 UTC</createdTime>
+<commentInRDBMS>bagian yg request-approve</commentInRDBMS>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 CHAR</dataTypeSize>
+<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="appvl_status" id="A063CCBB-2CB6-81C5-8006-E0EFEFD28CFD">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-04 03:26:37 UTC</createdTime>
+<commentInRDBMS>APPROVED/REJECT</commentInRDBMS>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="approval_note" id="408AECAB-C3A0-DF7A-4FCA-8FA3AEC4D6C9">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-04 03:27:56 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="approve_by" id="9542D54D-2E82-194F-90D2-847CA5B7A055">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-04 03:27:22 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="approve_dt" id="266BA24B-33A8-A63A-54B6-342967B06471">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-04 03:27:39 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A2B93C94-96FB-F1D2-1375-B365118DC77A" name="wf_rollback_approval_PK">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-04 03:24:40 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2B275460-8095-8BEC-F643-22CE07B57C24"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FB632C20-D2D9-4F32-98D3-22B83BD96814" name="wf_rollback_approval_FK">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-04 03:30:15 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="ED3B97A7-1780-B160-3648-B892AE27A481"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

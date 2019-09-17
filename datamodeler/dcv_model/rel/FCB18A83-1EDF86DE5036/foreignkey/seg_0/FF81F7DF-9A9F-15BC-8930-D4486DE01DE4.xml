@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="FF81F7DF-9A9F-15BC-8930-D4486DE01DE4" containerWithKeyObject="0A858212-0DEA-8BFA-7AB3-0D79D883FD4B" localFKIndex="1F47DCE6-6BB1-F30A-A7A0-0B3B65A91486" name="wf_rollback_flow_FK">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-29 13:48:57 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<referredTableLongName>wf_rollback</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>34F5BB21-1D5C-39CB-A06D-1EAAE53CB7EF</referredTableID>
+<keyObject>ACD8E390-1C80-A171-1F8D-DC46F6F56A04</keyObject>
+<referredKeyID>ACD8E390-1C80-A171-1F8D-DC46F6F56A04</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

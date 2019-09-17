@@ -1,0 +1,196 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="ABB7BD5F-FBAE-466D-078F-52024CFCBD23" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="LOVBUDGETCUSTOMER_VIEW">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>LOVBUDGETCUSTOMER_VIEW</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL>CREATE OR REPLACE VIEW LOVBUDGETCUSTOMER_VIEW&lt;br/&gt;AS &lt;br/&gt;SELECT BudgetCustHdr.BUDGET_CUST_HDR_ID,&lt;br/&gt;          BudgetCustHdr.CUSTOMER_ID,&lt;br/&gt;          BudgetCustHdr.BUDGET_YEAR,&lt;br/&gt;          BudgetCustomer.BUDGET_CUSTOMER_ID,&lt;br/&gt;          (   BudgetCustomer.BUDGET_CATEGORY&lt;br/&gt;           || &apos;.&apos;&lt;br/&gt;           || BudgetCustomer.BUDGET_CLASS&lt;br/&gt;           || &apos;.&apos;&lt;br/&gt;           || BudgetCustomer.BUDGET_BRAND&lt;br/&gt;           || &apos;.&apos;&lt;br/&gt;           || BudgetCustomer.BUDGET_EXTENTION&lt;br/&gt;           || &apos;.&apos;&lt;br/&gt;           || BudgetCustomer.BUDGET_PACKAGING&lt;br/&gt;           || &apos;.&apos;&lt;br/&gt;           || BudgetCustomer.BUDGET_VARIANT)&lt;br/&gt;             AS KOMBINASI_CODE,&lt;br/&gt;          BudgetCustHdr.budget_type,&lt;br/&gt;          BUDGETCUSTHDR.KODE_POSTING&lt;br/&gt;     FROM BUDGET_CUST_HDR BudgetCustHdr, BUDGET_CUSTOMER BudgetCustomer&lt;br/&gt;    WHERE BudgetCustHdr.BUDGET_CUST_HDR_ID =&lt;br/&gt;             BudgetCustomer.BUDGET_CUST_HDR_ID&lt;br/&gt;    AND BudgetCustomer.STATUS = &apos;ACTIVE&apos;</userDefinedSQL>
+<parsed>true</parsed>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="BUDGET_CUST_HDR_ID" id="F38DBB1B-C2F6-D7BF-E7DF-C2542D549236">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>LOVBUDGETCUSTOMER_VIEW</sourceObjSchema>
+<sourceObjName>BUDGET_CUST_HDR_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>BUDGET_CUST_HDR_ID</alias>
+<dataType>VARCHAR2 (40 BYTE)</dataType>
+<headerAlias>BUDGET_CUST_HDR_ID</headerAlias>
+<reference>false</reference>
+<referencedColumn>6C87E283-A121-176C-D0B7-3A4724FC30EA</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="CUSTOMER_ID" id="FBD36C9A-E8CB-F463-B090-FD1F98D3CD73">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>LOVBUDGETCUSTOMER_VIEW</sourceObjSchema>
+<sourceObjName>CUSTOMER_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>CUSTOMER_ID</alias>
+<dataType>VARCHAR2 (4 BYTE)</dataType>
+<headerAlias>CUSTOMER_ID</headerAlias>
+<reference>false</reference>
+<referencedColumn>D17CB08B-0094-1834-3F16-95B69DFF893E</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="BUDGET_YEAR" id="C37A51E4-699D-BEBB-B0D4-A5C91DAEE2DE">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>LOVBUDGETCUSTOMER_VIEW</sourceObjSchema>
+<sourceObjName>BUDGET_YEAR</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>BUDGET_YEAR</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>BUDGET_YEAR</headerAlias>
+<reference>false</reference>
+<referencedColumn>A6EFD6F1-5D37-B454-16C5-CBD506874C47</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="BUDGET_CUSTOMER_ID" id="BD77246C-90B5-9E11-F9EE-042D8FD6C9C6">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>LOVBUDGETCUSTOMER_VIEW</sourceObjSchema>
+<sourceObjName>BUDGET_CUSTOMER_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>BUDGET_CUSTOMER_ID</alias>
+<dataType>VARCHAR2 (40 BYTE)</dataType>
+<headerAlias>BUDGET_CUSTOMER_ID</headerAlias>
+<reference>false</reference>
+<referencedColumn>3CE173B1-7DD0-0AFE-5CEF-35ADC1DA73EF</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="KOMBINASI_CODE" id="D8CC9315-EE40-4E6E-9080-9219A2AB33E7">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>LOVBUDGETCUSTOMER_VIEW</sourceObjSchema>
+<sourceObjName>KOMBINASI_CODE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>KOMBINASI_CODE</alias>
+<dataType>VARCHAR2 (40 BYTE)</dataType>
+<headerAlias>KOMBINASI_CODE</headerAlias>
+<reference>false</reference>
+<referencedColumn>356546FB-04FA-C4A2-54A0-C6A83CC78F4E</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="BUDGET_TYPE" id="B6A90480-150E-C62D-509E-E1DA546C4278">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>LOVBUDGETCUSTOMER_VIEW</sourceObjSchema>
+<sourceObjName>BUDGET_TYPE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>BUDGET_TYPE</alias>
+<dataType>VARCHAR2 (40 BYTE)</dataType>
+<headerAlias>BUDGET_TYPE</headerAlias>
+<reference>false</reference>
+<referencedColumn>1AEFA404-C05B-582A-7042-D2B980502DB3</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="KODE_POSTING" id="A32571CB-EA80-1A9F-0DE8-778B6382F632">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>LOVBUDGETCUSTOMER_VIEW</sourceObjSchema>
+<sourceObjName>KODE_POSTING</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:31 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>KODE_POSTING</alias>
+<dataType>VARCHAR2 (40 BYTE)</dataType>
+<headerAlias>KODE_POSTING</headerAlias>
+<reference>false</reference>
+<referencedColumn>8E65614E-1264-606D-C868-0C414BBCE22A</referencedColumn>
+</viewElement>
+</viewElements>
+<usedObjects>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="6C87E283-A121-176C-D0B7-3A4724FC30EA">
+<columnName>CUSTOMER_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_HDR</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="D17CB08B-0094-1834-3F16-95B69DFF893E">
+<columnName>BUDGET_YEAR</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_HDR</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="A6EFD6F1-5D37-B454-16C5-CBD506874C47">
+<columnName>BUDGET_CUSTOMER_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="3CE173B1-7DD0-0AFE-5CEF-35ADC1DA73EF">
+<columnName>BUDGET_CATEGORY</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="356546FB-04FA-C4A2-54A0-C6A83CC78F4E">
+<columnName>BUDGET_CLASS</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="1AEFA404-C05B-582A-7042-D2B980502DB3">
+<columnName>BUDGET_BRAND</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="8E65614E-1264-606D-C868-0C414BBCE22A">
+<columnName>BUDGET_EXTENTION</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="F633062D-35C9-D8CC-3B07-1EB331EE0B69">
+<columnName>BUDGET_PACKAGING</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="86440EF9-491C-9FBA-5B5E-EB6B8FCDECFD">
+<columnName>BUDGET_VARIANT</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="CB61FD22-F24D-DB30-9070-9F00DB4A777C">
+<columnName>BUDGET_TYPE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_HDR</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="29B45B11-8016-1F28-57EA-D5BB03D80F02">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_HDR</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="EF780B7F-7D79-C8CC-9A98-F7B39DBD0813">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="4CC01F10-BFD0-DD56-FCAC-D962072145CE">
+<columnName>BUDGET_CUST_HDR_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_HDR</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="12685F64-8AA5-2966-E3FE-9C10AC2E67CC">
+<columnName>BUDGET_CUST_HDR_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="D1B06A79-D770-B1FB-D098-EBFF5A7265CD">
+<columnName>STATUS</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+</usedObjects>
+</TableView>

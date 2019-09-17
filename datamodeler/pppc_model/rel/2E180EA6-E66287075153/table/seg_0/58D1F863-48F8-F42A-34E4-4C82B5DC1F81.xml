@@ -1,0 +1,197 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="58D1F863-48F8-F42A-34E4-4C82B5DC1F81" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="ALOKASI_BUDGET">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>ALOKASI_BUDGET</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:35 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ALOKASI_BUDGET_ID" id="E468AE9E-96AB-05D4-915B-01B94745EA40">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>ALOKASI_BUDGET</sourceObjSchema>
+<sourceObjName>ALOKASI_BUDGET_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROMO_PRODUK_ID" id="88E52FF5-CFC2-09A6-EBF9-1B17A09E2952">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>ALOKASI_BUDGET</sourceObjSchema>
+<sourceObjName>PROMO_PRODUK_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIPE_ALOKASI_BUDGET" id="4558D180-1F88-BF01-73A4-3416F47F290C">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>ALOKASI_BUDGET</sourceObjSchema>
+<sourceObjName>TIPE_ALOKASI_BUDGET</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ON_TOP" id="F4572CAC-9C58-A5F3-5FC8-BB579792E174">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>ALOKASI_BUDGET</sourceObjSchema>
+<sourceObjName>ON_TOP</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MF" id="742B9BE0-D230-353F-38A6-FC5B10F00E15">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>ALOKASI_BUDGET</sourceObjSchema>
+<sourceObjName>MF</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TOTAL_ON_TOP" id="F6A38F35-91C2-65B3-8109-C0660BE86287">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>ALOKASI_BUDGET</sourceObjSchema>
+<sourceObjName>TOTAL_ON_TOP</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TOTAL_MF" id="5AC1A9F4-F217-BE90-7225-B7C8F13EF5E2">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>ALOKASI_BUDGET</sourceObjSchema>
+<sourceObjName>TOTAL_MF</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RASIO_ON_TOP" id="69080863-C2EF-F3FD-1290-DD0445830354">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>ALOKASI_BUDGET</sourceObjSchema>
+<sourceObjName>RASIO_ON_TOP</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RASIO_MF" id="6E875145-5943-8028-C4C9-2E40E35ADE54">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>ALOKASI_BUDGET</sourceObjSchema>
+<sourceObjName>RASIO_MF</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RASIO_TOTAL" id="D5EA4EBA-18CC-7E51-0C86-246A373308C0">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>ALOKASI_BUDGET</sourceObjSchema>
+<sourceObjName>RASIO_TOTAL</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5F244F06-24F3-B4F7-14F8-52C31447664B" name="ALOKASI_BUDGET_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>ALOKASI_BUDGET_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:05 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E468AE9E-96AB-05D4-915B-01B94745EA40"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="79613AE8-A9FC-D304-206E-692F6C977BA2" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="ALOKASI_BUDGET_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>ALOKASI_BUDGET_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:56 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E468AE9E-96AB-05D4-915B-01B94745EA40"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F58A2759-5691-BAE0-D227-F097DC88D817" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="APP_ROLE_MENU_ITEMS">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APP_ROLE_MENU_ITEMS</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:35 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ROL_ID" id="07F64EE5-E32A-8EBB-7C59-9E72AEF705B7">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APP_ROLE_MENU_ITEMS</sourceObjSchema>
+<sourceObjName>ROL_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,10,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0F425B1A-159B-908A-2A2C-0ED2A7693BD7" referredColumn="8C60B8A9-7407-5630-29AC-A3F4BAA07104"/>
+</associations>
+</Column>
+<Column name="MIT_ID" id="B5E8693D-894E-F0C4-2197-E08E3C0A790B">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>APP_ROLE_MENU_ITEMS</sourceObjSchema>
+<sourceObjName>MIT_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:44 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,10,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D2FFD62F-0007-201E-0A90-02F0AE789F6D" referredColumn="17F6F98E-CC87-F5FC-5C4C-B8C9498A2AB9"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="533997B6-AC3B-AD18-B846-A3461D854C3E" name="APP_ROLE_MENU_ITEMS_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APP_ROLE_MENU_ITEMS_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:06 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="07F64EE5-E32A-8EBB-7C59-9E72AEF705B7"/>
+<colUsage columnID="B5E8693D-894E-F0C4-2197-E08E3C0A790B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EC859667-8C9D-CAF5-1C59-BFCF2B5FDCCF" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="APP_ROLE_MENU_ITEMS_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APP_ROLE_MENU_ITEMS_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:03 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="07F64EE5-E32A-8EBB-7C59-9E72AEF705B7"/>
+<colUsage columnID="B5E8693D-894E-F0C4-2197-E08E3C0A790B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6FD8FE3D-7D66-ABCE-0C3C-BAE7C845CF87" name="APP_ROLE_MENU_ITEMS_APP_M_FK1">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:23 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B5E8693D-894E-F0C4-2197-E08E3C0A790B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9F10FBB4-525B-7A28-DC00-E10BF155A496" name="APP_ROLE_MENU_ITEMS_APP_R_FK2">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:23 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="07F64EE5-E32A-8EBB-7C59-9E72AEF705B7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

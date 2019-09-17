@@ -1,0 +1,383 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="8BF988DF-3986-4952-7CA8-6397C65BD427" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="FCS_AUDIT_PP_PROMO_BARANG">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_AUDIT_PP_PROMO_BARANG</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL>CREATE OR REPLACE VIEW FCS_AUDIT_PP_PROMO_BARANG&lt;br/&gt;AS &lt;br/&gt;SELECT PRODUK_LINE, BARANG_PROMO_LINE, FULL_NAME, TASK_ROLE, PROPOSAL_ID, PROMO_PRODUK_ID, FIELD_NAME, FIELD_VALUE FROM (&lt;br/&gt;SELECT B.PRODUK_LINE,&lt;br/&gt;       B.BARANG_PROMO_LINE,&lt;br/&gt;       B.PROPOSAL_ID,&lt;br/&gt;       B.AUDIT_ID,&lt;br/&gt;       B.PROMO_PRODUK_ID,&lt;br/&gt;       UPPER(B.FULL_NAME) AS FULL_NAME,&lt;br/&gt;       B.TASK_ROLE,&lt;br/&gt;       CASE WHEN (B.TASK_ROLE = &apos;Approver&apos; AND (B.PREV_PRODUCT_CLASS = B.PRODUCT_CLASS))  THEN &apos;&apos; ELSE (SELECT MC.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MC WHERE MC.CATEGORY_CONCAT_SEGS = B.PRODUCT_CLASS AND MC.STRUCTURE_NAME = &apos;FCS_CLASS&apos;) END AS PRODUK_CLASS,&lt;br/&gt;       CASE WHEN (B.TASK_ROLE = &apos;Approver&apos; AND (B.PREV_PRODUCT_BRAND = B.PRODUCT_BRAND))  THEN &apos;&apos; ELSE (SELECT MC.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MC WHERE MC.CATEGORY_CONCAT_SEGS = B.PRODUCT_BRAND AND MC.STRUCTURE_NAME = &apos;FCS_BRAND&apos;) END AS PRODUK_BRAND,&lt;br/&gt;       CASE WHEN (B.TASK_ROLE = &apos;Approver&apos; AND (B.PREV_PRODUCT_EXT = B.PRODUCT_EXT))  THEN &apos;&apos; ELSE (SELECT MC.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MC WHERE MC.CATEGORY_CONCAT_SEGS = B.PRODUCT_EXT AND MC.STRUCTURE_NAME = &apos;FCS_EXTENTION&apos;) END AS PRODUK_EXTENTION,&lt;br/&gt;       CASE WHEN (B.TASK_ROLE = &apos;Approver&apos; AND (B.PREV_PRODUCT_PACK = B.PRODUCT_PACK))  THEN &apos;&apos; ELSE (SELECT MC.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MC WHERE MC.CATEGORY_CONCAT_SEGS = B.PRODUCT_PACK AND MC.STRUCTURE_NAME = &apos;FCS_PACKAGING&apos;) END AS PRODUK_PACKAGING,&lt;br/&gt;       CASE WHEN (B.TASK_ROLE = &apos;Approver&apos; AND (B.PREV_PRODUCT_VARIANT = B.PRODUCT_VARIANT))  THEN &apos;&apos; ELSE B.PRODUCT_VARIANT END AS PRODUK_VARIANT,&lt;br/&gt;       CASE WHEN (B.TASK_ROLE = &apos;Approver&apos; AND (B.PREV_PRODUCT_ITEM = B.PRODUCT_ITEM))  THEN &apos;&apos; ELSE B.PRODUCT_ITEM END AS PRODUK_ITEM,&lt;br/&gt;       CASE WHEN (B.TASK_ROLE = &apos;Approver&apos; AND (B.PREV_TARGET_PRICE = B.TARGET_PRICE))  THEN &apos;&apos; ELSE B.TARGET_PRICE END AS PRICE_TARGET,    &lt;br/&gt;       CASE WHEN (B.TASK_ROLE = &apos;Approver&apos; AND (B.PREV_PB_PRODUCT_CATEGORY = B.PB_PRODUCT_CATEGORY))  THEN &apos;&apos; ELSE (SELECT MC.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MC WHERE MC.CATEGORY_CONCAT_SEGS = B.PB_PRODUCT_CATEGORY AND MC.STRUCTURE_NAME = &apos;FCS_CATEGORY&apos;) END AS PB_PRODUK_CATEGORY,&lt;br/&gt;       CASE WHEN (B.TASK_ROLE = &apos;Approver&apos; AND (B.PREV_PB_PRODUCT_CLASS = B.PB_PRODUCT_CLASS))  THEN &apos;&apos; ELSE (SELECT MC.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MC WHERE MC.CATEGORY_CONCAT_SEGS = B.PB_PRODUCT_CLASS AND MC.STRUCTURE_NAME = &apos;FCS_CLASS&apos;) END AS PB_PRODUK_CLASS,&lt;br/&gt;       CASE WHEN (B.TASK_ROLE = &apos;Approver&apos; AND (B.PREV_PB_PRODUCT_BRAND = B.PB_PRODUCT_BRAND))  THEN &apos;&apos; ELSE (SELECT MC.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MC WHERE MC.CATEGORY_CONCAT_SEGS = B.PB_PRODUCT_BRAND AND MC.STRUCTURE_NAME = &apos;FCS_BRAND&apos;) END AS PB_PRODUK_BRAND,&lt;br/&gt;       CASE WHEN (B.TASK_ROLE = &apos;Approver&apos; AND (B.PREV_PB_PRODUCT_EXT = B.PB_PRODUCT_EXT))  THEN &apos;&apos; ELSE (SELECT MC.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MC WHERE MC.CATEGORY_CONCAT_SEGS = B.PB_PRODUCT_EXT AND MC.STRUCTURE_NAME = &apos;FCS_EXTENTION&apos;) END AS PB_PRODUK_EXTENTION,&lt;br/&gt;       CASE WHEN (B.TASK_ROLE = &apos;Approver&apos; AND (B.PREV_PB_PRODUCT_PACK = B.PB_PRODUCT_PACK))  THEN &apos;&apos; ELSE (SELECT MC.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MC WHERE MC.CATEGORY_CONCAT_SEGS = B.PB_PRODUCT_PACK AND MC.STRUCTURE_NAME = &apos;FCS_PACKAGING&apos;) END AS PB_PRODUK_PACKAGING,&lt;br/&gt;       CASE WHEN (B.TASK_ROLE = &apos;Approver&apos; AND (B.PREV_PB_PRODUCT_VARIANT = B.PB_PRODUCT_VARIANT))  THEN &apos;&apos; ELSE B.PB_PRODUCT_VARIANT END AS PB_PRODUK_VARIANT,&lt;br/&gt;       CASE WHEN (B.TASK_ROLE = &apos;Approver&apos; AND (B.PREV_PB_PRODUCT_ITEM = B.PB_PRODUCT_ITEM))  THEN &apos;&apos; ELSE B.PB_PRODUCT_ITEM END AS PB_PRODUK_ITEM,&lt;br/&gt;       CASE WHEN (B.TASK_ROLE = &apos;Approver&apos; AND (B.PREV_PB_QTY = B.PB_QTY))  THEN &apos;&apos; ELSE B.PB_QTY END AS PROMO_BARANG_QTY,&lt;br/&gt;       CASE WHEN (B.TASK_ROLE = &apos;Approver&apos; AND (B.PREV_PRICE_VAL = B.PRICE_VAL))  THEN &apos;&apos; ELSE B.PRICE_VAL END AS PROMO_BARANG_PRICE,&lt;br/&gt;       CASE WHEN (B.TASK_ROLE = &apos;Approver&apos; AND (B.PREV_PB_NON_YEARLY = B.PB_NON_YEARLY))  THEN &apos;&apos; ELSE B.PB_NON_YEARLY END AS PROMO_BARANG_TPB_OT,&lt;br/&gt;       CASE WHEN (B.TASK_ROLE = &apos;Approver&apos; AND (B.PREV_PB_YEARLY = B.PB_YEARLY))  THEN &apos;&apos; ELSE B.PB_YEARLY END AS PROMO_BARANG_PB_MF,&lt;br/&gt;       B.APPROVAL_ACTION AS APPROVE_ACTION&lt;br/&gt;FROM (&lt;br/&gt;SELECT ROW_NUMBER() OVER (PARTITION BY AP.PROPOSAL_ID, AP.AUDIT_ID, APP.PROMO_PRODUK_ID, PB.PROMO_BONUS_ID ORDER BY APP.PROMO_PRODUK_ID, AP.AUDIT_ID, PB.PROMO_BONUS_ID) AS PRODUK_LINE,&lt;br/&gt;       ROW_NUMBER() OVER (PARTITION BY AP.PROPOSAL_ID, AP.AUDIT_ID, APP.PROMO_PRODUK_ID ORDER BY APP.PROMO_PRODUK_ID, AP.AUDIT_ID, PB.PROMO_BONUS_ID) AS BARANG_PROMO_LINE,&lt;br/&gt;       AP.PROPOSAL_ID,&lt;br/&gt;       AP.AUDIT_ID,&lt;br/&gt;       APP.PROMO_PRODUK_ID,&lt;br/&gt;       AP.APPROVAL_ACTION,&lt;br/&gt;       NVL (AP.MODIFIED_BY, AP.CREATED_BY) AS USER_NAME,&lt;br/&gt;       NVL (UA.FULL_NAME, AP.CREATED_BY) AS FULL_NAME,&lt;br/&gt;       CASE WHEN MODIFIED_DATE IS NULL THEN &apos;Requester&apos; ELSE &apos;Approver&apos; END  AS TASK_ROLE,&lt;br/&gt;       APP.PRODUCT_CLASS,&lt;br/&gt;       NVL(LAG (APP.PRODUCT_CLASS,1) OVER (PARTITION BY APP.PROMO_PRODUK_ID ORDER BY APP.PRODUCT_CLASS),APP.PRODUCT_CLASS) AS PREV_PRODUCT_CLASS,&lt;br/&gt;       APP.PRODUCT_BRAND,&lt;br/&gt;       NVL(LAG (APP.PRODUCT_BRAND,1) OVER (PARTITION BY APP.PROMO_PRODUK_ID ORDER BY APP.PRODUCT_BRAND),APP.PRODUCT_BRAND) AS PREV_PRODUCT_BRAND,&lt;br/&gt;       APP.PRODUCT_EXT,&lt;br/&gt;       NVL(LAG(APP.PRODUCT_EXT,1) OVER (PARTITION BY APP.PROMO_PRODUK_ID ORDER BY APP.PRODUCT_EXT),APP.PRODUCT_EXT) AS PREV_PRODUCT_EXT,&lt;br/&gt;       APP.PRODUCT_PACK,&lt;br/&gt;       NVL(LAG(APP.PRODUCT_PACK,1) OVER (PARTITION BY APP.PROMO_PRODUK_ID ORDER BY APP.PRODUCT_PACK),APP.PRODUCT_PACK) AS PREV_PRODUCT_PACK,&lt;br/&gt;       (SELECT RTRIM(DBMS_LOB.SUBSTR(REPLACE(          REPLACE(            XMLAGG(              XMLELEMENT(&quot;A&quot;,PV.VARIANT_DESC)            ORDER BY 1).GETCLOBVAL(),          &apos;&lt;A&gt;&apos;,&apos;&apos;),        &apos;&lt;/A&gt;&apos;,&apos;, &apos;), 1995, 1 ), &apos;, &apos;) FROM AUDIT_PRODUK_VARIANT PV  WHERE PV.PROMO_PRODUK_ID = APP.PROMO_PRODUK_ID AND PV.AUDIT_ID = APP.AUDIT_ID GROUP BY PV.PROMO_PRODUK_ID) AS PRODUCT_VARIANT,&lt;br/&gt;       NVL(LAG((SELECT RTRIM(DBMS_LOB.SUBSTR(REPLACE(          REPLACE(            XMLAGG(              XMLELEMENT(&quot;A&quot;,PV.VARIANT_DESC)            ORDER BY 1).GETCLOBVAL(),          &apos;&lt;A&gt;&apos;,&apos;&apos;),        &apos;&lt;/A&gt;&apos;,&apos;, &apos;), 1995, 1 ), &apos;, &apos;) FROM AUDIT_PRODUK_VARIANT PV  WHERE PV.PROMO_PRODUK_ID = APP.PROMO_PRODUK_ID AND PV.AUDIT_ID = APP.AUDIT_ID GROUP BY PV.PROMO_PRODUK_ID),1) OVER (PARTITION BY APP.PROMO_PRODUK_ID ORDER BY AP.PROPOSAL_ID, AP.AUDIT_ID,APP.PROMO_PRODUK_ID),(SELECT RTRIM(DBMS_LOB.SUBSTR(REPLACE(          REPLACE(            XMLAGG(              XMLELEMENT(&quot;A&quot;,PV.VARIANT_DESC)            ORDER BY 1).GETCLOBVAL(),          &apos;&lt;A&gt;&apos;,&apos;&apos;),        &apos;&lt;/A&gt;&apos;,&apos;,&apos;), 1995, 1 ), &apos;,&apos;) FROM AUDIT_PRODUK_VARIANT PV  WHERE PV.PROMO_PRODUK_ID = APP.PROMO_PRODUK_ID AND PV.AUDIT_ID = APP.AUDIT_ID GROUP BY PV.PROMO_PRODUK_ID)) AS PREV_PRODUCT_VARIANT,&lt;br/&gt;       (SELECT RTRIM(DBMS_LOB.SUBSTR(REPLACE(          REPLACE(            XMLAGG(              XMLELEMENT(&quot;A&quot;,PI.ITEM_DESC)            ORDER BY 1).GETCLOBVAL(),          &apos;&lt;A&gt;&apos;,&apos;&apos;),        &apos;&lt;/A&gt;&apos;,&apos;, &apos;), 1995, 1 ), &apos;, &apos;) FROM AUDIT_PRODUK_ITEM PI  WHERE PI.PROMO_PRODUK_ID = APP.PROMO_PRODUK_ID AND PI.AUDIT_ID = APP.AUDIT_ID GROUP BY PI.PROMO_PRODUK_ID) AS PRODUCT_ITEM,&lt;br/&gt;       NVL(LAG((SELECT RTRIM(DBMS_LOB.SUBSTR(REPLACE(          REPLACE(            XMLAGG(              XMLELEMENT(&quot;A&quot;,PI.ITEM_DESC)            ORDER BY 1).GETCLOBVAL(),          &apos;&lt;A&gt;&apos;,&apos;&apos;),        &apos;&lt;/A&gt;&apos;,&apos;, &apos;), 1995, 1 ), &apos;, &apos;) FROM AUDIT_PRODUK_ITEM PI  WHERE PI.PROMO_PRODUK_ID = APP.PROMO_PRODUK_ID AND PI.AUDIT_ID = APP.AUDIT_ID GROUP BY PI.PROMO_PRODUK_ID),1) OVER (PARTITION BY APP.PROMO_PRODUK_ID ORDER BY AP.PROPOSAL_ID, AP.AUDIT_ID,APP.PROMO_PRODUK_ID),(SELECT RTRIM(DBMS_LOB.SUBSTR(REPLACE(          REPLACE(            XMLAGG(              XMLELEMENT(&quot;A&quot;,PI.ITEM_DESC)            ORDER BY 1).GETCLOBVAL(),          &apos;&lt;A&gt;&apos;,&apos;&apos;),        &apos;&lt;/A&gt;&apos;,&apos;,&apos;), 1995, 1 ), &apos;,&apos;) FROM AUDIT_PRODUK_ITEM PI  WHERE PI.PROMO_PRODUK_ID = APP.PROMO_PRODUK_ID AND PI.AUDIT_ID = APP.AUDIT_ID GROUP BY PI.PROMO_PRODUK_ID)) AS PREV_PRODUCT_ITEM,&lt;br/&gt;       TO_CHAR(NVL(TGT.PRICE,0)) AS TARGET_PRICE,&lt;br/&gt;       NVL(LAG(TO_CHAR(NVL(TGT.PRICE,0)),1) OVER (PARTITION BY APP.PROMO_PRODUK_ID ORDER BY AP.PROPOSAL_ID, AP.AUDIT_ID),TO_CHAR(NVL(TGT.PRICE,0))) AS PREV_TARGET_PRICE,&lt;br/&gt;       PB.PRODUCT_CATEGORY AS PB_PRODUCT_CATEGORY,&lt;br/&gt;       LAG (PB.PRODUCT_CATEGORY,1) OVER (PARTITION BY APP.PROMO_PRODUK_ID, PB.PROMO_BONUS_ID ORDER BY APP.PROMO_PRODUK_ID, AP.AUDIT_ID, PB.PROMO_BONUS_ID) AS PREV_PB_PRODUCT_CATEGORY,&lt;br/&gt;       PB.PRODUCT_CLASS AS PB_PRODUCT_CLASS,&lt;br/&gt;       LAG (PB.PRODUCT_CLASS,1) OVER (PARTITION BY APP.PROMO_PRODUK_ID, PB.PROMO_BONUS_ID ORDER BY APP.PROMO_PRODUK_ID, AP.AUDIT_ID, PB.PROMO_BONUS_ID) AS PREV_PB_PRODUCT_CLASS,&lt;br/&gt;       PB.PRODUCT_BRAND AS PB_PRODUCT_BRAND,&lt;br/&gt;       LAG (PB.PRODUCT_BRAND,1) OVER (PARTITION BY APP.PROMO_PRODUK_ID, PB.PROMO_BONUS_ID ORDER BY APP.PROMO_PRODUK_ID, AP.AUDIT_ID, PB.PROMO_BONUS_ID) AS PREV_PB_PRODUCT_BRAND,&lt;br/&gt;       PB.PRODUCT_EXT AS PB_PRODUCT_EXT,&lt;br/&gt;       LAG(PB.PRODUCT_EXT,1) OVER (PARTITION BY APP.PROMO_PRODUK_ID, PB.PROMO_BONUS_ID ORDER BY APP.PROMO_PRODUK_ID, AP.AUDIT_ID, PB.PROMO_BONUS_ID) AS PREV_PB_PRODUCT_EXT,&lt;br/&gt;       PB.PRODUCT_PACK AS PB_PRODUCT_PACK,&lt;br/&gt;       LAG(PB.PRODUCT_PACK,1) OVER (PARTITION BY APP.PROMO_PRODUK_ID, PB.PROMO_BONUS_ID ORDER BY APP.PROMO_PRODUK_ID, AP.AUDIT_ID, PB.PROMO_BONUS_ID) AS PREV_PB_PRODUCT_PACK,&lt;br/&gt;       (SELECT RTRIM(DBMS_LOB.SUBSTR(REPLACE(          REPLACE(            XMLAGG(              XMLELEMENT(&quot;A&quot;,PV.VARIANT_DESC)            ORDER BY 1).GETCLOBVAL(),          &apos;&lt;A&gt;&apos;,&apos;&apos;),        &apos;&lt;/A&gt;&apos;,&apos;, &apos;), 1995, 1 ), &apos;, &apos;) FROM AUDIT_PROMO_BONUS_VARIANT PV  WHERE PV.AUDIT_ID = APP.AUDIT_ID AND PV.PROMO_BONUS_ID = PB.PROMO_BONUS_ID GROUP BY PV.PROMO_BONUS_ID) AS PB_PRODUCT_VARIANT,&lt;br/&gt;       LAG((SELECT RTRIM(DBMS_LOB.SUBSTR(REPLACE(          REPLACE(            XMLAGG(              XMLELEMENT(&quot;A&quot;,PV.VARIANT_DESC)            ORDER BY 1).GETCLOBVAL(),          &apos;&lt;A&gt;&apos;,&apos;&apos;),        &apos;&lt;/A&gt;&apos;,&apos;, &apos;), 1995, 1 ), &apos;, &apos;) FROM AUDIT_PROMO_BONUS_VARIANT PV  WHERE PV.AUDIT_ID = APP.AUDIT_ID AND PV.PROMO_BONUS_ID = PB.PROMO_BONUS_ID GROUP BY PV.PROMO_BONUS_ID),1) OVER (PARTITION BY APP.PROMO_PRODUK_ID, PB.PROMO_BONUS_ID ORDER BY APP.PROMO_PRODUK_ID, AP.AUDIT_ID, PB.PROMO_BONUS_ID) AS PREV_PB_PRODUCT_VARIANT,&lt;br/&gt;       (SELECT RTRIM(DBMS_LOB.SUBSTR(REPLACE(          REPLACE(            XMLAGG(              XMLELEMENT(&quot;A&quot;,PI.ITEM_DESC)            ORDER BY 1).GETCLOBVAL(),          &apos;&lt;A&gt;&apos;,&apos;&apos;),        &apos;&lt;/A&gt;&apos;,&apos;, &apos;), 1995, 1 ), &apos;, &apos;) FROM AUDIT_PROMO_BONUS_ITEM PI  WHERE PI.AUDIT_ID = APP.AUDIT_ID AND PI.PROMO_BONUS_ID = PB.PROMO_BONUS_ID GROUP BY PI.PROMO_BONUS_ID) AS PB_PRODUCT_ITEM,&lt;br/&gt;       LAG((SELECT RTRIM(DBMS_LOB.SUBSTR(REPLACE(          REPLACE(            XMLAGG(              XMLELEMENT(&quot;A&quot;,PI.ITEM_DESC)            ORDER BY 1).GETCLOBVAL(),          &apos;&lt;A&gt;&apos;,&apos;&apos;),        &apos;&lt;/A&gt;&apos;,&apos;, &apos;), 1995, 1 ), &apos;, &apos;) FROM AUDIT_PROMO_BONUS_ITEM PI  WHERE PI.AUDIT_ID = APP.AUDIT_ID AND PI.PROMO_BONUS_ID = PB.PROMO_BONUS_ID GROUP BY PI.PROMO_BONUS_ID),1) OVER (PARTITION BY APP.PROMO_PRODUK_ID, PB.PROMO_BONUS_ID ORDER BY APP.PROMO_PRODUK_ID, AP.AUDIT_ID, PB.PROMO_BONUS_ID) AS PREV_PB_PRODUCT_ITEM,&lt;br/&gt;       TO_CHAR(NVL(PB.QTY_FROM,0)) AS PB_QTY,&lt;br/&gt;       LAG(TO_CHAR(NVL(PB.QTY_FROM,0)),1) OVER (PARTITION BY APP.PROMO_PRODUK_ID, PB.PROMO_BONUS_ID ORDER BY APP.PROMO_PRODUK_ID, AP.AUDIT_ID, PB.PROMO_BONUS_ID) AS PREV_PB_QTY,&lt;br/&gt;       TO_CHAR(NVL(PB.PRICE_VAL,0)) AS PRICE_VAL,&lt;br/&gt;       LAG(TO_CHAR(NVL(PB.PRICE_VAL,0)),1) OVER (PARTITION BY APP.PROMO_PRODUK_ID, PB.PROMO_BONUS_ID ORDER BY APP.PROMO_PRODUK_ID, AP.AUDIT_ID, PB.PROMO_BONUS_ID) AS PREV_PRICE_VAL,&lt;br/&gt;       TO_CHAR(NVL(PB.DISC_NON_YEARLY,0)) AS PB_NON_YEARLY,&lt;br/&gt;       LAG(TO_CHAR(NVL(PB.DISC_NON_YEARLY,0)),1) OVER (PARTITION BY APP.PROMO_PRODUK_ID, PB.PROMO_BONUS_ID ORDER BY APP.PROMO_PRODUK_ID, AP.AUDIT_ID, PB.PROMO_BONUS_ID) AS PREV_PB_NON_YEARLY,&lt;br/&gt;       TO_CHAR(NVL(PB.DISC_YEARLY,0)) AS PB_YEARLY,&lt;br/&gt;       LAG(TO_CHAR(NVL(PB.DISC_YEARLY,0)),1) OVER (PARTITION BY APP.PROMO_PRODUK_ID, PB.PROMO_BONUS_ID ORDER BY APP.PROMO_PRODUK_ID, AP.AUDIT_ID, PB.PROMO_BONUS_ID) AS PREV_PB_YEARLY&lt;br/&gt;    FROM   AUDIT_PROPOSAL AP, APP_USER_ACCESS UA, AUDIT_PROMO_PRODUK APP, AUDIT_TARGET TGT, AUDIT_PROMO_BONUS PB&lt;br/&gt;   WHERE   NVL (AP.MODIFIED_BY, AP.CREATED_BY) = UA.USER_NAME&lt;br/&gt;           AND APP.AUDIT_ID = AP.AUDIT_ID&lt;br/&gt;           AND APP.PROPOSAL_ID = AP.PROPOSAL_ID&lt;br/&gt;           AND TGT.AUDIT_ID = AP.AUDIT_ID&lt;br/&gt;           AND TGT.PROMO_PRODUK_ID = APP.PROMO_PRODUK_ID&lt;br/&gt;           AND PB.AUDIT_ID = AP.AUDIT_ID&lt;br/&gt;           AND PB.PROMO_PRODUK_ID = APP.PROMO_PRODUK_ID&lt;br/&gt;ORDER BY AP.AUDIT_ID&lt;br/&gt;) B&lt;br/&gt;) UNPIVOT INCLUDE NULLS (FIELD_VALUE FOR FIELD_NAME IN (APPROVE_ACTION, PRODUK_CLASS, PRODUK_BRAND, PRODUK_EXTENTION, PRODUK_PACKAGING, PRODUK_VARIANT, PRODUK_ITEM, PRICE_TARGET, PB_PRODUK_CATEGORY, PB_PRODUK_CLASS, PB_PRODUK_BRAND, PB_PRODUK_EXTENTION, PB_PRODUK_PACKAGING, PB_PRODUK_VARIANT, PB_PRODUK_ITEM, PROMO_BARANG_QTY, PROMO_BARANG_PRICE, PROMO_BARANG_TPB_OT, PROMO_BARANG_PB_MF))</userDefinedSQL>
+<parsed>true</parsed>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PRODUK_LINE" id="2B4C77FA-4337-D5ED-84A4-A8B774A8DE94">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_AUDIT_PP_PROMO_BARANG</sourceObjSchema>
+<sourceObjName>PRODUK_LINE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PRODUK_LINE</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>PRODUK_LINE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="BARANG_PROMO_LINE" id="20E5BD32-5D14-F9ED-418D-5DFCA7F42CA0">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_AUDIT_PP_PROMO_BARANG</sourceObjSchema>
+<sourceObjName>BARANG_PROMO_LINE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>BARANG_PROMO_LINE</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>BARANG_PROMO_LINE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="FULL_NAME" id="12599128-05FA-CFA1-98E6-B789BDBFE38A">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_AUDIT_PP_PROMO_BARANG</sourceObjSchema>
+<sourceObjName>FULL_NAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>FULL_NAME</alias>
+<dataType>VARCHAR2 (90 BYTE)</dataType>
+<headerAlias>FULL_NAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="TASK_ROLE" id="C43C04EA-1EC3-F68B-463B-19E829862599">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_AUDIT_PP_PROMO_BARANG</sourceObjSchema>
+<sourceObjName>TASK_ROLE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>TASK_ROLE</alias>
+<dataType>VARCHAR2 (9 BYTE)</dataType>
+<headerAlias>TASK_ROLE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PROPOSAL_ID" id="D73B192E-44A1-465B-3523-C89F5B690D1C">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_AUDIT_PP_PROMO_BARANG</sourceObjSchema>
+<sourceObjName>PROPOSAL_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PROPOSAL_ID</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>PROPOSAL_ID</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PROMO_PRODUK_ID" id="37A429A8-ED7C-BBCD-F16A-BA27B805536E">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_AUDIT_PP_PROMO_BARANG</sourceObjSchema>
+<sourceObjName>PROMO_PRODUK_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PROMO_PRODUK_ID</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>PROMO_PRODUK_ID</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="FIELD_NAME" id="13E139BF-D91E-252A-C043-F84BA077DA0B">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_AUDIT_PP_PROMO_BARANG</sourceObjSchema>
+<sourceObjName>FIELD_NAME</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>FIELD_NAME</alias>
+<dataType>VARCHAR2 (19 BYTE)</dataType>
+<headerAlias>FIELD_NAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="FIELD_VALUE" id="9941BFBA-47CA-BBE4-AB80-E39334BC5376">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FCS_AUDIT_PP_PROMO_BARANG</sourceObjSchema>
+<sourceObjName>FIELD_VALUE</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:29 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>FIELD_VALUE</alias>
+<dataType>VARCHAR2 (4000 BYTE)</dataType>
+<headerAlias>FIELD_VALUE</headerAlias>
+<reference>false</reference>
+</viewElement>
+</viewElements>
+<usedObjects>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="60BBD7F6-77FE-9E84-7805-46253180E73C">
+<columnName>APPROVAL_ACTION</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROPOSAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="83733B09-A23A-D488-FCD5-11A23CFF5EA4">
+<columnName>FULL_NAME</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_ACCESS</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="96A8C369-385B-AE8D-578E-8892E0006159">
+<columnName>MODIFIED_DATE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROPOSAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="D85EDECE-9F9A-CB0D-BB70-735077DDD5C3">
+<columnName>PRODUCT_CLASS</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_PRODUK</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="2071724D-EABD-E9DF-F8BD-083134F1E5F9">
+<columnName>PRODUCT_BRAND</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_PRODUK</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="9696BC61-DED7-B52D-62B2-8F56F84D0CCB">
+<columnName>PRODUCT_EXT</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_PRODUK</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="A1B6F118-9366-DA78-F6FF-A59E09356DF8">
+<columnName>PRODUCT_PACK</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_PRODUK</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="2D22B430-8BD4-D02C-5A4E-00D669F628D0">
+<columnName>PRICE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_TARGET</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="3641E09E-68AC-690C-D3E1-849684C45B98">
+<columnName>PRODUCT_CATEGORY</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_BONUS</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="7F636F1F-FBD1-747F-12BA-B0820CF6CCAC">
+<columnName>PRODUCT_CLASS</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_BONUS</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="F392DFE6-707E-FC76-CB7E-09650453C1C9">
+<columnName>PRODUCT_BRAND</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_BONUS</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="51553323-F769-CC29-3248-74BF4F0A12BC">
+<columnName>PRODUCT_EXT</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_BONUS</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="39300544-8DFB-51B2-29BF-E43A79516BE1">
+<columnName>PRODUCT_PACK</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_BONUS</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="0E81F4AA-CB93-DFDB-F702-6387BA323306">
+<columnName>QTY_FROM</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_BONUS</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="6A2ADFDE-CB9D-A1D5-505C-EF0DEDDE4E21">
+<columnName>PRICE_VAL</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_BONUS</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="24F15447-7C3C-6D12-C53C-978EA2B28170">
+<columnName>DISC_NON_YEARLY</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_BONUS</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="25C0B013-8370-A5D0-0302-B2B647D75B81">
+<columnName>DISC_YEARLY</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_BONUS</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="E188AECC-26A2-5A33-C34E-7D1AFC2D0FBD">
+<columnName>PROMO_BONUS_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_BONUS</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="1CD2D797-CAF5-B6BE-C20C-4551BD145016">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROPOSAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="6159C593-3DC4-C13A-031A-DC1C1AD9004D">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_ACCESS</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="3CB8B32A-BBF3-1B51-69AA-4A4B06631E34">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_PRODUK</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="45D1FA26-F237-0B42-A361-AE14391F9BE6">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_TARGET</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="F5124DEC-E82B-83C5-D723-734105D14D38">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_BONUS</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="0CB3A817-C71F-1F5E-B68D-75A1DDCD0951">
+<columnName>MODIFIED_BY</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROPOSAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="CD672897-1E8C-72A4-268C-BFFFC9DEC9BB">
+<columnName>CREATED_BY</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROPOSAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="B4F69666-6576-93E8-602A-B31515E7DAB6">
+<columnName>USER_NAME</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_ACCESS</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="FDFC0AD3-443B-E7C0-1EF7-52E90A506E7C">
+<columnName>AUDIT_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_PRODUK</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="B407E55C-8CBD-462C-94F3-BC78E51FB55C">
+<columnName>PROPOSAL_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_PRODUK</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="C59E761D-51C2-09CC-6A58-94683F1C866A">
+<columnName>PROPOSAL_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROPOSAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="3EE89981-2414-1C63-5903-D9A15796C1D6">
+<columnName>AUDIT_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_TARGET</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="7B688A39-8656-AA72-FE9A-58EBE055EA8A">
+<columnName>PROMO_PRODUK_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_TARGET</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="0E71B0B9-A246-784F-AE57-CC3120A699DA">
+<columnName>AUDIT_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_BONUS</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="5C35EA99-CE68-B130-FE82-4EFCBBAB2075">
+<columnName>AUDIT_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROPOSAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="7E382E86-9B24-B540-E2D5-69AE0BE269F6">
+<columnName>PROMO_PRODUK_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_BONUS</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="7C2B8B24-66FC-E730-7088-B99D14B33212">
+<columnName>PROMO_PRODUK_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_PRODUK</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="C850F731-B6E8-66A9-313C-B635BEE927D6">
+<columnName>VARIANT_DESC</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PRODUK_VARIANT</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="4A185A65-E04D-8972-87AE-C6C8A9A6297E">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PRODUK_VARIANT</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="3EA9B542-D2CD-31DC-340B-BD892780DFE3">
+<columnName>PROMO_PRODUK_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PRODUK_VARIANT</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="1E571B8C-5327-3DC7-0626-DA3C6D1CD594">
+<columnName>AUDIT_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PRODUK_VARIANT</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="402CE631-E097-51E5-763E-BE635CC4D3B6">
+<columnName>ITEM_DESC</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PRODUK_ITEM</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="02182C86-9345-DC64-43A7-E7DF5B4F4FEB">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PRODUK_ITEM</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="B3F4327A-9116-5944-BAFB-5C9F41AB48B5">
+<columnName>PROMO_PRODUK_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PRODUK_ITEM</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="CE0A51C7-684D-69FA-E812-41B6F6287DDA">
+<columnName>AUDIT_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PRODUK_ITEM</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="0C4021FF-F898-3B31-84A9-2C0EB1C381EA">
+<columnName>VARIANT_DESC</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_BONUS_VARIANT</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="80A22984-DCAA-9C1C-D8A5-B0894F51D47A">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_BONUS_VARIANT</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="BB5E6B0D-163B-5352-DCE6-6F42D611C634">
+<columnName>AUDIT_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_BONUS_VARIANT</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="FDDFE29D-2BE8-C324-7824-FF5C6F607AA8">
+<columnName>PROMO_BONUS_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_BONUS_VARIANT</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="4C4A7BA8-D319-D3F6-7FAD-4B810742EBA7">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_BONUS_ITEM</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="31E48D35-4C44-3F48-6E3C-42958A89F711">
+<columnName>ITEM_DESC</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_BONUS_ITEM</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="198F2333-F8C5-DE44-2F14-49A21D9D6668">
+<columnName>AUDIT_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_BONUS_ITEM</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="B7F75018-E0CA-6FBF-2027-BB6384AE6123">
+<columnName>PROMO_BONUS_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>AUDIT_PROMO_BONUS_ITEM</tableName>
+</UsedObject>
+</usedObjects>
+</TableView>

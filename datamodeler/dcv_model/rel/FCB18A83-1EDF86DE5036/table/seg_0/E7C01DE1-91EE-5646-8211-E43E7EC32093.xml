@@ -1,0 +1,171 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E7C01DE1-91EE-5646-8211-E43E7EC32093" name="DCV_DOCUMENTS">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>D5974472-FEA9-C015-76A9-BEF76AA6AD2A</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<ordsAlias>file_pendukung</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="9BDBE230-6BAC-D161-A873-26061086496A">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>B8A324C6-6898-2C89-FCD0-1140DA1CF77F</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvh_id" id="A191779E-F42A-4475-8C24-ADE5DA8514F2">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>84A1E8F2-4DCF-D68C-9B19-FEF45C4EDB1D</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<structuredType>47E390DE-0671-C4B1-8428-0F45CBEE18F8</structuredType>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="34D42DDC-C0AA-DFDD-7D1F-8BDC4B9DF794" referredColumn="9F9235EF-ABA9-FEE2-A3D5-7727C998FADD"/>
+</associations>
+</Column>
+<Column name="doc_type" id="13AD11D5-F698-B607-984D-1C6405E96F6F">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<commentInRDBMS>BA = Berita Acara&lt;br/&gt;RF = Rekap Faktur&lt;br/&gt;KW = Kwitansi&lt;br/&gt;FP = Faktur Pajak&lt;br/&gt;RK = No Resi Kwitansi&lt;br/&gt;BP = No Bukti Potong Pph</commentInRDBMS>
+<generatorID>0991D84D-2164-10F1-514A-B25E1509A0CB</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 CHAR</dataTypeSize>
+<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="doc_no" id="99583A1A-0E06-2EC3-2639-CC131F25DFA1">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-22 10:23:45 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 CHAR</dataTypeSize>
+<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="doc_date" id="F1AA9E8C-BCB7-2E3A-96BD-CA9BA28976BF">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-22 10:24:01 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="upload_time" id="4D24B54F-5CB0-AC67-72CB-DC80576DFA9C">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>04C36EE3-90D7-FEF1-20C7-C63725E6BBBF</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="upload_by" id="32EC1836-0A58-8460-22F1-827130DF8EAC">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-05 04:38:24 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="download_addr" id="57998687-BF16-4650-4FBD-76DD3B69ADBC">
+<createdBy>frans</createdBy>
+<createdTime>2019-08-29 00:19:10 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500 CHAR</dataTypeSize>
+<ownDataTypeParameters>500 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="modified_by" id="6B1957E2-9CA6-9A57-948D-47BEC76B6A7E">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-05 04:39:14 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 CHAR</dataTypeSize>
+<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="modified_dt" id="776A4066-60A4-CC12-0253-148C1392B99D">
+<createdBy>frans</createdBy>
+<createdTime>2019-09-05 04:39:25 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="73F3F8CE-C0B1-AB74-B7B8-77D8B9DD466A" name="Files_PK">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:57 UTC</createdTime>
+<generatorID>320D5F2B-9E4A-CD15-4634-4AC4D57586F4</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9BDBE230-6BAC-D161-A873-26061086496A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DDE87E64-7A6A-70D3-A25B-B5B7A92854F6" name="DCV_DOCUMENT_NO_IDX">
+<createdBy>frans</createdBy>
+<createdTime>2019-03-29 14:08:19 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="13AD11D5-F698-B607-984D-1C6405E96F6F"/>
+<colUsage columnID="99583A1A-0E06-2EC3-2639-CC131F25DFA1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="32AE6102-2284-6D3A-F34D-0ABB8BF2F437" name="DCV_Doc_Request_hdr_FK">
+<createdBy>frans</createdBy>
+<createdTime>2019-02-20 15:39:58 UTC</createdTime>
+<generatorID>D4B5C5F3-0B2E-DC56-3770-C9C40C9BCE53</generatorID>
+<ownerDesignName>dcv_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A191779E-F42A-4475-8C24-ADE5DA8514F2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

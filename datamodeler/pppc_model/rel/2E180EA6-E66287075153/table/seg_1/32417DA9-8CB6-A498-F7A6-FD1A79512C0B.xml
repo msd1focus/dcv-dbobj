@@ -1,0 +1,111 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_1" id="32417DA9-8CB6-A498-F7A6-FD1A79512C0B" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="REALISASI_ITEM_PAKET">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>REALISASI_ITEM_PAKET</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:37 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="REAL_ITEM_PAKET_ID" id="1415A581-450E-3AF1-4B94-B314A3B0202B">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>REALISASI_ITEM_PAKET</sourceObjSchema>
+<sourceObjName>REAL_ITEM_PAKET_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROMO_PRODUK_ID" id="E8A700CC-320C-BD3A-E4DB-6176A848D98D">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>REALISASI_ITEM_PAKET</sourceObjSchema>
+<sourceObjName>PROMO_PRODUK_ID</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D2AD7418-992D-701B-8C71-E7BA0C2DCB00" referredColumn="A9CDBC24-84A0-79ED-BC01-41C4C6CF0944"/>
+</associations>
+</Column>
+<Column name="KD_ITEM_PAKET" id="F509E6AB-9DC5-DB90-E87B-6C992BD21838">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>REALISASI_ITEM_PAKET</sourceObjSchema>
+<sourceObjName>KD_ITEM_PAKET</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCR" id="5A969C12-52B3-6898-659A-8D6FA23C9624">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>REALISASI_ITEM_PAKET</sourceObjSchema>
+<sourceObjName>DESCR</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:52:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1000 BYTE</dataTypeSize>
+<ownDataTypeParameters>1000 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="713B83C1-6603-7259-AC9E-6E64AB853DBA" name="REALISASI_ITEM_PAKET_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>REALISASI_ITEM_PAKET_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:16 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1415A581-450E-3AF1-4B94-B314A3B0202B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0260B69D-F7B4-10D6-5C2F-FA7BF8ACBBC4" schemaObject="7CBB1AB6-5E3C-CEFF-688A-822A0E866097" name="REALISASI_ITEM_PAKET_PK">
+<sourceConnName>pppc@uatfdi</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>REALISASI_ITEM_PAKET_PK</sourceObjName>
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:53:51 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1415A581-450E-3AF1-4B94-B314A3B0202B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8D8C0696-E391-79B9-85C5-22BDE9E11B55" name="REALISASI_ITEM_PAKET_PROM_FK1">
+<createdBy>frans</createdBy>
+<createdTime>2019-04-30 09:54:23 UTC</createdTime>
+<ownerDesignName>pppc_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E8A700CC-320C-BD3A-E4DB-6176A848D98D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
