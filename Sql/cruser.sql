@@ -12,6 +12,7 @@ alter user focusdcv enable editions;
 grant connect, resource to focusdcv;
 grant create view to focusdcv;
 grant create synonym to focusdcv;
+grant create any context to focusdcv;
 
 grant select on focuspp.proposal to focusdcv;
 grant select on focuspp.prod_region to focusdcv;

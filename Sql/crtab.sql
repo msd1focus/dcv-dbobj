@@ -5,26 +5,30 @@
 
 DROP TABLE dcv_documents CASCADE CONSTRAINTS;
 CREATE TABLE dcv_documents (
-    id            INTEGER NOT NULL,
-    dcv_hdr_id    INTEGER NOT NULL,
-    doc_type      VARCHAR2(25 CHAR),
-    hardcopy      CHAR(1 CHAR),
-    file_name     VARCHAR2(500 CHAR) NOT NULL,
-    file_loc      VARCHAR2(500 CHAR),
-    keterangan    VARCHAR2(500),
-    keeper        VARCHAR2(25 CHAR),
-    upload_time   DATE,
-    doc_no        VARCHAR2(25 CHAR),
-    doc_date      DATE
+  id              INTEGER NOT NULL,
+  dcvh_id         INTEGER NOT NULL,
+  doc_type        VARCHAR2(25 CHAR),
+  doc_no          VARCHAR2(25 CHAR),
+  doc_date        DATE,
+  upload_time     DATE,
+  upload_by       VARCHAR2(30 CHAR),
+  download_addr   VARCHAR2(500 CHAR),
+  modified_by     VARCHAR2(25 CHAR),
+  modified_dt     DATE
 );
 
 COMMENT ON COLUMN dcv_documents.doc_type IS
-    'beritaacara, rekapfaktur, kwitansi, fakturpajak, buktipotong, fakturpengganti, noresi';
+    'BA = Berita Acara
+RF = Rekap Faktur
+KW = Kwitansi
+FP = Faktur Pajak
+RK = No Resi Kwitansi
+BP = No Bukti Potong Pph';
 
 CREATE INDEX dcv_document_no_idx ON
     dcv_documents (
         doc_type ASC,
-        doc_no ASC );
+        doc_no  ASC );
 
 ALTER TABLE dcv_documents ADD CONSTRAINT files_pk PRIMARY KEY ( id );
 
@@ -37,95 +41,148 @@ CREATE TABLE dcv_number (
 
 ALTER TABLE dcv_number ADD CONSTRAINT dcv_number_pk PRIMARY KEY ( period );
 
+DROP TABLE dcv_privs CASCADE CONSTRAINTS;
+CREATE TABLE dcv_privs (
+  id          INTEGER NOT NULL,
+  priv_name   VARCHAR2(50 CHAR),
+  descr       VARCHAR2(200 CHAR),
+  priv_type   VARCHAR2(20 CHAR),
+  ref_id      INTEGER
+);
+ALTER TABLE dcv_privs ADD CONSTRAINT dcv_privs_pk PRIMARY KEY ( id );
+CREATE INDEX dcv_privs_name_idx ON dcv_privs (priv_type, priv_name);
+
+
 DROP TABLE dcv_request CASCADE CONSTRAINTS;
 CREATE TABLE dcv_request (
-    dcv_hdr_id          INTEGER NOT NULL,
-    customer_code       VARCHAR2(25 CHAR) NOT NULL,
-    customer_name       VARCHAR2(50 CHAR),
-    company             VARCHAR2(3 CHAR) NOT NULL,
-    no_pc               VARCHAR2(100 CHAR) NOT NULL,
-    key_pc              VARCHAR2(14 CHAR) NOT NULL,
-    periode_dcv_start   DATE NOT NULL,
-    periode_dcv_end     DATE,
-    pc_kategori         VARCHAR2(5),
-    pc_tipe             VARCHAR2(50),
-    periode_pc_start    DATE,
-    periode_pc_end      DATE,
-    pc_initiator        VARCHAR2(60 CHAR),
-    no_dcv              VARCHAR2(15 CHAR),
-    dcv_submit_time     DATE,
-    dcv_value           NUMBER DEFAULT 0,
-    appv_value          NUMBER DEFAULT 0,
-    ppn                 VARCHAR2(5 CHAR),
-    region_code         VARCHAR2(20 CHAR),
-    region_desc         VARCHAR2(30 CHAR),
-    area_code           VARCHAR2(20 CHAR),
-    area_desc           VARCHAR2(400 CHAR),
-    loc_code            VARCHAR2(20 CHAR),
-    loc_desc            VARCHAR2(300 CHAR),
-    ketr_kwitansi       VARCHAR2(500 CHAR),
-    pc_tc               VARCHAR2(100),
-    type_pc_tc          VARCHAR2(10 CHAR),
-    discount_type       VARCHAR2(50 CHAR),
-    metode_bayar        VARCHAR2(5 CHAR),
-    dcv_status          VARCHAR2(30 CHAR),
-    current_step        VARCHAR2(60 CHAR),
-    last_step           VARCHAR2(60 CHAR),
-    notes               VARCHAR2(200 CHAR),
-    modified_dt         DATE,
-    modified_by         VARCHAR2(50 CHAR)
+  dcvh_id                  INTEGER NOT NULL,
+  dcvh_cust_code           VARCHAR2(100 CHAR) NOT NULL,
+  dcvh_cust_name           VARCHAR2(200 CHAR),
+  dcvh_company             VARCHAR2(3 CHAR) NOT NULL,
+  dcvh_no_pc               VARCHAR2(100 CHAR) NOT NULL,
+  dcvh_key_pc              VARCHAR2(14 CHAR) NOT NULL,
+  dcvh_no_pp               VARCHAR2(100 CHAR),
+  dcvh_no_pp_id            INTEGER,
+  dcvh_periode_dcv_start   DATE NOT NULL,
+  dcvh_periode_dcv_end     DATE,
+  dcvh_pc_kategori         VARCHAR2(5),
+  dcvh_pc_tipe             VARCHAR2(50),
+  dcvh_periode_pc_start    DATE,
+  dcvh_periode_pc_end      DATE,
+  dcvh_no_dcv              VARCHAR2(15 CHAR),
+  dcvh_submit_time         DATE,
+  dcvh_selisih_hari        INTEGER,
+  dcvh_value               NUMBER DEFAULT 0,
+  dcvh_appv_value          NUMBER DEFAULT 0,
+  dcvh_ketr_kwitansi       VARCHAR2(500 CHAR),
+  dcvh_metode_bayar        VARCHAR2(5 CHAR),
+  dcvh_status              VARCHAR2(30 CHAR),
+  dcvh_last_step           VARCHAR2(60 CHAR),
+  dcvh_current_step        VARCHAR2(60 CHAR),
+  modified_dt              DATE,
+  modified_by              VARCHAR2(50 CHAR)
 );
 
-COMMENT ON COLUMN dcv_request.no_pc IS
-    'pppc:proposal:confirm_no';
-
-COMMENT ON COLUMN dcv_request.key_pc IS
+COMMENT ON COLUMN dcv_request.dcvh_no_pc IS
+    'pppc:proposal:confirm_no + addendum_ke';
+COMMENT ON COLUMN dcv_request.dcvh_key_pc IS
     'pppc:proposal:report_run_number';
-
-COMMENT ON COLUMN dcv_request.pc_kategori IS
-    '?? I03 ??';
-
-COMMENT ON COLUMN dcv_request.pc_tipe IS
-    'food / non food';
-
-COMMENT ON COLUMN dcv_request.ppn IS
-    'flag ada ppn atau tidak (Y/T)';
-
-COMMENT ON COLUMN dcv_request.pc_tc IS
-    'no PC pengganti / tambahan';
-
-COMMENT ON COLUMN dcv_request.type_pc_tc IS
-    'PENGGANTI / TAMBAHAN';
-
-COMMENT ON COLUMN dcv_request.discount_type IS
-    'pppc:proposal:discount_type -- BIAYA/POTONGAN/PROMOBARANG';
-
-COMMENT ON COLUMN dcv_request.metode_bayar IS
+COMMENT ON COLUMN dcv_request.dcvh_selisih_hari IS
+    'selisih hari pc end-dt sampai tgl request';
+COMMENT ON COLUMN dcv_request.dcvh_value IS
+    'total nilai request';
+COMMENT ON COLUMN dcv_request.dcvh_appv_value IS
+    'total nilai approve';
+COMMENT ON COLUMN dcv_request.dcvh_ketr_kwitansi IS
+    'ambil dari PO. Untuk kasus PO pc tambahan/pengganti, ambil PO pc asli';
+COMMENT ON COLUMN dcv_request.dcvh_metode_bayar IS
     'PO / CM';
-
-COMMENT ON COLUMN dcv_request.dcv_status IS
-    'CANCEL, ON-PROCESS, PAID';
-
+COMMENT ON COLUMN dcv_request.dcvh_status IS
+    'CANCEL, ON-PROCESS, PAID, ROLLBACK';
 CREATE UNIQUE INDEX dcv_no_idx ON
-    dcv_request (
-        no_dcv
-    ASC );
+    dcv_request (dcvh_no_dcv ASC );
 
-ALTER TABLE dcv_request ADD CONSTRAINT request_hdr_pk PRIMARY KEY ( dcv_hdr_id );
+ALTER TABLE dcv_request ADD CONSTRAINT request_hdr_pk PRIMARY KEY ( dcvh_id );
 
-DROP TABLE doc_movement CASCADE CONSTRAINTS;
-CREATE TABLE doc_movement (
-    id              INTEGER NOT NULL,
-    dcv_id          INTEGER NOT NULL,
-    userid          INTEGER,
-    username        VARCHAR2(20 CHAR),
-    received_from   VARCHAR2(30 CHAR),
-    received_dt     DATE,
-    sent_to         VARCHAR2(30 CHAR),
-    sent_dt         DATE
+DROP TABLE dcv_role CASCADE CONSTRAINTS;
+CREATE TABLE dcv_role (
+    role_code   VARCHAR2(30 CHAR) NOT NULL,
+    role_name   VARCHAR2(100 CHAR),
+    role_type   VARCHAR2(15 CHAR),
+    bagian      VARCHAR2(20 CHAR)
+);
+ALTER TABLE dcv_role ADD CONSTRAINT dcv_role_pk PRIMARY KEY ( role_code );
+
+DROP TABLE dcv_user_access CASCADE CONSTRAINTS;
+CREATE TABLE dcv_user_access (
+    id                   INTEGER NOT NULL,
+    user_name            VARCHAR2(30 CHAR) NOT NULL,
+    user_initial         VARCHAR2(3 CHAR) NOT NULL,
+    password             VARCHAR2(50 CHAR),
+    full_name            VARCHAR2(100 CHAR),
+    descr                VARCHAR2(100 CHAR),
+    title                VARCHAR2(100 CHAR),
+    contact_no           VARCHAR2(40 CHAR),
+    company_id           VARCHAR2(5 CHAR),
+    active_period_from   DATE,
+    active_period_to     DATE,
+    user_type            VARCHAR2(20 CHAR),
+    user_division        VARCHAR2(20 CHAR),
+    direct_spv           VARCHAR2(30 CHAR),
+    direct_spv_id        INTEGER,
+    cust_auth_flag       VARCHAR2(20 CHAR),
+    email_addr           VARCHAR2(100 CHAR)
+);
+ALTER TABLE dcv_user_access ADD CONSTRAINT dcv_user_access_pk PRIMARY KEY ( id );
+ALTER TABLE dcv_user_access ADD CONSTRAINT dcv_username_un UNIQUE ( user_name );
+
+DROP TABLE dcv_user_role CASCADE CONSTRAINTS;
+CREATE TABLE dcv_user_role (
+    user_id     INTEGER NOT NULL,
+    role_code   VARCHAR2(30 CHAR) NOT NULL
+);
+ALTER TABLE dcv_user_role ADD CONSTRAINT dcv_user_role_pk PRIMARY KEY ( user_id,role_code );
+
+DROP TABLE disposisi CASCADE CONSTRAINTS;
+CREATE TABLE disposisi   (
+  dcvh_id          INTEGER NOT NULL,
+  disposisi_type   VARCHAR2(10 CHAR),
+  beban_sla        VARCHAR2(30 CHAR),
+  hold_status      VARCHAR2(10 CHAR),
+  start_dt         DATE,
+  release_dt       DATE,
+  note             VARCHAR2(500 CHAR)
 );
 
-ALTER TABLE doc_movement ADD CONSTRAINT doc_movement_pk PRIMARY KEY ( id );
+COMMENT ON COLUMN disposisi.disposisi_type IS
+    'BAYAR / HOLD';
+COMMENT ON COLUMN disposisi.beban_sla IS
+    'bagian yg menanggung sla';
+COMMENT ON COLUMN disposisi.hold_status IS
+    'HOLD / RELEASE';
+
+ALTER TABLE disposisi ADD CONSTRAINT disposisi_pk PRIMARY KEY ( dcvh_id );
+
+DROP TABLE dokumen_realisasi CASCADE CONSTRAINTS;
+CREATE TABLE dokumen_realisasi (
+  id                  INTEGER NOT NULL,
+  dcvh_id             INTEGER NOT NULL,
+  tahapan_realisasi   VARCHAR2(20 CHAR),
+  doc_no              VARCHAR2(50 CHAR),
+  doc_dt              DATE,
+  descr               VARCHAR2(200 CHAR),
+  trx_value           NUMBER,
+  remaining_val       NUMBER,
+  create_by           VARCHAR2(30 CHAR),
+  create_dt           DATE,
+  modified_by         VARCHAR2(30 CHAR),
+  modified_dt         DATE
+);
+COMMENT ON COLUMN dokumen_realisasi.tahapan_realisasi IS
+    'PO / GR / INVOICE / PAYMENT / ARAP NETTING';
+
+ALTER TABLE dokumen_realisasi ADD CONSTRAINT dokumen_realisasi_pk PRIMARY KEY ( id );
+
 
 DROP TABLE holiday CASCADE CONSTRAINTS;
 CREATE TABLE holiday (
@@ -136,284 +193,305 @@ CREATE TABLE holiday (
 
 ALTER TABLE holiday ADD CONSTRAINT holiday_pk PRIMARY KEY ( id );
 
-DROP TABLE lookup_code CASCADE CONSTRAINTS;
-CREATE TABLE lookup_code (
+DROP TABLE parameter CASCADE CONSTRAINTS;
+CREATE TABLE parameter (
     id      INTEGER NOT NULL,
     title   VARCHAR2(60 CHAR),
     value   VARCHAR2(60 CHAR),
     descr   VARCHAR2(120 CHAR)
 );
 
-ALTER TABLE lookup_code ADD CONSTRAINT lookup_code_pk PRIMARY KEY ( id );
-
-DROP TABLE pcline_tc_appr CASCADE CONSTRAINTS;
-CREATE TABLE pcline_tc_appr (
-    id               INTEGER NOT NULL,
-    request_dtl_id   INTEGER NOT NULL,
-    prod_code        VARCHAR2(30),
-    prod_name        VARCHAR2(100),
-    qty              INTEGER,
-    uom              VARCHAR2(15 CHAR),
-    nilai_satuan     NUMBER DEFAULT 0,
-    value_total      NUMBER DEFAULT 0,
-    mf_ot            VARCHAR2(2 CHAR),
-    conversion_uom   NUMBER,
-    notes            VARCHAR2(100),
-    modified_dt      DATE,
-    modified_by      VARCHAR2(50 CHAR)
-);
-
-ALTER TABLE pcline_tc_appr ADD CONSTRAINT req_line_breakdown_pk PRIMARY KEY ( id );
+ALTER TABLE parameter ADD CONSTRAINT parameter_pk PRIMARY KEY ( id );
 
 DROP TABLE request_dtl CASCADE CONSTRAINTS;
 CREATE TABLE request_dtl (
-    id                    INTEGER NOT NULL,
-    dcv_hdr_id            INTEGER NOT NULL,
-    pc_no                 VARCHAR2(100 CHAR),
-    pc_lineno             INTEGER,
-    pc_ganti              VARCHAR2(100 CHAR),
-    pcganti_lineno        INTEGER,
-    prod_class            VARCHAR2(40 CHAR),
-    prod_class_desc       VARCHAR2(100 CHAR),
-    prod_brand            VARCHAR2(40 CHAR),
-    prod_brand_desc       VARCHAR2(100 CHAR),
-    prod_ext              VARCHAR2(40 CHAR),
-    prod_ext_desc         VARCHAR2(100 CHAR),
-    prod_packaging        VARCHAR2(40 CHAR),
-    prod_packaging_desc   VARCHAR2(100 CHAR),
-    prod_variant          VARCHAR2(40 CHAR),
-    prod_variant_desc     VARCHAR2(100 CHAR),
-    prod_item             VARCHAR2(40 CHAR),
-    prod_item_desc        VARCHAR2(100 CHAR),
-    dcv_qty               INTEGER,
-    dcv_uom               VARCHAR2(15 CHAR),
-    dcv_val_exc           NUMBER DEFAULT 0,
-    approve_val_exc       NUMBER DEFAULT 0,
-    ppn_code              VARCHAR2(10 CHAR),
-    ppn_val               NUMBER,
-    pph_code              CHAR(10 CHAR),
-    pph_val               NUMBER DEFAULT 0,
-    mf_val                NUMBER,
-    ot_val                NUMBER,
-    total_val_inc         NUMBER,
-    selisih               NUMBER,
-    catatan_tc            VARCHAR2(100 CHAR),
-    modified_dt           DATE,
-    modified_by           VARCHAR2(50 CHAR)
+  dcvl_id                    INTEGER NOT NULL,
+  dcvh_id                    INTEGER NOT NULL,
+  dcvl_promo_product_id      INTEGER,
+  dcvl_prod_class            VARCHAR2(40 CHAR),
+  dcvl_prod_class_desc       VARCHAR2(100 CHAR),
+  dcvl_prod_brand            VARCHAR2(40 CHAR),
+  dcvl_prod_brand_desc       VARCHAR2(100 CHAR),
+  dcvl_prod_ext              VARCHAR2(40 CHAR),
+  dcvl_prod_ext_desc         VARCHAR2(100 CHAR),
+  dcvl_prod_packaging        VARCHAR2(40 CHAR),
+  dcvl_prod_packaging_desc   VARCHAR2(100 CHAR),
+  dcvl_prod_variant          VARCHAR2(40 CHAR),
+  dcvl_prod_variant_desc     VARCHAR2(100 CHAR),
+  dcvl_prod_item             VARCHAR2(40 CHAR),
+  dcvl_prod_item_desc        VARCHAR2(100 CHAR),
+  dcvl_qty                   INTEGER,
+  dcvl_uom                   VARCHAR2(15 CHAR),
+  dcvl_val_exc               NUMBER DEFAULT 0,
+  dcvl_catatan_distributor   VARCHAR2(200 CHAR),
+  dcvl_appv_val_exc          NUMBER DEFAULT 0,
+  dcvl_ppn_code              VARCHAR2(25 CHAR),
+  dcvl_ppn_val               NUMBER,
+  dcvl_pph_code              CHAR(25 CHAR),
+  dcvl_pph_val               NUMBER DEFAULT 0,
+  dcvl_total_val_appv_inc    NUMBER,
+  dcvl_selisih               NUMBER,
+  dcvl_catatan_tc            VARCHAR2(500 CHAR),
+  modified_dt                DATE,
+  modified_by                VARCHAR2(50 CHAR)
 );
 
-ALTER TABLE request_dtl ADD CONSTRAINT request_dtl_pk PRIMARY KEY ( id );
+ALTER TABLE request_dtl ADD CONSTRAINT request_dtl_pk PRIMARY KEY ( dcvl_id );
 
-DROP TABLE sec_dept CASCADE CONSTRAINTS;
-CREATE TABLE sec_dept (
-    id            INTEGER NOT NULL,
-    dept_code     VARCHAR2(15 CHAR) NOT NULL,
-    dept_desc     VARCHAR2(50 CHAR),
-    sla1          INTEGER,
-    sla2          INTEGER,
-    role_parent   INTEGER
+DROP TABLE role_privs CASCADE CONSTRAINTS;
+CREATE TABLE role_privs (
+    role_code   VARCHAR2(30 CHAR) NOT NULL,
+    priv_id     INTEGER NOT NULL
+);
+ALTER TABLE role_privs ADD CONSTRAINT role_privs_pk PRIMARY KEY ( role_code, priv_id );
+
+DROP TABLE tc_approval CASCADE CONSTRAINTS;
+CREATE TABLE tc_approval (
+  id                             INTEGER NOT NULL,
+  dcvl_id                        INTEGER NOT NULL,
+  no_po                          VARCHAR2(50 CHAR),
+  line_po                        INTEGER,
+  no_pr                          VARCHAR2(50 CHAR),
+  line_pr                        INTEGER,
+  pc_pengganti                   VARCHAR2(100 CHAR),
+  pc_pengganti_promo_produk_id   INTEGER,
+  pc_tambahan                    VARCHAR2(100 CHAR),
+  pc_tambahan_promo_produk_id    INTEGER,
+  prod_code                      VARCHAR2(30),
+  prod_name                      VARCHAR2(100),
+  flag_budget                    VARCHAR2(5 CHAR),
+  qty                            INTEGER,
+  uom                            VARCHAR2(15 CHAR),
+  harga_satuan                   NUMBER DEFAULT 0,
+  nilai_total                    NUMBER DEFAULT 0,
+  qty_converted                  NUMBER,
+  uom_dcv                        VARCHAR2(15 CHAR),
+  notes                          VARCHAR2(500),
+  modified_dt                    DATE,
+  modified_by                    VARCHAR2(50 CHAR)
 );
 
-COMMENT ON COLUMN sec_dept.dept_code IS
-    'DISTRI, SALES, TC, TAX, PROMO, AP, AR, CASSIER';
-
-COMMENT ON COLUMN sec_dept.sla1 IS
-    'sla1 : target berapa hari proses harus selesai diproses';
-
-COMMENT ON COLUMN sec_dept.sla2 IS
-    'cadangan';
-
-COMMENT ON COLUMN sec_dept.role_parent IS
-    'hirarchy';
-
-ALTER TABLE sec_dept ADD CONSTRAINT role_pk PRIMARY KEY ( id );
-
-DROP TABLE sec_user CASCADE CONSTRAINTS;
-CREATE TABLE sec_user (
-    id             INTEGER NOT NULL,
-    username       VARCHAR2(50 CHAR) NOT NULL,
-    passwd         VARCHAR2(50 CHAR),
-    fullname       VARCHAR2(200 CHAR),
-    company        VARCHAR2(3 CHAR),
-    department     INTEGER NOT NULL,
-    email_addr     VARCHAR2(60 CHAR),
-    contact_no     VARCHAR2(20 CHAR),
-    pangkat        VARCHAR2(15 CHAR),
-    sp_assign1     VARCHAR2(50 CHAR),
-    sp_assign2     VARCHAR2(50 CHAR),
-    user_type      VARCHAR2(50 CHAR),
-    user_status    VARCHAR2(20 CHAR),
-    report_to_id   INTEGER,
-    report_to_un   VARCHAR2(50 CHAR),
-    aktif_sejak    DATE,
-    aktif_hingga   DATE,
-    last_active_time  DATE
-);
-
-COMMENT ON COLUMN sec_user.pangkat IS
-    'Superviser, member';
-
-COMMENT ON COLUMN sec_user.sp_assign1 IS
-    'mis: untuk TC: food/non food';
-
-COMMENT ON COLUMN sec_user.sp_assign2 IS
-    'Role (untuk user pppc)';
-
-ALTER TABLE sec_user ADD CONSTRAINT user_pk PRIMARY KEY ( id );
-
-ALTER TABLE sec_user ADD CONSTRAINT sec_user_username_un UNIQUE ( username );
+COMMENT ON COLUMN tc_approval.no_po IS
+    'No PO dari EBS';
+COMMENT ON COLUMN tc_approval.line_po IS
+    'Line no dari PO yang dipilih';
+COMMENT ON COLUMN tc_approval.no_pr IS
+    'No PR unt. PO tsb';
+COMMENT ON COLUMN tc_approval.line_pr IS
+    'No line PR';
+COMMENT ON COLUMN tc_approval.pc_pengganti IS
+    'No PC Pengganti + Line PC';
+COMMENT ON COLUMN tc_approval.flag_budget IS
+    'PB / TPB';
+COMMENT ON COLUMN tc_approval.qty IS
+    'Jumlah yang disetujui TC';
+COMMENT ON COLUMN tc_approval.uom IS
+    'uom jumlah yg disetujui, list dari EBS';
+COMMENT ON COLUMN tc_approval.harga_satuan IS
+    'excl ppn';
+COMMENT ON COLUMN tc_approval.nilai_total IS
+    'Nilai total sesuai uom dan nilai satuan';
+COMMENT ON COLUMN tc_approval.qty_converted IS
+    'Nilai hasil konversi uom dari uom ebs ke uom dcv';
+COMMENT ON COLUMN tc_approval.uom_dcv IS
+    'Uom dcv yg direquest distributor';
+ALTER TABLE tc_approval ADD CONSTRAINT tc_approval_pk PRIMARY KEY ( id );
 
 DROP TABLE wf_node CASCADE CONSTRAINTS;
 CREATE TABLE wf_node (
-    nodecode         VARCHAR2(10 CHAR) NOT NULL,
-    node_desc        VARCHAR2(50 CHAR),
-    nodetype         VARCHAR2(30 CHAR) NOT NULL,
-    department       INTEGER,
-    pangkat          VARCHAR2(100 CHAR),
-    sp_assign1       VARCHAR2(50 CHAR),
-    assigned_users   VARCHAR2(50 CHAR),
-    execscript       VARCHAR2(100 CHAR),
-    ketr_instruksi   VARCHAR2(200 CHAR),
-    prime_route      VARCHAR2(1 CHAR),
-    merge_count      INTEGER
+  nodecode         VARCHAR2(10 CHAR) NOT NULL,
+  node_desc        VARCHAR2(100 CHAR),
+  nodetype         VARCHAR2(30 CHAR) NOT NULL,
+  no_urut          INTEGER,
+  bagian           VARCHAR2(25),
+  execscript       VARCHAR2(100 CHAR),
+  prime_route      VARCHAR2(1 CHAR),
+  merge_count      INTEGER,
+  sla1             NUMBER,
+  sla2             NUMBER
 );
 
-COMMENT ON COLUMN wf_node.nodetype IS
-    'normal: decission
-split: jadi banyak
-merge: jadi satu
-autocheck: scheduled check
-serahterima dok
-end';
-
-COMMENT ON COLUMN wf_node.pangkat IS
-    'member
-supervisor
-member ; supervisor
-';
-
-COMMENT ON COLUMN wf_node.sp_assign1 IS
-    'untuk user tertentu : mis food / non food';
-
-COMMENT ON COLUMN wf_node.assigned_users IS
-    'jika assign ke spesifik user atau beberapa user (comma seperated)';
-
-COMMENT ON COLUMN wf_node.execscript IS
-    'nama db function unt di-execute';
-
-COMMENT ON COLUMN wf_node.ketr_instruksi IS
-    'Instruksi ringkas untuk ditampilkan dilayar monitor detail DCV';
-
-COMMENT ON COLUMN wf_node.merge_count IS
-    'jumlah route yg merge ke node ini';
-
 ALTER TABLE wf_node ADD CONSTRAINT node_pk PRIMARY KEY ( nodecode );
+
+DROP TABLE wf_rollback CASCADE CONSTRAINTS;
+CREATE TABLE wf_rollback (
+  id           INTEGER NOT NULL,
+  no_request   VARCHAR2(30 CHAR),
+  request_by   VARCHAR2(50 CHAR),
+  dcvh_id      INTEGER,
+  no_dcv       VARCHAR2(20 BYTE),
+  beban_sla    VARCHAR2(25 CHAR),
+  alasan       VARCHAR2(200 CHAR),
+  status       VARCHAR2(15 CHAR),
+  create_dt    DATE,
+  create_by    VARCHAR2(25 CHAR)
+);
+
+COMMENT ON COLUMN wf_rollback.beban_sla IS
+    'bagian yg menanggung sla';
+COMMENT ON COLUMN wf_rollback.status IS
+    'PENDING / MUNDUR / MAJU / CANCEL / COMPLETE';
+
+ALTER TABLE wf_rollback ADD CONSTRAINT wf_rollback_pk PRIMARY KEY ( id );
+
+DROP TABLE wf_rollback_approval CASCADE CONSTRAINTS;
+CREATE TABLE wf_rollback_approval (
+    id              INTEGER NOT NULL,
+    rollback_id     INTEGER NOT NULL,
+    bagian          VARCHAR2(25 CHAR),
+    appvl_status    VARCHAR2(10 CHAR),
+    approval_note   VARCHAR2(200 CHAR),
+    approve_by      VARCHAR2(50 CHAR),
+    approve_dt      DATE
+);
+
+COMMENT ON COLUMN wf_rollback_approval.bagian IS
+    'bagian yg request-approve';
+COMMENT ON COLUMN wf_rollback_approval.appvl_status IS
+    'APPROVED/REJECT';
+
+ALTER TABLE wf_rollback_approval ADD CONSTRAINT wf_rollback_approval_pk PRIMARY KEY ( id );
+
+DROP TABLE wf_rollback_approver CASCADE CONSTRAINTS;
+CREATE TABLE wf_rollback_approver (
+    id              INTEGER NOT NULL,
+    bagian          VARCHAR2(10 BYTE),
+    approver_id     INTEGER,
+    approver_name   VARCHAR2(30 BYTE)
+);
+
+ALTER TABLE wf_rollback_approver ADD CONSTRAINT wf_rollback_approver_pk PRIMARY KEY ( id );
+
+DROP TABLE wf_rollback_flow CASCADE CONSTRAINTS;
+CREATE TABLE wf_rollback_flow (
+  id              INTEGER NOT NULL,
+  rb_request_id   INTEGER NOT NULL,
+  nourut          INTEGER,
+  bagian          VARCHAR2(25 CHAR),
+  node_code       VARCHAR2(10 CHAR),
+  rb_in           VARCHAR2(3 CHAR),
+  flag_approval   VARCHAR2(5 CHAR),
+  modify_by       VARCHAR2(30 CHAR),
+  modify_dt       DATE
+);
+
+COMMENT ON COLUMN wf_rollback_flow.rb_in IS
+    'Y = include N = skip';
+
+ALTER TABLE wf_rollback_flow ADD CONSTRAINT wf_rollback_flow_pk PRIMARY KEY ( id );
 
 DROP TABLE wf_route CASCADE CONSTRAINTS;
 CREATE TABLE wf_route (
     id              INTEGER NOT NULL,
     node_id         VARCHAR2(10 CHAR) NOT NULL,
     pilihan         INTEGER NOT NULL,
-    description     VARCHAR2(35 CHAR),
+    description     VARCHAR2(60 CHAR),
     refnode         VARCHAR2(10 CHAR) NOT NULL,
-    pangkat         VARCHAR2(15 CHAR),
-    sp_assignment   VARCHAR2(50 CHAR),
     return_task     VARCHAR2(1 CHAR)
 );
 
-COMMENT ON COLUMN wf_route.pangkat IS
-    'rank tertentu yg bisa lakukan action ini';
-
-ALTER TABLE wf_route ADD CONSTRAINT node_option_pk PRIMARY KEY ( id );
+ALTER TABLE wf_route ADD CONSTRAINT wf_route_pk PRIMARY KEY ( id );
 
 DROP TABLE wf_task CASCADE CONSTRAINTS;
 CREATE TABLE wf_task (
-    id                INTEGER NOT NULL,
-    no_dcv            VARCHAR2(20 CHAR) NOT NULL,
-    task_type         VARCHAR2(10 CHAR),
-    assign_time       DATE,
-    assign_to_bu      INTEGER NOT NULL,
-    sp_assign1        VARCHAR2(50 CHAR),
-    progress_status   VARCHAR2(10 CHAR),
-    nodecode          VARCHAR2(10 CHAR) NOT NULL,
-    ketr_instruksi    VARCHAR2(200 CHAR),
-    prev_task         INTEGER,
-    prev_node         VARCHAR2(10 CHAR),
-    decision          INTEGER,
-    execscript        VARCHAR2(100 CHAR),
-    next_task         INTEGER,
-    next_node         VARCHAR2(10 CHAR),
-    pesan             VARCHAR2(250 CHAR),
-    prime_route       VARCHAR2(1 CHAR),
-    return_task       VARCHAR2(1 CHAR),
-    process_by        VARCHAR2(50 CHAR),
-    process_time      DATE,
-    sla               NUMBER
+  id                INTEGER NOT NULL,
+  no_dcv            VARCHAR2(20 CHAR) NOT NULL,
+  task_type         VARCHAR2(10 CHAR),
+  assign_time       DATE,
+  bagian            VARCHAR2(25 CHAR) NOT NULL,
+  role_assigned     VARCHAR2(50 CHAR),
+  progress_status   VARCHAR2(10 CHAR),
+  nodecode          VARCHAR2(10 CHAR) NOT NULL,
+  prev_task         INTEGER,
+  tahapan           VARCHAR2(200 CHAR),
+  decision          INTEGER,
+  execscript        VARCHAR2(100 CHAR),
+  next_task         INTEGER,
+  next_node         VARCHAR2(10 CHAR),
+  note              VARCHAR2(250 CHAR),
+  prime_route       VARCHAR2(1 CHAR),
+  return_task       VARCHAR2(1 CHAR),
+  process_by        VARCHAR2(50 CHAR),
+  process_time      DATE,
+  sla               NUMBER,
+  rollback_task     VARCHAR2(3 BYTE),
+  rollback_id       INTEGER,
+  beban_sla         VARCHAR2(25 CHAR),
+  sorting_tag       VARCHAR2(1 CHAR),
+  target_selesai    DATE
 );
+ALTER TABLE wf_task ADD CONSTRAINT wf_task_pk PRIMARY KEY ( id );
 
 COMMENT ON COLUMN wf_task.task_type IS
     'humantask, merge, auto sched';
-
-COMMENT ON COLUMN wf_task.assign_to_bu IS
-    'assign ke bisnis unit (role) mana';
-
-COMMENT ON COLUMN wf_task.sp_assign1 IS
-    'unt user dg special assignment khusus mis. Food / non food ';
-
 COMMENT ON COLUMN wf_task.progress_status IS
     'DONE, WORKING';
-
 COMMENT ON COLUMN wf_task.return_task IS
     'apakah merupakan return task ?';
-
 COMMENT ON COLUMN wf_task.sla IS
     'running sla tiap hari';
+COMMENT ON COLUMN wf_task.beban_sla IS
+  'yang menanggung beban sla untuk task ini, jika bukan bagian yg mengerjakan (kasus Rollback)';
+COMMENT ON COLUMN wf_task.target_selesai IS
+    'kapan harus selesai';
 
 CREATE INDEX wf_task_dcvno_idx ON
     wf_task (
         no_dcv    ASC,
         nodecode    ASC,
         progress_status    ASC );
-
 CREATE INDEX wf_task_type_idx ON
     wf_task (
         task_type    ASC,
         progress_status    ASC );
 
-ALTER TABLE wf_task ADD CONSTRAINT task_pk PRIMARY KEY ( id );
-
-ALTER TABLE doc_movement
-    ADD CONSTRAINT doc_movement_dcv_files_fk FOREIGN KEY ( dcv_id )
-        REFERENCES dcv_documents ( id );
-
 ALTER TABLE dcv_documents
-    ADD CONSTRAINT file_pendukung_request_hdr_fk FOREIGN KEY ( dcv_hdr_id )
-        REFERENCES dcv_request ( dcv_hdr_id );
+    ADD CONSTRAINT dcv_doc_request_hdr_fk FOREIGN KEY ( dcvh_id )
+        REFERENCES dcv_request ( dcvh_id );
 
-ALTER TABLE wf_node
-    ADD CONSTRAINT node_role_fk FOREIGN KEY ( department )
-        REFERENCES sec_dept ( id );
+ALTER TABLE dcv_user_role
+    ADD CONSTRAINT dcv_role_user_role_fk FOREIGN KEY ( role_code )
+        REFERENCES dcv_role ( role_code );
 
-ALTER TABLE pcline_tc_appr
-    ADD CONSTRAINT req_line_breakdown_fk FOREIGN KEY ( request_dtl_id )
-        REFERENCES request_dtl ( id );
+ALTER TABLE dcv_user_role
+    ADD CONSTRAINT dcv_user_role_user_id_fk FOREIGN KEY ( user_id )
+        REFERENCES dcv_user_access ( id );
+
+ALTER TABLE disposisi
+    ADD CONSTRAINT disposisi_dcv_fk FOREIGN KEY ( dcvh_id )
+        REFERENCES dcv_request ( dcvh_id );
+
+ALTER TABLE dokumen_realisasi
+    ADD CONSTRAINT dok_realisasi_dcv_request_fk FOREIGN KEY ( dcvh_id )
+        REFERENCES dcv_request ( dcvh_id );
 
 ALTER TABLE request_dtl
-    ADD CONSTRAINT request_dtl_request_hdr_fk FOREIGN KEY ( dcv_hdr_id )
-        REFERENCES dcv_request ( dcv_hdr_id );
+    ADD CONSTRAINT request_dtl_hdr_fk FOREIGN KEY ( dcvh_id )
+        REFERENCES dcv_request ( dcvh_id );
 
-ALTER TABLE sec_user
-    ADD CONSTRAINT sec_user_report_to_fk FOREIGN KEY ( report_to )
-        REFERENCES sec_user ( id );
+ALTER TABLE role_privs
+    ADD CONSTRAINT role_privs_privs_fk FOREIGN KEY ( priv_id )
+        REFERENCES dcv_privs ( id );
 
-ALTER TABLE wf_task
-    ADD CONSTRAINT task_user_fk FOREIGN KEY ( assign_to_bu )
-        REFERENCES sec_dept ( id );
+ALTER TABLE role_privs
+    ADD CONSTRAINT role_privs_role_fk FOREIGN KEY ( role_code )
+        REFERENCES dcv_role ( role_code );
 
-ALTER TABLE sec_user
-    ADD CONSTRAINT user_dept_fk FOREIGN KEY ( department )
-        REFERENCES sec_dept ( id )
-            ON DELETE CASCADE;
+ALTER TABLE tc_approval
+    ADD CONSTRAINT req_line_breakdown_fk FOREIGN KEY ( dcvl_id )
+        REFERENCES request_dtl ( dcvl_id );
+
+ALTER TABLE wf_rollback
+    ADD CONSTRAINT wf_rollback_dcv_request_fk FOREIGN KEY ( dcvh_id )
+        REFERENCES dcv_request ( dcvh_id );
+
+ALTER TABLE wf_rollback_approval
+    ADD CONSTRAINT wf_rollback_approval_fk FOREIGN KEY ( rollback_id )
+        REFERENCES wf_rollback ( id );
+
+ALTER TABLE wf_rollback_flow
+    ADD CONSTRAINT wf_rollback_flow_fk FOREIGN KEY ( rb_request_id )
+        REFERENCES wf_rollback ( id );
 
 ALTER TABLE wf_route
     ADD CONSTRAINT wf_node_option_wf_node_fk FOREIGN KEY ( node_id )
