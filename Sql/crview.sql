@@ -7,14 +7,16 @@ CREATE OR REPLACE FORCE VIEW DCV_MONITOR (
     dcv_start_dt, dcv_end_dt,
     periode_submit,
     customer_code, customer_name,
-    REGION, AREA, LOC,
     NO_PC,
+    region, area, loc,
     periode_pc_start, periode_pc_end,
     kategori_pc,
     tipe_pc,
     dcv_value,
     appv_value,
     no_faktur,
+    no_kwitansi,
+    return_task,
     last_step, current_step,
     nodecode, dcv_status, sla, bagian, auth_appv) AS
 WITH
@@ -41,17 +43,19 @@ r.dcvh_id
 ,r.dcvh_submit_time
 ,r.dcvh_cust_code
 ,r.dcvh_cust_name
-,'REGIONxx'
-,'AREAxx'
-,'LOCACTIONxx'
 ,r.dcvh_no_pc
+,r.dcvh_region
+,r.dcvh_area
+,r.dcvh_location
 ,r.dcvh_periode_pc_start
 ,r.dcvh_periode_pc_end
 ,r.dcvh_pc_kategori
 ,r.dcvh_pc_tipe
 ,r.dcvh_value
 ,r.dcvh_appv_value
-,d.doc_no AS --nofaktur
+,fp.doc_no AS nofaktur
+,kw.doc_no AS nokwitansi
+,t.return_task
 ,r.dcvh_last_step
 ,r.dcvh_current_step
 ,t.nodecode
@@ -59,16 +63,18 @@ r.dcvh_id
 ,t.sla
 ,t.bagian
 ,CASE WHEN t.bagian = 'DISTRIBUTOR' THEN r.dcvh_cust_code
-      WHEN t.bagian = 'SALES' THEN 'Siapa???'
+      WHEN t.bagian = 'SALES' THEN authmap.USER_NAME
       ELSE '' END
 FROM dcv_request r
-LEFT OUTER JOIN dcv_documents d
-ON
-d.dcvh_id = r.dcvh_id AND
-d.doc_type = 'FAKTUR'
-LEFT OUTER JOIN task_qry t
-ON
-t.no_dcv = r.dcvh_no_dcv;
+LEFT OUTER JOIN dcv_documents fp ON fp.dcvh_id = r.dcvh_id AND fp.doc_type = 'FAKTUR'
+LEFT OUTER JOIN dcv_documents kw ON fp.dcvh_id = r.dcvh_id AND fp.doc_type = 'KWITANSI'
+LEFT OUTER JOIN task_qry t ON t.no_dcv = r.dcvh_no_dcv
+LEFT OUTER JOIN dcv_user_auth_mapping authmap
+    ON authmap.pp_no = CASE
+                                WHEN t.bagian = 'SALES' THEN r.dcvh_no_pp
+                                ELSE 'x'
+                            END;
+
 
 /**************************************/
 /* Gabungan usermgmt PPPC, WO dan DCV */

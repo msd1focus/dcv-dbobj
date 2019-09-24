@@ -70,6 +70,9 @@ CREATE TABLE dcv_request (
   dcvh_periode_pc_start    DATE,
   dcvh_periode_pc_end      DATE,
   dcvh_no_dcv              VARCHAR2(15 CHAR),
+  dcvh_region              VARCHAR2(30 CHAR),
+  dcvh_area                VARCHAR2(60 CHAR),
+  dcvh_location            VARCHAR2(100 CHAR),
   dcvh_submit_time         DATE,
   dcvh_selisih_hari        INTEGER,
   dcvh_value               NUMBER DEFAULT 0,
@@ -135,6 +138,17 @@ CREATE TABLE dcv_user_access (
 );
 ALTER TABLE dcv_user_access ADD CONSTRAINT dcv_user_access_pk PRIMARY KEY ( id );
 ALTER TABLE dcv_user_access ADD CONSTRAINT dcv_username_un UNIQUE ( user_name );
+
+DROP TABLE dcv_user_auth_mapping CASCADE CONSTRAINTS;
+CREATE TABLE dcv_user_auth_mapping (
+    id          INTEGER NOT NULL,
+    pp_no       VARCHAR2(100 CHAR),
+    pc_no       VARCHAR2(100 CHAR),
+    user_id     INTEGER,
+    user_name   VARCHAR2(100 CHAR),
+    user_type   VARCHAR2(15 CHAR)
+);
+ALTER TABLE dcv_user_auth_mapping ADD CONSTRAINT dcv_user_auth_mapping_pk PRIMARY KEY ( id );
 
 DROP TABLE dcv_user_role CASCADE CONSTRAINTS;
 CREATE TABLE dcv_user_role (
@@ -297,154 +311,6 @@ COMMENT ON COLUMN tc_approval.uom_dcv IS
     'Uom dcv yg direquest distributor';
 ALTER TABLE tc_approval ADD CONSTRAINT tc_approval_pk PRIMARY KEY ( id );
 
-DROP TABLE wf_node CASCADE CONSTRAINTS;
-CREATE TABLE wf_node (
-  nodecode         VARCHAR2(10 CHAR) NOT NULL,
-  node_desc        VARCHAR2(100 CHAR),
-  nodetype         VARCHAR2(30 CHAR) NOT NULL,
-  no_urut          INTEGER,
-  bagian           VARCHAR2(25),
-  execscript       VARCHAR2(100 CHAR),
-  prime_route      VARCHAR2(1 CHAR),
-  merge_count      INTEGER,
-  sla1             NUMBER,
-  sla2             NUMBER
-);
-
-ALTER TABLE wf_node ADD CONSTRAINT node_pk PRIMARY KEY ( nodecode );
-
-DROP TABLE wf_rollback CASCADE CONSTRAINTS;
-CREATE TABLE wf_rollback (
-  id           INTEGER NOT NULL,
-  no_request   VARCHAR2(30 CHAR),
-  request_by   VARCHAR2(50 CHAR),
-  dcvh_id      INTEGER,
-  no_dcv       VARCHAR2(20 BYTE),
-  beban_sla    VARCHAR2(25 CHAR),
-  alasan       VARCHAR2(200 CHAR),
-  status       VARCHAR2(15 CHAR),
-  create_dt    DATE,
-  create_by    VARCHAR2(25 CHAR)
-);
-
-COMMENT ON COLUMN wf_rollback.beban_sla IS
-    'bagian yg menanggung sla';
-COMMENT ON COLUMN wf_rollback.status IS
-    'PENDING / MUNDUR / MAJU / CANCEL / COMPLETE';
-
-ALTER TABLE wf_rollback ADD CONSTRAINT wf_rollback_pk PRIMARY KEY ( id );
-
-DROP TABLE wf_rollback_approval CASCADE CONSTRAINTS;
-CREATE TABLE wf_rollback_approval (
-    id              INTEGER NOT NULL,
-    rollback_id     INTEGER NOT NULL,
-    bagian          VARCHAR2(25 CHAR),
-    appvl_status    VARCHAR2(10 CHAR),
-    approval_note   VARCHAR2(200 CHAR),
-    approve_by      VARCHAR2(50 CHAR),
-    approve_dt      DATE
-);
-
-COMMENT ON COLUMN wf_rollback_approval.bagian IS
-    'bagian yg request-approve';
-COMMENT ON COLUMN wf_rollback_approval.appvl_status IS
-    'APPROVED/REJECT';
-
-ALTER TABLE wf_rollback_approval ADD CONSTRAINT wf_rollback_approval_pk PRIMARY KEY ( id );
-
-DROP TABLE wf_rollback_approver CASCADE CONSTRAINTS;
-CREATE TABLE wf_rollback_approver (
-    id              INTEGER NOT NULL,
-    bagian          VARCHAR2(10 BYTE),
-    approver_id     INTEGER,
-    approver_name   VARCHAR2(30 BYTE)
-);
-
-ALTER TABLE wf_rollback_approver ADD CONSTRAINT wf_rollback_approver_pk PRIMARY KEY ( id );
-
-DROP TABLE wf_rollback_flow CASCADE CONSTRAINTS;
-CREATE TABLE wf_rollback_flow (
-  id              INTEGER NOT NULL,
-  rb_request_id   INTEGER NOT NULL,
-  nourut          INTEGER,
-  bagian          VARCHAR2(25 CHAR),
-  node_code       VARCHAR2(10 CHAR),
-  rb_in           VARCHAR2(3 CHAR),
-  flag_approval   VARCHAR2(5 CHAR),
-  modify_by       VARCHAR2(30 CHAR),
-  modify_dt       DATE
-);
-
-COMMENT ON COLUMN wf_rollback_flow.rb_in IS
-    'Y = include N = skip';
-
-ALTER TABLE wf_rollback_flow ADD CONSTRAINT wf_rollback_flow_pk PRIMARY KEY ( id );
-
-DROP TABLE wf_route CASCADE CONSTRAINTS;
-CREATE TABLE wf_route (
-    id              INTEGER NOT NULL,
-    node_id         VARCHAR2(10 CHAR) NOT NULL,
-    pilihan         INTEGER NOT NULL,
-    description     VARCHAR2(60 CHAR),
-    refnode         VARCHAR2(10 CHAR) NOT NULL,
-    return_task     VARCHAR2(1 CHAR)
-);
-
-ALTER TABLE wf_route ADD CONSTRAINT wf_route_pk PRIMARY KEY ( id );
-
-DROP TABLE wf_task CASCADE CONSTRAINTS;
-CREATE TABLE wf_task (
-  id                INTEGER NOT NULL,
-  no_dcv            VARCHAR2(20 CHAR) NOT NULL,
-  task_type         VARCHAR2(10 CHAR),
-  assign_time       DATE,
-  bagian            VARCHAR2(25 CHAR) NOT NULL,
-  role_assigned     VARCHAR2(50 CHAR),
-  progress_status   VARCHAR2(10 CHAR),
-  nodecode          VARCHAR2(10 CHAR) NOT NULL,
-  prev_task         INTEGER,
-  tahapan           VARCHAR2(200 CHAR),
-  decision          INTEGER,
-  execscript        VARCHAR2(100 CHAR),
-  next_task         INTEGER,
-  next_node         VARCHAR2(10 CHAR),
-  note              VARCHAR2(250 CHAR),
-  prime_route       VARCHAR2(1 CHAR),
-  return_task       VARCHAR2(1 CHAR),
-  process_by        VARCHAR2(50 CHAR),
-  process_time      DATE,
-  sla               NUMBER,
-  rollback_task     VARCHAR2(3 BYTE),
-  rollback_id       INTEGER,
-  beban_sla         VARCHAR2(25 CHAR),
-  sorting_tag       VARCHAR2(1 CHAR),
-  target_selesai    DATE
-);
-ALTER TABLE wf_task ADD CONSTRAINT wf_task_pk PRIMARY KEY ( id );
-
-COMMENT ON COLUMN wf_task.task_type IS
-    'humantask, merge, auto sched';
-COMMENT ON COLUMN wf_task.progress_status IS
-    'DONE, WORKING';
-COMMENT ON COLUMN wf_task.return_task IS
-    'apakah merupakan return task ?';
-COMMENT ON COLUMN wf_task.sla IS
-    'running sla tiap hari';
-COMMENT ON COLUMN wf_task.beban_sla IS
-  'yang menanggung beban sla untuk task ini, jika bukan bagian yg mengerjakan (kasus Rollback)';
-COMMENT ON COLUMN wf_task.target_selesai IS
-    'kapan harus selesai';
-
-CREATE INDEX wf_task_dcvno_idx ON
-    wf_task (
-        no_dcv    ASC,
-        nodecode    ASC,
-        progress_status    ASC );
-CREATE INDEX wf_task_type_idx ON
-    wf_task (
-        task_type    ASC,
-        progress_status    ASC );
-
 ALTER TABLE dcv_documents
     ADD CONSTRAINT dcv_doc_request_hdr_fk FOREIGN KEY ( dcvh_id )
         REFERENCES dcv_request ( dcvh_id );
@@ -480,27 +346,3 @@ ALTER TABLE role_privs
 ALTER TABLE tc_approval
     ADD CONSTRAINT req_line_breakdown_fk FOREIGN KEY ( dcvl_id )
         REFERENCES request_dtl ( dcvl_id );
-
-ALTER TABLE wf_rollback
-    ADD CONSTRAINT wf_rollback_dcv_request_fk FOREIGN KEY ( dcvh_id )
-        REFERENCES dcv_request ( dcvh_id );
-
-ALTER TABLE wf_rollback_approval
-    ADD CONSTRAINT wf_rollback_approval_fk FOREIGN KEY ( rollback_id )
-        REFERENCES wf_rollback ( id );
-
-ALTER TABLE wf_rollback_flow
-    ADD CONSTRAINT wf_rollback_flow_fk FOREIGN KEY ( rb_request_id )
-        REFERENCES wf_rollback ( id );
-
-ALTER TABLE wf_route
-    ADD CONSTRAINT wf_node_option_wf_node_fk FOREIGN KEY ( node_id )
-        REFERENCES wf_node ( nodecode );
-
-ALTER TABLE wf_route
-    ADD CONSTRAINT wf_node_option_wf_node_fkv1 FOREIGN KEY ( refnode )
-        REFERENCES wf_node ( nodecode );
-
-ALTER TABLE wf_task
-    ADD CONSTRAINT wf_task_wf_node_fk FOREIGN KEY ( nodecode )
-        REFERENCES wf_node ( nodecode );

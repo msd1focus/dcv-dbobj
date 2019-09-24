@@ -1,0 +1,94 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D4750148-301B-DDBB-8F2F-495111B19CD4" name="dcv_user_auth_mapping">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-09-21 14:58:37 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<ordsAlias>table_25</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="80C75A16-4BFF-4ABE-CCC1-EB3A8B7554F0">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-09-21 14:59:45 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PP_NO" id="141C72F3-2F0F-6308-ECB4-9ECC93C95354">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-09-21 15:00:01 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PC_NO" id="5677722E-6D8D-1937-F712-E045047612BE">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-09-21 14:59:45 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USER_ID" id="113842DE-700B-20B0-5899-C0C9048C47FA">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-09-21 15:02:29 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USER_NAME" id="EEB2DC52-6C96-EB54-073F-21DE0965C8DB">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-09-21 15:02:43 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USER_TYPE" id="12DAAF83-A7CC-E59F-B699-126F65819B15">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-09-21 15:02:56 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6D8DB28B-87D9-FD70-FFA1-267F40DCA998" name="dcv_user_auth_mapping_PK">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-09-21 14:59:45 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="80C75A16-4BFF-4ABE-CCC1-EB3A8B7554F0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

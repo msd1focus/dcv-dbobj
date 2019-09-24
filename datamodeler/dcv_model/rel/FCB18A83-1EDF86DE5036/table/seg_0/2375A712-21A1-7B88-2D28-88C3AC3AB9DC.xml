@@ -61,7 +61,7 @@
 <Column name="dcvh_no_pc" id="5A1B6243-7F97-0CC0-078C-BF0C4D7BF003">
 <createdBy>frans</createdBy>
 <createdTime>2019-02-20 15:39:57 UTC</createdTime>
-<commentInRDBMS>pppc:proposal:confirm_no + addendum_ke</commentInRDBMS>
+<commentInRDBMS><![CDATA[pppc:proposal:confirm_no + addendum_ke]]></commentInRDBMS>
 <generatorID>452F7F1A-326D-1BC1-5E80-BA7B9E30C8FC</generatorID>
 <ownerDesignName>dcv_model</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -74,7 +74,7 @@
 <Column name="dcvh_key_pc" id="C4164D58-91ED-99BA-213E-C994E5105DA8">
 <createdBy>frans</createdBy>
 <createdTime>2019-02-20 15:39:57 UTC</createdTime>
-<commentInRDBMS>pppc:proposal:report_run_number</commentInRDBMS>
+<commentInRDBMS><![CDATA[pppc:proposal:report_run_number]]></commentInRDBMS>
 <generatorID>BF94CEFD-3607-245A-C429-4C8C1D4F6BFC</generatorID>
 <ownerDesignName>dcv_model</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -133,7 +133,7 @@
 <Column name="dcvh_pc_kategori" id="D1382B35-F32B-2529-DD09-5DC67ACE21A9">
 <createdBy>frans</createdBy>
 <createdTime>2019-02-20 15:39:57 UTC</createdTime>
-<commentInRDBMS>?? I03 ??</commentInRDBMS>
+<commentInRDBMS><![CDATA[?? I03 ??]]></commentInRDBMS>
 <generatorID>F4749459-32EA-48BC-258C-F97952362EF9</generatorID>
 <ownerDesignName>dcv_model</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
@@ -147,7 +147,7 @@
 <Column name="dcvh_pc_tipe" id="0F81FBB9-E4B7-80FB-2AA1-4B36DE29F707">
 <createdBy>frans</createdBy>
 <createdTime>2019-02-20 15:39:57 UTC</createdTime>
-<commentInRDBMS>food / non food</commentInRDBMS>
+<commentInRDBMS><![CDATA[food / non food]]></commentInRDBMS>
 <generatorID>0C3FB3AB-41CE-0ED9-4A27-DF8975C36C79</generatorID>
 <ownerDesignName>dcv_model</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
@@ -195,6 +195,42 @@
 <ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="dcvh_region" id="B6F0FCE7-7BB6-8201-60B7-345887980ED8">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-09-21 04:35:06 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcvh_area" id="F508F525-FA0E-7CC7-E98C-95E46C5A0814">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-09-21 04:35:24 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60 CHAR</dataTypeSize>
+<ownDataTypeParameters>60 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dcv_location" id="B30678FA-4A30-DA66-FF69-6E7BEA9CA35A">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-09-21 04:35:40 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 <Column name="dcvh_submit_time" id="D7B05D62-1CC6-CC26-940C-5B4F180330AC">
 <createdBy>frans</createdBy>
 <createdTime>2019-02-20 15:39:57 UTC</createdTime>
@@ -210,7 +246,7 @@
 <Column name="dcvh_selisih_hari" id="920FCB83-A708-08D4-2E85-7E7F94288759">
 <createdBy>frans</createdBy>
 <createdTime>2019-09-05 00:22:22 UTC</createdTime>
-<commentInRDBMS>selisih hari pc end-dt sampai tgl request</commentInRDBMS>
+<commentInRDBMS><![CDATA[selisih hari pc end-dt sampai tgl request]]></commentInRDBMS>
 <ownerDesignName>dcv_model</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -222,7 +258,7 @@
 <Column name="dcvh_value" id="BFA3B173-9D66-DA08-E456-F12D215B7A99">
 <createdBy>frans</createdBy>
 <createdTime>2019-02-20 15:39:57 UTC</createdTime>
-<commentInRDBMS>total nilai request</commentInRDBMS>
+<commentInRDBMS><![CDATA[total nilai request]]></commentInRDBMS>
 <generatorID>60E721BD-BA61-7229-FA43-7C0A8C199ED3</generatorID>
 <ownerDesignName>dcv_model</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
@@ -236,7 +272,8 @@
 <Column name="dcvh_appv_value" id="2A24B56D-BA94-BF4E-C48C-BEFF42C90714">
 <createdBy>frans</createdBy>
 <createdTime>2019-02-20 15:39:57 UTC</createdTime>
-<commentInRDBMS>total nilai approve&lt;br/&gt;</commentInRDBMS>
+<commentInRDBMS><![CDATA[total nilai approve
+]]></commentInRDBMS>
 <generatorID>D88AF280-F474-66CD-274D-527862B2F3BF</generatorID>
 <ownerDesignName>dcv_model</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
@@ -250,7 +287,7 @@
 <Column name="dcvh_ketr_kwitansi" id="C268652C-F114-1166-0C98-D8F4B9D88221">
 <createdBy>frans</createdBy>
 <createdTime>2019-03-19 14:20:57 UTC</createdTime>
-<commentInRDBMS>ambil dari PO. Untuk kasus PO pc tambahan/pengganti, ambil PO pc asli</commentInRDBMS>
+<commentInRDBMS><![CDATA[ambil dari PO. Untuk kasus PO pc tambahan/pengganti, ambil PO pc asli]]></commentInRDBMS>
 <ownerDesignName>dcv_model</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -263,7 +300,7 @@
 <Column name="dcvh_metode_bayar" id="7B3E93A2-7273-61A4-B035-2AA106FEFF5C">
 <createdBy>frans</createdBy>
 <createdTime>2019-03-21 10:20:35 UTC</createdTime>
-<commentInRDBMS>PO / CM</commentInRDBMS>
+<commentInRDBMS><![CDATA[PO / CM]]></commentInRDBMS>
 <ownerDesignName>dcv_model</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -276,7 +313,7 @@
 <Column name="dcvh_status" id="A13B2B09-7BE8-EEB8-CE4E-8015234B9CC0">
 <createdBy>frans</createdBy>
 <createdTime>2019-02-20 15:39:57 UTC</createdTime>
-<commentInRDBMS>CANCEL, ON-PROCESS, PAID, ROLLBACK</commentInRDBMS>
+<commentInRDBMS><![CDATA[CANCEL, ON-PROCESS, PAID, ROLLBACK]]></commentInRDBMS>
 <generatorID>0C0B4CF5-35FD-11C6-98E0-03853A36E143</generatorID>
 <ownerDesignName>dcv_model</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>

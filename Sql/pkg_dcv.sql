@@ -6,6 +6,8 @@ create or replace PACKAGE DCV_PKG AS
                                 response OUT NUMBER, errm OUT VARCHAR2) ;
     FUNCTION cek_stm_report (custcode VARCHAR2, periode1 DATE, periode2 DATE) RETURN NUMBER;
     FUNCTION new_dcv_req (pCustcode VARCHAR2, pNoPc VARCHAR2, pDcvPeriod1 DATE, pDcvPeriod2 DATE) RETURN NUMBER;
+    PROCEDURE new_dcv_req (pCustcode IN VARCHAR2, pNoPc IN VARCHAR2, pDcvPeriod1 IN DATE, pDcvPeriod2 IN DATE,
+                          pResponse OUT VARCHAR2, pStatus OUT VARCHAR2);
     FUNCTION terbilang (n NUMBER) RETURN VARCHAR2;
 END DCV_PKG;
 /
@@ -113,6 +115,125 @@ create or replace PACKAGE BODY DCV_PKG AS
     WHERE confirm_no = no_pc;
 */
     RETURN(112);
+  END;
+
+  PROCEDURE new_dcv_req (pCustcode IN VARCHAR2, pNoPc IN VARCHAR2, pDcvPeriod1 IN DATE, pDcvPeriod2 IN DATE,
+                        pResponse OUT VARCHAR2, pStatus OUT VARCHAR2)
+  AS
+    vProp proposal%ROWTYPE;
+    vCustName VARCHAR2(50) := 'Nama customer';
+    vNoDcv VARCHAR2 (15);
+    vTaskId NUMBER;
+  BEGIN
+
+    SELECT * INTO vProp
+    FROM proposal
+    WHERE proposal_id = pProposalId;
+
+    vnodcv := get_dcv_no;
+    Insert into DCV_REQUEST (
+    DCVH_ID,
+    DCVH_CUST_CODE,
+    DCVH_CUST_NAME,
+    DCVH_COMPANY,
+    DCVH_NO_PC,
+    DCVH_KEY_PC,
+    DCVH_NO_PP,
+    DCVH_NO_PP_ID,
+    DCVH_PERIODE_DCV_START, DCVH_PERIODE_DCV_END,
+    DCVH_PC_KATEGORI,
+    DCVH_PC_TIPE,
+    DCVH_PERIODE_PC_START,
+    DCVH_PERIODE_PC_END,
+    DCVH_NO_DCV,
+    DCVH_SUBMIT_TIME,
+    DCVH_SELISIH_HARI,
+    DCVH_VALUE,
+    DCVH_METODE_BAYAR,
+    DCVH_STATUS,
+    DCVH_CURRENT_STEP,MODIFIED_DT,MODIFIED_BY)
+    VALUES (
+    dcv_seq.nextval, pCustCode, vCustName, 'FDI',
+    vProp.confirm_no,
+    vProp.REPORT_RUN_NUMBER,
+    vProp.PROPOSAL_NO,
+    vProp.PROPOSAL_ID,
+    pDcvPeriod1, pDcvPeriod2,
+    vProp.CATEGORY_PC,
+    vProp.PC_TYPE,
+    vProp.PERIODE_PROG_FROM,
+    vProp.PERIODE_PROG_TO,
+    vNoDcv,
+    SYSDATE,
+    SYSDATE - vProp.periode_prog_to,
+    0, 'PO',
+    'START',
+    'Tunggu proses Sales',
+    SYSDATE, pCustCode);
+
+    SELECT dcv_seq.nextval INTO vTaskId FROM DUAL;
+    SELECT dcv_seq.nextval INTO vTaskId FROM DUAL; -- sengaja 2x
+
+    Insert into WF_TASK (
+    ID,
+    NO_DCV,
+    TASK_TYPE,
+    ASSIGN_TIME,
+    BAGIAN,
+    SORTING_TAG,
+    PROGRESS_STATUS,
+    NODECODE,
+    PREV_TASK,TAHAPAN,
+    DECISION, NEXT_TASK,
+    NEXT_NODE,PRIME_ROUTE,
+    PROCESS_BY,PROCESS_TIME
+    ) values (
+    vTaskId -1,
+    vNoDcv,
+    'Start',
+    SYSDATE,
+    'DISTRIBUTOR',
+    'A',
+    'DONE',
+    'D0',null,'DCV Request - Distributor',
+    1, vTaskId,
+    'SL1','Y',
+    pCustCode,
+    SYSDATE);
+
+    Insert into WF_TASK (
+    ID,
+    NO_DCV,
+    TASK_TYPE,
+    ASSIGN_TIME,
+    BAGIAN,
+    SORTING_TAG,
+    PROGRESS_STATUS,
+    NODECODE,
+    PREV_TASK,TAHAPAN,
+    DECISION,
+    NEXT_NODE,PRIME_ROUTE,
+    PROCESS_BY,PROCESS_TIME
+    ) values (
+    vTaskId,
+    vNoDcv,
+    'Human',
+    SYSDATE,
+    'SALES',
+    'A',
+    'WAIT',
+    'SL1',
+    vTaskId-1,
+    'Sedang Proses Sales',
+    null,
+    null,'Y',
+    pCustCode,
+    SYSDATE);
+
+    /* insert into dcv_user_auth_mapping */
+
+    pRequestStatus := 'Success';
+    pResponse := 'noDcv Baru';
   END;
 
   FUNCTION terbilang_satuan (n number)
