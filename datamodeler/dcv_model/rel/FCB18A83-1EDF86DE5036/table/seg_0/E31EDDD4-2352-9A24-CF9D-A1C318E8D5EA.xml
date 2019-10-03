@@ -18,6 +18,19 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="dcvh_id" id="FC81D066-9D28-0980-B661-4218876E99D0">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-09-28 13:11:58 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E1461072-36E2-CBBE-0F6A-EEE186B07C1A" referredColumn="9F9235EF-ABA9-FEE2-A3D5-7727C998FADD"/>
+</associations>
+</Column>
 <Column name="no_dcv" id="F649B83B-FC2D-50C8-A2ED-74E4B26916C2">
 <createdBy>frans</createdBy>
 <createdTime>2019-03-17 01:23:41 UTC</createdTime>
@@ -32,7 +45,7 @@
 <Column name="task_type" id="72AEA32E-1642-373B-A754-B1E1E9C78E0E">
 <createdBy>frans</createdBy>
 <createdTime>2019-03-17 06:30:42 UTC</createdTime>
-<commentInRDBMS>humantask, merge, auto sched</commentInRDBMS>
+<commentInRDBMS><![CDATA[humantask, merge, auto sched]]></commentInRDBMS>
 <ownerDesignName>dcv_model</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -56,7 +69,7 @@
 <Column name="bagian" id="7BE92200-5729-E9C5-5BD4-3BE6CC42B555">
 <createdBy>frans</createdBy>
 <createdTime>2019-04-01 12:37:56 UTC</createdTime>
-<commentInRDBMS>assign ke bisnis unit (role) mana</commentInRDBMS>
+<commentInRDBMS><![CDATA[assign ke bisnis unit (role) mana]]></commentInRDBMS>
 <ownerDesignName>dcv_model</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -68,7 +81,7 @@
 <Column name="progress_status" id="C6BB9F76-27BE-8591-1176-831575798DD4">
 <createdBy>frans</createdBy>
 <createdTime>2019-03-17 06:39:45 UTC</createdTime>
-<commentInRDBMS>DONE, WORKING</commentInRDBMS>
+<commentInRDBMS><![CDATA[DONE, WORKING]]></commentInRDBMS>
 <ownerDesignName>dcv_model</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -86,7 +99,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>10 CHAR</dataTypeSize>
-<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="7E24F5D7-142A-3068-CD79-FAEE6F964D1A" referredColumn="6411B5D7-F3E7-79AA-AB65-D611FC83EB73"/>
@@ -188,7 +201,7 @@
 <Column name="return_task" id="3355BBC4-6EDC-6592-523B-25CF725E23CF">
 <createdBy>frans</createdBy>
 <createdTime>2019-04-11 12:32:43 UTC</createdTime>
-<commentInRDBMS>apakah merupakan return task ?</commentInRDBMS>
+<commentInRDBMS><![CDATA[apakah merupakan return task ?]]></commentInRDBMS>
 <ownerDesignName>dcv_model</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -224,7 +237,7 @@
 <Column name="sla" id="B5996074-7B63-8043-4018-2F1961D6ECB5">
 <createdBy>frans</createdBy>
 <createdTime>2019-04-14 06:58:16 UTC</createdTime>
-<commentInRDBMS>running sla tiap hari</commentInRDBMS>
+<commentInRDBMS><![CDATA[running sla tiap hari]]></commentInRDBMS>
 <ownerDesignName>dcv_model</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -236,7 +249,7 @@
 <Column name="rollback_task" id="99B16C89-5D9A-53F3-2B9F-11656974E18D">
 <createdBy>frans</createdBy>
 <createdTime>2019-08-19 01:03:23 UTC</createdTime>
-<commentInRDBMS>Yes/No</commentInRDBMS>
+<commentInRDBMS><![CDATA[Yes/No]]></commentInRDBMS>
 <ownerDesignName>dcv_model</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -260,7 +273,7 @@
 <Column name="beban_sla" id="B699A1D5-1D8C-F089-1556-787B75951AE1">
 <createdBy>frans</createdBy>
 <createdTime>2019-08-28 01:21:53 UTC</createdTime>
-<commentInRDBMS>yang menanggung beban sla untuk task ini, jika bukan bagian yg mengerjakan (kasus Rollback)</commentInRDBMS>
+<commentInRDBMS><![CDATA[yang menanggung beban sla untuk task ini, jika bukan bagian yg mengerjakan (kasus Rollback)]]></commentInRDBMS>
 <ownerDesignName>dcv_model</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -273,7 +286,7 @@
 <Column name="target_selesai" id="5EAA25DF-67A9-1C6D-1004-9CAF67B38D87">
 <createdBy>frans</createdBy>
 <createdTime>2019-09-02 09:52:08 UTC</createdTime>
-<commentInRDBMS>kapan harus selesai</commentInRDBMS>
+<commentInRDBMS><![CDATA[kapan harus selesai]]></commentInRDBMS>
 <ownerDesignName>dcv_model</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -285,7 +298,7 @@
 <Column name="urutan_tag" id="2C2ABD75-A1FB-C59F-5E08-636C251574FC">
 <createdBy>frans</createdBy>
 <createdTime>2019-09-05 09:51:09 UTC</createdTime>
-<commentInRDBMS>untuk mengatur urutan layar history workflow</commentInRDBMS>
+<commentInRDBMS><![CDATA[untuk mengatur urutan layar history workflow]]></commentInRDBMS>
 <ownerDesignName>dcv_model</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -337,6 +350,16 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="0A93F625-D7DC-F681-9FAC-C6192FDEE017"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BFE79FEF-CECD-AAA7-7C7D-FE8C24D4DB49" name="WF_Task_DCV_Request_FK">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-09-28 13:12:56 UTC</createdTime>
+<ownerDesignName>dcv_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FC81D066-9D28-0980-B661-4218876E99D0"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

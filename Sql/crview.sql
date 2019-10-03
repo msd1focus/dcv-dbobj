@@ -2,6 +2,7 @@
 /*       Untuk layar Monitoring       */
 /**************************************/
 CREATE OR REPLACE FORCE VIEW DCV_MONITOR (
+    vwrow_id,
     dcvh_id,
     no_dcv,
     dcv_start_dt, dcv_end_dt,
@@ -21,7 +22,7 @@ CREATE OR REPLACE FORCE VIEW DCV_MONITOR (
     nodecode, dcv_status, sla, bagian, auth_appv) AS
 WITH
 task_qry AS
-(SELECT t1.no_dcv, t1.bagian, t1.nodecode, t1.return_task, t1.sla
+(SELECT t1.id, t1.dcvh_id, t1.no_dcv, t1.bagian, t1.nodecode, t1.return_task, t1.sla
 FROM wf_task t1
 WHERE t1.task_type = 'Human'
 AND t1.progress_status = 'WAIT' -- harusnya wait
@@ -36,7 +37,8 @@ AND CASE
     END =1
 )
 SELECT
-r.dcvh_id
+r.dcvh_id||'.'||t.id
+,r.dcvh_id
 ,r.dcvh_no_dcv
 ,r.dcvh_periode_dcv_start
 ,r.dcvh_periode_dcv_end
@@ -68,7 +70,7 @@ r.dcvh_id
 FROM dcv_request r
 LEFT OUTER JOIN dcv_documents fp ON fp.dcvh_id = r.dcvh_id AND fp.doc_type = 'FAKTUR'
 LEFT OUTER JOIN dcv_documents kw ON fp.dcvh_id = r.dcvh_id AND fp.doc_type = 'KWITANSI'
-LEFT OUTER JOIN task_qry t ON t.no_dcv = r.dcvh_no_dcv
+LEFT OUTER JOIN task_qry t ON t.dcvh_id = r.dcvh_id
 LEFT OUTER JOIN dcv_user_auth_mapping authmap
     ON authmap.pp_no = CASE
                                 WHEN t.bagian = 'SALES' THEN r.dcvh_no_pp

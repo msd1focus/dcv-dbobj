@@ -103,11 +103,12 @@ ALTER TABLE wf_route ADD CONSTRAINT wf_route_pk PRIMARY KEY ( id );
 DROP TABLE wf_task CASCADE CONSTRAINTS;
 CREATE TABLE wf_task (
   id                INTEGER NOT NULL,
+  dcvh_id           INTEGER NOT NULL,
   no_dcv            VARCHAR2(20 CHAR) NOT NULL,
   task_type         VARCHAR2(10 CHAR),
   assign_time       DATE,
   bagian            VARCHAR2(25 CHAR) NOT NULL,
-  role_assigned     VARCHAR2(50 CHAR),
+--  role_assigned     VARCHAR2(50 CHAR),
   progress_status   VARCHAR2(10 CHAR),
   nodecode          VARCHAR2(10 CHAR) NOT NULL,
   prev_task         INTEGER,
@@ -176,7 +177,10 @@ ALTER TABLE wf_route
 ALTER TABLE wf_task
     ADD CONSTRAINT wf_task_wf_node_fk FOREIGN KEY ( nodecode )
         REFERENCES wf_node ( nodecode );
-
+ALTER TABLE wf_task
+    ADD CONSTRAINT wf_task_dcv_request_fk FOREIGN KEY ( dcvh_id )
+        REFERENCES dcv_request ( dcvh_id );
+        
 /*  SETUP DATA */
 
 REM INSERTING into WF_NODE

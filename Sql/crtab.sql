@@ -104,7 +104,6 @@ COMMENT ON COLUMN dcv_request.dcvh_status IS
     'CANCEL, ON-PROCESS, PAID, ROLLBACK';
 CREATE UNIQUE INDEX dcv_no_idx ON
     dcv_request (dcvh_no_dcv ASC );
-
 ALTER TABLE dcv_request ADD CONSTRAINT request_hdr_pk PRIMARY KEY ( dcvh_id );
 
 DROP TABLE dcv_role CASCADE CONSTRAINTS;
@@ -150,6 +149,14 @@ CREATE TABLE dcv_user_auth_mapping (
 );
 ALTER TABLE dcv_user_auth_mapping ADD CONSTRAINT dcv_user_auth_mapping_pk PRIMARY KEY ( id );
 
+DROP TABLE dcv_user_mapping CASCADE CONSTRAINTS;
+CREATE TABLE dcv_user_mapping (
+    dcvh_id     INTEGER NOT NULL,
+    user_id     INTEGER NOT NULL,
+    user_type   VARCHAR2(20 CHAR)
+);
+ALTER TABLE dcv_user_mapping ADD CONSTRAINT dcv_user_mapping_pk PRIMARY KEY ( dcvh_id, user_id );
+                                                                              
 DROP TABLE dcv_user_role CASCADE CONSTRAINTS;
 CREATE TABLE dcv_user_role (
     user_id     INTEGER NOT NULL,
@@ -217,6 +224,13 @@ CREATE TABLE parameter (
 
 ALTER TABLE parameter ADD CONSTRAINT parameter_pk PRIMARY KEY ( id );
 
+DROP TABLE prop_cust_mapping CASCADE CONSTRAINTS;
+CREATE TABLE prop_cust_mapping (
+    prop_id     INTEGER NOT NULL,
+    cust_code   VARCHAR2(20 CHAR) NOT NULL
+);
+ALTER TABLE prop_cust_mapping ADD CONSTRAINT prop_cust_mapping_pk PRIMARY KEY ( prop_id, cust_code );
+                                                                                
 DROP TABLE request_dtl CASCADE CONSTRAINTS;
 CREATE TABLE request_dtl (
   dcvl_id                    INTEGER NOT NULL,
@@ -315,10 +329,16 @@ ALTER TABLE dcv_documents
     ADD CONSTRAINT dcv_doc_request_hdr_fk FOREIGN KEY ( dcvh_id )
         REFERENCES dcv_request ( dcvh_id );
 
+ALTER TABLE dcv_user_mapping
+    ADD CONSTRAINT dcv_user_mapping_dcv_fk FOREIGN KEY ( dcvh_id )
+        REFERENCES dcv_request ( dcvh_id );
+ALTER TABLE dcv_user_mapping
+    ADD CONSTRAINT dcv_user_mapping_user_fk FOREIGN KEY ( user_id )
+        REFERENCES dcv_user_access ( id );
+        
 ALTER TABLE dcv_user_role
     ADD CONSTRAINT dcv_role_user_role_fk FOREIGN KEY ( role_code )
         REFERENCES dcv_role ( role_code );
-
 ALTER TABLE dcv_user_role
     ADD CONSTRAINT dcv_user_role_user_id_fk FOREIGN KEY ( user_id )
         REFERENCES dcv_user_access ( id );
@@ -335,6 +355,7 @@ ALTER TABLE request_dtl
     ADD CONSTRAINT request_dtl_hdr_fk FOREIGN KEY ( dcvh_id )
         REFERENCES dcv_request ( dcvh_id );
 
+
 ALTER TABLE role_privs
     ADD CONSTRAINT role_privs_privs_fk FOREIGN KEY ( priv_id )
         REFERENCES dcv_privs ( id );
@@ -342,6 +363,7 @@ ALTER TABLE role_privs
 ALTER TABLE role_privs
     ADD CONSTRAINT role_privs_role_fk FOREIGN KEY ( role_code )
         REFERENCES dcv_role ( role_code );
+
 
 ALTER TABLE tc_approval
     ADD CONSTRAINT req_line_breakdown_fk FOREIGN KEY ( dcvl_id )
