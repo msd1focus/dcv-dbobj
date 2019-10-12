@@ -1,5 +1,6 @@
 create or replace PACKAGE DCV_PKG AS
     FUNCTION get_dcv_no RETURN VARCHAR2;
+--    FUNCTION get_proposal_id (pNoPc VARCHAR2) RETURN NUMBER
     FUNCTION cek_new_request (nopc VARCHAR2, keypc VARCHAR2, period1 DATE, period2 DATE) RETURN INTEGER;
     FUNCTION uom_conversion_rate (uomfrom VARCHAR2, uomto VARCHAR2) RETURN NUMBER;
     PROCEDURE cek_new_request (nopc VARCHAR2, keypc VARCHAR2, period1 DATE, period2 DATE,
@@ -29,6 +30,15 @@ create or replace PACKAGE BODY DCV_PKG AS
     COMMIT;
     RETURN (vDcvNo);
   END get_dcv_no;
+
+  FUNCTION get_proposal_id (pNoPc VARCHAR2) RETURN NUMBER AS
+    vProposalId proposal.proposal_id%TYPE;
+    
+  BEGIN
+    SELECT * INTO vProposalId
+    FROM PROPOSAL;
+    RETURN(-1);
+  END get_proposal_id;
 
   FUNCTION cek_new_request (nopc VARCHAR2, keypc VARCHAR2, period1 DATE, period2 DATE) RETURN INTEGER AS
   BEGIN
@@ -118,15 +128,17 @@ create or replace PACKAGE BODY DCV_PKG AS
   PROCEDURE new_dcv_req (pCustcode IN VARCHAR2, pNoPc IN VARCHAR2, pDcvPeriod1 IN DATE, pDcvPeriod2 IN DATE,
                         pResponse OUT VARCHAR2, pStatus OUT VARCHAR2)
   AS
+    vPropId proposal.proposal_id%TYPE;
     vProp proposal%ROWTYPE;
     vCustName VARCHAR2(50) := 'Nama customer';
     vNoDcv VARCHAR2 (15);
     vTaskId NUMBER;
   BEGIN
 
+    vPropId := get_proposal_id(pNoPc);
     SELECT * INTO vProp
     FROM proposal
-    WHERE proposal_id = pProposalId;
+    WHERE proposal_id = vPropId;
 
     vnodcv := get_dcv_no;
     Insert into DCV_REQUEST (

@@ -1,8 +1,10 @@
 create or replace PACKAGE UTIL_PKG AS
     FUNCTION next_working_dt (fromDt DATE, numOfDays NUMBER) RETURN DATE;
-    FUNCTION working_days_between (fromDate DATE, toDate DATE) RETURN NUMBER;
+ --   PROCEDURE send_email (fromUsr VARCHAR2, recipients VARCHAR2, message VARCHAR2);
+ --   FUNCTION working_days_between (fromDate DATE, toDate DATE) RETURN NUMBER;
     FUNCTION terbilang (n NUMBER) RETURN VARCHAR2;
 END UTIL_PKG;
+/
 
 create or replace PACKAGE BODY util_pkg
 AS
@@ -84,14 +86,35 @@ AS
   FUNCTION working_days_between (fromDate DATE, toDate DATE)
   RETURN NUMBER
   AS
+    day_count NUMBER;
+    holiday_count NUMBER;
   BEGIN
-    RETURN (1);
+    SELECT (toDate-fromDate)-2*FLOOR((toDate-fromDate)/7)-DECODE(SIGN(TO_CHAR(toDate,'D')-
+      TO_CHAR(toDate,'D')),-1,2,0)+DECODE(TO_CHAR(fromDate,'D'),7,1,0)-
+      DECODE(TO_CHAR(toDate,'D'),7,1,0) as WorkDays
+      INTO day_count
+      FROM dual;
+
+      -- hitung jumlah libur besar antara 2 tgl tersebut
+    SELECT COUNT(*) INTO holiday_count FROM holiday
+      WHERE tgl_libur BETWEEN TRUNC(fromDate) AND toDate;
+
+    RETURN (day_count - holiday_count);
   END;
 
   FUNCTION next_working_dt (fromDt DATE, numOfDays NUMBER) RETURN DATE
   AS
+    holiday_cnt NUMBER;
+    toDate DATE := fromDt + numOfDays;
   BEGIN
-      RETURN(SYSDATE);
+    -- hitung juga jumlah sabtu minggu
+
+    
+    SELECT COUNT(*) INTO holiday_cnt FROM holiday
+      WHERE tgl_libur BETWEEN TRUNC(fromDt) AND toDate;
+
+    RETURN(fromDt + holiday_cnt);
   END next_working_dt;
 
 END util_pkg;
+/
