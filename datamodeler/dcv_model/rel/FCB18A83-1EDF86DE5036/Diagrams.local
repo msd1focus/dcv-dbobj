@@ -2,7 +2,7 @@
 <oracle.dbtools.crest.model.design.relational.RelationalDesign>
    <object objectType="main_view" objectID="3C1AD251-8E74-BAC1-DC4C-B27A35CA0D3E" name="Relational_1" visible="false"/>
    <object objectType="sub_view" objectID="8CA6D133-5DE9-FA21-0994-CB36BB03EC98" name="Master_SV" visible="true"/>
-   <object objectType="sub_view" objectID="C9A39460-D941-ED5E-12B3-53CC347F4997" name="Workflow_SV" visible="true"/>
-   <object objectType="sub_view" objectID="F11E26CC-923A-8F57-7BB4-DFE4226BBAA4" name="User mgmt" visible="true"/>
    <object objectType="sub_view" objectID="F784AAF1-D12A-BD77-9827-31DA72DF6D88" name="Transx_SV" visible="true"/>
+   <object objectType="sub_view" objectID="F11E26CC-923A-8F57-7BB4-DFE4226BBAA4" name="User mgmt" visible="true"/>
+   <object objectType="sub_view" objectID="C9A39460-D941-ED5E-12B3-53CC347F4997" name="Workflow_SV" visible="true"/>
 </oracle.dbtools.crest.model.design.relational.RelationalDesign>
