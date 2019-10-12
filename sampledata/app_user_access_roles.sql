@@ -1,0 +1,169 @@
+--------------------------------------------------------
+--  File created - Monday-October-07-2019   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table APP_USER_ACCESS_ROLES
+--------------------------------------------------------
+
+  CREATE TABLE "APP_USER_ACCESS_ROLES" 
+   (	"ROLE" VARCHAR2(30), 
+	"USER_NAME" VARCHAR2(30)
+   ) ;
+REM INSERTING into APP_USER_ACCESS_ROLES
+SET DEFINE OFF;
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AM/KAM','A0030');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AM/KAM','A0033');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AM/KAM','GSH02');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AM/KAM','M0003');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AM/KAM','M0005');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AM/KAM','P0002');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AM/KAM','P0006');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AM/KAM','R0003');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AM/KAM','R0033');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AM/KAM','R0042');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AM/KAM','S0023');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AM/KAM','T0003');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AM/KAM','V0001');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AM/KAM','W0009');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AM/KAM','Y0002');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AM/KAM','Z0002');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','A0002');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','A0009');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','A0015');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','A0020');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','A0022');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','A0024');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','A0039');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','A0052');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','A0060');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','A0063');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','A0071');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','B0003');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','B0012');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','B0013');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','C0006');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','E0010');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','E0016');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','F0006');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','GSH01');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','H0004');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','H0007');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','H0010');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','H0020');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','H0023');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','H0026');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','I0017');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','J0007');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','M0009');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','M0012');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','M0033');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','R0007');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','R0013');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','S0002');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','S0009');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','S0022');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','S0024');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','S0032');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','S0043');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','T0001');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','V0005');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','Y0003');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('AS/KAS','Z0006');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('BM/TMM','H0009');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('BM/TMM','R0031');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('BM/TMM','Y0014');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('DD','H0013');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('GSM/NKAM','D0003');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('GSM/NKAM','D0022');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('GSM/NKAM','W0001');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('GSM/NKAM','W0003');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('JAS/JKAS','B0001');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('JAS/JKAS','B0006');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('JAS/JKAS','F0018');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('JAS/JKAS','I0015');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('JAS/JKAS','L0003');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('JAS/JKAS','R0017');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('JAS/JKAS','S0005');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('MD','M0015');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('MIS','C0004');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('MIS','F0013');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('MIS','G0007');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('MIS','K0007');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('MIS','S0037');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('MKTS-Admin','A0054');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('MKTS-Admin','A0055');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('MKTS-Admin','D0025');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('MKTS-Admin','F0011');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('MKTS-Admin','G0008');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('MKTS-Admin','I0018');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('MKTS-Admin','M0032');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('MKTS-Admin','R0029');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('MKTS-Admin','R0030');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('MKTS-Admin','S0034');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('MKTS-BudgetControl','A0066');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('MKTS-BudgetControl','A0067');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('MKTS-BudgetControl','L0010');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('MKTS-BudgetControl','N0017');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('MKTS-BudgetControl','R0035');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('MKTS-BudgetControl','S0040');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('MKTS-Supervisor','D0013');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('MKTS-Supervisor','S0020');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('RM/SKAM','A0012');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('RM/SKAM','A0017');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('RM/SKAM','A0029');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('RM/SKAM','A0073');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('RM/SKAM','D0019');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('RM/SKAM','G0010');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('RM/SKAM','H0017');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('RM/SKAM','I0009');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('RM/SKAM','M0018');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('RM/SKAM','M0030');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('RM/SKAM','O0001');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('RM/SKAM','P0001');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('RM/SKAM','P0009');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('RM/SKAM','R0039');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('RM/SKAM','W0006');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('RM/SKAM','Y0011');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('SAS/SKAS','W0004');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('SAS/SKAS','Y0006');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('SBM/STMM','B0014');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('SBM/STMM','D0024');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('SBM/STMM','M0011');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('SBM/STMM','R0027');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('SVP','N0005');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('SVP_B','NB005');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('TMS/BE','B0011');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('TMS/BE','D0018');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('TMS/BE','D0023');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('TMS/BE','E0017');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('TMS/BE','G0003');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('TMS/BE','K0006');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('TMS/BE','L0007');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('TMS/BE','M0013');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('TMS/BE','R0032');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('TMS/BE','S0033');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('TMS/BE','T0006');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('TMS/BE','Y0017');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('VP','P0007');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('VP','R0015');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('VP','S0044');
+Insert into APP_USER_ACCESS_ROLES (ROLE,USER_NAME) values ('adminapp','admin');
+--------------------------------------------------------
+--  DDL for Index APP_USER_ACCESS_ROLES_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "APP_USER_ACCESS_ROLES_PK" ON "APP_USER_ACCESS_ROLES" ("ROLE", "USER_NAME") 
+  ;
+--------------------------------------------------------
+--  Constraints for Table APP_USER_ACCESS_ROLES
+--------------------------------------------------------
+
+  ALTER TABLE "APP_USER_ACCESS_ROLES" MODIFY ("ROLE" NOT NULL ENABLE);
+  ALTER TABLE "APP_USER_ACCESS_ROLES" MODIFY ("USER_NAME" NOT NULL ENABLE);
+  ALTER TABLE "APP_USER_ACCESS_ROLES" ADD CONSTRAINT "APP_USER_ACCESS_ROLES_PK" PRIMARY KEY ("ROLE", "USER_NAME") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table APP_USER_ACCESS_ROLES
+--------------------------------------------------------
+
+  ALTER TABLE "APP_USER_ACCESS_ROLES" ADD CONSTRAINT "APP_USER_ACCESS_ROLES_APP_FK1" FOREIGN KEY ("ROLE")
+	  REFERENCES "APP_ROLES" ("NAME") ON DELETE CASCADE ENABLE;
