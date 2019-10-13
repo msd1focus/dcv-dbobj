@@ -1,8 +1,7 @@
 create or replace PACKAGE UTIL_PKG AS
-    FUNCTION next_working_dt (fromDt DATE, numOfDays NUMBER) RETURN DATE;
- --   PROCEDURE send_email (fromUsr VARCHAR2, recipients VARCHAR2, message VARCHAR2);
- --   FUNCTION working_days_between (fromDate DATE, toDate DATE) RETURN NUMBER;
     FUNCTION terbilang (n NUMBER) RETURN VARCHAR2;
+ --   PROCEDURE send_email (fromUsr VARCHAR2, recipients VARCHAR2, message VARCHAR2);
+    FUNCTION working_days_between (fromDate DATE, toDate DATE) RETURN NUMBER;
 END UTIL_PKG;
 /
 
@@ -86,54 +85,31 @@ AS
   FUNCTION working_days_between (fromDate DATE, toDate DATE)
   RETURN NUMBER
   AS
-<<<<<<< HEAD
-    day_count NUMBER;
-    holiday_count NUMBER;
+    vSelisih NUMBER;
+    rems NUMBER;
+    weekend_num NUMBER;
+    addwe NUMBER;
+    holiday_num NUMBER;
   BEGIN
-    SELECT (toDate-fromDate)-2*FLOOR((toDate-fromDate)/7)-DECODE(SIGN(TO_CHAR(toDate,'D')-
-      TO_CHAR(toDate,'D')),-1,2,0)+DECODE(TO_CHAR(fromDate,'D'),7,1,0)-
-      DECODE(TO_CHAR(toDate,'D'),7,1,0) as WorkDays
-      INTO day_count
-      FROM dual;
 
-      -- hitung jumlah libur besar antara 2 tgl tersebut
-    SELECT COUNT(*) INTO holiday_count FROM holiday
+    vSelisih := ABS(toDate-fromDate);
+    weekend_num := FLOOR(vSelisih/7);
+    rems := MOD(vSelisih,7);
+    
+    IF (rems = 0) THEN addwe := 0;
+    ELSIF (rems = 6) THEN addwe := 1;
+    ELSIF TO_CHAR(fromDate,'D') = '1' THEN addwe := 0.5;
+    ELSIF TO_CHAR(fromDate,'D') + rems < 7 THEN addwe := 0;
+    ELSIF TO_CHAR(fromDate,'D') + rems > 7 THEN addwe := 1;
+    ELSE addwe := 0.5;
+    END IF; 
+   
+    -- jumlah holiday ???
+    SELECT COUNT(*) INTO holiday_num FROM holiday
       WHERE tgl_libur BETWEEN TRUNC(fromDate) AND toDate;
 
-    RETURN (day_count - holiday_count);
-=======
-    vSelisih NUMBER;
-    date1 DATE;
-    date2 DATE;
-  BEGIN
-    IF fromDate <= to_date THEN
-      date1 := fromDate;
-      date2 := toDate;
-    ELSE
-      date1 := toDate;
-      date2 := fromDate;
-    END IF;
-
-    vSelisih = date2-date1;
-    SELECT vSelisih - 2*FLOOR(vSelisih)/7) -
-        DECODE(SIGN(TO_CHAR(toDate,'D')-))
-    RETURN (1);
->>>>>>> a49b2515c7977e1c9f8e72ce4412cdfaa63f0a8d
-  END;
-
-  FUNCTION next_working_dt (fromDt DATE, numOfDays NUMBER) RETURN DATE
-  AS
-    holiday_cnt NUMBER;
-    toDate DATE := fromDt + numOfDays;
-  BEGIN
-    -- hitung juga jumlah sabtu minggu
-
-    
-    SELECT COUNT(*) INTO holiday_cnt FROM holiday
-      WHERE tgl_libur BETWEEN TRUNC(fromDt) AND toDate;
-
-    RETURN(fromDt + holiday_cnt);
-  END next_working_dt;
+    RETURN (vSelisih - 2*(weekend_num + addwe) - holiday_num);    
+  END working_days_between;
 
 END util_pkg;
 /

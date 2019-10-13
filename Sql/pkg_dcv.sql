@@ -1,14 +1,7 @@
 create or replace PACKAGE DCV_PKG AS
     FUNCTION get_dcv_no RETURN VARCHAR2;
-<<<<<<< HEAD
---    FUNCTION get_proposal_id (pNoPc VARCHAR2) RETURN NUMBER
-    FUNCTION cek_new_request (nopc VARCHAR2, keypc VARCHAR2, period1 DATE, period2 DATE) RETURN INTEGER;
-    FUNCTION uom_conversion_rate (uomfrom VARCHAR2, uomto VARCHAR2) RETURN NUMBER;
-    PROCEDURE cek_new_request (nopc VARCHAR2, keypc VARCHAR2, period1 DATE, period2 DATE,
-=======
     FUNCTION get_proposal_id_by_pcno (pPcNo VARCHAR2) RETURN NUMBER;
-    PROCEDURE cek_pc (nopc VARCHAR2, keypc VARCHAR2, period1 DATE, period2 DATE,
->>>>>>> a49b2515c7977e1c9f8e72ce4412cdfaa63f0a8d
+    PROCEDURE cek_new_request (nopc VARCHAR2, keypc VARCHAR2, period1 DATE, period2 DATE,
                                 response OUT NUMBER, errm OUT VARCHAR2) ;
     PROCEDURE new_dcv_req (pCustcode IN VARCHAR2, pNoPc IN VARCHAR2, pDcvPeriod1 IN DATE, pDcvPeriod2 IN DATE,
                           pResponse OUT VARCHAR2, pStatus OUT VARCHAR2);
@@ -34,24 +27,12 @@ create or replace PACKAGE BODY DCV_PKG AS
     RETURN (vDcvNo);
   END get_dcv_no;
 
-<<<<<<< HEAD
-  FUNCTION get_proposal_id (pNoPc VARCHAR2) RETURN NUMBER AS
-    vProposalId proposal.proposal_id%TYPE;
-    
-  BEGIN
-    SELECT * INTO vProposalId
-    FROM PROPOSAL;
-    RETURN(-1);
-  END get_proposal_id;
 
-  FUNCTION cek_new_request (nopc VARCHAR2, keypc VARCHAR2, period1 DATE, period2 DATE) RETURN INTEGER AS
-=======
   FUNCTION get_proposal_id_by_pcno (pPcNo VARCHAR2) RETURN NUMBER AS
     vPropId proposal.proposal_id%TYPE;
     vNoPc proposal.confirm_no%TYPE;
     vNoAdd proposal.addendum_ke%TYPE;
     vDashPos NUMBER;
->>>>>>> a49b2515c7977e1c9f8e72ce4412cdfaa63f0a8d
   BEGIN
     vDashPos := INSTR(pPCNo,'-');
 
@@ -80,7 +61,7 @@ create or replace PACKAGE BODY DCV_PKG AS
   END;
 
 
-  PROCEDURE cek_pc (nopc VARCHAR2, keypc VARCHAR2, period1 DATE, period2 DATE,
+  PROCEDURE cek_new_request (nopc VARCHAR2, keypc VARCHAR2, period1 DATE, period2 DATE,
                                 response OUT NUMBER, errm OUT VARCHAR2) AS
     vres NUMBER;
     vErr VARCHAR2(100);
@@ -104,35 +85,7 @@ create or replace PACKAGE BODY DCV_PKG AS
     END CASE;
     response := vres;
     errm := vErr;
-  END cek_pc;
-
-
-/*
-  FUNCTION get_sla (role NUMBER, startdt DATE, enddt DATE)
-  RETURN NUMBER AS
-    vSla NUMBER;
-    vHariKerja NUMBER;
-    vSelisihHari NUMBER;
-    vNumOfHoliday NUMBER;
-    vAchievement NUMBER;
-  BEGIN
-    SELECT sla1 INTO vSla
-    FROM sec_dept
-    WHERE id = role;
-
-    vSelisihHari := enddt - startdt;
-
-    -- cek jumlah hari libur antara tanggal tersebut
-    vNumOfHoliday := 0;
-
-    vHariKerja := vSelisihHari - vNumOfHoliday;
-
-    vAchievement := vHariKerja / vSla;
-
-    RETURN vAchievement;
-  END get_sla;
-*/
-
+  END cek_new_request;
 
 
   PROCEDURE new_dcv_req (pCustcode IN VARCHAR2, pNoPc IN VARCHAR2, pDcvPeriod1 IN DATE, pDcvPeriod2 IN DATE,
@@ -142,15 +95,11 @@ create or replace PACKAGE BODY DCV_PKG AS
     vProp proposal%ROWTYPE;
     vCustName VARCHAR2(50) := 'Nama customer';
     vNoDcv VARCHAR2 (15);
-    vPropId proposal.proposal_id%TYPE;
     vTaskId NUMBER;
   BEGIN
 
-<<<<<<< HEAD
-    vPropId := get_proposal_id(pNoPc);
-=======
     vPropId := get_proposal_id_by_pcno(pNoPc);
->>>>>>> a49b2515c7977e1c9f8e72ce4412cdfaa63f0a8d
+
     SELECT * INTO vProp
     FROM proposal
     WHERE proposal_id = vPropId;
@@ -258,7 +207,7 @@ create or replace PACKAGE BODY DCV_PKG AS
     /* insert into dcv_user_auth_mapping */
 
     pStatus := 'Success';
-    pResponse := 'noDcv Baru';
+    pResponse := 'No DCV: '||vnodcv;
   END;
 
 END DCV_PKG;
