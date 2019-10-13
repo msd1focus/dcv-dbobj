@@ -86,6 +86,7 @@ AS
   FUNCTION working_days_between (fromDate DATE, toDate DATE)
   RETURN NUMBER
   AS
+<<<<<<< HEAD
     day_count NUMBER;
     holiday_count NUMBER;
   BEGIN
@@ -100,6 +101,24 @@ AS
       WHERE tgl_libur BETWEEN TRUNC(fromDate) AND toDate;
 
     RETURN (day_count - holiday_count);
+=======
+    vSelisih NUMBER;
+    date1 DATE;
+    date2 DATE;
+  BEGIN
+    IF fromDate <= to_date THEN
+      date1 := fromDate;
+      date2 := toDate;
+    ELSE
+      date1 := toDate;
+      date2 := fromDate;
+    END IF;
+
+    vSelisih = date2-date1;
+    SELECT vSelisih - 2*FLOOR(vSelisih)/7) -
+        DECODE(SIGN(TO_CHAR(toDate,'D')-))
+    RETURN (1);
+>>>>>>> a49b2515c7977e1c9f8e72ce4412cdfaa63f0a8d
   END;
 
   FUNCTION next_working_dt (fromDt DATE, numOfDays NUMBER) RETURN DATE
