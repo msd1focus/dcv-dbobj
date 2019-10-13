@@ -84,7 +84,21 @@ AS
   FUNCTION working_days_between (fromDate DATE, toDate DATE)
   RETURN NUMBER
   AS
+    vSelisih NUMBER;
+    date1 DATE;
+    date2 DATE;
   BEGIN
+    IF fromDate <= to_date THEN
+      date1 := fromDate;
+      date2 := toDate;
+    ELSE
+      date1 := toDate;
+      date2 := fromDate;
+    END IF;
+
+    vSelisih = date2-date1;
+    SELECT vSelisih - 2*FLOOR(vSelisih)/7) -
+        DECODE(SIGN(TO_CHAR(toDate,'D')-))
     RETURN (1);
   END;
 
