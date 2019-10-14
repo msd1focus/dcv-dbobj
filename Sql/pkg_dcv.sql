@@ -1,8 +1,8 @@
 create or replace PACKAGE DCV_PKG AS
     FUNCTION get_dcv_no RETURN VARCHAR2;
     FUNCTION get_proposal_id_by_pcno (pPcNo VARCHAR2) RETURN NUMBER;
-    PROCEDURE cek_new_request (nopc VARCHAR2, keypc VARCHAR2, period1 DATE, period2 DATE,
-                                response OUT NUMBER, errm OUT VARCHAR2) ;
+    PROCEDURE validate_pc (nopc VARCHAR2, keypc VARCHAR2, period1 DATE, period2 DATE,
+                                response OUT NUMBER, message OUT VARCHAR2) ;
     PROCEDURE new_dcv_req (pCustcode IN VARCHAR2, pNoPc IN VARCHAR2, pDcvPeriod1 IN DATE, pDcvPeriod2 IN DATE,
                           pResponse OUT VARCHAR2, pStatus OUT VARCHAR2);
 END DCV_PKG;
@@ -61,12 +61,15 @@ create or replace PACKAGE BODY DCV_PKG AS
   END;
 
 
-  PROCEDURE cek_new_request (nopc VARCHAR2, keypc VARCHAR2, period1 DATE, period2 DATE,
-                                response OUT NUMBER, errm OUT VARCHAR2) AS
+  PROCEDURE validate_pc (nopc VARCHAR2, keypc VARCHAR2, period1 DATE, period2 DATE,
+                                response OUT NUMBER, message OUT VARCHAR2) AS
     vres NUMBER;
     vErr VARCHAR2(100);
     vujung CHAR(1);
   BEGIN
+  
+  /* jika sukses : response = 1, message = no proposal */
+  /* jika error : response < 0, message = error information */
     vujung := SUBSTR(nopc, -1,1);
     CASE TRUE
         WHEN vujung NOT IN ('1','2','3','4','5','6','7','8','9','0') THEN
@@ -84,8 +87,8 @@ create or replace PACKAGE BODY DCV_PKG AS
             vres := 1;
     END CASE;
     response := vres;
-    errm := vErr;
-  END cek_new_request;
+    message := vErr;
+  END validate_pc;
 
 
   PROCEDURE new_dcv_req (pCustcode IN VARCHAR2, pNoPc IN VARCHAR2, pDcvPeriod1 IN DATE, pDcvPeriod2 IN DATE,
@@ -204,7 +207,7 @@ create or replace PACKAGE BODY DCV_PKG AS
     pCustCode,
     SYSDATE);
 
-    /* insert into dcv_user_auth_mapping */
+    /* insert into dcv_user_mapping */
 
     pStatus := 'Success';
     pResponse := 'No DCV: '||vnodcv;
