@@ -1,6 +1,9 @@
 create or replace PACKAGE UTIL_PKG AS
+   TYPE t_split_array IS TABLE OF VARCHAR2(4000);
+   
+    FUNCTION split_text (p_text IN  CLOB, p_delimeter  IN  VARCHAR2 DEFAULT ',') RETURN t_split_array;
     FUNCTION terbilang (n NUMBER) RETURN VARCHAR2;
- --   PROCEDURE send_email (fromUsr VARCHAR2, recipients VARCHAR2, message VARCHAR2);
+    PROCEDURE send_mail (p_to VARCHAR2, p_cc VARCHAR2, p_subject VARCHAR2, p_message VARCHAR2) ;
     FUNCTION working_days_between (fromDate DATE, toDate DATE) RETURN NUMBER;
 END UTIL_PKG;
 /
@@ -9,6 +12,36 @@ create or replace PACKAGE BODY util_pkg
 AS
 
   recursive_num number := 0;
+
+  FUNCTION split_text (p_text       IN  CLOB,
+                         p_delimeter  IN  VARCHAR2 DEFAULT ',')
+      RETURN t_split_array IS
+    -- ----------------------------------------------------------------------------
+    -- Could be replaced by APEX_UTIL.STRING_TO_TABLE.
+    -- ----------------------------------------------------------------------------
+      l_array  t_split_array   := t_split_array();
+      l_text   CLOB := p_text;
+      l_idx    NUMBER;
+  BEGIN
+      l_array.delete;
+    
+      IF l_text IS NULL THEN
+        RAISE_APPLICATION_ERROR(-20000, 'P_TEXT parameter cannot be NULL');
+      END IF;
+    
+      WHILE l_text IS NOT NULL LOOP
+        l_idx := INSTR(l_text, p_delimeter);
+        l_array.extend;
+        IF l_idx > 0 THEN
+          l_array(l_array.last) := SUBSTR(l_text, 1, l_idx - 1);
+          l_text := SUBSTR(l_text, l_idx + 1);
+        ELSE
+          l_array(l_array.last) := l_text;
+          l_text := NULL;
+        END IF;
+      END LOOP;
+      RETURN l_array;
+  END split_text;
 
   FUNCTION terbilang_satuan (n number)
   RETURN VARCHAR2 AS
@@ -111,5 +144,52 @@ AS
     RETURN (vSelisih - 2*(weekend_num + addwe) - holiday_num);    
   END working_days_between;
 
+  PROCEDURE process_recipients(p_mail_conn IN OUT UTL_SMTP.connection,
+                               p_list      IN     VARCHAR2)
+  AS
+    l_tab t_split_array;
+  BEGIN
+    IF TRIM(p_list) IS NOT NULL THEN
+      l_tab := split_text(p_list);
+      FOR i IN 1 .. l_tab.COUNT LOOP
+        UTL_SMTP.rcpt(p_mail_conn, TRIM(l_tab(i)));
+      END LOOP;
+    END IF;
+  END;
+
+  PROCEDURE send_mail (p_to VARCHAR2, p_cc VARCHAR2, p_subject VARCHAR2, p_message VARCHAR2) 
+  AS
+    vHost VARCHAR2(20);
+    vPort NUMBER;
+    vRecipients VARCHAR2(100);
+    l_mail_conn   UTL_SMTP.connection;
+    vFrom VARCHAR2(50) := 'focusdcv_admin@focus.co.id';
+  BEGIN
+    l_mail_conn := UTL_SMTP.open_connection(vHost, vPort);
+    
+    UTL_SMTP.helo(l_mail_conn, vHost);
+    UTL_SMTP.mail(l_mail_conn, 'admindcv@focus.co.id');
+    process_recipients(l_mail_conn, p_to);
+    process_recipients(l_mail_conn, p_cc);
+
+    UTL_SMTP.open_data(l_mail_conn);
+    UTL_SMTP.write_data(l_mail_conn, 'Date: ' || TO_CHAR(SYSDATE, 'DD-MON-YYYY HH24:MI:SS') || UTL_TCP.crlf);
+    UTL_SMTP.write_data(l_mail_conn, 'To: ' || p_to || UTL_TCP.crlf);
+    IF TRIM(p_cc) IS NOT NULL THEN
+      UTL_SMTP.write_data(l_mail_conn, 'Cc: ' || REPLACE(p_cc, ',', ';') || UTL_TCP.crlf);
+    END IF;
+    UTL_SMTP.write_data(l_mail_conn, 'From: ' || vFrom || UTL_TCP.crlf);
+    UTL_SMTP.write_data(l_mail_conn, 'Subject: ' || p_subject || UTL_TCP.crlf);
+    UTL_SMTP.write_data(l_mail_conn, 'Reply-To: ' || vFrom || UTL_TCP.crlf || UTL_TCP.crlf);
+      
+    UTL_SMTP.write_data(l_mail_conn, p_message || UTL_TCP.crlf || UTL_TCP.crlf);
+
+    UTL_SMTP.close_data(l_mail_conn);
+    
+    UTL_SMTP.quit(l_mail_conn);
+
+  
+  END send_mail;
+  
 END util_pkg;
 /

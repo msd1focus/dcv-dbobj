@@ -149,14 +149,14 @@ CREATE TABLE dcv_user_auth_mapping (
 );
 ALTER TABLE dcv_user_auth_mapping ADD CONSTRAINT dcv_user_auth_mapping_pk PRIMARY KEY ( id );
 
-DROP TABLE dcv_user_mapping CASCADE CONSTRAINTS;
+DROP TABLE dcv_sales_mapping CASCADE CONSTRAINTS;
 CREATE TABLE dcv_user_mapping (
     dcvh_id     INTEGER NOT NULL,
     user_id     INTEGER NOT NULL,
-    user_type   VARCHAR2(20 CHAR)
+    user_role   VARCHAR2(20 CHAR)
 );
-ALTER TABLE dcv_user_mapping ADD CONSTRAINT dcv_user_mapping_pk PRIMARY KEY ( dcvh_id, user_id );
-                                                                              
+ALTER TABLE dcv_sales_mapping ADD CONSTRAINT dcv_sales_mapping_pk PRIMARY KEY ( dcvh_id, user_id );
+
 DROP TABLE dcv_user_role CASCADE CONSTRAINTS;
 CREATE TABLE dcv_user_role (
     user_id     INTEGER NOT NULL,
@@ -230,7 +230,7 @@ CREATE TABLE prop_cust_mapping (
     cust_code   VARCHAR2(20 CHAR) NOT NULL
 );
 ALTER TABLE prop_cust_mapping ADD CONSTRAINT prop_cust_mapping_pk PRIMARY KEY ( prop_id, cust_code );
-                                                                                
+
 DROP TABLE request_dtl CASCADE CONSTRAINTS;
 CREATE TABLE request_dtl (
   dcvl_id                    INTEGER NOT NULL,
@@ -329,13 +329,13 @@ ALTER TABLE dcv_documents
     ADD CONSTRAINT dcv_doc_request_hdr_fk FOREIGN KEY ( dcvh_id )
         REFERENCES dcv_request ( dcvh_id );
 
-ALTER TABLE dcv_user_mapping
-    ADD CONSTRAINT dcv_user_mapping_dcv_fk FOREIGN KEY ( dcvh_id )
+ALTER TABLE dcv_sales_mapping
+    ADD CONSTRAINT dcv_sales_mapping_dcv_fk FOREIGN KEY ( dcvh_id )
         REFERENCES dcv_request ( dcvh_id );
-ALTER TABLE dcv_user_mapping
-    ADD CONSTRAINT dcv_user_mapping_user_fk FOREIGN KEY ( user_id )
+ALTER TABLE dcv_sales_mapping
+    ADD CONSTRAINT dcv_sales_mapping_user_fk FOREIGN KEY ( user_id )
         REFERENCES dcv_user_access ( id );
-        
+
 ALTER TABLE dcv_user_role
     ADD CONSTRAINT dcv_role_user_role_fk FOREIGN KEY ( role_code )
         REFERENCES dcv_role ( role_code );

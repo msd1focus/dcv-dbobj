@@ -5,6 +5,7 @@ create or replace PACKAGE DCV_PKG AS
                                 response OUT NUMBER, message OUT VARCHAR2) ;
     PROCEDURE new_dcv_req (pCustcode IN VARCHAR2, pNoPc IN VARCHAR2, pDcvPeriod1 IN DATE, pDcvPeriod2 IN DATE,
                           pResponse OUT VARCHAR2, pStatus OUT VARCHAR2);
+--    PROCEDURE populate_sales_mapping (pdcvid NUMBER);
 END DCV_PKG;
 /
 
