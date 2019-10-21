@@ -64,31 +64,26 @@ create or replace PACKAGE BODY DCV_PKG AS
 
   PROCEDURE validate_pc (nopc VARCHAR2, keypc VARCHAR2, period1 DATE, period2 DATE,
                                 response OUT NUMBER, message OUT VARCHAR2) AS
-    vres NUMBER;
-    vErr VARCHAR2(100);
+    vres NUMBER := 1;
+    vResp VARCHAR2(100);
+    vProposalId NUMBER;
+    vProposal proposal%ROWTYPE;
     vujung CHAR(1);
   BEGIN
-  
-  /* jika sukses : response = 1, message = no proposal */
+  /* jika sukses : response = 1, message = nomor proposal */
   /* jika error : response < 0, message = error information */
-    vujung := SUBSTR(nopc, -1,1);
-    CASE TRUE
-        WHEN vujung NOT IN ('1','2','3','4','5','6','7','8','9','0') THEN
-            vres := -9;
-            vErr := 'No PC '||nopc||' tidak ada.';
-        WHEN vujung = '1' THEN
+    
+    vProposalId := get_proposal_id_by_pcno(nopc);
+    IF vProposalId = -1 THEN
             vres := -1;
-            vErr := 'No PC '||nopc||' tidak ada.';
-        WHEN vujung = '2' THEN
-            vres := -2;
-            vErr := 'Periode tidak sesuai.';
-        WHEN vujung = '3' THEN
-            vres := 0;
-        ELSE
-            vres := 1;
-    END CASE;
+            message := 'No PC '||nopc||' tidak ada.';
+            GOTO ujung;
+    END IF;
+
+    SELECT * INTO vProposal FROM proposal WHERE proposal_id = vProposalId;
+
+    <<ujung>>
     response := vres;
-    message := vErr;
   END validate_pc;
 
 
@@ -100,10 +95,12 @@ create or replace PACKAGE BODY DCV_PKG AS
     vCustName VARCHAR2(50) := 'Nama customer';
     vNoDcv VARCHAR2 (15);
     vTaskId NUMBER;
+    vdcvhId NUMBER;
   BEGIN
 
     vPropId := get_proposal_id_by_pcno(pNoPc);
-
+    SELECT dcv_seq.nextval INTO vdcvhId FROM DUAL;
+    
     SELECT * INTO vProp
     FROM proposal
     WHERE proposal_id = vPropId;
@@ -131,7 +128,7 @@ create or replace PACKAGE BODY DCV_PKG AS
     DCVH_STATUS,
     DCVH_CURRENT_STEP,MODIFIED_DT,MODIFIED_BY)
     VALUES (
-    dcv_seq.nextval, pCustCode, vCustName, 'FDI',
+    vdcvhId, pCustCode, vCustName, 'FDI',
     vProp.confirm_no,
     vProp.REPORT_RUN_NUMBER,
     vProp.PROPOSAL_NO,
@@ -209,7 +206,8 @@ create or replace PACKAGE BODY DCV_PKG AS
     SYSDATE);
 
     /* insert into dcv_user_mapping */
-
+    --populate_sales_mapping (vdcvhId);
+    
     pStatus := 'Success';
     pResponse := 'No DCV: '||vnodcv;
   END;

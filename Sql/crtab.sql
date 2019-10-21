@@ -138,19 +138,8 @@ CREATE TABLE dcv_user_access (
 ALTER TABLE dcv_user_access ADD CONSTRAINT dcv_user_access_pk PRIMARY KEY ( id );
 ALTER TABLE dcv_user_access ADD CONSTRAINT dcv_username_un UNIQUE ( user_name );
 
-DROP TABLE dcv_user_auth_mapping CASCADE CONSTRAINTS;
-CREATE TABLE dcv_user_auth_mapping (
-    id          INTEGER NOT NULL,
-    pp_no       VARCHAR2(100 CHAR),
-    pc_no       VARCHAR2(100 CHAR),
-    user_id     INTEGER,
-    user_name   VARCHAR2(100 CHAR),
-    user_type   VARCHAR2(15 CHAR)
-);
-ALTER TABLE dcv_user_auth_mapping ADD CONSTRAINT dcv_user_auth_mapping_pk PRIMARY KEY ( id );
-
 DROP TABLE dcv_sales_mapping CASCADE CONSTRAINTS;
-CREATE TABLE dcv_user_mapping (
+CREATE TABLE dcv_sales_mapping (
     dcvh_id     INTEGER NOT NULL,
     user_id     INTEGER NOT NULL,
     user_role   VARCHAR2(20 CHAR)
