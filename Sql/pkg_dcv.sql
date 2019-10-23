@@ -68,6 +68,7 @@ create or replace PACKAGE BODY DCV_PKG AS
     vResp VARCHAR2(100);
     vProposalId NUMBER;
     vProposal proposal%ROWTYPE;
+    vDcv1 dcv_request%ROWTYPE;
     vujung CHAR(1);
   BEGIN
   /* jika sukses : response = 1, message = nomor proposal */
@@ -96,8 +97,8 @@ create or replace PACKAGE BODY DCV_PKG AS
     END IF;
 
     -- validasi 3
-    BEGIN
-      SELECT * INTO .... FROM dcv_request
+    BEGIN 
+      SELECT * INTO vDcv1 FROM dcv_request
       WHERE dcvh_no_pp_id = vProposalId
       AND TO_CHAR(dcvh_submit_time,'YYYYMM') = TO_CHAR(SYSDATE,'YYYYMM')
       AND dcv_status != 'CANCEL';
@@ -105,7 +106,12 @@ create or replace PACKAGE BODY DCV_PKG AS
       message := 'sudah pernah klaim di bulan yang sama';
       GOTO ujung;
 
-    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    EXCEPTION
+    WHEN NO_DATA_FOUND THEN NULL;
+    WHEN TOO_MANY_ROWS THEN
+      response = 'FAILED';
+      message := 'sudah pernah klaim di bulan yang sama';
+      GOTO ujung;
     END;
 
     <<ujung>>
