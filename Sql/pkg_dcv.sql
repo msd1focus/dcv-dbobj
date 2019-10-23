@@ -48,13 +48,13 @@ create or replace PACKAGE BODY DCV_PKG AS
             AND addendum_ke = vNoAdd;
         ELSE
             vNoPc := pPcNo;
-            
+
             SELECT proposal_id INTO vPropId
             FROM proposal
             WHERE confirm_no = vNoPc
             AND addendum_ke IS NULL;
         END IF;
-        
+
         RETURN (vPropId);
     EXCEPTION WHEN NO_DATA_FOUND THEN RETURN (-1);
     END;
@@ -72,7 +72,7 @@ create or replace PACKAGE BODY DCV_PKG AS
   BEGIN
   /* jika sukses : response = 1, message = nomor proposal */
   /* jika error : response < 0, message = error information */
-    
+
     vProposalId := get_proposal_id_by_pcno(nopc);
     IF vProposalId = -1 THEN
             vres := -1;
@@ -81,9 +81,34 @@ create or replace PACKAGE BODY DCV_PKG AS
     END IF;
 
     SELECT * INTO vProposal FROM proposal WHERE proposal_id = vProposalId;
+    -- validasi 1
+    IF vProposal.report_run_number != keypc THEN
+       response = 'FAILED';
+       message := 'No Key PC tidak match dengan no PC';
+       GOTO ujung;
+    END IF;
+
+    --validasi ke 2
+    IF pkg_util.working_days_between(SYSDATE, period2) < 7 THEN
+      response = 'FAILED';
+      message := 'No Key PC tidak match dengan no PC';
+      GOTO ujung;
+    END IF;
+
+    -- validasi 3
+    BEGIN
+      SELECT * INTO .... FROM dcv_request
+      WHERE dcvh_no_pp_id = vProposalId
+      AND TO_CHAR(dcvh_submit_time,'YYYYMM') = TO_CHAR(SYSDATE,'YYYYMM')
+      AND dcv_status != 'CANCEL';
+      response = 'FAILED';
+      message := 'sudah pernah klaim di bulan yang sama';
+      GOTO ujung;
+
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
 
     <<ujung>>
-    response := vres;
   END validate_pc;
 
 
@@ -100,7 +125,7 @@ create or replace PACKAGE BODY DCV_PKG AS
 
     vPropId := get_proposal_id_by_pcno(pNoPc);
     SELECT dcv_seq.nextval INTO vdcvhId FROM DUAL;
-    
+
     SELECT * INTO vProp
     FROM proposal
     WHERE proposal_id = vPropId;
@@ -207,7 +232,7 @@ create or replace PACKAGE BODY DCV_PKG AS
 
     /* insert into dcv_user_mapping */
     --populate_sales_mapping (vdcvhId);
-    
+
     pStatus := 'Success';
     pResponse := 'No DCV: '||vnodcv;
   END;

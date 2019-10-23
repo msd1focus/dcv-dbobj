@@ -14,6 +14,9 @@ grant create view to focusdcv;
 grant create synonym to focusdcv;
 grant create any context to focusdcv;
 
+grant execute on sys.utl_tcp to focusdcv;  
+grant execute on sys.utl_smtp to focusdcv;
+
 grant select on focuspp.proposal to focusdcv;
 grant select on focuspp.prod_region to focusdcv;
 grant select on focuspp.prod_region_area to focusdcv;
