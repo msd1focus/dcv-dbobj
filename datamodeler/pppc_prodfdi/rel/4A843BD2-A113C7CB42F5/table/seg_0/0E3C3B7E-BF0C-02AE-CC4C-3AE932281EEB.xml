@@ -1,0 +1,270 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0E3C3B7E-BF0C-02AE-CC4C-3AE932281EEB" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="AUDIT_PROMO_BONUS">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>AUDIT_PROMO_BONUS</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:55 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PROMO_BONUS_ID" id="669FDB9C-49FA-EF43-AF26-87C73307979B">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS</sourceObjSchema>
+<sourceObjName>PROMO_BONUS_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:57 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROMO_PRODUK_ID" id="043B48EF-5431-D446-87F3-2434EDA44E69">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS</sourceObjSchema>
+<sourceObjName>PROMO_PRODUK_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:57 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUCT_CATEGORY" id="421C86DE-D04A-6BEB-8FB4-BB706551997E">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS</sourceObjSchema>
+<sourceObjName>PRODUCT_CATEGORY</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:57 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUCT_CLASS" id="478C486F-DA15-7099-1360-E6B0FB0804E7">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS</sourceObjSchema>
+<sourceObjName>PRODUCT_CLASS</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:57 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUCT_BRAND" id="369BA438-878C-8D03-E550-2672A94A8227">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS</sourceObjSchema>
+<sourceObjName>PRODUCT_BRAND</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:57 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUCT_EXT" id="F2CDE6DB-86A1-8E01-04B3-42EFF6361497">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS</sourceObjSchema>
+<sourceObjName>PRODUCT_EXT</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:57 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUCT_PACK" id="31CF389E-C65F-BD2F-ABE9-7177F61AC3AE">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS</sourceObjSchema>
+<sourceObjName>PRODUCT_PACK</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:57 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UOM" id="EDD93B5F-EBF5-6D7A-A0B8-163777ADAB1C">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS</sourceObjSchema>
+<sourceObjName>UOM</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:57 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="QTY_FROM" id="E225795B-6890-7355-7D63-9EAB519B6F90">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS</sourceObjSchema>
+<sourceObjName>QTY_FROM</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:57 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIPE_POTONGAN" id="42E31F59-46DE-5373-4334-05525F75DF33">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS</sourceObjSchema>
+<sourceObjName>TIPE_POTONGAN</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:57 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VALUE_POTONGAN" id="00F54750-4241-4436-3BCA-980BE7E526B7">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS</sourceObjSchema>
+<sourceObjName>VALUE_POTONGAN</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:57 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DISC_NON_YEARLY" id="1A5F877E-22C7-CAF9-A21B-76D74A937422">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS</sourceObjSchema>
+<sourceObjName>DISC_NON_YEARLY</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:57 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DISC_YEARLY" id="8452916B-6251-0DF4-DDA0-5B9240CE2FA3">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS</sourceObjSchema>
+<sourceObjName>DISC_YEARLY</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:57 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="INPUT_PRICE_BY" id="03598A21-CB02-203C-685F-DA4EE774D115">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS</sourceObjSchema>
+<sourceObjName>INPUT_PRICE_BY</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:57 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRICE_VAL" id="A8067051-E4DF-90B4-0330-BF46F328A49D">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS</sourceObjSchema>
+<sourceObjName>PRICE_VAL</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:57 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="QTY_MUL_PRICE" id="B7851E39-0379-FF04-CF90-2FE2433ACAA1">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS</sourceObjSchema>
+<sourceObjName>QTY_MUL_PRICE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:57 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AUDIT_ID" id="CEB2220A-C328-2623-1F61-5DE7ED438BDE">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS</sourceObjSchema>
+<sourceObjName>AUDIT_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:57 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+</Table>

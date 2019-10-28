@@ -1,0 +1,248 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_1" id="9EB04965-A3A2-5D31-AF27-7B9D5AF296C2" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="UT_USER_CUSTOMERS">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>UT_USER_CUSTOMERS</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="2CD1E5C2-6542-7EBD-7ECC-DF72457D096E">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>UT_USER_CUSTOMERS</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USER_NAME" id="062DB1D1-67EF-CAA9-FE64-8272CDAA7902">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>UT_USER_CUSTOMERS</sourceObjSchema>
+<sourceObjName>USER_NAME</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="REGION_CODE" id="17286446-8A0D-689C-D8D7-AD4549769059">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>UT_USER_CUSTOMERS</sourceObjSchema>
+<sourceObjName>REGION_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="REGION_DESC" id="65625AF4-E166-19E5-0337-5DA5BB4A9F43">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>UT_USER_CUSTOMERS</sourceObjSchema>
+<sourceObjName>REGION_DESC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250 BYTE</dataTypeSize>
+<ownDataTypeParameters>250 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AREA_CODE" id="0AC69DE2-BC51-5F03-354D-C012B11DA85C">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>UT_USER_CUSTOMERS</sourceObjSchema>
+<sourceObjName>AREA_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AREA_DESC" id="4D106B2E-B1E9-4BA2-CF47-5A3AA1191226">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>UT_USER_CUSTOMERS</sourceObjSchema>
+<sourceObjName>AREA_DESC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250 BYTE</dataTypeSize>
+<ownDataTypeParameters>250 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LOCATION_CODE" id="DB1AC19C-77A2-6D43-4E24-17FF2BF6DC3A">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>UT_USER_CUSTOMERS</sourceObjSchema>
+<sourceObjName>LOCATION_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LOCATION_DESC" id="24295F49-3C32-7CDE-322A-0B92D04EDC57">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>UT_USER_CUSTOMERS</sourceObjSchema>
+<sourceObjName>LOCATION_DESC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250 BYTE</dataTypeSize>
+<ownDataTypeParameters>250 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUST_TYPE" id="7C65A8E9-D4CD-79AC-CC55-03A7DD49A74A">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>UT_USER_CUSTOMERS</sourceObjSchema>
+<sourceObjName>CUST_TYPE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUST_TYPE_DESC" id="FF161AC5-2EBF-A837-3D02-B5BED658F90F">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>UT_USER_CUSTOMERS</sourceObjSchema>
+<sourceObjName>CUST_TYPE_DESC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250 BYTE</dataTypeSize>
+<ownDataTypeParameters>250 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUST_GROUP" id="7EB067ED-9EFA-D93A-98F9-0A5A98039E43">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>UT_USER_CUSTOMERS</sourceObjSchema>
+<sourceObjName>CUST_GROUP</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUST_GROUP_DESC" id="CD8BE0A8-4D1E-964E-C050-2C295C6B3F56">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>UT_USER_CUSTOMERS</sourceObjSchema>
+<sourceObjName>CUST_GROUP_DESC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250 BYTE</dataTypeSize>
+<ownDataTypeParameters>250 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUSTOMER_ID" id="093EC3B9-6E92-5BD8-2A27-2B4CB4597545">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>UT_USER_CUSTOMERS</sourceObjSchema>
+<sourceObjName>CUSTOMER_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUSTOMER_DESC" id="C5DE9737-EB13-0064-7A74-DB9DF9214B2A">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>UT_USER_CUSTOMERS</sourceObjSchema>
+<sourceObjName>CUSTOMER_DESC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250 BYTE</dataTypeSize>
+<ownDataTypeParameters>250 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BD34478E-6928-83F9-97CE-347C86A80ED9" name="UT_USER_CUSTOMERS_PK">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>UT_USER_CUSTOMERS_PK</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:03 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2CD1E5C2-6542-7EBD-7ECC-DF72457D096E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8A3AC589-BF5F-4EF9-0004-F59AF09D7991" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="UT_USER_CUSTOMERS_PK">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>UT_USER_CUSTOMERS_PK</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:01 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2CD1E5C2-6542-7EBD-7ECC-DF72457D096E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

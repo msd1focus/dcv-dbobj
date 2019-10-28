@@ -1,0 +1,162 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_1" id="F16F9424-7B7D-0B72-56B3-456FB9BCF599" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="USER_UPLOAD_LOG">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>USER_UPLOAD_LOG</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="UT_CODE" id="27EE66D7-01ED-7414-589A-2AC2994D01B4">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>USER_UPLOAD_LOG</sourceObjSchema>
+<sourceObjName>UT_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USER_UPLOAD_LOG_ID" id="E378E300-EC24-BC01-6811-AF1F23E17D79">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>USER_UPLOAD_LOG</sourceObjSchema>
+<sourceObjName>USER_UPLOAD_LOG_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UT_STATUS" id="F38CEFD2-F55B-D148-EE92-0EF8842A2A42">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>USER_UPLOAD_LOG</sourceObjSchema>
+<sourceObjName>UT_STATUS</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UT_EXEC_DATE" id="D402E043-633E-2543-630F-B7725441B573">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>USER_UPLOAD_LOG</sourceObjSchema>
+<sourceObjName>UT_EXEC_DATE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VAL_CODE" id="A4108BE8-3A5E-EB8B-FD52-8B858608746E">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>USER_UPLOAD_LOG</sourceObjSchema>
+<sourceObjName>VAL_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VAL_MSG" id="7723ACC0-AC7A-A499-1E7B-45CD3A437BD5">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>USER_UPLOAD_LOG</sourceObjSchema>
+<sourceObjName>VAL_MSG</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000 BYTE</dataTypeSize>
+<ownDataTypeParameters>2000 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VAL_EXEC_DATE" id="D55A6849-513C-28B0-6BD2-8670ABF327A0">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>USER_UPLOAD_LOG</sourceObjSchema>
+<sourceObjName>VAL_EXEC_DATE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SYNC_CODE" id="F91B58BB-ECBB-7AEC-A659-CB86EA00A8B6">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>USER_UPLOAD_LOG</sourceObjSchema>
+<sourceObjName>SYNC_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SYNC_STATUS" id="9BA06795-05D2-50A4-F09F-AEE93E810DBA">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>USER_UPLOAD_LOG</sourceObjSchema>
+<sourceObjName>SYNC_STATUS</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SYNC_EXEC_DATE" id="BB4AD29C-B996-C967-9154-F88A0A3FADD0">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>USER_UPLOAD_LOG</sourceObjSchema>
+<sourceObjName>SYNC_EXEC_DATE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+</Table>

@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableViewProxyOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TableViewProxyOraclev10g" name="FCS_VIEW_REALISASI_PPPC_BCK" directorySegmentName="seg_0" id="064F9F58-6625-40A2-0484-1AA2699AA260">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<schemaObject>C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9</schemaObject>
+</TableViewProxyOraclev10g>

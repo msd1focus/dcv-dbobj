@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="SALES_REGION" directorySegmentName="seg_1" id="C016EB01-FC96-9BFC-5B87-0F7EDFDF5B91">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<schemaObject>C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>13E8651F-177E-B1CC-EFE7-04CC6875788B</segment>
+<tableSpace>D0CEBD5F-FDB7-6CEA-EAA5-4B81F8B8B91B</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="SALES_REGION_ID" id="0B53C5C3-76CC-2DFE-78E4-4B2D1AA92877">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DESCR" id="A3E51557-44F5-8180-0077-8E5C0818A9BF">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REGION_CODE" id="AB39F1D0-EE24-9891-1A2B-FF7B5BB1E09D">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REGION_LABEL" id="D9BF0C82-F992-C83E-72D3-F0EFE97D637F">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="STATUS" id="E0FED58D-A428-9677-3867-9ECF39F21E31">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="SALES_REGION_PK" id="4A04C5F5-F77A-211D-10B6-4D3CD21DD331">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:01 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<schemaObject>C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9</schemaObject>
+<segment>BA5513DC-94F1-BEE1-0A71-9FB02011B19A</segment>
+<tableSpace>D0CEBD5F-FDB7-6CEA-EAA5-4B81F8B8B91B</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="SALES_REGION_UK1" id="85DA49EA-D788-0BD0-04B0-8DD22440E4BE">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:01 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<schemaObject>C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9</schemaObject>
+<segment>BA5513DC-94F1-BEE1-0A71-9FB02011B19A</segment>
+<tableSpace>D0CEBD5F-FDB7-6CEA-EAA5-4B81F8B8B91B</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="SALES_REGION_PK" id="395D56EF-831C-094A-F0CC-6E1AC83E75D0">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:03 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<segment>BA5513DC-94F1-BEE1-0A71-9FB02011B19A</segment>
+<tableSpace>D0CEBD5F-FDB7-6CEA-EAA5-4B81F8B8B91B</tableSpace>
+<existingIndex>4A04C5F5-F77A-211D-10B6-4D3CD21DD331</existingIndex>
+<indexSegment>BA5513DC-94F1-BEE1-0A71-9FB02011B19A</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="SALES_REGION_UK1" id="EE70281E-17B4-FE59-C718-FDD262A49333">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:03 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<segment>BA5513DC-94F1-BEE1-0A71-9FB02011B19A</segment>
+<tableSpace>D0CEBD5F-FDB7-6CEA-EAA5-4B81F8B8B91B</tableSpace>
+<existingIndex>85DA49EA-D788-0BD0-04B0-8DD22440E4BE</existingIndex>
+<indexSegment>BA5513DC-94F1-BEE1-0A71-9FB02011B19A</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev12c>

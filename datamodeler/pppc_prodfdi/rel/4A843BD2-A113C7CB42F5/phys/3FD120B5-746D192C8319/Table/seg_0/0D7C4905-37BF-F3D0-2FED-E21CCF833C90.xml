@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="EMAIL_NOTIF_RECEIVER" directorySegmentName="seg_0" id="0D7C4905-37BF-F3D0-2FED-E21CCF833C90">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:55 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<schemaObject>C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>2A7E0B13-A1A9-BCFA-9E87-F8AED4F8F214</segment>
+<tableSpace>D0CEBD5F-FDB7-6CEA-EAA5-4B81F8B8B91B</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="USER_NAME" id="09D1206D-FD67-5324-9F4A-CC9185427811">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SEND_DATE" id="16702040-46C0-7BEE-AC71-81E0C571F622">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DOC_APPROVAL_ID" id="532F8563-F91D-B216-3D30-8B7C4A8B1CA6">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MAIL_COUNT" id="54C44FE6-5F07-E6D4-51B2-8B421C0235EF">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TITLE" id="9713CC53-3B9D-76F7-5ADB-6C48CCFE3D68">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ACTION" id="A457AF55-E2E0-D517-8901-99062C728D25">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MNR_ID" id="D4913048-02B4-6E68-0B58-A65C98E9BD4F">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PROPOSAL_ID" id="DE169AEB-F9F4-3661-4931-CB40A1D405CF">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EMAIL_ADDRESS" id="E1AF866B-166D-A499-0738-B98F6FBAE005">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FULL_NAME" id="E72A072D-B3B5-E49D-3E79-C16B5AAD90AD">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="EMAIL_NOTIF_RECEIVER_PK" id="3ACE4FCE-DBA0-8ACC-86CB-EBC89864D79C">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<schemaObject>C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9</schemaObject>
+<segment>8DD5D695-548C-C057-139C-05D932737246</segment>
+<tableSpace>D0CEBD5F-FDB7-6CEA-EAA5-4B81F8B8B91B</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="EMAIL_NOTIF_RECEIVER_PROP_FK1" id="504888A1-885D-0912-3168-5D85B173AF01">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:04 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="EMAIL_NOTIF_RECEIVER_PK" id="59AC53B1-06CE-25A1-7AA2-A966C56E742A">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:02 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<segment>8DD5D695-548C-C057-139C-05D932737246</segment>
+<tableSpace>D0CEBD5F-FDB7-6CEA-EAA5-4B81F8B8B91B</tableSpace>
+<existingIndex>3ACE4FCE-DBA0-8ACC-86CB-EBC89864D79C</existingIndex>
+<indexSegment>8DD5D695-548C-C057-139C-05D932737246</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

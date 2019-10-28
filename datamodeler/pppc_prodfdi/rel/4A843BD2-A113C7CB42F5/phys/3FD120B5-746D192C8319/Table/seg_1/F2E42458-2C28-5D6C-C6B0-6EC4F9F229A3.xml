@@ -1,0 +1,168 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="APP_USER_ACCESS" directorySegmentName="seg_1" id="F2E42458-2C28-5D6C-C6B0-6EC4F9F229A3">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:55 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<schemaObject>C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>F860BF9B-3C92-1E5C-CB59-8D5AFBA7D87C</segment>
+<tableSpace>D0CEBD5F-FDB7-6CEA-EAA5-4B81F8B8B91B</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="DIRECT_SPV" id="0CD81204-67EF-B3F8-58D0-8CDC90F086E7">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FULL_NAME" id="3785E6AA-AD55-3137-3539-89C3E4E5BF38">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CUST_AUTH_FLAG" id="43940C41-344F-1EEA-2BCE-6FAF0C9BF724">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DESCR" id="4F15568E-C0CE-2368-A5DE-D617DB464E38">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PASSWORD" id="5504DA26-92F1-5AB7-FF6F-F5C8DE33621B">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="USER_DIVISION" id="75DD7E9D-48DD-0D1B-68DD-80A31EE6190F">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<defaultValue>&apos;FOOD&apos;</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="COMPANY_ID" id="909A89C4-CC89-B1FA-CD31-FCEBD6DD1305">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="USER_NAME" id="986F79E6-1E6F-D422-37F1-7ABCF51410BF">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="USER_INITIAL" id="9C7E3816-35CC-83C1-69C0-C67F868C160B">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<defaultValue>NULL</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="TITLE" id="9F7EAC31-4394-3FB8-30EF-3E9E551ECAC3">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<defaultValue>NULL</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="CONTACT_NO" id="AAAB70EF-E5F4-3BA3-D3F9-74B1F74E1540">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="USER_TYPE" id="B4068030-D322-264B-C725-2F02C4D6197D">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<defaultValue>&apos;AREA&apos;</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="ID" id="D1EDA921-8B0A-4A78-5423-47314BA45CA3">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<autoIncrementDDL>TRIGGER</autoIncrementDDL>
+</ColumnProxy>
+<ColumnProxy name="ACTIVE_PERIOD_FROM" id="D43B852F-7015-36F9-9EBB-DF5298521655">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ACTIVE_PERIOD_TO" id="F12D49EE-B093-2844-1668-640161CBF45F">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="APP_USER_ACCESS_UK3" id="1E2E528C-CF6A-5AD3-42E3-F87FD232F270">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<schemaObject>C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9</schemaObject>
+<segment>C4CA2D55-56B8-25EB-E57F-88D6F6C074DF</segment>
+<tableSpace>D0CEBD5F-FDB7-6CEA-EAA5-4B81F8B8B91B</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="APP_USER_ACCESS_PK" id="52CD64E4-4E35-2C27-0D31-A6D5D5E09498">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<schemaObject>C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9</schemaObject>
+<segment>BA5513DC-94F1-BEE1-0A71-9FB02011B19A</segment>
+<tableSpace>D0CEBD5F-FDB7-6CEA-EAA5-4B81F8B8B91B</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="APP_USER_ACCESS_UK1" id="A94F7E66-6EA2-D6D1-5C71-1A565EB937E6">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<schemaObject>C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9</schemaObject>
+<segment>BA5513DC-94F1-BEE1-0A71-9FB02011B19A</segment>
+<tableSpace>D0CEBD5F-FDB7-6CEA-EAA5-4B81F8B8B91B</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="APP_USER_ACCESS_UK2" id="ED4147D0-76F7-C9A1-4E01-96F4AB776C75">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<schemaObject>C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9</schemaObject>
+<segment>BA5513DC-94F1-BEE1-0A71-9FB02011B19A</segment>
+<tableSpace>D0CEBD5F-FDB7-6CEA-EAA5-4B81F8B8B91B</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="APP_USER_ACCESS_PK" id="8D6E845C-6536-B3FF-0964-DDCFD5DC78FB">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:01 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<segment>BA5513DC-94F1-BEE1-0A71-9FB02011B19A</segment>
+<tableSpace>D0CEBD5F-FDB7-6CEA-EAA5-4B81F8B8B91B</tableSpace>
+<existingIndex>52CD64E4-4E35-2C27-0D31-A6D5D5E09498</existingIndex>
+<indexSegment>BA5513DC-94F1-BEE1-0A71-9FB02011B19A</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="APP_USER_ACCESS_UK1" id="7447C5A9-D6B3-EC6A-AB68-ADFDFD7B0C5E">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:01 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<segment>BA5513DC-94F1-BEE1-0A71-9FB02011B19A</segment>
+<tableSpace>D0CEBD5F-FDB7-6CEA-EAA5-4B81F8B8B91B</tableSpace>
+<existingIndex>A94F7E66-6EA2-D6D1-5C71-1A565EB937E6</existingIndex>
+<indexSegment>BA5513DC-94F1-BEE1-0A71-9FB02011B19A</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</UniqueKey>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="APP_USER_ACCESS_UK2" id="F89DE9B1-291B-2226-AF67-D5CB3C53D087">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:01 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<segment>BA5513DC-94F1-BEE1-0A71-9FB02011B19A</segment>
+<tableSpace>D0CEBD5F-FDB7-6CEA-EAA5-4B81F8B8B91B</tableSpace>
+<existingIndex>ED4147D0-76F7-C9A1-4E01-96F4AB776C75</existingIndex>
+<indexSegment>BA5513DC-94F1-BEE1-0A71-9FB02011B19A</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev12c>

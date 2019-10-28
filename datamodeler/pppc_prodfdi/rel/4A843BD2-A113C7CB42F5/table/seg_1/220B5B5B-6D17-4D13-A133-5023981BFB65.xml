@@ -1,0 +1,339 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_1" id="220B5B5B-6D17-4D13-A133-5023981BFB65" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="PROMO_CUSTOMER_HO">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PROMO_CUSTOMER_HO</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PROMO_CUSTOMER_ID" id="86BAED03-6009-BDFE-E91B-C9A3DC6065C6">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROMO_CUSTOMER_HO</sourceObjSchema>
+<sourceObjName>PROMO_CUSTOMER_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROMO_PRODUK_ID" id="75078122-47A8-D40A-8F27-D0B6183DCA9D">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROMO_CUSTOMER_HO</sourceObjSchema>
+<sourceObjName>PROMO_PRODUK_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B04B60E6-FF95-0B43-0D1D-790030F176BD" referredColumn="6CB4BA1E-24F8-3580-951F-1585A64B382D"/>
+</associations>
+</Column>
+<Column name="REGION_CODE" id="88935036-C198-BFC2-6EC6-C4371FDB9988">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROMO_CUSTOMER_HO</sourceObjSchema>
+<sourceObjName>REGION_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150 BYTE</dataTypeSize>
+<ownDataTypeParameters>150 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="REGION_DESC" id="964EA23F-2DC1-26C3-4BA9-D362B16E8E67">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROMO_CUSTOMER_HO</sourceObjSchema>
+<sourceObjName>REGION_DESC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>240 BYTE</dataTypeSize>
+<ownDataTypeParameters>240 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AREA_CODE" id="98A04F89-6BCE-2DC3-61C0-FE1CC21DB89E">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROMO_CUSTOMER_HO</sourceObjSchema>
+<sourceObjName>AREA_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150 BYTE</dataTypeSize>
+<ownDataTypeParameters>150 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AREA_DESC" id="96728E72-0542-6A3E-49AB-24AC4CB7A938">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROMO_CUSTOMER_HO</sourceObjSchema>
+<sourceObjName>AREA_DESC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>240 BYTE</dataTypeSize>
+<ownDataTypeParameters>240 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LOC_CODE" id="2C38B164-0F35-EE17-3D29-F40F61904052">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROMO_CUSTOMER_HO</sourceObjSchema>
+<sourceObjName>LOC_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150 BYTE</dataTypeSize>
+<ownDataTypeParameters>150 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LOC_DESC" id="FBD92A19-763A-1425-24E4-A41058B2B2F7">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROMO_CUSTOMER_HO</sourceObjSchema>
+<sourceObjName>LOC_DESC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>240 BYTE</dataTypeSize>
+<ownDataTypeParameters>240 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUSTTYP_CODE" id="8769DE54-CB47-0BBE-53FA-999345ED53AB">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROMO_CUSTOMER_HO</sourceObjSchema>
+<sourceObjName>CUSTTYP_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150 BYTE</dataTypeSize>
+<ownDataTypeParameters>150 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUSTTYP_DESC" id="64684F08-C5F1-42FE-9BD4-D803A2FC67E1">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROMO_CUSTOMER_HO</sourceObjSchema>
+<sourceObjName>CUSTTYP_DESC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>240 BYTE</dataTypeSize>
+<ownDataTypeParameters>240 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUSTGRP_CODE" id="0469D31E-0119-3DEF-1263-CD81D1CC92D0">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROMO_CUSTOMER_HO</sourceObjSchema>
+<sourceObjName>CUSTGRP_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150 BYTE</dataTypeSize>
+<ownDataTypeParameters>150 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUSTGRP_DESC" id="C9003CC5-5C12-0336-A0CB-60E0B38BA742">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROMO_CUSTOMER_HO</sourceObjSchema>
+<sourceObjName>CUSTGRP_DESC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>240 BYTE</dataTypeSize>
+<ownDataTypeParameters>240 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUSTOMER_ID" id="0D5E3336-76D6-DA35-57C7-C325B9CD216E">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROMO_CUSTOMER_HO</sourceObjSchema>
+<sourceObjName>CUSTOMER_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>15</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,15,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUSTOMER_NAME" id="B07BF50E-756F-EE8C-36F3-78B940D9DB7B">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROMO_CUSTOMER_HO</sourceObjSchema>
+<sourceObjName>CUSTOMER_NAME</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>240 BYTE</dataTypeSize>
+<ownDataTypeParameters>240 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUSTOMER_NUMBER" id="22FC5159-D41A-240E-3CCF-24C0F2931515">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROMO_CUSTOMER_HO</sourceObjSchema>
+<sourceObjName>CUSTOMER_NUMBER</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUST_REG_FLG" id="103CBCE1-6D10-E730-6975-FAC0B80F3B8A">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROMO_CUSTOMER_HO</sourceObjSchema>
+<sourceObjName>CUST_REG_FLG</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUST_NREG_FLG" id="90E56CD9-ACB2-3DD8-C957-4E7FA7783515">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROMO_CUSTOMER_HO</sourceObjSchema>
+<sourceObjName>CUST_NREG_FLG</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CREATED_BY" id="44D6A570-007A-9B83-643D-408E2AEECC59">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROMO_CUSTOMER_HO</sourceObjSchema>
+<sourceObjName>CREATED_BY</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CREATED_ON" id="A3A3CF44-C653-77D1-2527-D0ED6F97A53E">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROMO_CUSTOMER_HO</sourceObjSchema>
+<sourceObjName>CREATED_ON</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CAF2CB84-F8E7-BC9B-50D0-12E08BFD2945" name="PROMO_CUSTOMER_PK">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PROMO_CUSTOMER_PK</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:03 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="86BAED03-6009-BDFE-E91B-C9A3DC6065C6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="918199FF-6A63-2B19-068F-4F1BDC319729" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="PROMO_CUSTOMER_PK">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PROMO_CUSTOMER_PK</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="86BAED03-6009-BDFE-E91B-C9A3DC6065C6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="843E6EBD-9356-D3F7-4443-841B190B877E" name="PROMO_CUSTOMER_HO_PROMO_P_FK1">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:04 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="75078122-47A8-D40A-8F27-D0B6183DCA9D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

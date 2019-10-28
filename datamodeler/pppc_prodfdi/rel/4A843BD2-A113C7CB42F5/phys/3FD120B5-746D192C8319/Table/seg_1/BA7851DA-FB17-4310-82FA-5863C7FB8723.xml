@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="BUDGET_CUST_TRAN" directorySegmentName="seg_1" id="BA7851DA-FB17-4310-82FA-5863C7FB8723">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:55 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<schemaObject>C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>97158F51-ECF3-9F98-0594-93E2ACF5EE6C</segment>
+<tableSpace>D0CEBD5F-FDB7-6CEA-EAA5-4B81F8B8B91B</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="BUDGET_CUST_TRAN_ID" id="0C35E814-44DA-99E7-6F91-A0A67738A6E6">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PERCENTAGE" id="1273304D-9518-4471-A166-C5C3F402F6A7">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REMARKS" id="1AD1C272-8D87-EB77-968C-79AF293E2D98">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CREATION_DATE" id="467DAA52-667D-83DA-9B92-0928466D367A">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MODIFIED_DATE" id="48F64C9E-E863-2928-C81F-CEB6D627885D">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BUDGET_AS_TO_DATE" id="65151A3C-0C75-9741-56A6-75B6F6787B90">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="AMOUNT" id="7DC29BAD-A6C9-80DB-7BB6-542F083BCA30">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BUDGET_DATE" id="8D327A8A-8951-7D0B-1E1A-AF99F38413A2">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BUDGET_CUSTOMER_ID" id="B2586F45-D367-8743-DBAE-735A734A5540">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ACTION" id="B687542B-877B-5F9D-2640-9857ED4F8D28">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ACTION_DATE" id="BA4CB297-9E67-12B8-92F5-D2AFE391EEAA">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CREATED_BY" id="BC90DDDA-93B1-02BE-C06F-08116A570D9E">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ACTION_BY" id="D9481586-A3BD-CF69-DC3A-56E689C43C8B">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BUDGET_TYPE" id="E03D9C85-AA9E-EDCC-6552-655CB0641A7C">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MODIFIED_BY" id="F18D134B-FD82-C82B-6E71-8161740D6613">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+</TableProxyOraclev12c>

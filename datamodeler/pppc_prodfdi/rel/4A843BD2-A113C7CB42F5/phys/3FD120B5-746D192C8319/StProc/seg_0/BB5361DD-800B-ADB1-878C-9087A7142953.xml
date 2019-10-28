@@ -1,0 +1,607 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<StoredProcedureOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.StoredProcedureOraclev10g" name="FCS_CREATE_MODIFIER" directorySegmentName="seg_0" id="BB5361DD-800B-ADB1-878C-9087A7142953">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_CREATE_MODIFIER</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:05 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<owner><![CDATA[4E5B45BD-E77E-0B6D-EFA2-DE9F30B5E31F]]></owner>
+<source>CREATE OR REPLACE procedure FOCUSPP.FCS_CREATE_MODIFIER(p_pid IN NUMBER)
+is
+    p PROPOSAL%ROWTYPE;
+    t APPS.FCS_QP_MODIFIER_TEMP%ROWTYPE;
+    i NUMBER;
+
+    procedure insert_row
+    is
+    begin
+        dbms_output.put_line(&apos;INSERT = &apos; || t.LIST_HEADER_ID);
+        insert into APPS.FCS_QP_MODIFIER_TEMP (
+            QP_ID,
+            LIST_HEADER_ID,
+            LINE_NO_PPPC,
+            LINE_NO,
+            MODIFIER_TYPE,
+            NAME,
+            DESCRIPTION,
+            CURRENCY,
+            START_DATE,
+            END_DATE,
+            START_DATE_LINE,
+            END_DATE_LINE,
+            ACTIVE,
+            AUTOMATIC,
+            ATTRIBUTE2,
+            LINE_LEVEL,
+            LINE_TYPE,
+            AUTOMATIC_LINE,
+            PRICING_PHASE,
+            PROMO_PRODUCT_ID,
+            ITEM_TYPE,
+            MULTIPLE_FLAG,
+            VOLUME_TYPE,
+            GROUPING_NO,
+            QUALIFIER_CONTEXT,
+            OPERATOR,
+            FLAG,
+            CREATED_BY,
+            BREAK_TYPE,
+            KELIPATAN,
+            UOM,
+            VALUE_FROM,
+            VALUE_TO,
+            APPLICATION_METHOD,
+            PROD_FLG,
+            PRODUCT_ATTRIBUTE,
+            PRODUCT_ATTRIBUTE_VALUE,
+            KET_OT_MF,
+            BUCKET,
+            VALUE,
+            QUALIFIER_ATTR,
+            Q_VALUE_FROM,
+            CUSTOMER,
+            CUSTOMER_KET,
+            CUSTOMER_TYPE,
+            CUSTOMER_TYPE_KET,
+            CUSTOMER_GROUP,
+            CUSTOMER_GROUP_KET
+        )
+        values (
+            APPS.FCS_QP_SEQ.nextval,
+            t.LIST_HEADER_ID,
+            t.LINE_NO_PPPC,
+            t.LINE_NO,
+            t.MODIFIER_TYPE,
+            t.NAME,
+            t.DESCRIPTION,
+            t.CURRENCY,
+            t.START_DATE,
+            t.END_DATE,
+            t.START_DATE_LINE,
+            t.END_DATE_LINE,
+            t.ACTIVE,
+            t.AUTOMATIC,
+            t.ATTRIBUTE2,
+            t.LINE_LEVEL,
+            t.LINE_TYPE,
+            t.AUTOMATIC_LINE,
+            t.PRICING_PHASE,
+            t.PROMO_PRODUCT_ID,
+            t.ITEM_TYPE,
+            t.MULTIPLE_FLAG,
+            t.VOLUME_TYPE,
+            t.GROUPING_NO,
+            t.QUALIFIER_CONTEXT,
+            t.OPERATOR,
+            t.FLAG,
+            t.CREATED_BY,
+            t.BREAK_TYPE,
+            t.KELIPATAN,
+            t.UOM,
+            t.VALUE_FROM,
+            t.VALUE_TO,
+            t.APPLICATION_METHOD,
+            t.PROD_FLG,
+            t.PRODUCT_ATTRIBUTE,
+            t.PRODUCT_ATTRIBUTE_VALUE,
+            t.KET_OT_MF,
+            t.BUCKET,
+            t.VALUE,
+            t.QUALIFIER_ATTR,
+            t.Q_VALUE_FROM,
+            t.CUSTOMER,
+            t.CUSTOMER_KET,
+            t.CUSTOMER_TYPE,
+            t.CUSTOMER_TYPE_KET,
+            t.CUSTOMER_GROUP,
+            t.CUSTOMER_GROUP_KET
+        );
+
+    end;
+
+    procedure insert_row_excl
+    is
+    begin
+        insert into APPS.FCS_QP_MODIFIER_TEMP_EXCL (
+            LIST_HEADER_ID,
+            PRODUCT_ATTRIBUTE,
+            PRODUCT_ATTRIBUTE_VALUE,
+            LINE_NO,
+            MODIFIER_TYPE,
+            NAME,
+            DESCRIPTION,
+            CURRENCY,
+            START_DATE,
+            END_DATE,
+            ACTIVE,
+            AUTOMATIC,
+            ATTRIBUTE2,
+            LINE_LEVEL,
+            LINE_TYPE,
+            START_DATE_LINE,
+            END_DATE_LINE,
+            AUTOMATIC_LINE,
+            PRICING_PHASE,
+            VOLUME_TYPE,
+            BREAK_TYPE,            
+            UOM,
+            VALUE_FROM,
+            VALUE_TO,
+            APPLICATION_METHOD,
+            VALUE,
+            GROUPING_NO,
+            QUALIFIER_CONTEXT,
+            CREATED_BY,
+            FLAG,
+            OPERATOR,
+            QUALIFIER_ATTR,
+            Q_VALUE_FROM
+        )
+        values (
+            t.LIST_HEADER_ID,
+            t.PRODUCT_ATTRIBUTE,
+            t.PRODUCT_ATTRIBUTE_VALUE,
+            t.LINE_NO,
+            t.MODIFIER_TYPE,
+            t.NAME,
+            t.DESCRIPTION,
+            t.CURRENCY,
+            t.START_DATE,
+            t.END_DATE,
+            t.ACTIVE,
+            t.AUTOMATIC,
+            t.ATTRIBUTE2,
+            t.LINE_LEVEL,
+            t.LINE_TYPE,
+            t.START_DATE_LINE,
+            t.END_DATE_LINE,
+            t.AUTOMATIC_LINE,
+            t.PRICING_PHASE,
+            t.VOLUME_TYPE,
+            t.BREAK_TYPE,
+            t.UOM,
+            t.VALUE_FROM,
+            t.VALUE_TO,
+            t.APPLICATION_METHOD,
+            t.VALUE,
+            t.GROUPING_NO,
+            t.QUALIFIER_CONTEXT,
+            t.CREATED_BY,
+            t.FLAG,
+            t.OPERATOR,
+            t.QUALIFIER_ATTR,
+            t.Q_VALUE_FROM            
+        );
+
+    end;
+
+    procedure reset_cust_data
+    is
+    begin
+        t.QUALIFIER_ATTR := null;
+        t.CUSTOMER := null;
+        t.CUSTOMER_KET := null;
+        t.CUSTOMER_TYPE := null;
+        t.CUSTOMER_TYPE_KET := null;
+        t.CUSTOMER_GROUP := null;
+        t.CUSTOMER_GROUP_KET := null;
+        t.Q_VALUE_FROM := null;
+    end;
+
+    procedure insert_row_area
+    is
+    begin
+        t.OPERATOR := &apos;=&apos;;
+        for c in (
+            select * from PROMO_CUSTOMER_AREA where PROPOSAL_ID = p.PROPOSAL_ID
+        )
+        loop
+            reset_cust_data;
+            if ((c.CUSTOMER_ID is not null) and (c.CUSTOMER_ID &gt; 0)) then
+            begin
+                t.CUSTOMER := c.CUSTOMER_ID;
+                t.CUSTOMER_KET := &apos;SOLD_TO_ORG_ID&apos;;
+            end;
+            else
+            begin
+                if (c.LOC_CODE is not null) then
+                begin
+                    t.QUALIFIER_ATTR := &apos;FCS_LOCATION&apos;;
+                    t.Q_VALUE_FROM := c.LOC_CODE;
+                end;
+                else
+                begin
+                    if (c.AREA_CODE is not null) then
+                    begin
+                        t.QUALIFIER_ATTR := &apos;FCS_AREA&apos;;
+                        t.Q_VALUE_FROM := c.AREA_CODE;
+                    end;
+                    else
+                    begin
+                        if (c.REGION_CODE is not null) then
+                        begin
+                            t.QUALIFIER_ATTR := &apos;FCS_REGION&apos;;
+                            t.Q_VALUE_FROM := c.REGION_CODE;
+                        end;
+                        end if;
+                    end;
+                    end if;
+                end;
+                end if;
+                if (c.CUSTTYP_CODE is not null) then
+                begin
+                    t.CUSTOMER_TYPE := c.CUSTTYP_CODE;
+                    t.CUSTOMER_TYPE_KET := &apos;FCS_CUST_TYPE&apos;;
+                end;
+                end if;
+                if (c.CUSTGRP_CODE is not null) then
+                begin
+                    t.CUSTOMER_GROUP := c.CUSTGRP_CODE;
+                    t.CUSTOMER_GROUP_KET := &apos;FCS_CUST_GROUP&apos;;
+                end;
+                end if;
+            end;
+            end if;
+            insert_row;
+        end loop;
+
+        t.OPERATOR := &apos;NOT =&apos;;
+        for cx in (
+            select * from PROMO_CUSTX_AREA where PROMO_PRODUK_ID = t.PROMO_PRODUCT_ID
+        )
+        loop
+            if ((cx.CUSTOMER_ID is not null) and (cx.CUSTOMER_ID &gt; 0)) then
+            begin
+                t.QUALIFIER_ATTR := &apos;SOLD_TO_ORG_ID&apos;;
+                t.Q_VALUE_FROM := cx.CUSTOMER_ID;
+                insert_row_excl;
+            end;
+            else
+            begin
+                if (cx.LOC_CODE is not null) then
+                begin
+                    t.QUALIFIER_ATTR := &apos;FCS_LOCATION&apos;;
+                    t.Q_VALUE_FROM := cx.LOC_CODE;
+                    insert_row_excl;
+                end;
+                else
+                begin
+                    if (cx.AREA_CODE is not null) then
+                    begin
+                        t.QUALIFIER_ATTR := &apos;FCS_AREA&apos;;
+                        t.Q_VALUE_FROM := cx.AREA_CODE;
+                        insert_row_excl;
+                    end;
+                    else
+                    begin
+                        if (cx.REGION_CODE is not null) then
+                        begin
+                            t.QUALIFIER_ATTR := &apos;FCS_REGION&apos;;
+                            t.Q_VALUE_FROM := cx.REGION_CODE;
+                            insert_row_excl;
+                        end;
+                        end if;
+                    end;
+                    end if;
+                end;
+                end if;
+                if (cx.CUSTTYP_CODE is not null) then
+                begin
+                    t.QUALIFIER_ATTR := &apos;FCS_CUST_TYPE&apos;;
+                    t.Q_VALUE_FROM := cx.CUSTTYP_CODE;
+                    insert_row_excl;
+                end;
+                end if;
+                if (cx.CUSTGRP_CODE is not null) then
+                begin
+                    t.QUALIFIER_ATTR := &apos;FCS_CUST_GROUP&apos;;
+                    t.Q_VALUE_FROM := cx.CUSTGRP_CODE;
+                    insert_row_excl;
+                end;
+                end if;
+            end;
+            end if;
+        end loop;
+    end;
+
+    procedure insert_row_ho
+    is
+    begin
+        t.OPERATOR := &apos;=&apos;;
+        for c in (
+            select * from PROMO_CUSTOMER_HO where PROMO_PRODUK_ID = t.PROMO_PRODUCT_ID
+        )
+        loop
+            dbms_output.put_line(&apos;ho&apos;);
+            reset_cust_data;
+            if ((c.CUSTOMER_ID is not null) and (c.CUSTOMER_ID &gt; 0)) then
+            begin
+                t.CUSTOMER := c.CUSTOMER_ID;
+                t.CUSTOMER_KET := &apos;SOLD_TO_ORG_ID&apos;;
+            end;
+            else
+            begin
+                if (c.LOC_CODE is not null) then
+                begin
+                    t.QUALIFIER_ATTR := &apos;FCS_LOCATION&apos;;
+                    t.Q_VALUE_FROM := c.LOC_CODE;
+                end;
+                else
+                begin
+                    if (c.AREA_CODE is not null) then
+                    begin
+                        t.QUALIFIER_ATTR := &apos;FCS_AREA&apos;;
+                        t.Q_VALUE_FROM := c.AREA_CODE;
+                    end;
+                    else
+                    begin
+                        if (c.REGION_CODE is not null) then
+                        begin
+                            t.QUALIFIER_ATTR := &apos;FCS_REGION&apos;;
+                            t.Q_VALUE_FROM := c.REGION_CODE;
+                        end;
+                        end if;
+                    end;
+                    end if;
+                end;
+                end if;
+                if (c.CUSTTYP_CODE is not null) then
+                begin
+                    t.CUSTOMER_TYPE := c.CUSTTYP_CODE;
+                    t.CUSTOMER_TYPE_KET := &apos;FCS_CUST_TYPE&apos;;
+                end;
+                end if;
+                if (c.CUSTGRP_CODE is not null) then
+                begin
+                    t.CUSTOMER_GROUP := c.CUSTGRP_CODE;
+                    t.CUSTOMER_GROUP_KET := &apos;FCS_CUST_GROUP&apos;;
+                end;
+                end if;
+            end;
+            end if;
+            insert_row;
+        end loop;
+
+        t.OPERATOR := &apos;NOT =&apos;;
+        for cx in (
+            select * from PROMO_CUSTX_HO where PROMO_PRODUK_ID = t.PROMO_PRODUCT_ID
+        )
+        loop
+            if ((cx.CUSTOMER_ID is not null) and (cx.CUSTOMER_ID &gt; 0)) then
+            begin
+                t.QUALIFIER_ATTR := &apos;SOLD_TO_ORG_ID&apos;;
+                t.Q_VALUE_FROM := cx.CUSTOMER_ID;
+                insert_row_excl;
+            end;
+            else
+            begin
+                if (cx.LOC_CODE is not null) then
+                begin
+                    t.QUALIFIER_ATTR := &apos;FCS_LOCATION&apos;;
+                    t.Q_VALUE_FROM := cx.LOC_CODE;
+                    insert_row_excl;
+                end;
+                else
+                begin
+                    if (cx.AREA_CODE is not null) then
+                    begin
+                        t.QUALIFIER_ATTR := &apos;FCS_AREA&apos;;
+                        t.Q_VALUE_FROM := cx.AREA_CODE;
+                        insert_row_excl;
+                    end;
+                    else
+                    begin
+                        if (cx.REGION_CODE is not null) then
+                        begin
+                            t.QUALIFIER_ATTR := &apos;FCS_REGION&apos;;
+                            t.Q_VALUE_FROM := cx.REGION_CODE;
+                            insert_row_excl;
+                        end;
+                        end if;
+                    end;
+                    end if;
+                end;
+                end if;
+                if (cx.CUSTTYP_CODE is not null) then
+                begin
+                    t.QUALIFIER_ATTR := &apos;FCS_CUST_TYPE&apos;;
+                    t.Q_VALUE_FROM := cx.CUSTTYP_CODE;
+                    insert_row_excl;
+                end;
+                end if;
+                if (cx.CUSTGRP_CODE is not null) then
+                begin
+                    t.QUALIFIER_ATTR := &apos;FCS_CUST_GROUP&apos;;
+                    t.Q_VALUE_FROM := cx.CUSTGRP_CODE;
+                    insert_row_excl;
+                end;
+                end if;
+            end;
+            end if;
+        end loop;
+    end;
+
+    procedure insert_row_cust
+    is
+    begin
+        if (p.USER_TYPE_CREATOR = &apos;HO&apos;)
+            then insert_row_ho;
+            else insert_row_area;
+        end if;
+    end;
+begin
+    -- main record : proposal
+    begin
+        select* into p from PROPOSAL where PROPOSAL_ID = p_pid;
+    exception
+        when no_data_found then
+        begin
+            dbms_output.put_line(&apos;Not found&apos;);
+            return;
+        end;
+        when others then raise;
+    end;
+    dbms_output.put_line(&apos;PROPOSAL = &apos; || p.proposal_id);
+
+    --TEST, set list_header_id to 1
+    select APPS.QP_LIST_HEADERS_B_S.nextval into t.LIST_HEADER_ID from dual;
+    --t.LIST_HEADER_ID := 1;
+
+    t.MODIFIER_TYPE := &apos;Discount List&apos;;
+
+    if (p.ADDENDUM_KE is null) then t.NAME := p.CONFIRM_NO; 
+    else t.NAME := p.CONFIRM_NO || &apos;-&apos; || p.ADDENDUM_KE;
+    end if;
+
+    t.DESCRIPTION := t.NAME;
+
+    t.CURRENCY := p.CURRENCY;
+    t.START_DATE := p.PERIODE_PROG_FROM;
+    t.END_DATE := p.PERIODE_PROG_TO;
+    t.START_DATE_LINE := p.PERIODE_PROG_FROM;
+    t.END_DATE_LINE := p.PERIODE_PROG_TO;
+    t.ACTIVE := &apos;Y&apos;;
+    t.AUTOMATIC := &apos;Y&apos;;
+    t.ATTRIBUTE2 := p.CONFIRM_NO;
+
+    if (p.MIX_QTY_PROMO = &apos;N&apos;) then t.LINE_LEVEL := &apos;LINE&apos;;
+    else t.LINE_LEVEL := &apos;LINEGROUP&apos;;
+    end if;
+
+    t.LINE_TYPE := &apos;Discount&apos;;
+    t.AUTOMATIC_LINE := &apos;Y&apos;;
+    t.PRICING_PHASE := &apos;All Lines Adjustment&apos;;
+    t.VOLUME_TYPE := &apos;Item Quantity&apos;;
+    t.GROUPING_NO := -1;
+    t.QUALIFIER_CONTEXT := &apos;Customer&apos;;
+    t.FLAG := &apos;N&apos;;
+    t.CREATED_BY := p.CREATED_BY;
+    
+    t.LINE_NO := 0;
+    t.LINE_NO_PPPC := 0;
+    for pp in (
+        select
+            PROMO_PRODUK_ID,
+            PRODUCT_CATEGORY,
+            PRODUCT_CLASS,
+            PRODUCT_BRAND,
+            PRODUCT_EXT,
+            PRODUCT_PACK,
+            KODE_POSTING,
+            KODE_POSTING_MF,
+            PAKET_FLAG
+        from PROMO_PRODUK
+        where PROPOSAL_ID = p.PROPOSAL_ID
+        order by PROMO_PRODUK_ID asc)
+    loop
+        dbms_output.put_line(&apos;PROMO_PRODUK_ID = &apos; || pp.PROMO_PRODUK_ID);
+    
+        t.LINE_NO_PPPC := t.LINE_NO_PPPC + 1;
+        t.PROMO_PRODUCT_ID := pp.PROMO_PRODUK_ID;
+        t.ITEM_TYPE := pp.PAKET_FLAG;
+
+        select count(*) into i from DISCOUNT where PROMO_PRODUK_ID = pp.PROMO_PRODUK_ID;
+        if (i &gt; 1) then t.MULTIPLE_FLAG := &apos;M&apos;; else t.MULTIPLE_FLAG := &apos;S&apos;; end if;
+        
+        for d in (
+            select
+                decode(TIPE_PERHITUNGAN, &apos;TDKKELIPATAN&apos;, &apos;Point&apos;, &apos;Recurring&apos;) BREAK_TYPE,
+                KELIPATAN,
+                UOM,
+                QTY_FROM,
+                nvl(QTY_TO, 999999) VALUE_TO,
+                TIPE_POTONGAN,
+                DISC_YEARLY,
+                DISC_NON_YEARLY
+            from DISCOUNT
+            where PROMO_PRODUK_ID = pp.PROMO_PRODUK_ID
+            order by BREAK_TYPE asc)
+        loop
+            dbms_output.put_line(&apos;DISCOUNT = &apos; || d.BREAK_TYPE);
+        
+            t.BREAK_TYPE := d.BREAK_TYPE;
+            t.KELIPATAN := d.KELIPATAN;
+            t.UOM := d.UOM;
+            t.VALUE_FROM := d.QTY_FROM;
+            t.VALUE_TO := d.VALUE_TO;
+            t.APPLICATION_METHOD := d.TIPE_POTONGAN;
+            
+            for pa in (
+                select
+                    nvl2(a, &apos;I&apos;, &apos;C&apos;) PROD_FLG,
+                    nvl(a,
+                        pp.PRODUCT_CATEGORY || &apos;.&apos; ||
+                        pp.PRODUCT_CLASS || &apos;.&apos; ||
+                        pp.PRODUCT_BRAND || &apos;.&apos; ||
+                        pp.PRODUCT_EXT || &apos;.&apos; ||
+                        pp.PRODUCT_PACK || &apos;.&apos; || b) PRODUCT_ATTRIBUTE
+                from (
+                    select
+                        PRODUK_ITEM.PROD_ITEM a,
+                        PRODUK_VARIANT.PROD_VARIANT b
+                    from PRODUK_ITEM, PRODUK_VARIANT 
+                    where PRODUK_VARIANT.PROMO_PRODUK_ID = PRODUK_ITEM.PROMO_PRODUK_ID (+) 
+                        and PRODUK_VARIANT.PROMO_PRODUK_ID = pp.PROMO_PRODUK_ID)
+                )
+            loop
+                dbms_output.put_line(&apos;PRODUK&apos;);
+            
+                t.PROD_FLG := pa.PROD_FLG;
+                t.PRODUCT_ATTRIBUTE := pa.PRODUCT_ATTRIBUTE;
+                t.PRODUCT_ATTRIBUTE_VALUE := pa.PRODUCT_ATTRIBUTE;
+
+                -- mf
+                if (pp.KODE_POSTING_MF is not null) then
+                begin
+                    dbms_output.put_line(&apos;MF&apos;);
+                    t.KET_OT_MF := &apos;MF&apos;;
+                    t.VALUE := d.DISC_YEARLY;
+                    t.LINE_NO := t.LINE_NO + 1;
+
+                    select BUCKET into t.BUCKET from APPS.FCS_VIEW_ITEM_MASTER_CATEGORY
+                    where ITEM = pp.KODE_POSTING_MF;
+
+                    insert_row_cust;
+                end;
+                end if;
+
+                -- ot
+                if (pp.KODE_POSTING is not null) then
+                begin
+                    dbms_output.put_line(&apos;OT&apos;);
+                    t.KET_OT_MF := &apos;OT&apos;;
+                    t.VALUE := d.DISC_NON_YEARLY;
+                    t.LINE_NO := t.LINE_NO + 1;
+
+                    select BUCKET into t.BUCKET from APPS.FCS_VIEW_ITEM_MASTER_CATEGORY
+                    where ITEM = pp.KODE_POSTING;
+
+                    insert_row_cust;
+                end;
+                end if;
+            end loop; -- product_attribute          
+        end loop; -- discount
+    end loop; -- promo_produk
+end;</source>
+</StoredProcedureOraclev10g>

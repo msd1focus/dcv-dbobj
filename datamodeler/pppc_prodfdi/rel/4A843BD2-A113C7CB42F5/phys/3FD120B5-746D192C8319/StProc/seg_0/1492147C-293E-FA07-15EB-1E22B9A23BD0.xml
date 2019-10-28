@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<StoredProcedureOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.StoredProcedureOraclev10g" name="FCS_CLEAR_SESSION_BATCH" directorySegmentName="seg_0" id="1492147C-293E-FA07-15EB-1E22B9A23BD0">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_CLEAR_SESSION_BATCH</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:05 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<owner><![CDATA[4E5B45BD-E77E-0B6D-EFA2-DE9F30B5E31F]]></owner>
+<source>CREATE OR REPLACE PROCEDURE         FOCUSPP.FCS_CLEAR_SESSION_BATCH IS
+BEGIN    
+    DELETE FROM APP_USER_LOGGED AUL WHERE TRUNC(MOD(MOD(SYSDATE - AUL.LOGGED_ON,1)*24,1)*60 ) &gt; (SELECT LC.VALUE FROM LOOKUP_CODE LC WHERE LC.TITLE = &apos;APP_CLEAR_SESSION&apos; AND ROWNUM=1);
+    COMMIT;
+END;</source>
+</StoredProcedureOraclev10g>

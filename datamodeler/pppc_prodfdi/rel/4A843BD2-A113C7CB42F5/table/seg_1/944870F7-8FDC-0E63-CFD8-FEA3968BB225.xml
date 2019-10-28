@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_1" id="944870F7-8FDC-0E63-CFD8-FEA3968BB225" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="UT_USER_PRODUK_VARIANT">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>UT_USER_PRODUK_VARIANT</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PROD_VARIANT" id="0C3036A7-FDA0-9257-9FAD-F151CA967782">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>UT_USER_PRODUK_VARIANT</sourceObjSchema>
+<sourceObjName>PROD_VARIANT</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VARIANT_DESC" id="2185F092-4CA9-B155-A22B-01C4DCA0762F">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>UT_USER_PRODUK_VARIANT</sourceObjSchema>
+<sourceObjName>VARIANT_DESC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USER_NAME" id="E5DA6F14-796C-C9BE-79B6-74DBBAD2D751">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>UT_USER_PRODUK_VARIANT</sourceObjSchema>
+<sourceObjName>USER_NAME</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DAC7CBC4-CB21-2ADA-8377-19B24036D57B" name="UT_USER_PRODUK_VARIANT_PK">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>UT_USER_PRODUK_VARIANT_PK</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:04 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E5DA6F14-796C-C9BE-79B6-74DBBAD2D751"/>
+<colUsage columnID="0C3036A7-FDA0-9257-9FAD-F151CA967782"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9ECF496E-0465-F2B3-8D1A-DCE8E0A5DEE4" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="UT_USER_PRODUK_VARIANT_PK">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>UT_USER_PRODUK_VARIANT_PK</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:01 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E5DA6F14-796C-C9BE-79B6-74DBBAD2D751"/>
+<colUsage columnID="0C3036A7-FDA0-9257-9FAD-F151CA967782"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

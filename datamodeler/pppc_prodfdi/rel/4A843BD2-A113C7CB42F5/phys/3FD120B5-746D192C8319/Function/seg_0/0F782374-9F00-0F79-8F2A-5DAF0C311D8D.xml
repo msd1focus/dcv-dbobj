@@ -1,0 +1,276 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FunctionOracle class="oracle.dbtools.crest.model.design.storage.oracle.FunctionOracle" name="RPT_F_E" directorySegmentName="seg_0" id="0F782374-9F00-0F79-8F2A-5DAF0C311D8D">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>RPT_F_E</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:06 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<owner><![CDATA[4E5B45BD-E77E-0B6D-EFA2-DE9F30B5E31F]]></owner>
+<source>CREATE OR REPLACE function         FOCUSPP.RPT_F_E (p1 number) 
+return varchar2
+as
+  toret varchar2(4000);
+  MAX_FIELD_LEN constant number := 3500;
+BEGIN
+
+    BEGIN -- exclude prop cust area  -&gt; proposal_id
+        select distinct  
+        listagg(DESCRIPTION, &apos;, &apos;) within group (order by DESCRIPTION)  INTO toret
+        from (
+          select
+          FVV.DESCRIPTION,
+            nvl(sum(length(FVV.DESCRIPTION) + 2) 
+                over (partition by epca.promo_produk_id order by epca.promo_produk_id),0) desc_rlen,
+                nvl(sum(length(fvv.DESCRIPTION) + 2) over (),0) tlen
+          from FOCUSPP.excl_prop_cust_area epca,
+             APPS.FCS_FLEX_VALUES_VL fvv
+          where
+              EPCA.AREA_CODE = FVV.FLEX_VALUE
+             and epca.promo_produk_id = p1)
+        where desc_rlen &lt; MAX_FIELD_LEN group by tlen;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    IF toret IS NOT NULL THEN return (&apos;Exclude Customer Area :  &apos;||toret);
+    END IF;
+
+    BEGIN -- exclude prop location
+            select distinct  
+        listagg(DESCRIPTION, &apos;, &apos;) within group (order by DESCRIPTION) INTO toret
+        from (
+          select
+          FVV.DESCRIPTION,
+            nvl(sum(length(FVV.DESCRIPTION) + 2) 
+                over (partition by epcl.promo_produk_id order by epcl.promo_produk_id),0) desc_rlen,
+                nvl(sum(length(fvv.DESCRIPTION) + 2) over (),0) tlen
+          from FOCUSPP.excl_prop_cust_loc epcl,
+             APPS.FCS_FLEX_VALUES_VL fvv
+          where
+              EPCL.LOCATION_CODE = FVV.FLEX_VALUE
+             and epcl.promo_produk_id = p1)
+        where desc_rlen &lt;= MAX_FIELD_LEN group by tlen;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    IF toret IS NOT NULL THEN return (&apos;Exclude Location :       &apos;||toret);
+    END IF;
+
+    BEGIN  null;-- exclude prop region
+            select distinct  
+        listagg(DESCRIPTION, &apos;, &apos;) within group (order by DESCRIPTION) INTO toret
+        from (
+          select
+          FVV.DESCRIPTION,
+            nvl(sum(length(FVV.DESCRIPTION) + 2) 
+                over (partition by epcr.promo_produk_id order by epcr.promo_produk_id),0) desc_rlen,
+                nvl(sum(length(fvv.DESCRIPTION) + 2) over (),0) tlen
+          from FOCUSPP.excl_prop_cust_region epcr,
+             APPS.FCS_FLEX_VALUES_VL fvv
+          where
+              EPCR.REGION_CODE = FVV.FLEX_VALUE
+             and epcr.promo_produk_id = p1)
+                 where desc_rlen &lt; MAX_FIELD_LEN group by tlen;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    IF toret IS NOT NULL THEN return (&apos;Exclude Region :         &apos;||toret);
+    END IF;
+
+    BEGIN  -- exclude prop customer
+                    select distinct  
+        listagg(CUSTOMER_NAME, &apos;, &apos;) within group (order by CUSTOMER_NAME) INTO toret
+        from (
+          select
+         CUSTOMER_NUMBER || &apos; - &apos; || FCA.ACCOUNT_NAME || &apos; - &apos; || FVV.DESCRIPTION as CUSTOMER_NAME,
+            nvl(sum(length(CUSTOMER_NUMBER || &apos; - &apos; || FCA.ACCOUNT_NAME || &apos; - &apos; || FVV.DESCRIPTION) + 8) 
+                over (partition by epcc.promo_produk_id order by epcc.promo_produk_id),0) rlen,
+                nvl(sum(length(CUSTOMER_NUMBER || &apos; - &apos; || FCA.ACCOUNT_NAME || &apos; - &apos; || FVV.DESCRIPTION) + 8) over (),0) tlen
+          from           
+          FOCUSPP.EXCL_PROP_CUST_CUST  epcc,
+         APPS.AR_CUSTOMERS aac,
+         APPS.FCS_FLEX_VALUES_VL fvv,
+         APPS.FCS_CUST_ACCOUNTS_VIEW fca
+          where
+        EPCC.CUSTOMER_ID = AAC.CUSTOMER_ID
+        and EPCC.CUSTOMER_ID = FCA.CUST_ACCOUNT_ID
+        and AAC.ATTRIBUTE5 = FVV.FLEX_VALUE
+        and epcc.promo_produk_id =  p1)
+    where rlen &lt; MAX_FIELD_LEN group by tlen;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    IF toret IS NOT NULL THEN return (&apos;Exclude Customer :       &apos;||toret);
+    END IF;
+
+    BEGIN  -- exclude cust area
+             select distinct  
+        listagg(DESCRIPTION, &apos;, &apos;) within group (order by DESCRIPTION)  INTO toret
+        from (
+          select
+         DESCRIPTION,
+            nvl(sum(length(DESCRIPTION)+ 2) 
+                over (partition by eca.promo_produk_id order by eca.promo_produk_id),0) desc_rlen,
+                 nvl(sum(length(fvv.DESCRIPTION) + 2) over (),0) tlen
+          from           
+          FOCUSPP.excl_cust_area  eca,
+         APPS.FCS_FLEX_VALUES_VL fvv
+          where
+         ECA.AREA_CODE = fvv.flex_value
+         and eca.promo_produk_id =  p1)
+        where desc_rlen &lt; MAX_FIELD_LEN group by tlen;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    IF toret IS NOT NULL THEN return (&apos;Exclude Customer Area :  &apos;||toret);
+    END IF;
+
+    BEGIN  -- exclude cust cust
+                    select distinct  
+        listagg(CUSTOMER_NAME, &apos;, &apos;) within group (order by CUSTOMER_NAME) INTO toret
+        from (
+          select
+         CUSTOMER_NUMBER || &apos; - &apos; || FCA.ACCOUNT_NAME || &apos; - &apos; || FVV.DESCRIPTION as CUSTOMER_NAME,
+            nvl(sum(length(CUSTOMER_NUMBER || &apos; - &apos; || FCA.ACCOUNT_NAME || &apos; - &apos; || FVV.DESCRIPTION) + 8) 
+                over (partition by ecc.promo_produk_id order by ecc.promo_produk_id),0) desc_rlen,
+                nvl(sum(length(CUSTOMER_NUMBER || &apos; - &apos; || FCA.ACCOUNT_NAME || &apos; - &apos; || FVV.DESCRIPTION) + 2) over (),0) tlen
+          from           
+          FOCUSPP.EXCL_CUST_CUST  ecc,
+         APPS.AR_CUSTOMERS aac,
+         APPS.FCS_FLEX_VALUES_VL fvv,
+         APPS.FCS_CUST_ACCOUNTS_VIEW fca
+          where
+        ECC.CUSTOMER_ID = AAC.CUSTOMER_ID
+        and ECC.CUSTOMER_ID = FCA.CUST_ACCOUNT_ID
+        and AAC.ATTRIBUTE5 = FVV.FLEX_VALUE
+        and ecc.promo_produk_id = p1)
+        where desc_rlen &lt; MAX_FIELD_LEN group by tlen;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    IF toret IS NOT NULL THEN return (&apos;Exclude Customer :       &apos;||toret);
+    END IF; 
+
+    BEGIN null; -- exclude cust location   
+              select distinct  
+        listagg(DESCRIPTION, &apos;, &apos;) within group (order by DESCRIPTION)  INTO toret
+        from (
+          select
+         DESCRIPTION,
+           nvl( sum(length(DESCRIPTION)+ 2) 
+                over (partition by ecl.promo_produk_id order by ecl.promo_produk_id),0) desc_rlen,
+                nvl(sum(length(fvv.DESCRIPTION) + 2) over (),0) tlen
+          from           
+          FOCUSPP.excl_cust_loc  ecl,
+         APPS.FCS_FLEX_VALUES_VL fvv
+          where
+         ecl.LOCATION_CODE = fvv.flex_value
+         and ecl.promo_produk_id =  p1)
+        where desc_rlen &lt; MAX_FIELD_LEN group by tlen;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    IF toret IS NOT NULL THEN return (&apos;Exclude Location :       &apos;||toret);
+    END IF; 
+
+    BEGIN  -- exclude cust region
+        select distinct  
+        listagg(DESCRIPTION, &apos;, &apos;) within group (order by DESCRIPTION)  INTO toret
+        from (
+          select
+         DESCRIPTION,
+            nvl(sum(length(DESCRIPTION)+ 2) 
+                over (partition by ecr.promo_produk_id order by ecr.promo_produk_id),0) desc_rlen,
+                nvl(sum(length(fvv.DESCRIPTION) + 2) over (),0) tlen
+          from           
+          FOCUSPP.excl_cust_region  ecr,
+         APPS.FCS_FLEX_VALUES_VL fvv
+          where
+         ecr.REGION_CODE = fvv.flex_value
+         and ecr.promo_produk_id =  p1)
+        where desc_rlen &lt; MAX_FIELD_LEN group by tlen;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    IF toret IS NOT NULL THEN return (&apos;Exclude Region :         &apos;||toret);
+    END IF; 
+
+    BEGIN null; -- exclude cust group
+             select distinct  
+        listagg(DESCRIPTION, &apos;, &apos;) within group (order by DESCRIPTION)  INTO toret
+        from (
+          select
+         DESCRIPTION,
+           nvl( sum(length(DESCRIPTION)+ 2) 
+                over (partition by ecg.promo_produk_id order by ecg.promo_produk_id),0) desc_rlen,
+                nvl(sum(length(fvv.DESCRIPTION) + 2) over (),0) tlen
+          from           
+          FOCUSPP.excl_cust_group  ecg,
+         APPS.FCS_FLEX_VALUES_VL fvv
+          where
+         ecg.CUST_GROUP = fvv.flex_value
+         and ecg.promo_produk_id =  p1)
+        where desc_rlen &lt; MAX_FIELD_LEN group by tlen;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    IF toret IS NOT NULL THEN return (&apos;Exclude Customer Group : &apos;||toret);
+    END IF; 
+
+    BEGIN  -- exclude prop cust group
+              select distinct  
+        listagg(DESCRIPTION, &apos;, &apos;) within group (order by DESCRIPTION) INTO toret
+        from (
+          select
+         DESCRIPTION,
+            nvl(sum(length(DESCRIPTION)+ 2) 
+                over (partition by epcg.promo_produk_id order by epcg.promo_produk_id),0) desc_rlen,
+                nvl(sum(length(fvv.DESCRIPTION) + 2) over (),0) tlen
+          from           
+          FOCUSPP.excl_prop_cust_group  epcg,
+         APPS.FCS_FLEX_VALUES_VL fvv
+          where
+         epcg.CUST_GROUP = fvv.flex_value
+         and epcg.promo_produk_id =  p1)
+        where desc_rlen &lt; MAX_FIELD_LEN group by tlen;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    IF toret IS NOT NULL THEN return (&apos;Exclude Customer Group : &apos;||toret);
+    END IF; 
+
+    BEGIN  -- exclude cust type
+              select distinct  
+        listagg(DESCRIPTION, &apos;, &apos;) within group (order by DESCRIPTION)  INTO toret
+        from (
+          select
+         DESCRIPTION,
+          nvl(  sum(length(DESCRIPTION)+ 2) 
+                over (partition by ect.promo_produk_id order by ect.promo_produk_id),0) desc_rlen,
+                nvl(sum(length(fvv.DESCRIPTION) + 2) over (),0) tlen
+          from           
+          FOCUSPP.excl_cust_type  ect,
+         APPS.FCS_FLEX_VALUES_VL fvv
+          where
+         ect.CUST_TYPE = fvv.flex_value
+         and ect.promo_produk_id =  p1)
+        where desc_rlen &lt; MAX_FIELD_LEN group by tlen;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    IF toret IS NOT NULL THEN return (&apos;Exclude Customer Type :  &apos;||toret);
+    END IF; 
+
+    BEGIN null; -- exclude prop cust type
+              select distinct  
+        listagg(DESCRIPTION, &apos;, &apos;) within group (order by DESCRIPTION)  INTO toret
+        from (
+          select
+         DESCRIPTION,
+           nvl( sum(length(DESCRIPTION)+2) 
+                over (partition by epct.promo_produk_id order by epct.promo_produk_id),0) desc_rlen,
+                nvl(sum(length(fvv.DESCRIPTION) + 2) over (),0) tlen
+          from           
+          FOCUSPP.excl_prop_cust_type  epct,
+         APPS.FCS_FLEX_VALUES_VL fvv
+          where
+         epct.CUST_TYPE = fvv.flex_value
+         and epct.promo_produk_id =  p1)
+        where desc_rlen &lt; MAX_FIELD_LEN group by tlen;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    IF toret IS NOT NULL THEN return (&apos;Exclude Customer Type :  &apos;||toret);
+    END IF; 
+
+  return (&apos;&apos;);
+end;</source>
+</FunctionOracle>

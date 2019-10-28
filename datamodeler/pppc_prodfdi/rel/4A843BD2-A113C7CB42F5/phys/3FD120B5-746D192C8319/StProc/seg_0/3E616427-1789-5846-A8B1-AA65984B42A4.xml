@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<StoredProcedureOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.StoredProcedureOraclev10g" name="FCS_BATCH_LOG" directorySegmentName="seg_0" id="3E616427-1789-5846-A8B1-AA65984B42A4">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_BATCH_LOG</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:05 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<owner><![CDATA[4E5B45BD-E77E-0B6D-EFA2-DE9F30B5E31F]]></owner>
+<source>CREATE OR REPLACE PROCEDURE         FOCUSPP.FCS_BATCH_LOG (P_STATUS IN VARCHAR2, P_BATCH_NM IN VARCHAR2)
+IS
+V_EXISTS NUMBER;
+BEGIN    
+    SELECT COUNT(1) INTO V_EXISTS FROM BATCH_LOG WHERE BATCH_CODE = P_BATCH_NM;
+    IF V_EXISTS &gt; 0 THEN
+        UPDATE BATCH_LOG SET STATUS = P_STATUS, EXEC_DATE = SYSDATE WHERE BATCH_CODE = P_BATCH_NM;
+    ELSE 
+        INSERT INTO BATCH_LOG (BATCH_CODE, STATUS, EXEC_DATE) VALUES (P_BATCH_NM, P_STATUS, SYSDATE);
+    END IF;
+    COMMIT;
+END;</source>
+</StoredProcedureOraclev10g>

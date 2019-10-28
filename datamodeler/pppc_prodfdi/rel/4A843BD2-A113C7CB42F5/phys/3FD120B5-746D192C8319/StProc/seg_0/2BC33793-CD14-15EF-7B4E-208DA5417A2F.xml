@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<StoredProcedureOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.StoredProcedureOraclev10g" name="FCS_CLEAR_SESSION" directorySegmentName="seg_0" id="2BC33793-CD14-15EF-7B4E-208DA5417A2F">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_CLEAR_SESSION</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:05 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<owner><![CDATA[4E5B45BD-E77E-0B6D-EFA2-DE9F30B5E31F]]></owner>
+<source>CREATE OR REPLACE PROCEDURE         FOCUSPP.FCS_CLEAR_SESSION (P_UNAME IN VARCHAR2)
+IS
+BEGIN    
+    DELETE FROM APP_USER_LOGGED WHERE USER_NAME = P_UNAME;
+    COMMIT;
+END;</source>
+</StoredProcedureOraclev10g>

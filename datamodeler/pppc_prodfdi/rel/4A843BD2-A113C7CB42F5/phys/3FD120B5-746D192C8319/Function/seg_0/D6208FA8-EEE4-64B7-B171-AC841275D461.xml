@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FunctionOracle class="oracle.dbtools.crest.model.design.storage.oracle.FunctionOracle" name="RPT_CUSTINCLUDE" directorySegmentName="seg_0" id="D6208FA8-EEE4-64B7-B171-AC841275D461">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>RPT_CUSTINCLUDE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:06 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<owner><![CDATA[4E5B45BD-E77E-0B6D-EFA2-DE9F30B5E31F]]></owner>
+<source>CREATE OR REPLACE FUNCTION         FOCUSPP.RPT_CUSTINCLUDE (P1 NUMBER) 
+RETURN VARCHAR2
+AS
+  TORET VARCHAR2(4000);
+  MAX_FIELD_LEN CONSTANT NUMBER := 3500;
+BEGIN
+    
+    SELECT LISTAGG(COMB.REGION||&apos;-&apos;||COMB.AREA||&apos;-&apos;||COMB.LOCATION||&apos;-&apos;||COMB.CUST_TYPE||&apos;-&apos;||COMB.CUST_GROUP||&apos;-&apos;||COMB.CUSTOMER,&apos;; &apos;) WITHIN GROUP (ORDER BY COMB.PROMO_PRODUK_ID)
+    INTO TORET
+    FROM
+    (
+       select pca.PROMO_CUSTOMER_ID,
+ PP.PROMO_PRODUK_ID,
+  pca.REGION_CODE,
+  nvl(pca.REGION_DESC,&apos;ALL&apos;) as REGION,
+  pca.AREA_CODE,
+  nvl(pca.AREA_DESC,&apos;ALL&apos;)as AREA,
+  pca.LOC_CODE,
+  nvl(pca.LOC_DESC,&apos;ALL&apos;)as LOCATION,
+  pca.CUSTTYP_CODE,
+  nvl(pca.CUSTTYP_DESC,&apos;ALL&apos;)as CUST_TYPE,
+  pca.CUSTGRP_CODE,
+  nvl(pca.CUSTGRP_DESC,&apos;ALL&apos;)as CUST_GROUP,
+  pca.CUSTOMER_ID ,
+  nvl(pca.CUSTOMER_NAME,&apos;ALL&apos;)as CUSTOMER,
+  pca.CUSTOMER_NUMBER 
+   from PROMO_CUSTOMER_AREA pca, promo_produk pp where pca.proposal_id =pp.proposal_id and PP.PROMO_PRODUK_ID =p1
+union
+    select pch.PROMO_CUSTOMER_ID,
+  pch.PROMO_PRODUK_ID,
+  pch.REGION_CODE,
+ nvl(pch.REGION_DESC,&apos;ALL&apos;)as REGION,
+  pch.AREA_CODE,
+  nvl(pch.AREA_DESC,&apos;ALL&apos;)as AREA,
+  pch.LOC_CODE,
+  nvl(pch.LOC_DESC,&apos;ALL&apos;)as LOCATION,
+  pch.CUSTTYP_CODE,
+  nvl(pch.CUSTTYP_DESC,&apos;ALL&apos;)as CUST_TYPE,
+  pch.CUSTGRP_CODE,
+  nvl(pch.CUSTGRP_DESC,&apos;ALL&apos;)as CUST_GROUP,
+  pch.CUSTOMER_ID ,
+  nvl(pch.CUSTOMER_NAME,&apos;ALL&apos;)as CUSTOMER,
+    pch.CUSTOMER_NUMBER 
+  from PROMO_CUSTOMER_HO pch where promo_produk_id=P1
+    ) COMB;
+    RETURN NVL(TORET,&apos;&apos;);
+
+EXCEPTION WHEN OTHERS
+THEN RETURN (&apos;&apos;);
+END;</source>
+</FunctionOracle>

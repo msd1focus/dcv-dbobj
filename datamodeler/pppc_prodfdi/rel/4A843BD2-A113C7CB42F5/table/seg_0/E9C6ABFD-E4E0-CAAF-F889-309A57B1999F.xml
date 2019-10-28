@@ -1,0 +1,178 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E9C6ABFD-E4E0-CAAF-F889-309A57B1999F" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="BUDGET_POSTING">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>BUDGET_POSTING</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:55 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="BUDGET_POSTING_ID" id="34E5888B-1D6A-89BE-4C36-52B4C84FED68">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>BUDGET_POSTING</sourceObjSchema>
+<sourceObjName>BUDGET_POSTING_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="KODE_POSTING" id="B0BCD66E-4FB9-3811-93FD-391B8E1DDFA4">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>BUDGET_POSTING</sourceObjSchema>
+<sourceObjName>KODE_POSTING</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BUDGET_YEAR" id="6662BBD0-7C4C-F5F9-B79D-52AF32361A7B">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>BUDGET_POSTING</sourceObjSchema>
+<sourceObjName>BUDGET_YEAR</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4 BYTE</dataTypeSize>
+<ownDataTypeParameters>4 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CREATED_BY" id="098444BB-B7B1-A3E0-D55F-9E7DBFA381E1">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>BUDGET_POSTING</sourceObjSchema>
+<sourceObjName>CREATED_BY</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CREATION_DATE" id="1974A4B3-DDBF-158B-DBA7-B41D2416EA2C">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>BUDGET_POSTING</sourceObjSchema>
+<sourceObjName>CREATION_DATE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MODIFIED_BY" id="A2FA3DBC-A781-707F-D275-5DDFC2BD6CE9">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>BUDGET_POSTING</sourceObjSchema>
+<sourceObjName>MODIFIED_BY</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MODIFIED_ON" id="CE58A88F-98F5-12D2-8973-D360C753ECF6">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>BUDGET_POSTING</sourceObjSchema>
+<sourceObjName>MODIFIED_ON</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="YEARLY_BUDGET_AMOUNT" id="746D55D1-8E24-BB03-C5EA-6925AB8D9F13">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>BUDGET_POSTING</sourceObjSchema>
+<sourceObjName>YEARLY_BUDGET_AMOUNT</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="YEARLY_BUDGET_CALC" id="CA2B4E49-E591-52C2-B6B6-E5EFE219F35A">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>BUDGET_POSTING</sourceObjSchema>
+<sourceObjName>YEARLY_BUDGET_CALC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="71137052-F060-AE8E-DB4C-75CD572899FF" name="BUDGET_POSTING_PK">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>BUDGET_POSTING_PK</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:02 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="34E5888B-1D6A-89BE-4C36-52B4C84FED68"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E01FB283-C186-FCD6-8A22-AE8561E55FB9" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="BUDGET_POSTING_PK">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>BUDGET_POSTING_PK</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="34E5888B-1D6A-89BE-4C36-52B4C84FED68"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

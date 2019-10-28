@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="47E1ED3D-7E6F-A16F-D50B-231CB8CDD6E9" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="AUDIT_PROMO_BONUS_VARIANT">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>AUDIT_PROMO_BONUS_VARIANT</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:55 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PROMO_BONUS_ID" id="B9F0D0DB-29DE-214B-57F7-1B648BCB7930">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS_VARIANT</sourceObjSchema>
+<sourceObjName>PROMO_BONUS_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:57 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AUDIT_ID" id="066DA339-60CE-DDAB-5690-31A5A1D87810">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS_VARIANT</sourceObjSchema>
+<sourceObjName>AUDIT_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:57 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROD_VARIANT" id="C8740822-5EA1-6391-C065-BDBA19471545">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS_VARIANT</sourceObjSchema>
+<sourceObjName>PROD_VARIANT</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:57 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VARIANT_DESC" id="C6BE746F-E0F6-EAD5-2504-C1C7ECB8648B">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>AUDIT_PROMO_BONUS_VARIANT</sourceObjSchema>
+<sourceObjName>VARIANT_DESC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:57 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+</Table>

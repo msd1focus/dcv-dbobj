@@ -1,0 +1,100 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_1" id="6C7DF768-9EC3-2CA7-EC29-C6EDAC5BD81B" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="PROP_REGION_CUST_GROUP">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PROP_REGION_CUST_GROUP</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PROPOSAL_ID" id="BC5CF449-52FD-E6DD-F5AB-9A0F58CC9E3F">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROP_REGION_CUST_GROUP</sourceObjSchema>
+<sourceObjName>PROPOSAL_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3B9549B6-4669-3D83-B67D-D8236C829F5E" referredColumn="C9664D27-9A7E-D906-2289-C0815EDD085E"/>
+</associations>
+</Column>
+<Column name="CUST_GROUP" id="47FA2E94-6F89-BC16-940B-50925BE9FC40">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROP_REGION_CUST_GROUP</sourceObjSchema>
+<sourceObjName>CUST_GROUP</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUSTGROUPDESC" id="162DB90F-F4BB-7F25-3DAD-5EF30719FACD">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROP_REGION_CUST_GROUP</sourceObjSchema>
+<sourceObjName>CUSTGROUPDESC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FBD9D2CA-75B7-9C7C-B71D-BCFEBC02EC1B" name="PROP_REGION_CUST_GROUP_PK">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PROP_REGION_CUST_GROUP_PK</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:03 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BC5CF449-52FD-E6DD-F5AB-9A0F58CC9E3F"/>
+<colUsage columnID="47FA2E94-6F89-BC16-940B-50925BE9FC40"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3DE7EB7D-F975-451A-9F38-AED1F55A16FA" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="PROP_REGION_CUST_GROUP_PK">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PROP_REGION_CUST_GROUP_PK</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BC5CF449-52FD-E6DD-F5AB-9A0F58CC9E3F"/>
+<colUsage columnID="47FA2E94-6F89-BC16-940B-50925BE9FC40"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3C1EDF29-E25F-A6E6-FBF5-DD4F3EB64335" name="PROP_REGION_CUST_GROUP_PR_FK1">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:04 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BC5CF449-52FD-E6DD-F5AB-9A0F58CC9E3F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

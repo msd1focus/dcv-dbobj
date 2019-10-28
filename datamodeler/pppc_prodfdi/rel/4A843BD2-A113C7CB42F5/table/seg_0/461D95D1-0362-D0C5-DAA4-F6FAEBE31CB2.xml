@@ -1,0 +1,637 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="461D95D1-0362-D0C5-DAA4-F6FAEBE31CB2" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="ANALISA_PP_DOUBLE_TEMP">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>ANALISA_PP_DOUBLE_TEMP</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:55 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="TRXID" id="BEEF2ADA-DF89-BED4-4F90-A637F7F84DFD">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>TRXID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID" id="F68106BE-7253-D087-09B3-A51AF0A88C65">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="COMPANY_ID" id="F643C5C8-C9E9-6F02-E530-040EB789AD60">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>COMPANY_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>3 BYTE</dataTypeSize>
+<ownDataTypeParameters>3 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="START_DATE" id="090C11E3-5EBB-33B1-8E14-864FF6EB7694">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>START_DATE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="END_DATE" id="E07252DC-B304-8036-9802-468A448980DC">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>END_DATE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PP" id="A8D56202-9919-03EF-7662-89E42E1841F4">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>PP</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PP_STATUS" id="4E37CAC0-C0C1-E524-7DFF-F3788B4DC676">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>PP_STATUS</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PC" id="B2F8E1E6-6182-FB6A-69F3-529E726B895D">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>PC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PC_DATE" id="52E5E150-B57A-E8EE-F04B-E798E8FC5D98">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>PC_DATE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PEMOHON" id="1D709C3D-5593-A82B-EDC4-07DC64C5DDAB">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>PEMOHON</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROG_PROMO" id="9F16E0B0-5A3B-F84D-6266-FDE65C7EE004">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>PROG_PROMO</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROPOSAL_TYPE" id="48919F13-D0CD-B3B7-BFA4-58722D929495">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>PROPOSAL_TYPE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEKANISME_PENAGIHAN" id="34F82121-F886-F658-AA16-3401BA2D7925">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>MEKANISME_PENAGIHAN</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUST_REGION" id="E869DAD2-C34F-C3B2-1A23-8B6705E75499">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>CUST_REGION</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000 BYTE</dataTypeSize>
+<ownDataTypeParameters>4000 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUST_AREA" id="D38ACF2A-BFB4-B626-B84D-29FF41631743">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>CUST_AREA</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000 BYTE</dataTypeSize>
+<ownDataTypeParameters>4000 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUST_LOC" id="8D6DBF89-57E4-DA30-8279-C2AD1C4FB23F">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>CUST_LOC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000 BYTE</dataTypeSize>
+<ownDataTypeParameters>4000 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUST_TYPE" id="186721C0-F674-D0D3-1110-7FCA638AAA52">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>CUST_TYPE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000 BYTE</dataTypeSize>
+<ownDataTypeParameters>4000 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUST_GROUP" id="3EF0F798-B040-D260-2461-0EC97899A853">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>CUST_GROUP</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000 BYTE</dataTypeSize>
+<ownDataTypeParameters>4000 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUST_DETAIL" id="A4ADAF4F-B575-2C37-FBE7-124D190AD796">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>CUST_DETAIL</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000 BYTE</dataTypeSize>
+<ownDataTypeParameters>4000 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EXCLUDED_CUST" id="A5F5DCD0-930C-6429-BF35-0F6243BA9460">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>EXCLUDED_CUST</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000 BYTE</dataTypeSize>
+<ownDataTypeParameters>4000 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LINE_NO" id="1362483B-A080-83BB-7097-F7B84B84DB69">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>LINE_NO</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUCT_CATEGORY" id="4700A7FD-E34E-79A8-7BCA-7C26B94037CF">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>PRODUCT_CATEGORY</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>240 BYTE</dataTypeSize>
+<ownDataTypeParameters>240 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUCT_CATEGORY_CODE" id="4FF831E0-9890-B706-0166-DD59371CE136">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>PRODUCT_CATEGORY_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUCT_CLASS" id="743D5BEA-2575-E066-3C09-1F4CF4478BC8">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>PRODUCT_CLASS</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>240 BYTE</dataTypeSize>
+<ownDataTypeParameters>240 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUCT_CLASS_CODE" id="A7ECBE40-9EC7-34AC-A43B-ED21263A8DFF">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>PRODUCT_CLASS_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUCT_BRAND" id="622F012E-9CDD-30D9-7B86-07F66FBDCF72">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>PRODUCT_BRAND</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>240 BYTE</dataTypeSize>
+<ownDataTypeParameters>240 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUCT_BRAND_CODE" id="0FAD2E7A-74D7-D957-00F1-4274A12D66CE">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>PRODUCT_BRAND_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUCT_EXTENSION" id="ACCAA23A-CF4F-583E-1668-3937D848203D">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>PRODUCT_EXTENSION</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>240 BYTE</dataTypeSize>
+<ownDataTypeParameters>240 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUCT_EXTENSION_CODE" id="1A61D937-2956-21FD-946B-715E3F8BD157">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>PRODUCT_EXTENSION_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUCT_PACKAGING" id="4B42CBE2-10E6-1B2E-C7B1-314BF8D81585">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>PRODUCT_PACKAGING</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>240 BYTE</dataTypeSize>
+<ownDataTypeParameters>240 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUCT_PACKAGING_CODE" id="F84B67F5-3A6E-D1D6-1A57-5229215DEC7E">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>PRODUCT_PACKAGING_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUCT_VARIANT" id="9E0978B5-14CC-80E5-A137-2E4C658E60FA">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>PRODUCT_VARIANT</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000 BYTE</dataTypeSize>
+<ownDataTypeParameters>4000 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUCT_VARIANT_CODE" id="4A3BA32D-6BC6-16B0-5B73-C25BD980AF32">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>PRODUCT_VARIANT_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000 BYTE</dataTypeSize>
+<ownDataTypeParameters>4000 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUCT_DETAIL" id="C24FF52F-C834-2F7C-6461-A891E7D63EF1">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>PRODUCT_DETAIL</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000 BYTE</dataTypeSize>
+<ownDataTypeParameters>4000 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUCT_DETAIL_CODE" id="DE8BF2FA-E060-B2F1-312D-41905C3A4D24">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>PRODUCT_DETAIL_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000 BYTE</dataTypeSize>
+<ownDataTypeParameters>4000 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEKANISME" id="ABB70004-E64C-E3DB-1920-A277D4D9AE1F">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>MEKANISME</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000 BYTE</dataTypeSize>
+<ownDataTypeParameters>2000 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCRIPTION" id="CAA47E65-4095-F3AD-D9B7-0F1F9BC7CB1D">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>DESCRIPTION</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000 BYTE</dataTypeSize>
+<ownDataTypeParameters>2000 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DETIL_PROMO" id="80580DE6-AB46-C9BA-195F-61CA99C66FA8">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>DETIL_PROMO</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000 BYTE</dataTypeSize>
+<ownDataTypeParameters>4000 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ON_TOP_TPB" id="1AA7026A-3CBF-5F2B-AA58-6A6BEFADBD0B">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>ON_TOP_TPB</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MF_PB" id="4D8E8987-1DCC-240D-CD88-715827871210">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>MF_PB</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TOTAL_ON_TOP_TPB" id="9FF88E61-737D-0C22-FB4C-A8912460445E">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>TOTAL_ON_TOP_TPB</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TOTAL_MF_PB" id="F9E2378E-EE0D-DB54-7D4B-096BED34B1CA">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>ANALISA_PP_DOUBLE_TEMP</sourceObjSchema>
+<sourceObjName>TOTAL_MF_PB</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+</Table>

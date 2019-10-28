@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="FCS_UPDATE_END_DATE_UPD" directorySegmentName="seg_0" id="60716CDB-1D54-C31C-99B3-1F0AE6E072E4">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_UPDATE_END_DATE_UPD</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:04 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<actions>UPDATE</actions>
+<body><![CDATA[DECLARE
+    PRAGMA AUTONOMOUS_TRANSACTION;
+BEGIN
+    -- CREATED BY   : MII - SODIQ MR.
+    -- CREATE DATE  : 13-APR-2018
+    -- REASON       : DIGUNAKAN UNTUK UPDATE END DATE KETIKA ADDENDUM DI CANCEL
+
+    IF :OLD.ADDENDUM_KE IS NOT NULL AND :NEW.STATUS = 'CANCELED' AND :OLD.DISCOUNT_TYPE <> 'BIAYA' THEN
+        
+        UPDATE FOCUSPP.PROPOSAL PC
+        SET PC.PERIODE_PROG_TO = (
+                                    SELECT PC3.PP_PROG_TO_ORI
+                                    FROM FOCUSPP.PROPOSAL PC3
+                                    WHERE PC3.CONFIRM_NO = :OLD.CONFIRM_NO
+                                    AND NVL(PC3.ADDENDUM_KE,0) = 
+                                    (
+                                        SELECT MAX(NVL(PC2.ADDENDUM_KE,0))
+                                        FROM FOCUSPP.PROPOSAL PC2
+                                        WHERE PC2.CONFIRM_NO = :OLD.CONFIRM_NO
+                                        AND PC2.STATUS = 'ACTIVE'
+                                        AND NVL(PC2.ADDENDUM_KE,0) < :OLD.ADDENDUM_KE
+                                    )
+                                 )
+            , PC.PROG_DAYS = (
+                                SELECT (PC3.PP_PROG_TO_ORI - PC3.PP_PROG_FROM_ORI)+1
+                                FROM FOCUSPP.PROPOSAL PC3
+                                WHERE PC3.CONFIRM_NO = :OLD.CONFIRM_NO
+                                AND NVL(PC3.ADDENDUM_KE,0) = 
+                                (
+                                    SELECT MAX(NVL(PC2.ADDENDUM_KE,0))
+                                    FROM FOCUSPP.PROPOSAL PC2
+                                    WHERE PC2.CONFIRM_NO = :OLD.CONFIRM_NO
+                                    AND PC2.STATUS = 'ACTIVE'
+                                    AND NVL(PC2.ADDENDUM_KE,0) < :OLD.ADDENDUM_KE
+                                )
+                             )
+        WHERE PC.CONFIRM_NO = :OLD.CONFIRM_NO
+        AND NVL(PC.ADDENDUM_KE,0) =
+        (
+            SELECT MAX(NVL(PC1.ADDENDUM_KE,0))
+            FROM FOCUSPP.PROPOSAL PC1
+            WHERE PC1.CONFIRM_NO = :OLD.CONFIRM_NO
+            AND PC1.STATUS = 'ACTIVE'
+            AND NVL(PC1.ADDENDUM_KE,0) < :OLD.ADDENDUM_KE
+        );
+        
+        COMMIT;
+        
+    END IF;
+    
+    IF NVL(:NEW.ADDENDUM_KE,'0') > NVL(:OLD.ADDENDUM_KE,'0') AND NVL(:NEW.ADDENDUM_KE,'0') > 0 AND :NEW.STATUS = 'ACTIVE' AND :OLD.DISCOUNT_TYPE <> 'BIAYA' THEN
+    
+        UPDATE FOCUSPP.PROPOSAL PC
+        SET PC.PERIODE_PROG_TO = :NEW.PERIODE_PROG_FROM-1
+          , PC.PROG_DAYS = (:NEW.PERIODE_PROG_FROM - PC.PERIODE_PROG_FROM)
+        WHERE PC.CONFIRM_NO = :NEW.CONFIRM_NO
+        AND NVL(PC.ADDENDUM_KE,0) =
+        (
+            SELECT MAX(NVL(PC1.ADDENDUM_KE,0))
+            FROM FOCUSPP.PROPOSAL PC1
+            WHERE PC1.CONFIRM_NO = :NEW.CONFIRM_NO
+            AND PC1.STATUS = 'ACTIVE'
+            AND NVL(PC1.ADDENDUM_KE,0) < :NEW.ADDENDUM_KE
+        );
+        
+        COMMIT;
+        
+    END IF;
+    
+    IF NVL(:NEW.ADDENDUM_KE,'0') > NVL(:OLD.ADDENDUM_KE,'0') AND NVL(:NEW.ADDENDUM_KE,'0') > 0 AND :NEW.STATUS = 'ACTIVE' AND :OLD.DISCOUNT_TYPE = 'BIAYA' THEN
+        UPDATE FOCUSPP.PROPOSAL PC
+        SET STATUS = 'CANCELED'
+        WHERE PC.CONFIRM_NO = :NEW.CONFIRM_NO
+        AND NVL(PC.ADDENDUM_KE,0) =
+        (
+            SELECT MAX(NVL(PC1.ADDENDUM_KE,0))
+            FROM FOCUSPP.PROPOSAL PC1
+            WHERE PC1.CONFIRM_NO = :NEW.CONFIRM_NO
+            AND PC1.STATUS = 'ACTIVE'
+            AND NVL(PC1.ADDENDUM_KE,0) < :NEW.ADDENDUM_KE
+        );
+        
+        COMMIT;
+        
+    END IF;
+    
+    
+END; ]]></body>
+<triggerTime>AFTER</triggerTime>
+<owner>4E5B45BD-E77E-0B6D-EFA2-DE9F30B5E31F</owner>
+<table>538D0EA2-79B5-8D68-5833-D83541B30A66</table>
+</TriggerOraclev10g>

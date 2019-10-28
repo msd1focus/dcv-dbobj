@@ -1,0 +1,100 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_1" id="8E25094A-28C9-1C41-1F85-999E22852691" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="PROP_REGION_LOC">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PROP_REGION_LOC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PROPOSAL_ID" id="F79A2BA4-F016-A998-3EEC-2F150440AA35">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROP_REGION_LOC</sourceObjSchema>
+<sourceObjName>PROPOSAL_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A4EDFA8B-C7B9-4622-FAB9-E15377AE8224" referredColumn="C9664D27-9A7E-D906-2289-C0815EDD085E"/>
+</associations>
+</Column>
+<Column name="LOCATION_CODE" id="2BA34FBE-98C5-CA44-AF86-3B4117F54769">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROP_REGION_LOC</sourceObjSchema>
+<sourceObjName>LOCATION_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LOCDESCRIPTION" id="8E28C8D9-F4E3-1393-4381-639D79D2DB53">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROP_REGION_LOC</sourceObjSchema>
+<sourceObjName>LOCDESCRIPTION</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:59 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2812872B-E99C-B64A-BBD0-1E8D45CFA31C" name="PROP_REGION_LOC_PK">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PROP_REGION_LOC_PK</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:03 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F79A2BA4-F016-A998-3EEC-2F150440AA35"/>
+<colUsage columnID="2BA34FBE-98C5-CA44-AF86-3B4117F54769"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="00626255-EB06-398E-D6BE-12BD7D230F2E" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="PROP_REGION_LOC_PK">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PROP_REGION_LOC_PK</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:01 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F79A2BA4-F016-A998-3EEC-2F150440AA35"/>
+<colUsage columnID="2BA34FBE-98C5-CA44-AF86-3B4117F54769"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9287AADF-727E-4526-8D6B-18345C40DE26" name="PROP_REGION_LOC_PROPOSAL_FK1">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:04 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F79A2BA4-F016-A998-3EEC-2F150440AA35"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

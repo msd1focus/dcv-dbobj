@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="F36F5AE1-77E1-0EEF-3423-9FAEDFE56FE9" containerWithKeyObject="6E574693-226D-AD1C-5C80-693C64BFE086" localFKIndex="B6C03302-6C9F-7124-F31C-391C9D2B0BB1" name="PROMO_CUSTOMER_AREA_PROPO_FK1">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PROMO_CUSTOMER_AREA_PROPO_FK1</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:04 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<referredTableLongName>FOCUSPP.PROPOSAL</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>538D0EA2-79B5-8D68-5833-D83541B30A66</referredTableID>
+<keyObject>E6A3A9EA-4AD6-015F-431E-C0BECA68D36E</keyObject>
+<referredKeyID>E6A3A9EA-4AD6-015F-431E-C0BECA68D36E</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>PROPOSAL_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

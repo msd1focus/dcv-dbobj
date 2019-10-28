@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableViewProxyOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TableViewProxyOraclev10g" name="LOVBUDGETCUSTOMER_VIEW_RPT" directorySegmentName="seg_0" id="D7C9EDB8-7819-8721-ED04-103A1081C8A6">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<schemaObject>C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9</schemaObject>
+</TableViewProxyOraclev10g>

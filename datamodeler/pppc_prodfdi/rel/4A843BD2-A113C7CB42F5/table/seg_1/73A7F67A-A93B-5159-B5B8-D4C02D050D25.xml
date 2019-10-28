@@ -1,0 +1,128 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_1" id="73A7F67A-A93B-5159-B5B8-D4C02D050D25" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="UPLOAD_DOWNLOAD">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>UPLOAD_DOWNLOAD</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PROPOSAL_ID" id="05568132-D471-2B10-6C09-8E7FC4AB0773">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>UPLOAD_DOWNLOAD</sourceObjSchema>
+<sourceObjName>PROPOSAL_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6DE0DF3C-8F05-2C19-2617-BDD89A34B77C" referredColumn="C9664D27-9A7E-D906-2289-C0815EDD085E"/>
+</associations>
+</Column>
+<Column name="IDFILE" id="AEE26F3C-7634-B7A9-7764-91134D26F4D5">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>UPLOAD_DOWNLOAD</sourceObjSchema>
+<sourceObjName>IDFILE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FILE_NAME" id="4EE3E737-A9FE-F2D6-F299-D82F0628B3CF">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>UPLOAD_DOWNLOAD</sourceObjSchema>
+<sourceObjName>FILE_NAME</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500 BYTE</dataTypeSize>
+<ownDataTypeParameters>500 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PATH" id="C09E8E5D-2ED3-977C-46BA-44B518C351D3">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>UPLOAD_DOWNLOAD</sourceObjSchema>
+<sourceObjName>PATH</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500 BYTE</dataTypeSize>
+<ownDataTypeParameters>500 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CONTENT_TYPE" id="F871233D-9DFB-87B1-6E69-64C61F9A4F73">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>UPLOAD_DOWNLOAD</sourceObjSchema>
+<sourceObjName>CONTENT_TYPE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500 BYTE</dataTypeSize>
+<ownDataTypeParameters>500 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2D352340-724D-3F12-C75C-B3DD1FB045BD" name="UPLOAD_DOWNLOAD_PK">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>UPLOAD_DOWNLOAD_PK</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:03 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="05568132-D471-2B10-6C09-8E7FC4AB0773"/>
+<colUsage columnID="AEE26F3C-7634-B7A9-7764-91134D26F4D5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BBD9C381-7A1B-837C-2F1C-764682829BC2" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="UPLOAD_DOWNLOAD_PK">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>UPLOAD_DOWNLOAD_PK</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:01 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="05568132-D471-2B10-6C09-8E7FC4AB0773"/>
+<colUsage columnID="AEE26F3C-7634-B7A9-7764-91134D26F4D5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="281B9EE9-9106-3A15-CE45-171DBB2418D6" name="UPLOAD_DOWNLOAD_PROPOSAL_FK1">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:04 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="05568132-D471-2B10-6C09-8E7FC4AB0773"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

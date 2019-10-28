@@ -1,0 +1,89 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FunctionOracle class="oracle.dbtools.crest.model.design.storage.oracle.FunctionOracle" name="RPT_F_BARANG" directorySegmentName="seg_0" id="1F174570-E67A-38A7-F16E-14F3A61FB4E0">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>RPT_F_BARANG</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:06 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<owner><![CDATA[4E5B45BD-E77E-0B6D-EFA2-DE9F30B5E31F]]></owner>
+<source>CREATE OR REPLACE function         FOCUSPP.RPT_F_BARANG (p1 number) 
+return varchar2
+as
+  MAX_FIELD_LEN constant number := 3500;
+  toret varchar2(4000);
+  v_type varchar2(1000);
+  v_variant varchar2(1000);
+  v_produk varchar2(4000);
+BEGIN
+    BEGIN
+      select 
+     (SELECT description
+       FROM apps.mtl_categories_v
+      WHERE category_concat_segs = pp.PRODUCT_CATEGORY
+        AND structure_name = &apos;FCS_CATEGORY&apos;)||&apos; - &apos;||
+     (SELECT description
+       FROM apps.mtl_categories_v
+      WHERE category_concat_segs = pp.PRODUCT_CLASS
+        AND structure_name = &apos;FCS_CLASS&apos;)||&apos; - &apos;||
+     (SELECT description
+       FROM apps.mtl_categories_v
+      WHERE category_concat_segs = pp.PRODUCT_BRAND
+        AND structure_name = &apos;FCS_BRAND&apos;)||&apos; - &apos;||
+     (SELECT description
+       FROM apps.mtl_categories_v
+      WHERE category_concat_segs = pp.PRODUCT_EXT
+        AND structure_name = &apos;FCS_EXTENTION&apos;)||&apos; - &apos;||
+     (SELECT description
+       FROM apps.mtl_categories_v
+      WHERE category_concat_segs = pp.PRODUCT_PACK
+        AND structure_name = &apos;FCS_PACKAGING&apos;)
+    INTO v_type
+    from focuspp.promo_produk pp
+    where pp.promo_produk_id = p1;
+
+    BEGIN
+        SELECT listagg(var.description , &apos;, &apos;) within group (order by var.description)
+        INTO v_variant
+        from(    
+        select  description
+        from FOCUSPP.produk_variant pv, apps.mtl_categories_v
+        where PV.PROD_VARIANT = category_concat_segs
+        and PV.PROMO_PRODUK_ID = p1
+        and structure_name = &apos;FCS_VARIANT&apos;
+        ) var ;
+        IF v_variant IS NOT NULL THEN 
+            v_variant := &apos; - &apos;||v_variant;
+        END IF;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+
+    IF ltrim(rtrim(v_variant)) = &apos;- ALL&apos; THEN
+        SELECT listagg(pr.item_description,&apos;, &apos;) within group (order by pr.item_description) ||
+        decode(trunc(t/3600),0,&apos;&apos;,&apos;, ...&apos;) dd
+        INTO v_produk
+        FROM (        
+            select v.item_description, length(v.item_description) l
+            ,sum(length(v.item_description)) over (order by v.item_description) r
+            ,sum(length(v.item_description)+2) over () t
+            from produk_item i, apps.fcs_view_item_master_category v
+            where v.item = i.prod_item
+            and v.type_table = &apos;MASTER&apos;
+            and promo_produk_id = p1
+        ) pr
+        WHERE r &lt; 3600
+        group by t;
+
+        IF v_produk IS NOT NULL THEN 
+            v_produk := &apos; - &apos;||v_produk;
+        END IF;
+    END IF;
+
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    
+        toret := v_type || v_variant || v_produk;
+
+  RETURN (toret);
+END;</source>
+</FunctionOracle>

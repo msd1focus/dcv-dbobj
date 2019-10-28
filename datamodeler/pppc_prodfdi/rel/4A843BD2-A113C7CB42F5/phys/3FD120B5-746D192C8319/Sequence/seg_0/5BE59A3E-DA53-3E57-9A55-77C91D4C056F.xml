@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SequenceOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.SequenceOraclev10g" name="UT_USER_CUST_INC_SEQ" directorySegmentName="seg_0" id="5BE59A3E-DA53-3E57-9A55-77C91D4C056F">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>UT_USER_CUST_INC_SEQ</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:52 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<cache>20</cache>
+<cycle>YES</cycle>
+<incrementBy>1</incrementBy>
+<maxValue>9999999999999999999999999999</maxValue>
+<minValue>1</minValue>
+<order>YES</order>
+<user>4E5B45BD-E77E-0B6D-EFA2-DE9F30B5E31F</user>
+</SequenceOraclev10g>

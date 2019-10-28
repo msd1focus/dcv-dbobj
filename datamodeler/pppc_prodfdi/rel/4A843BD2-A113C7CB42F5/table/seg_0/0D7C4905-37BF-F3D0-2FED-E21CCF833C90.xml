@@ -1,0 +1,201 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0D7C4905-37BF-F3D0-2FED-E21CCF833C90" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="EMAIL_NOTIF_RECEIVER">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>EMAIL_NOTIF_RECEIVER</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:55 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="MNR_ID" id="D4913048-02B4-6E68-0B58-A65C98E9BD4F">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>EMAIL_NOTIF_RECEIVER</sourceObjSchema>
+<sourceObjName>MNR_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROPOSAL_ID" id="DE169AEB-F9F4-3661-4931-CB40A1D405CF">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>EMAIL_NOTIF_RECEIVER</sourceObjSchema>
+<sourceObjName>PROPOSAL_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C143C62C-4A8A-6143-B0ED-BF86D7FC264C" referredColumn="C9664D27-9A7E-D906-2289-C0815EDD085E"/>
+</associations>
+</Column>
+<Column name="EMAIL_ADDRESS" id="E1AF866B-166D-A499-0738-B98F6FBAE005">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>EMAIL_NOTIF_RECEIVER</sourceObjSchema>
+<sourceObjName>EMAIL_ADDRESS</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USER_NAME" id="09D1206D-FD67-5324-9F4A-CC9185427811">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>EMAIL_NOTIF_RECEIVER</sourceObjSchema>
+<sourceObjName>USER_NAME</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SEND_DATE" id="16702040-46C0-7BEE-AC71-81E0C571F622">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>EMAIL_NOTIF_RECEIVER</sourceObjSchema>
+<sourceObjName>SEND_DATE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FULL_NAME" id="E72A072D-B3B5-E49D-3E79-C16B5AAD90AD">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>EMAIL_NOTIF_RECEIVER</sourceObjSchema>
+<sourceObjName>FULL_NAME</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TITLE" id="9713CC53-3B9D-76F7-5ADB-6C48CCFE3D68">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>EMAIL_NOTIF_RECEIVER</sourceObjSchema>
+<sourceObjName>TITLE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MAIL_COUNT" id="54C44FE6-5F07-E6D4-51B2-8B421C0235EF">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>EMAIL_NOTIF_RECEIVER</sourceObjSchema>
+<sourceObjName>MAIL_COUNT</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DOC_APPROVAL_ID" id="532F8563-F91D-B216-3D30-8B7C4A8B1CA6">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>EMAIL_NOTIF_RECEIVER</sourceObjSchema>
+<sourceObjName>DOC_APPROVAL_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ACTION" id="A457AF55-E2E0-D517-8901-99062C728D25">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>EMAIL_NOTIF_RECEIVER</sourceObjSchema>
+<sourceObjName>ACTION</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="59AC53B1-06CE-25A1-7AA2-A966C56E742A" name="EMAIL_NOTIF_RECEIVER_PK">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>EMAIL_NOTIF_RECEIVER_PK</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:02 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D4913048-02B4-6E68-0B58-A65C98E9BD4F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3ACE4FCE-DBA0-8ACC-86CB-EBC89864D79C" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="EMAIL_NOTIF_RECEIVER_PK">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>EMAIL_NOTIF_RECEIVER_PK</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D4913048-02B4-6E68-0B58-A65C98E9BD4F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="504888A1-885D-0912-3168-5D85B173AF01" name="EMAIL_NOTIF_RECEIVER_PROP_FK1">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:04 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DE169AEB-F9F4-3661-4931-CB40A1D405CF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

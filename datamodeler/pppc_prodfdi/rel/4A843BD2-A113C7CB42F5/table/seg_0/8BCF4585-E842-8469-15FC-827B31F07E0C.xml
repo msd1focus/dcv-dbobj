@@ -1,0 +1,204 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8BCF4585-E842-8469-15FC-827B31F07E0C" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="PROD_BUDGET_BY">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PROD_BUDGET_BY</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="BUDGET_BY_ID" id="DF028A03-6DE3-ED48-EA81-85FE6A0F8E7C">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROD_BUDGET_BY</sourceObjSchema>
+<sourceObjName>BUDGET_BY_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROMO_PRODUK_ID" id="4C8EA376-5FEA-DF53-1AB6-3B974E3BBC62">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROD_BUDGET_BY</sourceObjSchema>
+<sourceObjName>PROMO_PRODUK_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7F3358F0-85A5-83A1-452A-57FE416B2C13" referredColumn="6CB4BA1E-24F8-3580-951F-1585A64B382D"/>
+</associations>
+</Column>
+<Column name="KOMBINASI_BUDGET" id="EFFFCAC6-A001-41B8-26A0-9A0DA3F7938D">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROD_BUDGET_BY</sourceObjSchema>
+<sourceObjName>KOMBINASI_BUDGET</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000 BYTE</dataTypeSize>
+<ownDataTypeParameters>2000 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AMOUNT" id="E44BC6E0-8480-6DE1-4C02-3F4C5BA913D5">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROD_BUDGET_BY</sourceObjSchema>
+<sourceObjName>AMOUNT</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PERCENTAGE" id="7793527A-7BAA-2502-7A79-1DE40D5867DA">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROD_BUDGET_BY</sourceObjSchema>
+<sourceObjName>PERCENTAGE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,5,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BUDGET_POSTING_ID" id="C600D6C9-A031-8FEA-8CE6-5DA453F606C3">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROD_BUDGET_BY</sourceObjSchema>
+<sourceObjName>BUDGET_POSTING_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BUDGET_CUST_ID" id="1D45C4C7-9EEE-1AE8-D3E8-B2A73C0E73C5">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROD_BUDGET_BY</sourceObjSchema>
+<sourceObjName>BUDGET_CUST_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STATUS" id="F25899A0-523A-C2C4-D2CE-A4272A0055DF">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROD_BUDGET_BY</sourceObjSchema>
+<sourceObjName>STATUS</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FLAG_STATUS_OVER" id="BD109BFC-2BBE-497A-2181-3FC178BDA283">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROD_BUDGET_BY</sourceObjSchema>
+<sourceObjName>FLAG_STATUS_OVER</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<defaultValue>&apos;N&apos;</defaultValue>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="OVER_BUDGET_AMT" id="AF09A911-1C6E-19C0-52A7-AB2BD44FDA40">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>PROD_BUDGET_BY</sourceObjSchema>
+<sourceObjName>OVER_BUDGET_AMT</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9185BEB1-9449-F04C-9BBA-BE8884E26EB9" name="PROD_BUDGET_BY_PK">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PROD_BUDGET_BY_PK</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:02 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DF028A03-6DE3-ED48-EA81-85FE6A0F8E7C"/>
+<colUsage columnID="4C8EA376-5FEA-DF53-1AB6-3B974E3BBC62"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2624E62B-7EF0-26A8-EEF6-023B67C36AE1" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="PROD_BUDGET_BY_PK">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>PROD_BUDGET_BY_PK</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DF028A03-6DE3-ED48-EA81-85FE6A0F8E7C"/>
+<colUsage columnID="4C8EA376-5FEA-DF53-1AB6-3B974E3BBC62"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D9832C11-F8E0-C159-1978-6A2753F892ED" name="PROD_BUDGET_BY_PROMO_PROD_FK1">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:04 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4C8EA376-5FEA-DF53-1AB6-3B974E3BBC62"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

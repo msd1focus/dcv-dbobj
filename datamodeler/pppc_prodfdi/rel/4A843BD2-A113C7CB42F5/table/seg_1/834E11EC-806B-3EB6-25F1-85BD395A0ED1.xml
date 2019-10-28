@@ -1,0 +1,116 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_1" id="834E11EC-806B-3EB6-25F1-85BD395A0ED1" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="RUN_NUMBER">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>RUN_NUMBER</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:56 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="RUN_NUM_TYPE" id="25A6A446-2BD5-E0B4-9613-ADC8552C6A90">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>RUN_NUMBER</sourceObjSchema>
+<sourceObjName>RUN_NUM_TYPE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>5 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USER_NAME" id="58F03276-27C0-4217-8C72-C7A96965814A">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>RUN_NUMBER</sourceObjSchema>
+<sourceObjName>USER_NAME</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RUN_YEAR" id="325C5094-CD0E-BE40-9B19-2D36B1A27774">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>RUN_NUMBER</sourceObjSchema>
+<sourceObjName>RUN_YEAR</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RUN_MONTH" id="095B8442-23EB-ABDC-3786-5A94FE7CFCA0">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>RUN_NUMBER</sourceObjSchema>
+<sourceObjName>RUN_MONTH</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VALUE" id="F10FFDB2-C467-1E1A-954D-12363005D2E1">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>RUN_NUMBER</sourceObjSchema>
+<sourceObjName>VALUE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="05EFF461-710C-C268-7C65-5282AA0B4B48" name="RUN_NUMBER_PK">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>RUN_NUMBER_PK</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:03 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="25A6A446-2BD5-E0B4-9613-ADC8552C6A90"/>
+<colUsage columnID="325C5094-CD0E-BE40-9B19-2D36B1A27774"/>
+<colUsage columnID="58F03276-27C0-4217-8C72-C7A96965814A"/>
+<colUsage columnID="095B8442-23EB-ABDC-3786-5A94FE7CFCA0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C86B0FA9-290D-19BE-48B3-4FC324FC3F69" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="RUN_NUMBER_PK">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>RUN_NUMBER_PK</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:01 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="25A6A446-2BD5-E0B4-9613-ADC8552C6A90"/>
+<colUsage columnID="325C5094-CD0E-BE40-9B19-2D36B1A27774"/>
+<colUsage columnID="58F03276-27C0-4217-8C72-C7A96965814A"/>
+<colUsage columnID="095B8442-23EB-ABDC-3786-5A94FE7CFCA0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

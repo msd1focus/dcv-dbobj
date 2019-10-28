@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<StoredProcedureOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.StoredProcedureOraclev10g" name="FCS_LOGIN_OUT" directorySegmentName="seg_0" id="1B2FF36A-01C5-4C91-BD3B-C5DAFCF09D89">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_LOGIN_OUT</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:05 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<owner><![CDATA[4E5B45BD-E77E-0B6D-EFA2-DE9F30B5E31F]]></owner>
+<source>CREATE OR REPLACE PROCEDURE         FOCUSPP.FCS_LOGIN_OUT (P_UNAME IN VARCHAR2, P_SESSIONID IN VARCHAR2)
+IS
+BEGIN    
+    DELETE FROM APP_USER_LOGGED WHERE USER_NAME = P_UNAME;
+    COMMIT;
+END;</source>
+</StoredProcedureOraclev10g>

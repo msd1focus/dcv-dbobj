@@ -1,0 +1,129 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E8403BCD-FC99-4C6E-E17C-C904A4A4544F" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="CATEGORY_PC_LOG">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>CATEGORY_PC_LOG</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:55 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CATEGORY_PC_LOG_ID" id="7D660E65-64BE-4B20-246F-32C6BF3DE966">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>CATEGORY_PC_LOG</sourceObjSchema>
+<sourceObjName>CATEGORY_PC_LOG_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NO_PC" id="186C58EF-9F96-EE85-9338-31B7B152D741">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>CATEGORY_PC_LOG</sourceObjSchema>
+<sourceObjName>NO_PC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NO_PP" id="69A023DC-00BB-8E2D-FC06-A22A7E850338">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>CATEGORY_PC_LOG</sourceObjSchema>
+<sourceObjName>NO_PP</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9FD0E62F-FA6A-8D31-BCE0-3D23BF930104" referredColumn="4BC43CEA-8D22-09A7-1C35-37D3A858422D"/>
+</associations>
+</Column>
+<Column name="CREATION_DATE" id="A2687D98-74FB-12A7-5D69-FC318C59364E">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>CATEGORY_PC_LOG</sourceObjSchema>
+<sourceObjName>CREATION_DATE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CREATED_BY" id="1DAD6071-6149-9829-D97C-D99D22DD3E08">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>CATEGORY_PC_LOG</sourceObjSchema>
+<sourceObjName>CREATED_BY</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:58 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CF7BEE84-43E9-93DA-4150-C7317E11AC20" name="CATEGORY_PC_LOG_PK">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>CATEGORY_PC_LOG_PK</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:02 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7D660E65-64BE-4B20-246F-32C6BF3DE966"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F0DD7D2B-1849-3B4B-57F1-74A42DC7BC06" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="CATEGORY_PC_LOG_PK">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>CATEGORY_PC_LOG_PK</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:00 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7D660E65-64BE-4B20-246F-32C6BF3DE966"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8DE16580-AC89-DE1B-E572-676151CF84AF" name="CATEGORY_PC_LOG_PROPOSAL_FK1">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:04 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="69A023DC-00BB-8E2D-FC06-A22A7E850338"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

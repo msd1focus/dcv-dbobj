@@ -1,0 +1,108 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="A3D5DA59-7EB9-8C40-FAF5-7C64707D7787" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="FCS_SHUTTLE_USER_REGION">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_SHUTTLE_USER_REGION</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL><![CDATA[CREATE OR REPLACE VIEW FCS_SHUTTLE_USER_REGION
+AS 
+SELECT   ArCustomers.ATTRIBUTE3 AS REGION_CODE,
+              ArCustomers.ATTRIBUTE3 || ' ' || flex.DESCRIPTION AS REGION_LABEL,
+              AUR.USER_NAME
+       FROM   APPS.AR_CUSTOMERS ArCustomers,
+              APP_USER_REGION AUR,
+              APPS.FCS_FLEX_VALUES_VL flex
+      WHERE   ArCustomers.ATTRIBUTE3 = AUR.REGION_CODE
+              AND flex.FLEX_VALUE = ArCustomers.ATTRIBUTE3
+   GROUP BY   ArCustomers.ATTRIBUTE3, flex.DESCRIPTION, AUR.USER_NAME
+   UNION ALL
+     SELECT   FcsViewAttrExcl.VALUE AS REGION_CODE,
+              (FcsViewAttrExcl.VALUE || ' ' || FcsViewAttrExcl.DESCRIPTION)
+                 AS REGION_LABEL,
+              AppUserAccess.USER_NAME
+       FROM   APPS.FCS_VIEW_CUST_ATTR_EXCL FcsViewAttrExcl,
+              APP_USER_ACCESS AppUserAccess
+      WHERE   FcsViewAttrExcl.TYPE = 'REGION'  AND FcsViewAttrExcl.VALUE NOT IN (SELECT ArCustomers.ATTRIBUTE3
+       FROM   APPS.AR_CUSTOMERS ArCustomers, APP_USER_REGION AUR
+      WHERE   ArCustomers.ATTRIBUTE3 = AUR.REGION_CODE AND AUR.USER_NAME = AppUserAccess.USER_NAME)
+   GROUP BY   FcsViewAttrExcl.VALUE,
+              FcsViewAttrExcl.DESCRIPTION,
+              AppUserAccess.USER_NAME
+   ORDER BY   "REGION_LABEL"]]></userDefinedSQL>
+<parsed>true</parsed>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="REGION_CODE" id="C2A984F5-2653-1E68-D46A-C7AFD1CE609B">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_SHUTTLE_USER_REGION</sourceObjSchema>
+<sourceObjName>REGION_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>REGION_CODE</alias>
+<dataType>VARCHAR2 (30 BYTE)</dataType>
+<headerAlias>REGION_CODE</headerAlias>
+<reference>false</reference>
+<referencedColumn>A38F6EA5-AC26-5CA9-9F8A-507505058DB4</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="REGION_LABEL" id="8EF07348-81D0-AC66-BA2F-5543D17E4D6A">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_SHUTTLE_USER_REGION</sourceObjSchema>
+<sourceObjName>REGION_LABEL</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>REGION_LABEL</alias>
+<dataType>VARCHAR2 (391 BYTE)</dataType>
+<headerAlias>REGION_LABEL</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="USER_NAME" id="61EC0460-D7AC-6416-0327-EDB05B5AB32E">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_SHUTTLE_USER_REGION</sourceObjSchema>
+<sourceObjName>USER_NAME</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>USER_NAME</alias>
+<dataType>VARCHAR2 (30 BYTE)</dataType>
+<headerAlias>USER_NAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+</viewElements>
+<usedObjects>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="CC75E4FF-0E96-E7FA-5255-D193E121C32A">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_REGION</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="A38F6EA5-AC26-5CA9-9F8A-507505058DB4">
+<columnName>USER_NAME</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_REGION</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="F2E42458-2C28-5D6C-C6B0-6EC4F9F229A3">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_ACCESS</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="7224A24F-424F-1ADC-A0E0-B6237D6C4DFD">
+<columnName>REGION_CODE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_REGION</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="986F79E6-1E6F-D422-37F1-7ABCF51410BF">
+<columnName>USER_NAME</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_ACCESS</tableName>
+</UsedObject>
+</usedObjects>
+</TableView>

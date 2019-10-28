@@ -1,0 +1,975 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="C283398F-F824-E94F-0097-AA77EB00B700" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="FCS_YEARLY_BUDGET_DETAIL_V">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL><![CDATA[CREATE OR REPLACE VIEW FCS_YEARLY_BUDGET_DETAIL_V
+AS 
+SELECT TBL."NO_URUT",TBL."YB_ID",TBL."YB_TYPE",TBL."YB_YEAR",TBL."YB_CODE",TBL."YB_DESC",TBL."PCATEGORY_CODE",TBL."PCATEGORY_DESC",TBL."PCLASS_CODE",TBL."PCLASS_DESC",TBL."PBRAND_CODE",TBL."PBRAND_DESC",TBL."PEXT_CODE",TBL."PEXT_DESC",TBL."PPACKAGING_CODE",TBL."PPACKAGING_DESC",TBL."PVARIANT_CODE",TBL."PVARIANT_DESC",TBL."STATUS",TBL."TRX_TYPE",TBL."TRX_DATE",TBL."TRX_REMARKS",TBL."TRX_CREATE_BY",TBL."TRX_CREATE_DATE",TBL."TRX_MODIFIED_BY",TBL."TRX_MODIFIED_DATE",TBL."TRX_ACTION",TBL."TRX_ACTION_BY",TBL."TRX_ACTION_DATE",TBL."TRX_AMOUNT",TBL."TRX_%",TBL."YB_AMT",TBL."YB_RMN",TBL."B_TO_DATE_AMT",TBL."B_TO_DATE_USE",TBL."B_OVER_AMT",TBL."B_TO_DATE_RMN" 
+FROM
+(SELECT 
+'001' AS No_URUT,
+HDR.BUDGET_CUST_HDR_ID YB_ID,
+HDR.BUDGET_TYPE YB_TYPE,
+HDR.BUDGET_YEAR YB_YEAR,
+CASE WHEN HDR.BUDGET_TYPE = 'CUSTOMER' THEN HDR.CUSTOMER_ID
+     WHEN HDR.BUDGET_TYPE = 'POSTING' THEN HDR.KODE_POSTING
+ELSE NULL
+END AS YB_CODE,
+CASE WHEN HDR.BUDGET_TYPE = 'CUSTOMER' THEN
+          (SELECT ffv.description
+             FROM apps.fnd_flex_value_sets ffvs, apps.fnd_flex_values_vl ffv
+            WHERE ffv.flex_value_set_id = ffvs.flex_value_set_id
+              AND ffvs.flex_value_set_name = 'FCSAR_CUSTOMER_GROUP'
+              AND ffv.flex_value = HDR.CUSTOMER_ID) 
+     WHEN HDR.BUDGET_TYPE = 'POSTING' THEN
+          (SELECT msi.description
+             FROM apps.fcs_inv_view_mstr_item msi
+            WHERE msi.item_type = 'PST'
+              AND msi.item = HDR.KODE_POSTING)
+ELSE NULL
+END AS YB_DESC,
+DET.BUDGET_CATEGORY PCATEGORY_CODE,
+(SELECT MCV.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MCV WHERE MCV.CATEGORY_CONCAT_SEGS = DET.BUDGET_CATEGORY AND MCV.STRUCTURE_NAME = 'FCS_CATEGORY') AS PCATEGORY_DESC,
+DET.BUDGET_CLASS PCLASS_CODE,
+(SELECT MCV.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MCV WHERE MCV.CATEGORY_CONCAT_SEGS = DET.BUDGET_CLASS AND MCV.STRUCTURE_NAME = 'FCS_CLASS') AS PCLASS_DESC,
+DET.BUDGET_BRAND PBRAND_CODE,
+(SELECT MCV.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MCV WHERE MCV.CATEGORY_CONCAT_SEGS = DET.BUDGET_BRAND AND MCV.STRUCTURE_NAME = 'FCS_BRAND') AS PBRAND_DESC,
+DET.BUDGET_EXTENTION PEXT_CODE,
+(SELECT MCV.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MCV WHERE MCV.CATEGORY_CONCAT_SEGS = DET.BUDGET_EXTENTION AND MCV.STRUCTURE_NAME = 'FCS_EXTENTION') AS PEXT_DESC,
+DET.BUDGET_PACKAGING PPACKAGING_CODE,
+(SELECT MCV.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MCV WHERE MCV.CATEGORY_CONCAT_SEGS = DET.BUDGET_PACKAGING AND MCV.STRUCTURE_NAME = 'FCS_PACKAGING') AS PPACKAGING_DESC,
+DET.BUDGET_VARIANT PVARIANT_CODE,
+(SELECT MCV.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MCV WHERE MCV.CATEGORY_CONCAT_SEGS = DET.BUDGET_VARIANT AND MCV.STRUCTURE_NAME = 'FCS_VARIANT') AS PVARIANT_DESC,
+DET.STATUS,
+NULL AS TRX_TYPE,
+NULL AS TRX_DATE,
+NULL AS TRX_REMARKS,
+NULL AS TRX_CREATE_BY,
+NULL AS TRX_CREATE_DATE,
+NULL AS TRX_MODIFIED_BY,
+NULL AS TRX_MODIFIED_DATE,
+NULL AS TRX_ACTION,
+NULL AS TRX_ACTION_BY,
+NULL AS TRX_ACTION_DATE,
+NULL AS TRX_AMOUNT,
+NULL AS "TRX_%",
+DET.YEARLY_BUDGET_AMOUNT YB_AMT,
+DET.YEARLY_BUDGET_AMOUNT - DET.BUDGET_AS_TO_DATE YB_RMN,
+DET.BUDGET_AS_TO_DATE B_To_Date_AMT,
+DET.BUDGET_AS_TO_DATE_USED B_To_Date_USE,
+DET.OVER_BUDGET B_Over_AMT,
+DET.BUDGET_AS_TO_DATE - DET.BUDGET_AS_TO_DATE_USED - (CASE WHEN DET.OVER_BUDGET IS NULL THEN 0 ELSE DET.OVER_BUDGET END) B_To_Date_Rmn
+FROM
+FOCUSPP.BUDGET_CUSTOMER DET,
+FOCUSPP.BUDGET_CUST_HDR HDR
+WHERE
+DET.BUDGET_CUST_HDR_ID = HDR.BUDGET_CUST_HDR_ID
+UNION ALL
+SELECT
+'002' AS No_URUT,
+DET_TRX_YB.YB_ID,
+DET_TRX_YB.YB_TYPE,
+DET_TRX_YB.YB_YEAR,
+DET_TRX_YB.YB_CODE,
+DET_TRX_YB.YB_DESC,
+DET_TRX_YB.PCATEGORY_CODE,
+DET_TRX_YB.PCATEGORY_DESC,
+DET_TRX_YB.PCLASS_CODE,
+DET_TRX_YB.PCLASS_DESC,
+DET_TRX_YB.PBRAND_CODE,
+DET_TRX_YB.PBRAND_DESC,
+DET_TRX_YB.PEXT_CODE,
+DET_TRX_YB.PEXT_DESC,
+DET_TRX_YB.PPACKAGING_CODE,
+DET_TRX_YB.PPACKAGING_DESC,
+DET_TRX_YB.PVARIANT_CODE,
+DET_TRX_YB.PVARIANT_DESC,
+DET_TRX_YB.STATUS,
+NULL AS TRX_TYPE,
+NULL AS TRX_DATE,
+NULL AS TRX_REMARKS,
+NULL AS TRX_CREATE_BY,
+NULL AS TRX_CREATE_DATE,
+NULL AS TRX_MODIFIED_BY,
+NULL AS TRX_MODIFIED_DATE,
+NULL AS TRX_ACTION,
+NULL AS TRX_ACTION_BY,
+NULL AS TRX_ACTION_DATE,
+CASE WHEN DET_TRX_YB.YB_TYPE = 'CUSTOMER' THEN SUM(DET_TRX_YB.TRX_AMOUNT)
+ELSE NULL
+END AS TRX_AMOUNT,
+CASE WHEN DET_TRX_YB.YB_TYPE = 'CUSTOMER' THEN SUM(DET_TRX_YB."TRX_%")
+ELSE NULL
+END AS "TRX_%",
+CASE WHEN DET_TRX_YB.YB_TYPE = 'CUSTOMER' THEN SUM(DET_TRX_YB.TRX_AMOUNT) * SUM(DET_TRX_YB."TRX_%") / 100
+     WHEN DET_TRX_YB.YB_TYPE = 'POSTING' THEN SUM(DET_TRX_YB.YB_AMT)
+ELSE NULL
+END AS YB_AMT,
+CASE WHEN DET_TRX_YB.YB_TYPE = 'CUSTOMER' THEN (SUM(DET_TRX_YB.TRX_AMOUNT) * SUM(DET_TRX_YB."TRX_%") / 100) - SUM(DET_TRX_YB.B_To_Date_AMT)
+     WHEN DET_TRX_YB.YB_TYPE = 'POSTING' THEN SUM(DET_TRX_YB.YB_AMT) - SUM(DET_TRX_YB.B_To_Date_AMT)
+ELSE NULL
+END AS YB_RMN,
+SUM(DET_TRX_YB.B_To_Date_AMT) B_To_Date_AMT,
+NULL AS B_To_Date_USE,
+NULL AS B_Over_AMT,
+NULL AS B_To_Date_RMN
+FROM
+(SELECT
+HDR.BUDGET_CUST_HDR_ID YB_ID,
+HDR.BUDGET_TYPE YB_TYPE,
+HDR.BUDGET_YEAR YB_YEAR,
+CASE WHEN HDR.BUDGET_TYPE = 'CUSTOMER' THEN HDR.CUSTOMER_ID
+     WHEN HDR.BUDGET_TYPE = 'POSTING' THEN HDR.KODE_POSTING
+ELSE NULL
+END AS YB_CODE,
+CASE WHEN HDR.BUDGET_TYPE = 'CUSTOMER' THEN
+          (SELECT ffv.description
+             FROM apps.fnd_flex_value_sets ffvs, apps.fnd_flex_values_vl ffv
+            WHERE ffv.flex_value_set_id = ffvs.flex_value_set_id
+              AND ffvs.flex_value_set_name = 'FCSAR_CUSTOMER_GROUP'
+              AND ffv.flex_value = HDR.CUSTOMER_ID) 
+     WHEN HDR.BUDGET_TYPE = 'POSTING' THEN
+          (SELECT msi.description
+             FROM apps.fcs_inv_view_mstr_item msi
+            WHERE msi.item_type = 'PST'
+              AND msi.item = HDR.KODE_POSTING)
+ELSE NULL
+END AS YB_DESC,
+DET.BUDGET_CATEGORY PCATEGORY_CODE,
+(SELECT MCV.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MCV WHERE MCV.CATEGORY_CONCAT_SEGS = DET.BUDGET_CATEGORY AND MCV.STRUCTURE_NAME = 'FCS_CATEGORY') AS PCATEGORY_DESC,
+DET.BUDGET_CLASS PCLASS_CODE,
+(SELECT MCV.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MCV WHERE MCV.CATEGORY_CONCAT_SEGS = DET.BUDGET_CLASS AND MCV.STRUCTURE_NAME = 'FCS_CLASS') AS PCLASS_DESC,
+DET.BUDGET_BRAND PBRAND_CODE,
+(SELECT MCV.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MCV WHERE MCV.CATEGORY_CONCAT_SEGS = DET.BUDGET_BRAND AND MCV.STRUCTURE_NAME = 'FCS_BRAND') AS PBRAND_DESC,
+DET.BUDGET_EXTENTION PEXT_CODE,
+(SELECT MCV.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MCV WHERE MCV.CATEGORY_CONCAT_SEGS = DET.BUDGET_EXTENTION AND MCV.STRUCTURE_NAME = 'FCS_EXTENTION') AS PEXT_DESC,
+DET.BUDGET_PACKAGING PPACKAGING_CODE,
+(SELECT MCV.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MCV WHERE MCV.CATEGORY_CONCAT_SEGS = DET.BUDGET_PACKAGING AND MCV.STRUCTURE_NAME = 'FCS_PACKAGING') AS PPACKAGING_DESC,
+DET.BUDGET_VARIANT PVARIANT_CODE,
+(SELECT MCV.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MCV WHERE MCV.CATEGORY_CONCAT_SEGS = DET.BUDGET_VARIANT AND MCV.STRUCTURE_NAME = 'FCS_VARIANT') AS PVARIANT_DESC,
+DET.STATUS,
+DET_TRX.BUDGET_TYPE TRX_TYPE,
+DET_TRX.BUDGET_DATE TRX_DATE,
+DET_TRX.REMARKS TRX_REMARKS,
+DET_TRX.CREATED_BY TRX_CREATE_BY,
+DET_TRX.CREATION_DATE TRX_CREATE_DATE,
+DET_TRX.MODIFIED_BY TRX_MODIFIED_BY,
+DET_TRX.MODIFIED_DATE TRX_MODIFIED_DATE,
+DET_TRX.ACTION TRX_ACTION,
+DET_TRX.ACTION_BY TRX_ACTION_BY,
+DET_TRX.ACTION_DATE TRX_ACTION_DATE,
+CASE WHEN HDR.BUDGET_TYPE = 'CUSTOMER' AND DET_TRX.BUDGET_TYPE = 'BALANCE' THEN DET_TRX.AMOUNT
+ELSE NULL
+END AS TRX_AMOUNT,
+CASE WHEN HDR.BUDGET_TYPE = 'CUSTOMER' AND DET_TRX.BUDGET_TYPE = 'BALANCE' THEN DET_TRX.PERCENTAGE
+ELSE NULL
+END AS "TRX_%",
+CASE WHEN HDR.BUDGET_TYPE = 'POSTING' AND DET_TRX.BUDGET_TYPE = 'BALANCE' THEN DET_TRX.AMOUNT
+ELSE NULL
+END AS YB_AMT,
+NULL AS YB_RMN,
+CASE WHEN DET_TRX.BUDGET_TYPE = 'BALANCE' THEN 0
+     WHEN DET_TRX.BUDGET_TYPE = 'ADJUSTMENT' THEN DET_TRX.AMOUNT
+ELSE NULL
+END AS B_To_Date_AMT,
+NULL AS B_To_Date_USE,
+NULL AS B_Over_AMT,
+NULL AS B_To_Date_RMN
+FROM
+FOCUSPP.BUDGET_CUST_TRAN DET_TRX,
+FOCUSPP.BUDGET_CUSTOMER DET,
+FOCUSPP.BUDGET_CUST_HDR HDR
+WHERE
+DET.BUDGET_CUST_HDR_ID = HDR.BUDGET_CUST_HDR_ID
+AND DET.BUDGET_CUSTOMER_ID = DET_TRX.BUDGET_CUSTOMER_ID) DET_TRX_YB
+WHERE 
+DET_TRX_YB.TRX_ACTION = 'APPROVED'
+GROUP BY
+DET_TRX_YB.YB_ID,
+DET_TRX_YB.YB_TYPE,
+DET_TRX_YB.YB_YEAR,
+DET_TRX_YB.YB_CODE,
+DET_TRX_YB.YB_DESC,
+DET_TRX_YB.PCATEGORY_CODE,
+DET_TRX_YB.PCATEGORY_DESC,
+DET_TRX_YB.PCLASS_CODE,
+DET_TRX_YB.PCLASS_DESC,
+DET_TRX_YB.PBRAND_CODE,
+DET_TRX_YB.PBRAND_DESC,
+DET_TRX_YB.PEXT_CODE,
+DET_TRX_YB.PEXT_DESC,
+DET_TRX_YB.PPACKAGING_CODE,
+DET_TRX_YB.PPACKAGING_DESC,
+DET_TRX_YB.PVARIANT_CODE,
+DET_TRX_YB.PVARIANT_DESC,
+DET_TRX_YB.STATUS
+UNION ALL
+SELECT
+'003' AS No_URUT,
+HDR.BUDGET_CUST_HDR_ID YB_ID,
+HDR.BUDGET_TYPE YB_TYPE,
+HDR.BUDGET_YEAR YB_YEAR,
+CASE WHEN HDR.BUDGET_TYPE = 'CUSTOMER' THEN HDR.CUSTOMER_ID
+     WHEN HDR.BUDGET_TYPE = 'POSTING' THEN HDR.KODE_POSTING
+ELSE NULL
+END AS YB_CODE,
+CASE WHEN HDR.BUDGET_TYPE = 'CUSTOMER' THEN
+          (SELECT ffv.description
+             FROM apps.fnd_flex_value_sets ffvs, apps.fnd_flex_values_vl ffv
+            WHERE ffv.flex_value_set_id = ffvs.flex_value_set_id
+              AND ffvs.flex_value_set_name = 'FCSAR_CUSTOMER_GROUP'
+              AND ffv.flex_value = HDR.CUSTOMER_ID) 
+     WHEN HDR.BUDGET_TYPE = 'POSTING' THEN
+          (SELECT msi.description
+             FROM apps.fcs_inv_view_mstr_item msi
+            WHERE msi.item_type = 'PST'
+              AND msi.item = HDR.KODE_POSTING)
+ELSE NULL
+END AS YB_DESC,
+DET.BUDGET_CATEGORY PCATEGORY_CODE,
+(SELECT MCV.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MCV WHERE MCV.CATEGORY_CONCAT_SEGS = DET.BUDGET_CATEGORY AND MCV.STRUCTURE_NAME = 'FCS_CATEGORY') AS PCATEGORY_DESC,
+DET.BUDGET_CLASS PCLASS_CODE,
+(SELECT MCV.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MCV WHERE MCV.CATEGORY_CONCAT_SEGS = DET.BUDGET_CLASS AND MCV.STRUCTURE_NAME = 'FCS_CLASS') AS PCLASS_DESC,
+DET.BUDGET_BRAND PBRAND_CODE,
+(SELECT MCV.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MCV WHERE MCV.CATEGORY_CONCAT_SEGS = DET.BUDGET_BRAND AND MCV.STRUCTURE_NAME = 'FCS_BRAND') AS PBRAND_DESC,
+DET.BUDGET_EXTENTION PEXT_CODE,
+(SELECT MCV.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MCV WHERE MCV.CATEGORY_CONCAT_SEGS = DET.BUDGET_EXTENTION AND MCV.STRUCTURE_NAME = 'FCS_EXTENTION') AS PEXT_DESC,
+DET.BUDGET_PACKAGING PPACKAGING_CODE,
+(SELECT MCV.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MCV WHERE MCV.CATEGORY_CONCAT_SEGS = DET.BUDGET_PACKAGING AND MCV.STRUCTURE_NAME = 'FCS_PACKAGING') AS PPACKAGING_DESC,
+DET.BUDGET_VARIANT PVARIANT_CODE,
+(SELECT MCV.DESCRIPTION FROM APPS.MTL_CATEGORIES_V MCV WHERE MCV.CATEGORY_CONCAT_SEGS = DET.BUDGET_VARIANT AND MCV.STRUCTURE_NAME = 'FCS_VARIANT') AS PVARIANT_DESC,
+DET.STATUS,
+DET_TRX.BUDGET_TYPE TRX_TYPE,
+DET_TRX.BUDGET_DATE TRX_DATE,
+DET_TRX.REMARKS TRX_REMARKS,
+DET_TRX.CREATED_BY TRX_CREATE_BY,
+DET_TRX.CREATION_DATE TRX_CREATE_DATE,
+DET_TRX.MODIFIED_BY TRX_MODIFIED_BY,
+DET_TRX.MODIFIED_DATE TRX_MODIFIED_DATE,
+DET_TRX.ACTION TRX_ACTION,
+DET_TRX.ACTION_BY TRX_ACTION_BY,
+DET_TRX.ACTION_DATE TRX_ACTION_DATE,
+CASE WHEN HDR.BUDGET_TYPE = 'CUSTOMER' AND DET_TRX.BUDGET_TYPE = 'BALANCE' THEN DET_TRX.AMOUNT
+ELSE NULL
+END AS TRX_AMOUNT,
+CASE WHEN HDR.BUDGET_TYPE = 'CUSTOMER' AND DET_TRX.BUDGET_TYPE = 'BALANCE' THEN DET_TRX.PERCENTAGE
+ELSE NULL
+END AS "TRX_%",
+CASE WHEN HDR.BUDGET_TYPE = 'POSTING' AND DET_TRX.BUDGET_TYPE = 'BALANCE' THEN DET_TRX.AMOUNT
+ELSE NULL
+END AS YB_AMT,
+NULL AS YB_RMN,
+CASE WHEN DET_TRX.BUDGET_TYPE = 'BALANCE' THEN 0
+     WHEN DET_TRX.BUDGET_TYPE = 'ADJUSTMENT' THEN DET_TRX.AMOUNT
+ELSE NULL
+END AS B_To_Date_AMT,
+NULL AS B_To_Date_USE,
+NULL AS B_Over_AMT,
+NULL AS B_To_Date_RMN
+FROM
+FOCUSPP.BUDGET_CUST_TRAN DET_TRX,
+FOCUSPP.BUDGET_CUSTOMER DET,
+FOCUSPP.BUDGET_CUST_HDR HDR
+WHERE
+DET.BUDGET_CUST_HDR_ID = HDR.BUDGET_CUST_HDR_ID
+AND DET.BUDGET_CUSTOMER_ID = DET_TRX.BUDGET_CUSTOMER_ID) TBL
+ORDER BY YB_TYPE, YB_YEAR, YB_CODE, PCATEGORY_CODE, PCLASS_CODE, PBRAND_CODE, PEXT_CODE, PPACKAGING_CODE, PVARIANT_CODE, NO_URUT, TRX_TYPE, TRX_DATE]]></userDefinedSQL>
+<parsed>true</parsed>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="NO_URUT" id="28A297FF-CD36-2CAF-60A3-2950382A5AAF">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>NO_URUT</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>NO_URUT</alias>
+<dataType>CHAR (3 BYTE)</dataType>
+<headerAlias>NO_URUT</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="YB_ID" id="1EBBB7AF-78BC-F828-F6F6-27372E183680">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>YB_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>YB_ID</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>YB_ID</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="YB_TYPE" id="8F365E6E-1093-C71F-0B57-474A58BAD25F">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>YB_TYPE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>YB_TYPE</alias>
+<dataType>VARCHAR2 (20 CHAR)</dataType>
+<headerAlias>YB_TYPE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="YB_YEAR" id="A53A34D0-0497-49D8-111F-6BDD006B0E2E">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>YB_YEAR</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>YB_YEAR</alias>
+<dataType>VARCHAR2 (4 BYTE)</dataType>
+<headerAlias>YB_YEAR</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="YB_CODE" id="59F566FC-78BF-71CE-B72D-70323036FE83">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>YB_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>YB_CODE</alias>
+<dataType>VARCHAR2 (40 BYTE)</dataType>
+<headerAlias>YB_CODE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="YB_DESC" id="9DBAA19B-6D21-751C-4D59-30907881D350">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>YB_DESC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>YB_DESC</alias>
+<dataType>VARCHAR2 (240 BYTE)</dataType>
+<headerAlias>YB_DESC</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PCATEGORY_CODE" id="39772E22-A52D-AB75-6056-6EFF0040C1AD">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>PCATEGORY_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PCATEGORY_CODE</alias>
+<dataType>VARCHAR2 (40 BYTE)</dataType>
+<headerAlias>PCATEGORY_CODE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PCATEGORY_DESC" id="28059D31-C2C8-5E18-853A-6D6A71CC3046">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>PCATEGORY_DESC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PCATEGORY_DESC</alias>
+<dataType>VARCHAR2 (240 BYTE)</dataType>
+<headerAlias>PCATEGORY_DESC</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PCLASS_CODE" id="272B750C-2789-6CE1-6F55-60AB0A5D9577">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>PCLASS_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PCLASS_CODE</alias>
+<dataType>VARCHAR2 (40 BYTE)</dataType>
+<headerAlias>PCLASS_CODE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PCLASS_DESC" id="DAA8FB3A-15BA-DDB6-603D-9037741C4E78">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>PCLASS_DESC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PCLASS_DESC</alias>
+<dataType>VARCHAR2 (240 BYTE)</dataType>
+<headerAlias>PCLASS_DESC</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PBRAND_CODE" id="4132E0FD-E48C-2041-0AE0-AF7277BFCB02">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>PBRAND_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PBRAND_CODE</alias>
+<dataType>VARCHAR2 (40 BYTE)</dataType>
+<headerAlias>PBRAND_CODE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PBRAND_DESC" id="8FC779E8-073F-9DBC-9DC0-A7CCE0C86925">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>PBRAND_DESC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PBRAND_DESC</alias>
+<dataType>VARCHAR2 (240 BYTE)</dataType>
+<headerAlias>PBRAND_DESC</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PEXT_CODE" id="09750688-0022-CEF6-F16B-2E876C92B382">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>PEXT_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PEXT_CODE</alias>
+<dataType>VARCHAR2 (40 BYTE)</dataType>
+<headerAlias>PEXT_CODE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PEXT_DESC" id="DAF3F50D-588F-85BE-C1B0-FA44A329B4C4">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>PEXT_DESC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PEXT_DESC</alias>
+<dataType>VARCHAR2 (240 BYTE)</dataType>
+<headerAlias>PEXT_DESC</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PPACKAGING_CODE" id="B9A59558-DF96-8C77-C66E-8CDE6DDD7544">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>PPACKAGING_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PPACKAGING_CODE</alias>
+<dataType>VARCHAR2 (40 BYTE)</dataType>
+<headerAlias>PPACKAGING_CODE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PPACKAGING_DESC" id="C36E7E42-4E4C-76D4-6240-F2571522AB6B">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>PPACKAGING_DESC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PPACKAGING_DESC</alias>
+<dataType>VARCHAR2 (240 BYTE)</dataType>
+<headerAlias>PPACKAGING_DESC</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PVARIANT_CODE" id="5817ECBA-6168-3759-CA77-72F0233938A0">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>PVARIANT_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PVARIANT_CODE</alias>
+<dataType>VARCHAR2 (40 BYTE)</dataType>
+<headerAlias>PVARIANT_CODE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PVARIANT_DESC" id="A6657BDA-DB77-E771-B497-3183CD5FB269">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>PVARIANT_DESC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PVARIANT_DESC</alias>
+<dataType>VARCHAR2 (240 BYTE)</dataType>
+<headerAlias>PVARIANT_DESC</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="STATUS" id="871071A7-6FA0-90B0-CED7-F450BBDE105C">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>STATUS</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>STATUS</alias>
+<dataType>VARCHAR2 (10 BYTE)</dataType>
+<headerAlias>STATUS</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="TRX_TYPE" id="6AFF597D-57F6-A8C7-C1F3-9E547526CE67">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>TRX_TYPE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>TRX_TYPE</alias>
+<dataType>VARCHAR2 (20 BYTE)</dataType>
+<headerAlias>TRX_TYPE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="TRX_DATE" id="7EA9D6B8-D201-F1E8-8AFE-F7EBA262CDFA">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>TRX_DATE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>TRX_DATE</alias>
+<dataType>DATE</dataType>
+<headerAlias>TRX_DATE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="TRX_REMARKS" id="4A4210CD-8EB8-019F-57A6-C6C1D3718251">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>TRX_REMARKS</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>TRX_REMARKS</alias>
+<dataType>VARCHAR2 (1000 CHAR)</dataType>
+<headerAlias>TRX_REMARKS</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="TRX_CREATE_BY" id="31687CC3-07C9-2951-C5D3-74D8270C2906">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>TRX_CREATE_BY</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>TRX_CREATE_BY</alias>
+<dataType>VARCHAR2 (30 BYTE)</dataType>
+<headerAlias>TRX_CREATE_BY</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="TRX_CREATE_DATE" id="CE3D1FA6-6E1F-2B46-5C22-5A8BF019C570">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>TRX_CREATE_DATE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>TRX_CREATE_DATE</alias>
+<dataType>DATE</dataType>
+<headerAlias>TRX_CREATE_DATE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="TRX_MODIFIED_BY" id="B841B171-C73C-8A4D-3D06-EF03B31B66DB">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>TRX_MODIFIED_BY</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>TRX_MODIFIED_BY</alias>
+<dataType>VARCHAR2 (30 BYTE)</dataType>
+<headerAlias>TRX_MODIFIED_BY</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="TRX_MODIFIED_DATE" id="71BABE81-7865-7798-3375-9374C87727B8">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>TRX_MODIFIED_DATE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>TRX_MODIFIED_DATE</alias>
+<dataType>DATE</dataType>
+<headerAlias>TRX_MODIFIED_DATE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="TRX_ACTION" id="837A59A0-876D-BD60-FCB3-2378BDC4F8F4">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>TRX_ACTION</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>TRX_ACTION</alias>
+<dataType>VARCHAR2 (30 CHAR)</dataType>
+<headerAlias>TRX_ACTION</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="TRX_ACTION_BY" id="5682458C-0A06-97C7-686E-8CB2891EB20E">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>TRX_ACTION_BY</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>TRX_ACTION_BY</alias>
+<dataType>VARCHAR2 (30 CHAR)</dataType>
+<headerAlias>TRX_ACTION_BY</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="TRX_ACTION_DATE" id="087AE25E-565A-3AD0-46BB-9B97914E98CF">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>TRX_ACTION_DATE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>TRX_ACTION_DATE</alias>
+<dataType>DATE</dataType>
+<headerAlias>TRX_ACTION_DATE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="TRX_AMOUNT" id="B392CDD5-DCC9-2AD0-4F75-DB5ECD9CCAD3">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>TRX_AMOUNT</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>TRX_AMOUNT</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>TRX_AMOUNT</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="TRX_%" id="71B04582-DB9D-747B-0269-19271E967E43">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>TRX_%</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>TRX_%</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>TRX_%</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="YB_AMT" id="BE901B4F-3550-529D-9C34-AD9D53FD49A8">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>YB_AMT</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>YB_AMT</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>YB_AMT</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="YB_RMN" id="46734ACB-0555-07AB-F30C-D18B14305C6D">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>YB_RMN</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>YB_RMN</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>YB_RMN</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="B_TO_DATE_AMT" id="67287E49-82E8-24E9-1D89-3C4DAEB86208">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>B_TO_DATE_AMT</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>B_TO_DATE_AMT</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>B_TO_DATE_AMT</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="B_TO_DATE_USE" id="E0EFB77A-D954-831C-95B1-3117B0450BDB">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>B_TO_DATE_USE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>B_TO_DATE_USE</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>B_TO_DATE_USE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="B_OVER_AMT" id="CCAD0D17-7AA1-C4C8-981F-27FA468A52BF">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>B_OVER_AMT</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>B_OVER_AMT</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>B_OVER_AMT</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="B_TO_DATE_RMN" id="19B9EB0B-CDBD-DBD4-DD42-57A1A0B35306">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_YEARLY_BUDGET_DETAIL_V</sourceObjSchema>
+<sourceObjName>B_TO_DATE_RMN</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>B_TO_DATE_RMN</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>B_TO_DATE_RMN</headerAlias>
+<reference>false</reference>
+</viewElement>
+</viewElements>
+<usedObjects>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="19092478-37D4-C3F1-FEC0-66C54A1CA0A6">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="162AD9EF-741B-E1E7-9148-5F6E25A11A71">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_HDR</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="BA7851DA-FB17-4310-82FA-5863C7FB8723">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_TRAN</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="5BAF66D9-1C1F-2DA2-97BC-EC24094E3345">
+<columnName>KODE_POSTING</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_HDR</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="98F017A2-A78E-E12F-7E12-B45001263066">
+<columnName>BUDGET_CUST_HDR_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="D9481586-A3BD-CF69-DC3A-56E689C43C8B">
+<columnName>ACTION_BY</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_TRAN</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="AF1DC6C9-2FE7-818D-6F5A-2B45A9486CFD">
+<columnName>BUDGET_AS_TO_DATE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="48F64C9E-E863-2928-C81F-CEB6D627885D">
+<columnName>MODIFIED_DATE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_TRAN</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="334FB509-5DB4-4E56-9833-42AEA2CB4C2D">
+<columnName>YEARLY_BUDGET_AMOUNT</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="5822A28A-662E-35E9-99D7-4A208CEBE9E6">
+<columnName>BUDGET_VARIANT</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="8D327A8A-8951-7D0B-1E1A-AF99F38413A2">
+<columnName>BUDGET_DATE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_TRAN</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="2DFEB0EE-82D4-6B36-C7E2-6466EFD679E8">
+<columnName>BUDGET_CUSTOMER_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="7DC29BAD-A6C9-80DB-7BB6-542F083BCA30">
+<columnName>AMOUNT</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_TRAN</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="4DFE7542-4310-184E-5912-1E32720E7B1D">
+<columnName>BUDGET_BRAND</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="1AD1C272-8D87-EB77-968C-79AF293E2D98">
+<columnName>REMARKS</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_TRAN</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="1273304D-9518-4471-A166-C5C3F402F6A7">
+<columnName>PERCENTAGE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_TRAN</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="350AC5E4-4449-AB79-F81B-5B5F28FB086C">
+<columnName>BUDGET_TYPE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_HDR</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="467DAA52-667D-83DA-9B92-0928466D367A">
+<columnName>CREATION_DATE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_TRAN</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="49D7BAB8-3C25-9215-E8EB-7528C16009AC">
+<columnName>BUDGET_EXTENTION</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="BC90DDDA-93B1-02BE-C06F-08116A570D9E">
+<columnName>CREATED_BY</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_TRAN</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="65F5E090-45F6-4D5A-216E-184E7A9173EB">
+<columnName>BUDGET_CLASS</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="A43DACDC-D5DA-84D2-D920-8A233C4D44F2">
+<columnName>STATUS</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="B2586F45-D367-8743-DBAE-735A734A5540">
+<columnName>BUDGET_CUSTOMER_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_TRAN</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="2E5AD49A-51DE-482C-FAA4-1CE6609E7877">
+<columnName>BUDGET_PACKAGING</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="BA4CB297-9E67-12B8-92F5-D2AFE391EEAA">
+<columnName>ACTION_DATE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_TRAN</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="F18D134B-FD82-C82B-6E71-8161740D6613">
+<columnName>MODIFIED_BY</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_TRAN</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="E03D9C85-AA9E-EDCC-6552-655CB0641A7C">
+<columnName>BUDGET_TYPE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_TRAN</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="AE40873C-44B2-EBFC-399D-A23732C25A59">
+<columnName>CUSTOMER_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_HDR</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="A80053A6-2BED-7259-495E-20AC3E4ADC92">
+<columnName>OVER_BUDGET</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="F3F25E31-5798-22B7-8FF0-712547D0A4C1">
+<columnName>BUDGET_AS_TO_DATE_USED</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="378C3F69-41AA-22AF-65A1-F0D03B89D1A6">
+<columnName>BUDGET_CATEGORY</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUSTOMER</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="C6DB8FF5-7F79-2204-1894-6E5C6A8709F3">
+<columnName>BUDGET_CUST_HDR_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_HDR</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="F34D71FA-4130-D42A-5576-0EEE49B0EAE6">
+<columnName>BUDGET_YEAR</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_HDR</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="B687542B-877B-5F9D-2640-9857ED4F8D28">
+<columnName>ACTION</columnName>
+<schema>FOCUSPP</schema>
+<tableName>BUDGET_CUST_TRAN</tableName>
+</UsedObject>
+</usedObjects>
+</TableView>

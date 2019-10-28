@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="9ABD4F2C-FED3-357B-2475-4E1F880B50AC" containerWithKeyObject="D74F82ED-47D8-8A8D-230F-F8C6030A0812" localFKIndex="02730F13-9DA1-142D-B71F-C6060EC7829E" name="APPROVAL_STEPS_APPROVAL_F_FK1">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>APPROVAL_STEPS_APPROVAL_F_FK1</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:04 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<referredTableLongName>FOCUSPP.APPROVAL_FLOW</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>50BC5229-29CF-D954-C6F6-FB9D9A2DA820</referredTableID>
+<keyObject>8389A5A9-AA3C-90D9-9581-BA32336866A3</keyObject>
+<referredKeyID>8389A5A9-AA3C-90D9-9581-BA32336866A3</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_APRVL_FLOW</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

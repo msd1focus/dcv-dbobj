@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SequenceOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.SequenceOraclev10g" name="USER_UPLOAD_LOG_SEQ" directorySegmentName="seg_0" id="527C2B6D-5163-4445-7730-7BD8873F3CD6">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>USER_UPLOAD_LOG_SEQ</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:52 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<cache>20</cache>
+<incrementBy>1</incrementBy>
+<maxValue>9999999999999999999999999999</maxValue>
+<minValue>1</minValue>
+<user>4E5B45BD-E77E-0B6D-EFA2-DE9F30B5E31F</user>
+</SequenceOraclev10g>

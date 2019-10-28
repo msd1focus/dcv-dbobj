@@ -1,0 +1,289 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="406687B1-D007-7E16-4D93-8F38EB70CB61" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="FCS_SHUTTLE_CUST_GROUP">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_SHUTTLE_CUST_GROUP</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL><![CDATA[CREATE OR REPLACE VIEW FCS_SHUTTLE_CUST_GROUP
+AS 
+SELECT   ArCustomers.ATTRIBUTE1 AS CUST_GROUP_CODE,
+                 ArCustomers.ATTRIBUTE1
+              || ' '
+              || (SELECT   flex2.DESCRIPTION
+                    FROM   APPS.FCS_FLEX_VALUES_VL flex2
+                   WHERE   flex2.FLEX_VALUE = ArCustomers.ATTRIBUTE1)
+                 CUST_GROUP_LABEL,
+              AUR.USER_NAME,
+              ArCustomers.ATTRIBUTE3 AS REGION_CODE,
+              ArCustomers.ATTRIBUTE4 AS AREA_CODE,
+              ArCustomers.ATTRIBUTE5 AS LOC_CODE
+       FROM   APPS.AR_CUSTOMERS ArCustomers,
+              APP_USER_REGION AUR,
+              APPS.FCS_FLEX_VALUES_VL flex
+      WHERE       ArCustomers.ATTRIBUTE3 = AUR.REGION_CODE
+              AND flex.FLEX_VALUE = ArCustomers.ATTRIBUTE3
+              AND (SELECT   COUNT ( * )
+                     FROM   APP_USER_AREA AUA
+                    WHERE   AUA.USER_NAME = AUR.USER_NAME) = 0
+              AND (SELECT   COUNT ( * )
+                     FROM   APP_USER_LOC AUL
+                    WHERE   AUL.USER_NAME = AUR.USER_NAME) = 0
+              AND (SELECT   COUNT ( * )
+                     FROM   APP_USER_CUST_GROUP ACG
+                    WHERE   ACG.USER_NAME = AUR.USER_NAME) = 0
+   GROUP BY   ArCustomers.ATTRIBUTE4,
+              ArCustomers.ATTRIBUTE1,
+              ArCustomers.ATTRIBUTE5,
+              ArCustomers.ATTRIBUTE3,
+              flex.DESCRIPTION,
+              AUR.USER_NAME
+   UNION ALL
+     SELECT   ArCustomers.ATTRIBUTE1 AS CUST_GROUP_CODE,
+                 ArCustomers.ATTRIBUTE1
+              || ' '
+              || (SELECT   flex2.DESCRIPTION
+                    FROM   APPS.FCS_FLEX_VALUES_VL flex2
+                   WHERE   flex2.FLEX_VALUE = ArCustomers.ATTRIBUTE1)
+                 CUST_GROUP_LABEL,
+              AppUserArea.USER_NAME,
+              ArCustomers.ATTRIBUTE3 AS REGION_CODE,
+              ArCustomers.ATTRIBUTE4 AS AREA_CODE,
+              ArCustomers.ATTRIBUTE5 AS LOC_CODE
+       FROM   APPS.FCS_FLEX_VALUES_VL flex,
+              APPS.AR_CUSTOMERS ArCustomers,
+              APP_USER_AREA AppUserArea
+      WHERE       flex.FLEX_VALUE = ArCustomers.ATTRIBUTE4
+              AND ArCustomers.ATTRIBUTE4 = AppUserArea.AREA_CODE
+              AND ArCustomers.STATUS = 'A'
+              AND (SELECT   COUNT ( * )
+                     FROM   APP_USER_LOC AUL
+                    WHERE   AUL.USER_NAME = AppUserArea.USER_NAME) = 0
+              AND (SELECT   COUNT ( * )
+                     FROM   APP_USER_CUST_GROUP ACG
+                    WHERE   ACG.USER_NAME = AppUserArea.USER_NAME) = 0
+   GROUP BY   ArCustomers.ATTRIBUTE4,
+              ArCustomers.ATTRIBUTE5,
+              ArCustomers.ATTRIBUTE1,
+              flex.DESCRIPTION,
+              ArCustomers.ATTRIBUTE3,
+              AppUserArea.USER_NAME
+   UNION ALL
+     SELECT   ArCustomers.ATTRIBUTE1 AS CUST_GROUP_CODE,
+                 ArCustomers.ATTRIBUTE1
+              || ' '
+              || (SELECT   flex2.DESCRIPTION
+                    FROM   APPS.FCS_FLEX_VALUES_VL flex2
+                   WHERE   flex2.FLEX_VALUE = ArCustomers.ATTRIBUTE1)
+                 CUST_GROUP_LABEL,
+              AppUserLoc.USER_NAME,
+              ArCustomers.ATTRIBUTE3 AS REGION_CODE,
+              ArCustomers.ATTRIBUTE4 AS AREA_CODE,
+              ArCustomers.ATTRIBUTE5 AS LOC_CODE
+       FROM   APPS.AR_CUSTOMERS ArCustomers,
+              APP_USER_LOC AppUserLoc,
+              APPS.FCS_FLEX_VALUES_VL flex
+      WHERE       flex.FLEX_VALUE = ArCustomers.ATTRIBUTE5
+              AND ArCustomers.ATTRIBUTE5 = AppUserLoc.LOCATION_CODE
+              AND ArCustomers.STATUS = 'A'
+              AND (SELECT   COUNT ( * )
+                     FROM   APP_USER_CUST_GROUP ACG
+                    WHERE   ACG.USER_NAME = AppUserLoc.USER_NAME) = 0
+   GROUP BY   ArCustomers.ATTRIBUTE5,
+              ArCustomers.ATTRIBUTE1,
+              AppUserLoc.USER_NAME,
+              flex.DESCRIPTION,
+              ArCustomers.ATTRIBUTE4,
+              ArCustomers.ATTRIBUTE3
+   UNION ALL
+     SELECT   ArCustomers.ATTRIBUTE1 AS CUST_GROUP_CODE,
+              ArCustomers.ATTRIBUTE1 || ' ' || flex.DESCRIPTION
+                 CUST_GROUP_LABEL,
+              AppUserCustGroup.USER_NAME,
+              ArCustomers.ATTRIBUTE3 AS REGION_CODE,
+              ArCustomers.ATTRIBUTE4 AS AREA_CODE,
+              ArCustomers.ATTRIBUTE5 AS LOC_CODE
+       FROM   APPS.AR_CUSTOMERS ArCustomers,
+              APP_USER_CUST_GROUP AppUserCustGroup,
+              APPS.FCS_FLEX_VALUES_VL flex
+      WHERE       flex.FLEX_VALUE = ArCustomers.ATTRIBUTE1
+              AND ArCustomers.ATTRIBUTE1 = AppUserCustGroup.CUST_GROUP
+              AND ArCustomers.STATUS = 'A'
+              AND (SELECT   COUNT ( * )
+                     FROM   APP_USER_CUST_GROUP ACG
+                    WHERE   ACG.USER_NAME = AppUserCustGroup.USER_NAME) > 0
+   GROUP BY   ArCustomers.ATTRIBUTE1,
+              AppUserCustGroup.USER_NAME,
+              flex.DESCRIPTION,
+              ArCustomers.ATTRIBUTE3,
+              ArCustomers.ATTRIBUTE4,
+              ArCustomers.ATTRIBUTE5
+   UNION ALL
+     SELECT   FcsViewAttrExcl.VALUE AS CUST_GROUP_CODE,
+              (FcsViewAttrExcl.VALUE || ' ' || FcsViewAttrExcl.DESCRIPTION)
+                 AS CUST_GROUP_LABEL,
+              AppUserCustGroup.USER_NAME,
+              'REGIONX' AS REGION_CODE,
+              'AREAX' AS AREA_CODE,
+              'LOCATIONX' AS LOC_CODE
+       FROM   APPS.FCS_VIEW_CUST_ATTR_EXCL FcsViewAttrExcl,
+              APP_USER_CUST_GROUP AppUserCustGroup
+      WHERE   AppUserCustGroup.CUST_GROUP = FcsViewAttrExcl.VALUE
+              AND FcsViewAttrExcl.TYPE = 'CGROUP'
+   GROUP BY   FcsViewAttrExcl.VALUE,
+              FcsViewAttrExcl.DESCRIPTION,
+              AppUserCustGroup.USER_NAME
+   ORDER BY   "CUST_GROUP_LABEL"]]></userDefinedSQL>
+<parsed>true</parsed>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="CUST_GROUP_CODE" id="01AF82AF-5E63-28DA-447E-687CB8E5A5B5">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_SHUTTLE_CUST_GROUP</sourceObjSchema>
+<sourceObjName>CUST_GROUP_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>CUST_GROUP_CODE</alias>
+<dataType>VARCHAR2 (30 BYTE)</dataType>
+<headerAlias>CUST_GROUP_CODE</headerAlias>
+<reference>false</reference>
+<referencedColumn>A38F6EA5-AC26-5CA9-9F8A-507505058DB4</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="CUST_GROUP_LABEL" id="3FFFA247-E660-7B24-F0B3-15010CEB195A">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_SHUTTLE_CUST_GROUP</sourceObjSchema>
+<sourceObjName>CUST_GROUP_LABEL</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>CUST_GROUP_LABEL</alias>
+<dataType>VARCHAR2 (391 BYTE)</dataType>
+<headerAlias>CUST_GROUP_LABEL</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="USER_NAME" id="A915DF18-1CA4-46A9-91DE-DB976F568B43">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_SHUTTLE_CUST_GROUP</sourceObjSchema>
+<sourceObjName>USER_NAME</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>USER_NAME</alias>
+<dataType>VARCHAR2 (30 BYTE)</dataType>
+<headerAlias>USER_NAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="REGION_CODE" id="6BF45469-F756-C37E-718F-DBF58A0AC7E6">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_SHUTTLE_CUST_GROUP</sourceObjSchema>
+<sourceObjName>REGION_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>REGION_CODE</alias>
+<dataType>VARCHAR2 (150 BYTE)</dataType>
+<headerAlias>REGION_CODE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="AREA_CODE" id="361797BC-C18F-B262-173F-BA95A41E3CB3">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_SHUTTLE_CUST_GROUP</sourceObjSchema>
+<sourceObjName>AREA_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>AREA_CODE</alias>
+<dataType>VARCHAR2 (150 BYTE)</dataType>
+<headerAlias>AREA_CODE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="LOC_CODE" id="961C3A4D-1155-5492-6AB7-141D985ED153">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_SHUTTLE_CUST_GROUP</sourceObjSchema>
+<sourceObjName>LOC_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>LOC_CODE</alias>
+<dataType>VARCHAR2 (150 BYTE)</dataType>
+<headerAlias>LOC_CODE</headerAlias>
+<reference>false</reference>
+</viewElement>
+</viewElements>
+<usedObjects>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="CC75E4FF-0E96-E7FA-5255-D193E121C32A">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_REGION</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="A38F6EA5-AC26-5CA9-9F8A-507505058DB4">
+<columnName>USER_NAME</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_REGION</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="28DEFE45-5093-1824-66B9-6DB14D44E37C">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_AREA</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="3212341D-2080-6654-D225-DCC2FF2FD6B4">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_LOC</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="EAAC70BF-0CB6-C06C-881F-5D48F2230506">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_CUST_GROUP</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="7224A24F-424F-1ADC-A0E0-B6237D6C4DFD">
+<columnName>REGION_CODE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_REGION</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="49DC7B13-6A14-E973-660E-D3A3D3ED903B">
+<columnName>USER_NAME</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_LOC</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="6D8ABCFF-5684-4FE2-B918-2929A94A0FD2">
+<columnName>USER_NAME</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_CUST_GROUP</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="B3FB3BE7-0020-0746-86E5-0392D5B25147">
+<columnName>LOCATION_CODE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_LOC</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="F5973103-7618-10A4-0254-A55F1795E92E">
+<columnName>USER_NAME</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_AREA</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="CBC7EB1E-F1EC-AE50-F25F-86C4466DD3A7">
+<columnName>CUST_GROUP</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_CUST_GROUP</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="25374277-BFCD-D4CA-5E31-9D70C71E8DCA">
+<columnName>AREA_CODE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_AREA</tableName>
+</UsedObject>
+</usedObjects>
+</TableView>

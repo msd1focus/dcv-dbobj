@@ -1,0 +1,42 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FunctionOracle class="oracle.dbtools.crest.model.design.storage.oracle.FunctionOracle" name="RPT_CUSTEXCLUDE" directorySegmentName="seg_0" id="ADBF0E87-3A4B-0EFC-0B47-2786B18B8721">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>RPT_CUSTEXCLUDE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:06 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<owner><![CDATA[4E5B45BD-E77E-0B6D-EFA2-DE9F30B5E31F]]></owner>
+<source>CREATE OR REPLACE FUNCTION         FOCUSPP.RPT_CUSTEXCLUDE (P1 NUMBER) 
+RETURN VARCHAR2
+AS
+  TORET VARCHAR2(4000);
+  MAX_FIELD_LEN CONSTANT NUMBER := 3500;
+BEGIN
+    SELECT LISTAGG(COMB.exclude,&apos;; &apos;) WITHIN GROUP (ORDER BY COMB.PROMO_PRODUK_ID)
+    INTO TORET
+    FROM
+    (
+     select pch.REGION_DESC ||(case when pch.REGION_DESC is null
+ then &apos;&apos;  when pch.AREA_DESC is not null then &apos; &apos; else null end)||nvl(pch.AREA_DESC,&apos; &apos;)||(case when pch.AREA_DESC is null
+ then &apos;&apos; when pch.LOC_DESC is not null then &apos; &apos; else null end)||nvl(pch.LOC_DESC,&apos; &apos;)||(case when pch.LOC_DESC is null
+ then &apos;&apos; when pch.CUSTTYP_DESC is not null then &apos; &apos; else null end)||nvl(pch.CUSTTYP_DESC,&apos; &apos;)||(case when pch.CUSTTYP_DESC is null
+ then &apos;&apos; when pch.CUSTGRP_DESC is not null then &apos; &apos; else null end)||nvl(pch.CUSTGRP_DESC,&apos; &apos;)||(case when pch.CUSTGRP_DESC is null
+ then &apos;&apos; when pch.CUSTOMER_NAME is not null then &apos; &apos; else null end)||pch.CUSTOMER_NAME exclude,pch.promo_produk_id
+   FROM PROMO_CUSTX_HO pch
+ WHERE pch.promo_produk_id = P1
+ union
+ select pca.REGION_DESC ||(case when pca.REGION_DESC is null
+ then &apos;&apos;  when pca.AREA_DESC is not null then &apos; &apos; else null end)||nvl(pca.AREA_DESC,&apos; &apos;)||(case when pca.AREA_DESC is null
+ then &apos;&apos; when pca.LOC_DESC is not null then &apos; &apos; else null end)||nvl(pca.LOC_DESC,&apos; &apos;)||(case when pca.LOC_DESC is null
+ then &apos;&apos; when pca.CUSTTYP_DESC is not null then &apos; &apos; else null end)||nvl(pca.CUSTTYP_DESC,&apos; &apos;)||(case when pca.CUSTTYP_DESC is null
+ then &apos;&apos; when pca.CUSTGRP_DESC is not null then &apos; &apos; else null end)||nvl(pca.CUSTGRP_DESC,&apos; &apos;)||(case when pca.CUSTGRP_DESC is null
+ then &apos;&apos; when pca.CUSTOMER_NAME is not null then &apos; &apos; else null end)||CUSTOMER_NAME exclude,pca.promo_produk_id
+   FROM PROMO_CUSTX_area pca
+ WHERE pca.promo_produk_id = P1
+    ) COMB;
+    RETURN NVL(TORET,&apos;&apos;);
+EXCEPTION WHEN OTHERS
+THEN RETURN (&apos;&apos;);
+END;</source>
+</FunctionOracle>

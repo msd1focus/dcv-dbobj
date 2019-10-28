@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<StoredProcedureOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.StoredProcedureOraclev10g" name="FCS_USER_UPLOAD_VAL_LOG" directorySegmentName="seg_0" id="A2733E31-4FCE-5677-4BD1-A664C4015009">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_USER_UPLOAD_VAL_LOG</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:06 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<owner><![CDATA[4E5B45BD-E77E-0B6D-EFA2-DE9F30B5E31F]]></owner>
+<source>CREATE OR REPLACE PROCEDURE         FOCUSPP.FCS_USER_UPLOAD_VAL_LOG (P_STATUS IN VARCHAR2, P_UT_CODE IN VARCHAR2)
+IS
+V_EXISTS NUMBER;
+BEGIN    
+    --SELECT COUNT(1) INTO V_EXISTS FROM USER_UPLOAD_LOG WHERE VAL_CODE = P_UT_CODE;
+    --IF V_EXISTS &gt; 0 THEN
+    --    UPDATE USER_UPLOAD_LOG SET UT_CODE = &apos;UTVALIDATE&apos;, VAL_MSG = P_STATUS, VAL_EXEC_DATE = SYSDATE WHERE VAL_CODE = P_UT_CODE;
+    --ELSE 
+        INSERT INTO USER_UPLOAD_LOG (USER_UPLOAD_LOG_ID, UT_CODE, VAL_CODE, VAL_MSG, VAL_EXEC_DATE) VALUES (USER_UPLOAD_LOG_SEQ.NEXTVAL, &apos;UTVALIDATE&apos;, P_UT_CODE, P_STATUS, SYSDATE);
+    --END IF;
+    COMMIT;
+END;</source>
+</StoredProcedureOraclev10g>

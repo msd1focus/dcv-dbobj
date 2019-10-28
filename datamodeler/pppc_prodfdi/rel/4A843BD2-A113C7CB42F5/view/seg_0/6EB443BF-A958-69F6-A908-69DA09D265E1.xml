@@ -1,0 +1,192 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="6EB443BF-A958-69F6-A908-69DA09D265E1" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="FCS_SHUTTLE_USER_CUSTOMER">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_SHUTTLE_USER_CUSTOMER</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL><![CDATA[CREATE OR REPLACE VIEW FCS_SHUTTLE_USER_CUSTOMER
+AS 
+SELECT   ArCustomers.CUSTOMER_ID,
+              ArCustomers.CUSTOMER_NAME,
+              ArCustomers.CUSTOMER_NUMBER,
+              (   ArCustomers.CUSTOMER_NUMBER
+               || ' - '
+               || CAV.ACCOUNT_NAME
+               || ' - '
+               || flex.DESCRIPTION)
+                 AS CUSTOMER_FULL_NAME,
+              ArCustomers.ATTRIBUTE3 AS REGION_CODE,
+              AppUserCustGroup.USER_NAME,
+              ArCustomers.ATTRIBUTE4 AS AREA_CODE,
+              ArCustomers.ATTRIBUTE5 AS LOC_CODE,
+              ArCustomers.ATTRIBUTE1 AS CUSTGROUP_CODE
+       FROM   APPS.AR_CUSTOMERS ArCustomers,
+              APP_USER_CUST_GROUP AppUserCustGroup,
+              APPS.FCS_FLEX_VALUES_VL flex,
+              APPS.FCS_CUST_ACCOUNTS_VIEW CAV
+      WHERE       flex.FLEX_VALUE = ArCustomers.ATTRIBUTE5
+              AND ArCustomers.ATTRIBUTE1 = AppUserCustGroup.CUST_GROUP
+              AND ArCustomers.STATUS = 'A'
+              AND ArCustomers.CUSTOMER_ID = CAV.CUST_ACCOUNT_ID
+   GROUP BY   ArCustomers.CUSTOMER_ID,
+              ArCustomers.CUSTOMER_NAME,
+              ArCustomers.CUSTOMER_NUMBER,
+              ArCustomers.ATTRIBUTE1,
+              ArCustomers.ATTRIBUTE3,
+              ArCustomers.ATTRIBUTE4,
+              ArCustomers.ATTRIBUTE5,
+              CAV.ACCOUNT_NAME,
+              AppUserCustGroup.USER_NAME,
+              flex.DESCRIPTION
+   ORDER BY   "CUSTOMER_FULL_NAME"]]></userDefinedSQL>
+<parsed>true</parsed>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="CUSTOMER_ID" id="6222D22A-8D9F-10DD-6973-52149136A9EE">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_SHUTTLE_USER_CUSTOMER</sourceObjSchema>
+<sourceObjName>CUSTOMER_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>CUSTOMER_ID</alias>
+<dataType>VARCHAR2 (30 BYTE)</dataType>
+<headerAlias>CUSTOMER_ID</headerAlias>
+<reference>false</reference>
+<referencedColumn>6D8ABCFF-5684-4FE2-B918-2929A94A0FD2</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="CUSTOMER_NAME" id="6E57B351-7AB9-11AF-A984-633DB6E4076A">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_SHUTTLE_USER_CUSTOMER</sourceObjSchema>
+<sourceObjName>CUSTOMER_NAME</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>CUSTOMER_NAME</alias>
+<dataType>VARCHAR2 (50 BYTE)</dataType>
+<headerAlias>CUSTOMER_NAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="CUSTOMER_NUMBER" id="62D49D05-70A0-EB5D-4519-B42964405F94">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_SHUTTLE_USER_CUSTOMER</sourceObjSchema>
+<sourceObjName>CUSTOMER_NUMBER</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>CUSTOMER_NUMBER</alias>
+<dataType>VARCHAR2 (30 BYTE)</dataType>
+<headerAlias>CUSTOMER_NUMBER</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="CUSTOMER_FULL_NAME" id="FA4FAC8A-2ED3-6880-D99F-6CB3925B1C87">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_SHUTTLE_USER_CUSTOMER</sourceObjSchema>
+<sourceObjName>CUSTOMER_FULL_NAME</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>CUSTOMER_FULL_NAME</alias>
+<dataType>VARCHAR2 (516 BYTE)</dataType>
+<headerAlias>CUSTOMER_FULL_NAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="REGION_CODE" id="CF6D4E1D-4B3A-F38E-D8EC-6A22741A1D3B">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_SHUTTLE_USER_CUSTOMER</sourceObjSchema>
+<sourceObjName>REGION_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>REGION_CODE</alias>
+<dataType>VARCHAR2 (150 BYTE)</dataType>
+<headerAlias>REGION_CODE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="USER_NAME" id="FDC584AB-4F15-A53E-C518-7B3FA659D70D">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_SHUTTLE_USER_CUSTOMER</sourceObjSchema>
+<sourceObjName>USER_NAME</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>USER_NAME</alias>
+<dataType>VARCHAR2 (30 BYTE)</dataType>
+<headerAlias>USER_NAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="AREA_CODE" id="8ED08939-2F11-BE97-2B80-8E3B4E363551">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_SHUTTLE_USER_CUSTOMER</sourceObjSchema>
+<sourceObjName>AREA_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>AREA_CODE</alias>
+<dataType>VARCHAR2 (150 BYTE)</dataType>
+<headerAlias>AREA_CODE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="LOC_CODE" id="ABD98C67-6FF9-10DC-C9EC-32A7AC45841F">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_SHUTTLE_USER_CUSTOMER</sourceObjSchema>
+<sourceObjName>LOC_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>LOC_CODE</alias>
+<dataType>VARCHAR2 (150 BYTE)</dataType>
+<headerAlias>LOC_CODE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="CUSTGROUP_CODE" id="332BBC7E-D5DC-A80A-D3DC-D6E0E5E7210C">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_SHUTTLE_USER_CUSTOMER</sourceObjSchema>
+<sourceObjName>CUSTGROUP_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>CUSTGROUP_CODE</alias>
+<dataType>VARCHAR2 (150 BYTE)</dataType>
+<headerAlias>CUSTGROUP_CODE</headerAlias>
+<reference>false</reference>
+</viewElement>
+</viewElements>
+<usedObjects>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="EAAC70BF-0CB6-C06C-881F-5D48F2230506">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_CUST_GROUP</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="6D8ABCFF-5684-4FE2-B918-2929A94A0FD2">
+<columnName>USER_NAME</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_CUST_GROUP</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="CBC7EB1E-F1EC-AE50-F25F-86C4466DD3A7">
+<columnName>CUST_GROUP</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_CUST_GROUP</tableName>
+</UsedObject>
+</usedObjects>
+</TableView>

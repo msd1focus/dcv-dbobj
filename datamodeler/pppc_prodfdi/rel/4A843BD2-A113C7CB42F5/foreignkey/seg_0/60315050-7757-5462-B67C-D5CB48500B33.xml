@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="60315050-7757-5462-B67C-D5CB48500B33" containerWithKeyObject="8015BC6A-1A58-80EA-A15E-3F6CF72CA958" localFKIndex="44DDD03E-CCED-9FB8-B95F-9D0722AC26E9" name="BUDGET_CUST_TRAN_BUDGET_C_FK1">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>BUDGET_CUST_TRAN_BUDGET_C_FK1</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:04 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<referredTableLongName>FOCUSPP.BUDGET_CUSTOMER_TES</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>48D7ACFA-E1C8-03F6-5282-0CBC5CDA8FD8</referredTableID>
+<keyObject>3ACE56A9-20FE-C52C-CBAC-4325F84D86AD</keyObject>
+<referredKeyID>3ACE56A9-20FE-C52C-CBAC-4325F84D86AD</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>BUDGET_CUSTOMER_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

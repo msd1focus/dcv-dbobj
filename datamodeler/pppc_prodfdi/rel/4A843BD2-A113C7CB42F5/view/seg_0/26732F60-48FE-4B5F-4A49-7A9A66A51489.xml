@@ -1,0 +1,80 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="26732F60-48FE-4B5F-4A49-7A9A66A51489" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="FCS_UN_USER_ACCESS_ROLES">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_UN_USER_ACCESS_ROLES</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL><![CDATA[CREATE OR REPLACE VIEW FCS_UN_USER_ACCESS_ROLES
+AS 
+select uuar.role, uuar.user_name from ut_user_access_roles uuar
+    union all
+    select auar.role, auar.user_name from app_user_access_roles auar where auar.user_name not in (select uuar.user_name from ut_user_access_roles uuar)]]></userDefinedSQL>
+<parsed>true</parsed>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="ROLE" id="0FA4C7E2-B13A-4D57-C3AF-BF9C3174745C">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_UN_USER_ACCESS_ROLES</sourceObjSchema>
+<sourceObjName>ROLE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>ROLE</alias>
+<dataType>VARCHAR2 (30 BYTE)</dataType>
+<headerAlias>ROLE</headerAlias>
+<reference>false</reference>
+<referencedColumn>58156752-1191-E59B-3146-9593176E5FD6</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="USER_NAME" id="9D0D92AB-3C84-CABA-114A-77477FE0451E">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_UN_USER_ACCESS_ROLES</sourceObjSchema>
+<sourceObjName>USER_NAME</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>USER_NAME</alias>
+<dataType>VARCHAR2 (30 BYTE)</dataType>
+<headerAlias>USER_NAME</headerAlias>
+<reference>false</reference>
+<referencedColumn>6C313FDB-C2B4-D9F9-2458-35223EBC739D</referencedColumn>
+</viewElement>
+</viewElements>
+<usedObjects>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="B479B2BE-387C-6CBE-1B51-8548008F7045">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>UT_USER_ACCESS_ROLES</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="58156752-1191-E59B-3146-9593176E5FD6">
+<columnName>ROLE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>UT_USER_ACCESS_ROLES</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="6C313FDB-C2B4-D9F9-2458-35223EBC739D">
+<columnName>USER_NAME</columnName>
+<schema>FOCUSPP</schema>
+<tableName>UT_USER_ACCESS_ROLES</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="F6EB3C72-4F8F-156A-9101-2F766CAAD116">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_ACCESS_ROLES</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="405F53C4-AD8E-82FC-F5D3-89C046C72D7D">
+<columnName>USER_NAME</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_ACCESS_ROLES</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="792E4C8A-848A-5855-292F-3DB1D1BD4641">
+<columnName>ROLE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_ACCESS_ROLES</tableName>
+</UsedObject>
+</usedObjects>
+</TableView>

@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="E7696E87-FEEF-66B3-226E-C22E60533D4E" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="FCS_VIEW_PRE_DCV_FLAG">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_VIEW_PRE_DCV_FLAG</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL><![CDATA[CREATE OR REPLACE VIEW FCS_VIEW_PRE_DCV_FLAG
+AS 
+SELECT   COUNT (1) TOTAL, PRDCV.NO_PP
+       FROM   APPS.FCS_VIEW_REALISASI_DCV PRDCV
+   GROUP BY   PRDCV.NO_PP]]></userDefinedSQL>
+<parsed>true</parsed>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="TOTAL" id="F08022CA-BB8A-4FDA-6D43-4F87542C8D3B">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_VIEW_PRE_DCV_FLAG</sourceObjSchema>
+<sourceObjName>TOTAL</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>TOTAL</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>TOTAL</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="NO_PP" id="204E5E3F-F05C-2C3A-000B-31553FAACF79">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_VIEW_PRE_DCV_FLAG</sourceObjSchema>
+<sourceObjName>NO_PP</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:54 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>NO_PP</alias>
+<dataType>VARCHAR2 (100 CHAR)</dataType>
+<headerAlias>NO_PP</headerAlias>
+<reference>false</reference>
+</viewElement>
+</viewElements>
+</TableView>

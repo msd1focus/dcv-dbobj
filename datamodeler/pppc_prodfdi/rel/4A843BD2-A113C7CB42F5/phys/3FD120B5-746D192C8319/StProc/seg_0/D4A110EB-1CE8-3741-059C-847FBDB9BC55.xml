@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<StoredProcedureOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.StoredProcedureOraclev10g" name="FILL_APP_USER_CUST_INC" directorySegmentName="seg_0" id="D4A110EB-1CE8-3741-059C-847FBDB9BC55">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FILL_APP_USER_CUST_INC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:06 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<owner><![CDATA[4E5B45BD-E77E-0B6D-EFA2-DE9F30B5E31F]]></owner>
+<source>CREATE OR REPLACE procedure FOCUSPP.FILL_APP_USER_CUST_INC is
+begin
+    for i in (
+        select
+            id,
+            region_code,
+            area_code,
+            location_code,
+            type_code,
+            group_code,
+            cust_code
+        from app_user_cust_inc)
+    loop
+        if i.region_code is not null then
+            update app_user_cust_inc
+            set
+                region_name = (select region_name from master_customer where region_code = i.region_code and rownum = 1),
+                region_fullname = (select region_fullname from master_customer where region_code = i.region_code and rownum = 1)
+            where
+                id = i.id;
+        end if;
+        if i.area_code is not null then
+            update app_user_cust_inc
+            set
+                area_name = (select area_name from master_customer where area_code = i.area_code and rownum = 1),
+                area_fullname = (select area_fullname from master_customer where area_code = i.area_code and rownum = 1)
+            where
+                id = i.id;
+        end if;
+        if i.location_code is not null then
+            update app_user_cust_inc
+            set
+                location_name = (select location_name from master_customer where location_code = i.location_code and rownum = 1),
+                location_fullname = (select location_fullname from master_customer where location_code = i.location_code and rownum = 1)
+            where
+                id = i.id;
+        end if;
+        if i.type_code is not null then
+            update app_user_cust_inc
+            set
+                type_name = (select type_name from master_customer where type_code = i.type_code and rownum = 1),
+                type_fullname = (select type_fullname from master_customer where type_code = i.type_code and rownum = 1)
+            where
+                id = i.id;
+        end if;
+        if i.group_code is not null then
+            update app_user_cust_inc
+            set
+                group_name = (select group_name from master_customer where group_code = i.group_code and rownum = 1),
+                group_fullname = (select group_fullname from master_customer where group_code = i.group_code and rownum = 1)
+            where
+                id = i.id;
+        end if;
+        if i.cust_code is not null then
+            update app_user_cust_inc
+            set
+                cust_name = (select cust_name from master_customer where cust_code = i.cust_code and rownum = 1),
+                cust_fullname = (select cust_fullname from master_customer where cust_code = i.cust_code and rownum = 1)
+            where
+                id = i.id;
+        end if;
+    end loop;            
+end;</source>
+</StoredProcedureOraclev10g>

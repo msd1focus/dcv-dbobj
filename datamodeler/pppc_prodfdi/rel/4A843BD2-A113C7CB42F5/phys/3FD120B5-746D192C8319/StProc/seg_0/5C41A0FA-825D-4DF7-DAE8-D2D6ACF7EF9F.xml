@@ -1,0 +1,247 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<StoredProcedureOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.StoredProcedureOraclev10g" name="FCS_BATCH_REALISASI_MODIFIER" directorySegmentName="seg_0" id="5C41A0FA-825D-4DF7-DAE8-D2D6ACF7EF9F">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_BATCH_REALISASI_MODIFIER</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:05 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<owner><![CDATA[4E5B45BD-E77E-0B6D-EFA2-DE9F30B5E31F]]></owner>
+<source>CREATE OR REPLACE PROCEDURE         FOCUSPP.FCS_BATCH_REALISASI_MODIFIER (P_CONFIRM_NO IN VARCHAR2)
+AS
+    
+    CURSOR CURSOR_DATA_USE_BUDGET (P_KONFIRM_NO IN VARCHAR2)
+    IS
+    (
+        SELECT DISTINCT PB.BUDGET_CUST_ID
+        FROM PROPOSAL PC,
+             PROMO_PRODUK PP,
+             PROD_BUDGET_BY PB
+        WHERE PC.CONFIRM_NO || DECODE (PC.ADDENDUM_KE, NULL, &apos;&apos;, &apos;-&apos; || PC.ADDENDUM_KE) = P_KONFIRM_NO
+        AND PC.PROPOSAL_ID = PP.PROPOSAL_ID
+        AND PP.PROMO_PRODUK_ID = PB.PROMO_PRODUK_ID
+    );
+
+
+    CURSOR CURSOR_DATA_BUDGET_PROD (P_BUDGET_CUST_ID IN NUMBER)
+    IS
+    (
+    -- REALISASI MODIFIER
+    SELECT 
+         PPPC.PROMO_PRODUK_ID,
+         PPPC.BUDGET_CUST_ID,
+         SUM(NVL(FVR.AMOUNT,0)) -
+         NVL(PPPC.DISC_MF,0) OVER_AMOUNT
+    FROM APPS.FCS_VIEW_REALISASI_MODIFIER FVR,
+         (
+         SELECT PR.CONFIRM_NO,
+             PR.DISC_MF,
+             PR.LINE_NO,
+             PB.BUDGET_CUST_ID,
+             PR.PROMO_PRODUK_ID
+         FROM
+             (
+                SELECT PC.PROPOSAL_ID,
+                     PC.PROPOSAL_NO,
+                     PC.CONFIRM_NO,
+                     PP.PROMO_PRODUK_ID,
+                     ROW_NUMBER() OVER (PARTITION BY PP.PROPOSAL_ID ORDER BY PP.PROMO_PRODUK_ID) LINE_NO,
+                     PP.DISC_MF
+                FROM PROMO_PRODUK PP,
+                     PROPOSAL PC
+                WHERE PC.PROPOSAL_ID = PP.PROPOSAL_ID
+                AND PC.DISCOUNT_TYPE = &apos;POTONGAN&apos;
+                AND PC.MEKANISME_PENAGIHAN = &apos;ONINVOICE&apos;
+             ) PR,
+             PROD_BUDGET_BY PB
+         WHERE 1=1
+         AND PB.STATUS = &apos;N&apos;
+         AND PB.FLAG_STATUS_OVER = &apos;Y&apos;
+         AND PR.PROMO_PRODUK_ID = PB.PROMO_PRODUK_ID
+         ) PPPC
+    WHERE FVR.KET = &apos;MF&apos;
+    AND FVR.CONFIRM_NO_ORIG = PPPC.CONFIRM_NO
+    AND FVR.LINE_NO = PPPC.LINE_NO
+    AND PPPC.BUDGET_CUST_ID = P_BUDGET_CUST_ID
+--    AND FVR.CONFIRM_NO = P_CONFIRM_NO
+    HAVING SUM(NVL(FVR.AMOUNT,0)) - NVL(PPPC.DISC_MF,0) &gt; 0
+    GROUP BY PPPC.PROMO_PRODUK_ID, PPPC.BUDGET_CUST_ID, PPPC.DISC_MF
+    UNION ALL
+    SELECT 
+         PPPC.PROMO_PRODUK_ID,
+         PPPC.BUDGET_CUST_ID,
+         SUM(NVL(FVR.AMOUNT,0)) -
+         NVL(PPPC.DISC_MF,0) OVER_AMOUNT
+    FROM APPS.FCS_VIEW_REALISASI_MODIFIER@DBA_FCS_FDI.US.ORACLE.COM FVR,
+         (
+         SELECT PR.CONFIRM_NO,
+             PR.DISC_MF,
+             PR.LINE_NO,
+             PB.BUDGET_CUST_ID,
+             PR.PROMO_PRODUK_ID
+         FROM
+             (
+                SELECT PC.PROPOSAL_ID,
+                     PC.PROPOSAL_NO,
+                     PC.CONFIRM_NO,
+                     PP.PROMO_PRODUK_ID,
+                     ROW_NUMBER() OVER (PARTITION BY PP.PROPOSAL_ID ORDER BY PP.PROMO_PRODUK_ID) LINE_NO,
+                     PP.DISC_MF
+                FROM PROMO_PRODUK@DBA_FCS_FDI.US.ORACLE.COM PP,
+                     PROPOSAL@DBA_FCS_FDI.US.ORACLE.COM PC
+                WHERE PC.PROPOSAL_ID = PP.PROPOSAL_ID
+                AND PC.DISCOUNT_TYPE = &apos;POTONGAN&apos;
+                AND PC.MEKANISME_PENAGIHAN = &apos;ONINVOICE&apos;
+             ) PR,
+             PROD_BUDGET_BY@DBA_FCS_FDI.US.ORACLE.COM PB
+         WHERE 1=1
+         AND PB.STATUS = &apos;N&apos;
+         AND PB.FLAG_STATUS_OVER = &apos;Y&apos;
+         AND PR.PROMO_PRODUK_ID = PB.PROMO_PRODUK_ID
+         ) PPPC
+    WHERE FVR.KET = &apos;MF&apos;
+    AND FVR.CONFIRM_NO_ORIG = PPPC.CONFIRM_NO
+    AND FVR.LINE_NO = PPPC.LINE_NO
+    AND PPPC.BUDGET_CUST_ID = P_BUDGET_CUST_ID
+--    AND FVR.CONFIRM_NO = P_CONFIRM_NO
+    HAVING SUM(NVL(FVR.AMOUNT,0)) - NVL(PPPC.DISC_MF,0) &gt; 0
+    GROUP BY PPPC.PROMO_PRODUK_ID, PPPC.BUDGET_CUST_ID, PPPC.DISC_MF
+    -- REALISASI PROMO BARANG
+    UNION ALL
+    SELECT 
+         PPPC.PROMO_PRODUK_ID,
+         PPPC.BUDGET_CUST_ID,
+         SUM((NVL(FVR.TOTAL,0) * NVL(PPPC.BRG_BONUS_MF,0)) / (NVL(PPPC.BRG_BONUS_MF,0) + NVL(PPPC.BRG_BONUS_ON_TOP,0))) - NVL(PPPC.BRG_BONUS_MF,0) OVER_AMOUNT
+    FROM APPS.FCS_VIEW_REALISASI_PROMOBARANG FVR,
+         (
+         SELECT PR.CONFIRM_NO,
+             PR.BRG_BONUS_MF,
+             PR.BRG_BONUS_ON_TOP,
+             PR.LINE_NO,
+             PB.BUDGET_CUST_ID,
+             PR.PROMO_PRODUK_ID
+         FROM
+             (
+                SELECT PC.PROPOSAL_ID,
+                     PC.PROPOSAL_NO,
+                     PC.CONFIRM_NO,
+                     PP.PROMO_PRODUK_ID,
+                     ROW_NUMBER() OVER (PARTITION BY PP.PROPOSAL_ID ORDER BY PP.PROMO_PRODUK_ID) LINE_NO,
+                     PP.BRG_BONUS_MF,
+                     PP.BRG_BONUS_ON_TOP
+                FROM PROMO_PRODUK PP,
+                     PROPOSAL PC
+                WHERE PC.PROPOSAL_ID = PP.PROPOSAL_ID
+                AND PC.DISCOUNT_TYPE = &apos;PROMOBARANG&apos;
+                AND PC.MEKANISME_PENAGIHAN = &apos;ONINVOICE&apos;
+             ) PR,
+             PROD_BUDGET_BY PB
+         WHERE 1=1
+         AND PB.STATUS = &apos;N&apos;
+         AND PB.FLAG_STATUS_OVER = &apos;Y&apos;
+         AND PR.PROMO_PRODUK_ID = PB.PROMO_PRODUK_ID
+         ) PPPC
+    WHERE 1=1
+    AND FVR.NO_KONFIRMASI_ORI = PPPC.CONFIRM_NO
+    AND FVR.LINE_NO = PPPC.LINE_NO
+    AND PPPC.BUDGET_CUST_ID = P_BUDGET_CUST_ID
+--    AND FVR.PROPOSAL_ID = P_PROPOSAL_ID_PBUDGET
+    HAVING SUM((NVL(FVR.TOTAL,0) * NVL(PPPC.BRG_BONUS_MF,0)) / (NVL(PPPC.BRG_BONUS_MF,0) + NVL(PPPC.BRG_BONUS_ON_TOP,0))) - NVL(PPPC.BRG_BONUS_MF,0) &gt; 0
+    GROUP BY PPPC.PROMO_PRODUK_ID, PPPC.BUDGET_CUST_ID, PPPC.BRG_BONUS_MF, PPPC.BRG_BONUS_ON_TOP
+    UNION ALL
+    SELECT 
+         PPPC.PROMO_PRODUK_ID,
+         PPPC.BUDGET_CUST_ID,
+         SUM((NVL(FVR.TOTAL,0) * NVL(PPPC.BRG_BONUS_MF,0)) / (NVL(PPPC.BRG_BONUS_MF,0) + NVL(PPPC.BRG_BONUS_ON_TOP,0))) - NVL(PPPC.BRG_BONUS_MF,0) OVER_AMOUNT
+    FROM APPS.FCS_VIEW_REALISASI_PROMOBARANG@DBA_FCS_FDI.US.ORACLE.COM FVR,
+         (
+         SELECT PR.CONFIRM_NO,
+             PR.BRG_BONUS_MF,
+             PR.BRG_BONUS_ON_TOP,
+             PR.LINE_NO,
+             PB.BUDGET_CUST_ID,
+             PR.PROMO_PRODUK_ID
+         FROM
+             (
+                SELECT PC.PROPOSAL_ID,
+                     PC.PROPOSAL_NO,
+                     PC.CONFIRM_NO,
+                     PP.PROMO_PRODUK_ID,
+                     ROW_NUMBER() OVER (PARTITION BY PP.PROPOSAL_ID ORDER BY PP.PROMO_PRODUK_ID) LINE_NO,
+                     PP.BRG_BONUS_MF,
+                     PP.BRG_BONUS_ON_TOP
+                FROM PROMO_PRODUK@DBA_FCS_FDI.US.ORACLE.COM PP,
+                     PROPOSAL@DBA_FCS_FDI.US.ORACLE.COM PC
+                WHERE PC.PROPOSAL_ID = PP.PROPOSAL_ID
+                AND PC.DISCOUNT_TYPE = &apos;PROMOBARANG&apos;
+                AND PC.MEKANISME_PENAGIHAN = &apos;ONINVOICE&apos;
+             ) PR,
+             PROD_BUDGET_BY@DBA_FCS_FDI.US.ORACLE.COM PB
+         WHERE 1=1
+         AND PB.STATUS = &apos;N&apos;
+         AND PB.FLAG_STATUS_OVER = &apos;Y&apos;
+         AND PR.PROMO_PRODUK_ID = PB.PROMO_PRODUK_ID
+         ) PPPC
+    WHERE 1=1
+    AND FVR.NO_KONFIRMASI_ORI = PPPC.CONFIRM_NO
+    AND FVR.LINE_NO = PPPC.LINE_NO
+    AND PPPC.BUDGET_CUST_ID = P_BUDGET_CUST_ID
+--    AND FVR.PROPOSAL_ID = P_PROPOSAL_ID_PBUDGET
+    HAVING SUM((NVL(FVR.TOTAL,0) * NVL(PPPC.BRG_BONUS_MF,0)) / (NVL(PPPC.BRG_BONUS_MF,0) + NVL(PPPC.BRG_BONUS_ON_TOP,0))) - NVL(PPPC.BRG_BONUS_MF,0) &gt; 0
+    GROUP BY PPPC.PROMO_PRODUK_ID, PPPC.BUDGET_CUST_ID, PPPC.BRG_BONUS_MF, PPPC.BRG_BONUS_ON_TOP);
+    
+    CURSOR CURSOR_DATA_BUDGET_CUST (P_BUDGET_CUST_ID IN NUMBER)
+    IS
+    SELECT PB.BUDGET_CUST_ID,
+         SUM(NVL(PB.OVER_BUDGET_AMT,0)) OVER_AMOUNT
+    FROM PROMO_PRODUK PP,
+         PROD_BUDGET_BY PB,
+         PROPOSAL PR
+    WHERE PP.PROMO_PRODUK_ID = PB.PROMO_PRODUK_ID
+    AND PR.PROPOSAL_ID = PP.PROPOSAL_ID
+    AND PB.STATUS = &apos;N&apos;
+    AND PB.FLAG_STATUS_OVER = &apos;Y&apos;
+    AND PR.DISCOUNT_TYPE = &apos;POTONGAN&apos;
+    AND PR.MEKANISME_PENAGIHAN = &apos;ONINVOICE&apos;
+    AND PB.BUDGET_CUST_ID = P_BUDGET_CUST_ID
+--    AND PR.CONFIRM_NO|| DECODE (PR.ADDENDUM_KE, NULL, &apos;&apos;, &apos;-&apos; || PR.ADDENDUM_KE) = P_CONFIRM_NO
+    AND NVL(PB.OVER_BUDGET_AMT,0) &gt; 0
+    GROUP BY PB.BUDGET_CUST_ID;
+    
+BEGIN
+
+    FOR C_DATA_USE_BUDGET IN CURSOR_DATA_USE_BUDGET (P_CONFIRM_NO)
+    LOOP
+    
+        FOR C_DATA_BUDGET_PROD IN CURSOR_DATA_BUDGET_PROD (C_DATA_USE_BUDGET.BUDGET_CUST_ID)
+        LOOP
+        
+            BEGIN
+                
+                UPDATE PROD_BUDGET_BY PB
+                SET PB.OVER_BUDGET_AMT = C_DATA_BUDGET_PROD.OVER_AMOUNT
+                WHERE PB.PROMO_PRODUK_ID = C_DATA_BUDGET_PROD.PROMO_PRODUK_ID
+                AND PB.BUDGET_CUST_ID = C_DATA_BUDGET_PROD.BUDGET_CUST_ID;
+                
+                COMMIT;
+            
+            END;
+            
+        END LOOP;
+        
+        FOR C_DATA_BUDGET_CUST IN CURSOR_DATA_BUDGET_CUST (C_DATA_USE_BUDGET.BUDGET_CUST_ID)
+        LOOP
+            
+            BEGIN
+            
+                UPDATE BUDGET_CUSTOMER BC
+                SET BC.OVER_BUDGET = C_DATA_BUDGET_CUST.OVER_AMOUNT
+                WHERE BC.BUDGET_CUSTOMER_ID = C_DATA_BUDGET_CUST.BUDGET_CUST_ID;
+                
+                COMMIT;
+            END;    
+            
+        END LOOP;
+    END LOOP;
+END;</source>
+</StoredProcedureOraclev10g>

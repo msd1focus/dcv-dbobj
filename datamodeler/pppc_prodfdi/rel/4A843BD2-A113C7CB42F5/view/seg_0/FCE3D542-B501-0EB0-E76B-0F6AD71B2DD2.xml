@@ -1,0 +1,455 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="FCE3D542-B501-0EB0-E76B-0F6AD71B2DD2" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="DOC_APPROVAL_VIEW">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>DOC_APPROVAL_VIEW</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL><![CDATA[CREATE OR REPLACE VIEW DOC_APPROVAL_VIEW
+AS 
+SELECT
+    DA.ACTION,
+    DA.ACTION_BY,
+    DA.ACTION_DATE,
+    DA.ACTION_TO,
+    DA.APRVL_CODE,
+    DA.CREATED_BY,
+    DA.CREATION_DATE,
+    DA.DOCUMENT_NO,
+    DA.DOC_APPROVAL_ID,
+    DA.FORWARD_TO,
+    DA.LAST_UPDATED_BY,
+    DA.LAST_UPDATE_DATE,
+    DA.PROMO_DATE_FROM,
+    DA.PROMO_DATE_TO,
+    DA.PROPOSAL_DATE,
+    DA.PROPOSAL_ID,
+    DA.REASON,
+    DA.REGION,
+    UR.ROLE ROLE_NAME,
+    DA.STATUS
+FROM DOC_APPROVAL DA
+LEFT JOIN APP_USER_ACCESS_ROLES UR
+ON UR.USER_NAME = DA.ACTION_TO]]></userDefinedSQL>
+<parsed>true</parsed>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="ACTION" id="52E8F5B3-563D-2A0A-3370-68FA0DE93ADF">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>DOC_APPROVAL_VIEW</sourceObjSchema>
+<sourceObjName>ACTION</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>ACTION</alias>
+<dataType>VARCHAR2 (30 CHAR)</dataType>
+<headerAlias>ACTION</headerAlias>
+<reference>false</reference>
+<referencedColumn>54D40871-6749-132E-DE30-4EEF54B2AAFF</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="ACTION_BY" id="478B7E7C-3047-F508-66BD-E708FB99787F">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>DOC_APPROVAL_VIEW</sourceObjSchema>
+<sourceObjName>ACTION_BY</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>ACTION_BY</alias>
+<dataType>VARCHAR2 (30 CHAR)</dataType>
+<headerAlias>ACTION_BY</headerAlias>
+<reference>false</reference>
+<referencedColumn>052FFE86-6225-0CFF-5B60-4F55EBD2D609</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="ACTION_DATE" id="B03AC89C-3F44-BC46-1088-C6F744D380FA">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>DOC_APPROVAL_VIEW</sourceObjSchema>
+<sourceObjName>ACTION_DATE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>ACTION_DATE</alias>
+<dataType>DATE</dataType>
+<headerAlias>ACTION_DATE</headerAlias>
+<reference>false</reference>
+<referencedColumn>4FCE35AD-8E37-140A-2AA2-C54D7A96047D</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="ACTION_TO" id="B97C4C5E-3956-075B-9B24-CB408449C60D">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>DOC_APPROVAL_VIEW</sourceObjSchema>
+<sourceObjName>ACTION_TO</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>ACTION_TO</alias>
+<dataType>VARCHAR2 (30 BYTE)</dataType>
+<headerAlias>ACTION_TO</headerAlias>
+<reference>false</reference>
+<referencedColumn>F2E69065-B3B3-B795-F3EF-081D5256B31F</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="APRVL_CODE" id="2090C324-D9D0-FE98-BC1D-3374BFC98C54">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>DOC_APPROVAL_VIEW</sourceObjSchema>
+<sourceObjName>APRVL_CODE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>APRVL_CODE</alias>
+<dataType>VARCHAR2 (15 CHAR)</dataType>
+<headerAlias>APRVL_CODE</headerAlias>
+<reference>false</reference>
+<referencedColumn>3905B126-932A-5AED-2EB2-EE51CB776BED</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="CREATED_BY" id="E2D5E44E-CDCC-4BF3-471B-5E7A336F152E">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>DOC_APPROVAL_VIEW</sourceObjSchema>
+<sourceObjName>CREATED_BY</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>CREATED_BY</alias>
+<dataType>VARCHAR2 (30 CHAR)</dataType>
+<headerAlias>CREATED_BY</headerAlias>
+<reference>false</reference>
+<referencedColumn>64FE95CB-33C9-D9EB-74B3-788BD904D23A</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="CREATION_DATE" id="17B70F1E-7FC7-F584-F7FD-C2BE07CE32EC">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>DOC_APPROVAL_VIEW</sourceObjSchema>
+<sourceObjName>CREATION_DATE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>CREATION_DATE</alias>
+<dataType>DATE</dataType>
+<headerAlias>CREATION_DATE</headerAlias>
+<reference>false</reference>
+<referencedColumn>BFFAC354-B2BB-B206-F5DD-1BA042DC7412</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="DOCUMENT_NO" id="E3A91C59-AE4A-3E34-CE51-EC4D6CD16E04">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>DOC_APPROVAL_VIEW</sourceObjSchema>
+<sourceObjName>DOCUMENT_NO</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>DOCUMENT_NO</alias>
+<dataType>VARCHAR2 (100 CHAR)</dataType>
+<headerAlias>DOCUMENT_NO</headerAlias>
+<reference>false</reference>
+<referencedColumn>C684EA0E-9F87-0D83-73C9-33721447CAC6</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="DOC_APPROVAL_ID" id="CA90766E-A0A8-9889-66E1-EFA990B9098B">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>DOC_APPROVAL_VIEW</sourceObjSchema>
+<sourceObjName>DOC_APPROVAL_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>DOC_APPROVAL_ID</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>DOC_APPROVAL_ID</headerAlias>
+<reference>false</reference>
+<referencedColumn>BB0E8D73-4414-56B6-474E-CDF4A4A53828</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="FORWARD_TO" id="9BD1EB9A-DA10-2E0E-BC51-CDE87567445D">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>DOC_APPROVAL_VIEW</sourceObjSchema>
+<sourceObjName>FORWARD_TO</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>FORWARD_TO</alias>
+<dataType>VARCHAR2 (30 BYTE)</dataType>
+<headerAlias>FORWARD_TO</headerAlias>
+<reference>false</reference>
+<referencedColumn>95CB33EC-9799-AD29-DA12-5A602E76AFD5</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="LAST_UPDATED_BY" id="6E4F9B40-F616-0BA1-9683-02602A8A6F6E">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>DOC_APPROVAL_VIEW</sourceObjSchema>
+<sourceObjName>LAST_UPDATED_BY</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>LAST_UPDATED_BY</alias>
+<dataType>VARCHAR2 (30 CHAR)</dataType>
+<headerAlias>LAST_UPDATED_BY</headerAlias>
+<reference>false</reference>
+<referencedColumn>49FC7769-BC15-888D-4A64-CE7376922E07</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="LAST_UPDATE_DATE" id="38CB1917-F133-95CF-D522-673E52DBD4FC">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>DOC_APPROVAL_VIEW</sourceObjSchema>
+<sourceObjName>LAST_UPDATE_DATE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>LAST_UPDATE_DATE</alias>
+<dataType>DATE</dataType>
+<headerAlias>LAST_UPDATE_DATE</headerAlias>
+<reference>false</reference>
+<referencedColumn>1FEB61F7-BE59-3E54-76DD-9D48B6C59CEF</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PROMO_DATE_FROM" id="E31ED153-B996-1AA7-5002-BCE89CDC1F37">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>DOC_APPROVAL_VIEW</sourceObjSchema>
+<sourceObjName>PROMO_DATE_FROM</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PROMO_DATE_FROM</alias>
+<dataType>DATE</dataType>
+<headerAlias>PROMO_DATE_FROM</headerAlias>
+<reference>false</reference>
+<referencedColumn>F248865D-7B9D-42D3-7FBD-11A76D48BE32</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PROMO_DATE_TO" id="CD0290FD-71B2-081F-921C-F3C5A90D8B20">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>DOC_APPROVAL_VIEW</sourceObjSchema>
+<sourceObjName>PROMO_DATE_TO</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PROMO_DATE_TO</alias>
+<dataType>DATE</dataType>
+<headerAlias>PROMO_DATE_TO</headerAlias>
+<reference>false</reference>
+<referencedColumn>969D7485-F9AC-E594-6327-B4481F0632C4</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PROPOSAL_DATE" id="05361123-50A6-B005-2045-D21E0F0EEA5D">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>DOC_APPROVAL_VIEW</sourceObjSchema>
+<sourceObjName>PROPOSAL_DATE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PROPOSAL_DATE</alias>
+<dataType>DATE</dataType>
+<headerAlias>PROPOSAL_DATE</headerAlias>
+<reference>false</reference>
+<referencedColumn>470BFB08-E803-2B72-7BD1-D568508F603C</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PROPOSAL_ID" id="662D13EF-8299-9750-9A29-310DC4C996B3">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>DOC_APPROVAL_VIEW</sourceObjSchema>
+<sourceObjName>PROPOSAL_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PROPOSAL_ID</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>PROPOSAL_ID</headerAlias>
+<reference>false</reference>
+<referencedColumn>F90BC1B4-D795-C63B-B28C-AAE5DAD8D1C2</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="REASON" id="C7AC9358-45E1-BC31-543D-9BE846585426">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>DOC_APPROVAL_VIEW</sourceObjSchema>
+<sourceObjName>REASON</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>REASON</alias>
+<dataType>VARCHAR2 (240 CHAR)</dataType>
+<headerAlias>REASON</headerAlias>
+<reference>false</reference>
+<referencedColumn>EF76A9F0-4905-AA33-6ED7-B44A58449DE3</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="REGION" id="BAFAF9EE-79CA-6326-A556-6D8B17638970">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>DOC_APPROVAL_VIEW</sourceObjSchema>
+<sourceObjName>REGION</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>REGION</alias>
+<dataType>VARCHAR2 (20 CHAR)</dataType>
+<headerAlias>REGION</headerAlias>
+<reference>false</reference>
+<referencedColumn>7007294D-719E-3859-8422-4A3AD237BA05</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="ROLE_NAME" id="351D4D31-EB38-8EAC-363B-2F6C375E264A">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>DOC_APPROVAL_VIEW</sourceObjSchema>
+<sourceObjName>ROLE_NAME</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>ROLE_NAME</alias>
+<dataType>VARCHAR2 (30 CHAR)</dataType>
+<headerAlias>ROLE_NAME</headerAlias>
+<reference>false</reference>
+<referencedColumn>35758AD5-1B27-7E9C-3E58-C1118381A43A</referencedColumn>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="STATUS" id="0367E825-7EB3-8267-C964-6749CB91CBB6">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>DOC_APPROVAL_VIEW</sourceObjSchema>
+<sourceObjName>STATUS</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>STATUS</alias>
+<dataType>VARCHAR2 (30 CHAR)</dataType>
+<headerAlias>STATUS</headerAlias>
+<reference>false</reference>
+</viewElement>
+</viewElements>
+<usedObjects>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="CC1D5B8F-C3D2-4323-05C6-F643AC7B4833">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>DOC_APPROVAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="F6EB3C72-4F8F-156A-9101-2F766CAAD116">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_ACCESS_ROLES</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="54D40871-6749-132E-DE30-4EEF54B2AAFF">
+<columnName>ACTION</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DOC_APPROVAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="052FFE86-6225-0CFF-5B60-4F55EBD2D609">
+<columnName>ACTION_BY</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DOC_APPROVAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="4FCE35AD-8E37-140A-2AA2-C54D7A96047D">
+<columnName>ACTION_DATE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DOC_APPROVAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="F2E69065-B3B3-B795-F3EF-081D5256B31F">
+<columnName>ACTION_TO</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DOC_APPROVAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="3905B126-932A-5AED-2EB2-EE51CB776BED">
+<columnName>APRVL_CODE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DOC_APPROVAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="64FE95CB-33C9-D9EB-74B3-788BD904D23A">
+<columnName>CREATED_BY</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DOC_APPROVAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="BFFAC354-B2BB-B206-F5DD-1BA042DC7412">
+<columnName>CREATION_DATE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DOC_APPROVAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="C684EA0E-9F87-0D83-73C9-33721447CAC6">
+<columnName>DOCUMENT_NO</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DOC_APPROVAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="BB0E8D73-4414-56B6-474E-CDF4A4A53828">
+<columnName>DOC_APPROVAL_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DOC_APPROVAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="95CB33EC-9799-AD29-DA12-5A602E76AFD5">
+<columnName>FORWARD_TO</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DOC_APPROVAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="49FC7769-BC15-888D-4A64-CE7376922E07">
+<columnName>LAST_UPDATED_BY</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DOC_APPROVAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="1FEB61F7-BE59-3E54-76DD-9D48B6C59CEF">
+<columnName>LAST_UPDATE_DATE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DOC_APPROVAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="F248865D-7B9D-42D3-7FBD-11A76D48BE32">
+<columnName>PROMO_DATE_FROM</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DOC_APPROVAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="969D7485-F9AC-E594-6327-B4481F0632C4">
+<columnName>PROMO_DATE_TO</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DOC_APPROVAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="470BFB08-E803-2B72-7BD1-D568508F603C">
+<columnName>PROPOSAL_DATE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DOC_APPROVAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="F90BC1B4-D795-C63B-B28C-AAE5DAD8D1C2">
+<columnName>PROPOSAL_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DOC_APPROVAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="EF76A9F0-4905-AA33-6ED7-B44A58449DE3">
+<columnName>REASON</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DOC_APPROVAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="7007294D-719E-3859-8422-4A3AD237BA05">
+<columnName>REGION</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DOC_APPROVAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="35758AD5-1B27-7E9C-3E58-C1118381A43A">
+<columnName>STATUS</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DOC_APPROVAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="405F53C4-AD8E-82FC-F5D3-89C046C72D7D">
+<columnName>USER_NAME</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_ACCESS_ROLES</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="792E4C8A-848A-5855-292F-3DB1D1BD4641">
+<columnName>ROLE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>APP_USER_ACCESS_ROLES</tableName>
+</UsedObject>
+</usedObjects>
+</TableView>

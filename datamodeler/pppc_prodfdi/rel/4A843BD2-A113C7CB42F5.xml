@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="Relational_1" id="4A843BD2-4403-DA68-0637-A113C7CB42F5" mainViewID="0185B971-3956-2D73-9020-D0715873D6B4">
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:53:39 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>3FD120B5-9F4E-6278-D5E2-746D192C8319</selectedRDBMSSite>
+<importConnectionStamps>
+<importConnectionStamp class="oracle.dbtools.crest.imports.DBConnectionStamp">
+<connName>ProdFDI as focuspp</connName>
+<connUser>focuspp</connUser>
+<connType>1</connType>
+</importConnectionStamp>
+</importConnectionStamps>
+</relationalModel>

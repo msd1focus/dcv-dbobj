@@ -1,0 +1,254 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FunctionOracle class="oracle.dbtools.crest.model.design.storage.oracle.FunctionOracle" name="RPT_F" directorySegmentName="seg_0" id="10FA7017-ADE5-309B-06F3-2C6CD0B8B119">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>RPT_F</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:06 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<owner><![CDATA[4E5B45BD-E77E-0B6D-EFA2-DE9F30B5E31F]]></owner>
+<source>CREATE OR REPLACE function FOCUSPP.RPT_F (p1 number) 
+return varchar2
+as
+  toret varchar2(4000);
+  MAX_FIELD_LEN constant number := 3500;
+BEGIN
+
+    BEGIN -- prop_region_cust_type  -&gt; proposal_id
+        SELECT distinct
+            listagg(CUSTTYPEDESC,&apos;, &apos;) within group (order by CUSTTYPEDESC) INTO toret
+        from (
+            select PRCT.CUSTTYPEDESC ,
+            sum(length(PRCT.CUSTTYPEDESC+2)) over (order by PRCT.CUSTTYPEDESC) desc_rlen
+            from FOCUSPP.PROMO_PRODUK pp,
+                FOCUSPP.PROP_REGION_CUST_TYPE prct     
+            where pp.PROPOSAL_ID = PRCT.PROPOSAL_ID
+                and pp.promo_produk_id =  p1
+        )
+        where desc_rlen &lt; MAX_FIELD_LEN;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    IF toret IS NOT NULL THEN return (&apos;Customer Type :     &apos; || toret);
+    END IF;
+
+    BEGIN -- prod_cust_type
+        select  listagg(DESCRIPTION, &apos;, &apos;) within group (order by DESCRIPTION)||
+            decode(trunc(tlen/MAX_FIELD_LEN),0,&apos;&apos;,&apos;...&apos;) into toret
+        from (
+            select AFF.DESCRIPTION,
+                nvl(sum(length(DESCRIPTION) + 2) over (order by DESCRIPTION),0) rlen,
+                nvl(sum(length(DESCRIPTION) + 2) over (),0) tlen
+            from FOCUSPP.PROD_REGION_CUST_TYPE pdct,
+                 APPS.FCS_FLEX_VALUES_VL aff      
+            where pdct.CUST_TYPE  = AFF.FLEX_VALUE
+                and pdct.promo_produk_id = p1
+            )
+        where rlen &lt;= MAX_FIELD_LEN 
+        group by tlen;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    IF toret IS NOT NULL THEN return (&apos;Customer Type :     &apos; || toret);
+    END IF;
+
+    BEGIN  null;-- prod_region_cust_group
+        SELECT distinct 
+        listagg(fl.description,&apos;, &apos;) within group (order by fl.description) INTO toret
+        FROM prod_region_cust_group cg, apps.FCS_FLEX_VALUES_VL fl
+        WHERE fl.flex_value = cg.cust_group
+        and cg.promo_produk_id = p1;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    IF toret IS NOT NULL THEN return (&apos;Customer Group :    &apos; || toret);
+    END IF;
+
+    BEGIN  -- prod_region_loc
+    SELECT distinct  
+    listagg(description,&apos;, &apos;) within group (order by description) INTO toret 
+    FROM (
+      select AFF.DESCRIPTION,
+      sum(length(description)) over (partition by pdrl.promo_produk_id order by description) desc_rlen
+      from FOCUSPP.PROD_REGION_LOC pdrl,
+       APPS.FCS_FLEX_VALUES_VL aff      
+      where PDRL.LOCATION_CODE = AFF.FLEX_VALUE     
+      and pdrl.promo_produk_id = p1
+    )
+    where desc_rlen &lt; MAX_FIELD_LEN;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    IF toret IS NOT NULL THEN return (&apos;Customer Location : &apos;||toret);
+    END IF;
+
+    BEGIN  -- prod_region_cust
+        select distinct  
+        listagg(customer_name, &apos;, &apos;) within group (order by customer_name)
+        INTO toret
+        from (
+          select
+            CUSTOMER_NUMBER || &apos; - &apos; || FCA.ACCOUNT_NAME || &apos; - &apos; || FVV.DESCRIPTION  as CUSTOMER_NAME,
+            sum(length(CUSTOMER_NUMBER || FCA.ACCOUNT_NAME || FVV.DESCRIPTION) + 8) 
+                over (partition by pdrc.promo_produk_id order by CUSTOMER_NUMBER || FCA.ACCOUNT_NAME) rlen
+          from FOCUSPP.PROD_REGION_CUSTOMER pdrc ,
+             APPS.AR_CUSTOMERS aac,
+             APPS.FCS_FLEX_VALUES_VL fvv,
+             APPS.FCS_CUST_ACCOUNTS_VIEW fca
+          where
+             PDRC.CUSTOMER_ID = AAC.CUSTOMER_ID
+             and AAC.CUSTOMER_ID  = FCA.CUST_ACCOUNT_ID
+             and aac.attribute5 = FVV.FLEX_VALUE
+             and pdrc.promo_produk_id = p1
+          )
+        where rlen &lt; MAX_FIELD_LEN;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    IF toret IS NOT NULL THEN return (&apos;Customer Region :   &apos;||toret);
+    END IF;
+
+    BEGIN  -- prod_region_area
+        select distinct listagg(DESCRIPTION, &apos;, &apos;) within group (order by DESCRIPTION)
+        into toret
+        from (
+            select AFF.DESCRIPTION,
+            nvl(sum(length(aff.DESCRIPTION) + 2) over (order by aff.DESCRIPTION),0) rlen,
+            nvl(sum(length(aff.DESCRIPTION) + 2) over (),0) tlen
+            from FOCUSPP.PROD_REGION_AREA PDRA,
+                 APPS.FCS_FLEX_VALUES_VL aff      
+            where PDRA.AREA_CODE = AFF.FLEX_VALUE
+             and pdra.promo_produk_id =  p1
+        )
+        where rlen &lt; MAX_FIELD_LEN;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    IF toret IS NOT NULL THEN return (&apos;Customer Area :     &apos;||toret);
+    END IF; 
+
+    BEGIN null; -- PROD_REGION   
+        select distinct listagg(DESCRIPTION, &apos;, &apos;) within group (order by DESCRIPTION)
+        into toret
+        from (
+            select AFF.DESCRIPTION,
+                nvl(sum(length(aff.DESCRIPTION) + 2) over (order by aff.DESCRIPTION),0) rlen,
+                nvl(sum(length(aff.DESCRIPTION) + 2) over (),0) tlen
+            from FOCUSPP.PROD_REGION pdr,
+                APPS.FCS_FLEX_VALUES_VL aff      
+            where PDR.REGION_CODE = AFF.FLEX_VALUE
+              and pdr.promo_produk_id =  p1
+       )
+        where rlen &lt; MAX_FIELD_LEN;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    IF toret IS NOT NULL THEN return (&apos;Region :            &apos;||toret);
+    END IF; 
+
+    BEGIN  -- customer_name_group_prop
+        select distinct
+            listagg(DESCRIPTION, &apos;, &apos;) within group (order by DESCRIPTION)||
+            decode(trunc(tlen/MAX_FIELD_LEN),0,&apos;&apos;,&apos;...&apos;) into toret
+        from (
+            select AFF.DESCRIPTION,
+                nvl(sum(length(aff.DESCRIPTION) + 2) over (order by aff.DESCRIPTION),0) rlen,
+                nvl(sum(length(aff.DESCRIPTION) + 2) over (),0) tlen
+            from FOCUSPP.PROP_REGION_CUST_GROUP prcg,
+                APPS.FCS_FLEX_VALUES_VL aff,
+                focuspp.promo_produk pp      
+            where prcg.CUST_GROUP = aff.flex_value
+            and prcg.proposal_id = pp.proposal_id
+            and pp.promo_produk_id =  p1
+        )
+        where rlen &lt; MAX_FIELD_LEN
+        group by tlen;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    IF toret IS NOT NULL THEN return (&apos;Customer Group :    &apos;||toret);
+    END IF; 
+
+    BEGIN null; -- description_loc_prop
+        select distinct listagg(DESCRIPTION, &apos;, &apos;) within group (order by DESCRIPTION)||
+            decode(trunc(tlen/MAX_FIELD_LEN),0,&apos;&apos;,&apos;...&apos;) into toret
+        from (
+            select AFF.DESCRIPTION,
+                nvl(sum(length(aff.DESCRIPTION) + 2) over (order by aff.DESCRIPTION),0) rlen,
+                nvl(sum(length(aff.DESCRIPTION) + 2) over (),0) tlen
+            from 
+                FOCUSPP.PROP_REGION_LOC prl,
+                FOCUSPP.PROMO_PRODUK pp,
+                APPS.FCS_FLEX_VALUES_VL aff
+            where
+                prl.LOCATION_CODE = AFF.FLEX_VALUE
+                AND pp.PROPOSAL_ID = PRL.PROPOSAL_ID
+                and pp.promo_produk_id =  p1
+            )
+        where rlen &lt; MAX_FIELD_LEN group by tlen;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    IF toret IS NOT NULL THEN return (&apos;Customer Location : &apos;||toret);
+    END IF; 
+
+    BEGIN  -- description_area_prop
+        select distinct  listagg(DESCRIPTION, &apos;, &apos;) within group (order by DESCRIPTION)||
+            decode(trunc(tlen/MAX_FIELD_LEN),0,&apos;&apos;,&apos;...&apos;) into toret
+        from (
+            select
+                AFF.DESCRIPTION,
+                nvl(sum(length(aff.DESCRIPTION) + 2) over (order by aff.DESCRIPTION),0) rlen,
+                nvl(sum(length(aff.DESCRIPTION) + 2) over (),0) tlen
+            from 
+                  FOCUSPP.PROP_REGION_AREA pra,
+                 APPS.FCS_FLEX_VALUES_VL aff,
+                 focuspp.promo_produk pp
+            where
+                PRA.AREA_CODE = AFF.FLEX_VALUE
+                AND pp.PROPOSAL_ID = PRA.PROPOSAL_ID
+                and pp.promo_produk_id =  p1
+            )
+        where rlen &lt; MAX_FIELD_LEN group by tlen;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    IF toret IS NOT NULL THEN return (&apos;Customer Area :     &apos;||toret);
+    END IF; 
+
+    BEGIN  -- description_region_prop
+        select distinct listagg(DESCRIPTION, &apos;, &apos;) within group (order by DESCRIPTION) ||
+            decode(trunc(tlen/MAX_FIELD_LEN),0,&apos;&apos;,&apos;...&apos;) into toret
+        from (
+            select
+                AFF.DESCRIPTION,
+                nvl(sum(length(aff.DESCRIPTION) + 2) over (order by aff.DESCRIPTION),0) rlen,
+                nvl(sum(length(aff.DESCRIPTION) + 2) over (),0) tlen
+            from
+                FOCUSPP.PROP_REGION pr,
+                APPS.FCS_FLEX_VALUES_VL aff,
+                focuspp.promo_produk pp
+            where
+                PR.REGION_CODE = AFF.FLEX_VALUE
+                AND pp.PROPOSAL_ID = PR.PROPOSAL_ID
+                and pp.promo_produk_id =  p1
+            )
+        where rlen &lt; MAX_FIELD_LEN group by tlen;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    IF toret IS NOT NULL THEN return (&apos;Region :            &apos;||toret);
+    END IF; 
+
+    BEGIN null; -- customer_name_prop
+                select distinct listagg(CUSTDESCRIPTION, &apos;, &apos;) within group (order by CUSTDESCRIPTION) ||
+            decode(trunc(tlen/MAX_FIELD_LEN),0,&apos;&apos;,&apos;...&apos;) into toret
+        from (
+            select
+                CUSTDESCRIPTION,
+                nvl(sum(length(CUSTDESCRIPTION)) over (order by CUSTDESCRIPTION),0) rlen,
+                nvl(sum(length(CUSTDESCRIPTION) + 2) over (),0) tlen
+            from 
+                FOCUSPP.PROMO_PRODUK pp,
+                FOCUSPP.PROP_REGION_CUSTOMER PRC
+             where
+                  pp.proposal_id  = PRC.proposal_id
+                 and pp.promo_produk_id =  p1
+            )where rlen &lt; MAX_FIELD_LEN group by tlen;
+    EXCEPTION WHEN NO_DATA_FOUND THEN NULL;
+    END;
+    IF toret IS NOT NULL THEN return (&apos;Customer Name :     &apos;||toret);
+    END IF; 
+
+  return (&apos;&apos;);
+end;</source>
+</FunctionOracle>

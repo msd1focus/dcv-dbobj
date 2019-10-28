@@ -1,0 +1,1166 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="F9BFF1C2-0C24-5DBB-951D-2366CECB391D" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="FCS_MODIFIER_AREA_EXCL">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_MODIFIER_AREA_EXCL</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL><![CDATA[CREATE OR REPLACE VIEW FCS_MODIFIER_AREA_EXCL
+AS 
+SELECT   DENSE_RANK ()
+                 OVER (ORDER BY LALA.NO_CONFIRM,
+                                LALA.BREAK_TYPE,
+                                LALA.PRODUCT_VALUE,
+                                LALA.KET)
+                 AS LINE_NUM,
+              LALA."NO_CONFIRM",
+              LALA."CURRENCY",
+              LALA."START_DATE",
+              LALA."END_DATE",
+              LALA."ACTIVE",
+              LALA."AUTOMATIC",
+              LALA."LINE_LEVEL",
+              LALA."LINE_TYPE",
+              LALA."START_DATE_LINE",
+              LALA."END_DATE_LINE",
+              LALA."AUTOMATIC_LINE",
+              LALA."PRICING_PHASE",
+              LALA."BUCKET",
+              LALA."PRODUCT_ATTRIBUTE",
+              LALA."PRODUCT_VALUE",
+              LALA."VOLUME_TYPE",
+              LALA."BREAK_TYPE",
+              LALA."UOM",
+              LALA."VALUE_FROM",
+              LALA."VALUE_TO",
+              LALA."APPLICATION_METHOD",
+              LALA."VALUE",
+              LALA."GROUPING_NO",
+              LALA."QUALIFIER_CONTEXT",
+              LALA."QUALIFIER_ATTR",
+              LALA."OPERATOR_SIGN",
+              LALA."VALUE_QUALIFIER",
+              LALA."CONFIRM_NO_DEF",
+              LALA."PROMO_PRODUK_ID",
+              LALA."DISC_YEARLY",
+              LALA."KET"
+       FROM   (  SELECT   (CASE
+                              WHEN PROP.ADDENDUM_KE IS NULL THEN PROP.CONFIRM_NO
+                              ELSE PROP.CONFIRM_NO || '-' || PROP.ADDENDUM_KE
+                           END)
+                             AS NO_CONFIRM,
+                          PROP.CURRENCY,
+                          PROP.PERIODE_PROG_FROM AS START_DATE,
+                          PROP.PERIODE_PROG_TO AS END_DATE,
+                          'Y' AS ACTIVE,
+                          'Y' AS AUTOMATIC,
+                          (CASE
+                              WHEN PROP.MIX_QTY_PROMO = 'N' THEN 'Line'
+                              ELSE 'Group of Line'
+                           END)
+                             AS LINE_LEVEL,
+                          'Discount' AS LINE_TYPE,
+                          PROP.PERIODE_PROG_FROM AS START_DATE_LINE,
+                          PROP.PERIODE_PROG_TO AS END_DATE_LINE,
+                          'Y' AS AUTOMATIC_LINE,
+                          'All Lines Adjustment' AS PRICING_PHASE,
+                          PROD.KODE_POSTING AS BUCKET,
+                          (CASE
+                              WHEN ITCV.SET_VARIANT_DESC = 'ALL'
+                                   AND PROD_ITEM IS NOT NULL
+                              THEN
+                                 PROD_ITEM.PROD_ITEM
+                              ELSE
+                                 (   PROD.PRODUCT_CATEGORY
+                                  || '.'
+                                  || PROD.PRODUCT_CLASS
+                                  || '.'
+                                  || PROD.PRODUCT_BRAND
+                                  || '.'
+                                  || PROD.PRODUCT_EXT
+                                  || '.'
+                                  || PROD.PRODUCT_PACK
+                                  || '.'
+                                  || PROD_VARIANT)
+                           END)
+                             AS PRODUCT_ATTRIBUTE,
+                          (CASE
+                              WHEN ITCV.SET_VARIANT_DESC = 'ALL'
+                                   AND PROD_ITEM IS NOT NULL
+                              THEN
+                                 PROD_ITEM.PROD_ITEM
+                              ELSE
+                                 (   PROD.PRODUCT_CATEGORY
+                                  || '.'
+                                  || PROD.PRODUCT_CLASS
+                                  || '.'
+                                  || PROD.PRODUCT_BRAND
+                                  || '.'
+                                  || PROD.PRODUCT_EXT
+                                  || '.'
+                                  || PROD.PRODUCT_PACK
+                                  || '.'
+                                  || PROD_VARIANT)
+                           END)
+                             AS PRODUCT_VALUE,
+                          'Item Quantity' AS VOLUME_TYPE,
+                          (CASE
+                              WHEN DISC.TIPE_PERHITUNGAN = 'TDKKELIPATAN'
+                              THEN
+                                 'Point'
+                              ELSE
+                                 'Recurring'
+                           END)
+                             AS BREAK_TYPE,
+                          DISC.UOM AS UOM,
+                          DISC.QTY_FROM AS VALUE_FROM,
+                          NVL (DISC.QTY_TO, 999999) AS VALUE_TO,
+                          DISC.TIPE_POTONGAN AS APPLICATION_METHOD,
+                          --DECODE(unpivot_row,1,DISC.DISC_YEARLY,2,DISC.DISC_NON_YEARLY,NULL) AS VALUE,
+                          DISC.DISC_YEARLY AS VALUE,
+                          2 AS LINE_NUM,
+                          -1 AS GROUPING_NO,
+                          'Customer' AS QUALIFIER_CONTEXT,
+                          (CASE
+                              WHEN PROD.EXCL_CUST_BY = 'REGION'
+                              THEN
+                                 'FCS_REGION'
+                              WHEN PROD.EXCL_CUST_BY = 'AREA'
+                              THEN
+                                 'FCS_AREA'
+                              WHEN PROD.EXCL_CUST_BY = 'CUSTOMER'
+                              THEN
+                                 'SOLD_TO_ORG_ID'
+                              WHEN PROD.EXCL_CUST_BY = 'LOCATION'
+                              THEN
+                                 'FCS_LOCATION'
+                              ELSE
+                                 'NOT DEFINED'
+                           END)
+                             AS QUALIFIER_ATTR,
+                          'NOT =' AS OPERATOR_SIGN,
+                          (CASE
+                              WHEN PROD.EXCL_CUST_BY = 'REGION'
+                              THEN
+                                 REG.REGION_CODE
+                              WHEN PROD.EXCL_CUST_BY = 'AREA'
+                              THEN
+                                 AREA.AREA_CODE
+                              WHEN PROD.EXCL_CUST_BY = 'CUSTOMER'
+                              THEN
+                                 TO_CHAR (CUST.CUSTOMER_ID)
+                              WHEN PROD.EXCL_CUST_BY = 'LOCATION'
+                              THEN
+                                 TO_CHAR (LOC.LOCATION_CODE)
+                           END)
+                             AS VALUE_QUALIFIER,
+                          PROP.CONFIRM_NO AS CONFIRM_NO_DEF,
+                          PROD.PROMO_PRODUK_ID,
+                          DISC.DISC_YEARLY,
+                          'MF' KET
+                   FROM   PROPOSAL PROP,
+                          PROMO_PRODUK PROD,
+                          DISCOUNT DISC,
+                          EXCL_PROP_CUST_REGION REG,
+                          EXCL_PROP_CUST_CUST CUST,
+                          EXCL_PROP_CUST_AREA AREA,
+                          EXCL_PROP_CUST_LOC LOC,
+                          (    SELECT   LEVEL AS unpivot_row
+                                 FROM   DUAL
+                           CONNECT BY   LEVEL <= 2),
+                          PRODUK_VARIANT PROD_VARIANT,
+                          PRODUK_ITEM PROD_ITEM,
+                          APPS.FCS_VIEW_ITEM_MASTER_CATEGORY ITCV
+                  WHERE       PROP.CONFIRM_NO IS NOT NULL
+                          AND PROD.PROPOSAL_ID = PROP.PROPOSAL_ID
+                          AND DISC.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID
+                          AND REG.PROMO_PRODUK_ID(+) = PROD.PROMO_PRODUK_ID
+                          AND CUST.PROMO_PRODUK_ID(+) = PROD.PROMO_PRODUK_ID
+                          AND AREA.PROMO_PRODUK_ID(+) = PROD.PROMO_PRODUK_ID
+                          AND LOC.PROMO_PRODUK_ID(+) = PROD.PROMO_PRODUK_ID
+                          --AND DECODE(unpivot_row,1,DISC.DISC_YEARLY,2,DISC.DISC_NON_YEARLY,NULL) IS NOT NULL
+                          AND DISC.DISC_YEARLY IS NOT NULL
+                          AND PROD_VARIANT.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID
+                          AND PROD_ITEM.PROMO_PRODUK_ID(+) = PROD.PROMO_PRODUK_ID
+                          AND ITCV.SET_VARIANT = PROD_VARIANT
+                          AND PROD.EXCL_CUST_BY IS NOT NULL
+                          AND PROP.USER_TYPE_CREATOR = 'AREA'
+               GROUP BY   (CASE
+                              WHEN PROD.EXCL_CUST_BY = 'REGION'
+                              THEN
+                                 'FCS_REGION'
+                              WHEN PROD.EXCL_CUST_BY = 'AREA'
+                              THEN
+                                 'FCS_AREA'
+                              WHEN PROD.EXCL_CUST_BY = 'CUSTOMER'
+                              THEN
+                                 'SOLD_TO_ORG_ID'
+                              WHEN PROD.EXCL_CUST_BY = 'LOCATION'
+                              THEN
+                                 'FCS_LOCATION'
+                              ELSE
+                                 'NOT DEFINED'
+                           END),
+                          (CASE
+                              WHEN PROP.ADDENDUM_KE IS NULL
+                              THEN
+                                 PROP.CONFIRM_NO
+                              ELSE
+                                 PROP.CONFIRM_NO || '-' || PROP.ADDENDUM_KE
+                           END),
+                          PROP.CURRENCY,
+                          PROP.PERIODE_PROG_FROM,
+                          PROP.PERIODE_PROG_TO,
+                          PROP.PERIODE_PROG_FROM,
+                          PROP.PERIODE_PROG_TO,
+                          PROD.KODE_POSTING,
+                          (   PROD.PRODUCT_CATEGORY
+                           || '.'
+                           || PROD.PRODUCT_CLASS
+                           || '.'
+                           || PROD.PRODUCT_BRAND
+                           || '.'
+                           || PROD.PRODUCT_EXT
+                           || '.'
+                           || PROD.PRODUCT_PACK
+                           || '.'
+                           || PROD_VARIANT),
+                          (CASE
+                              WHEN DISC.TIPE_PERHITUNGAN = 'TDKKELIPATAN'
+                              THEN
+                                 'Point'
+                              ELSE
+                                 'Recurring'
+                           END),
+                          DISC.UOM,
+                          DISC.QTY_FROM,
+                          NVL (DISC.QTY_TO, 999999),
+                          PROD_ITEM.PROD_ITEM,
+                          ITCV.SET_VARIANT_DESC,
+                          DISC.TIPE_POTONGAN,
+                          (CASE
+                              WHEN PROD.EXCL_CUST_BY = 'REGION'
+                              THEN
+                                 REG.REGION_CODE
+                              WHEN PROD.EXCL_CUST_BY = 'AREA'
+                              THEN
+                                 AREA.AREA_CODE
+                              WHEN PROD.EXCL_CUST_BY = 'CUSTOMER'
+                              THEN
+                                 TO_CHAR (CUST.CUSTOMER_ID)
+                              WHEN PROD.EXCL_CUST_BY = 'LOCATION'
+                              THEN
+                                 TO_CHAR (LOC.LOCATION_CODE)
+                           END),
+                          --DECODE(unpivot_row,1,DISC.DISC_YEARLY,2,DISC.DISC_NON_YEARLY,NULL),
+                          DISC.DISC_YEARLY,
+                          PROP.CONFIRM_NO,
+                          PROD.PROMO_PRODUK_ID,
+                          (CASE
+                              WHEN PROP.MIX_QTY_PROMO = 'N' THEN 'Line'
+                              ELSE 'Group of Line'
+                           END)
+               UNION ALL
+                 SELECT   (CASE
+                              WHEN PROP.ADDENDUM_KE IS NULL THEN PROP.CONFIRM_NO
+                              ELSE PROP.CONFIRM_NO || '-' || PROP.ADDENDUM_KE
+                           END)
+                             AS NO_CONFIRM,
+                          PROP.CURRENCY,
+                          PROP.PERIODE_PROG_FROM AS START_DATE,
+                          PROP.PERIODE_PROG_TO AS END_DATE,
+                          'Y' AS ACTIVE,
+                          'Y' AS AUTOMATIC,
+                          (CASE
+                              WHEN PROP.MIX_QTY_PROMO = 'N' THEN 'Line'
+                              ELSE 'Group of Line'
+                           END)
+                             AS LINE_LEVEL,
+                          'Discount' AS LINE_TYPE,
+                          PROP.PERIODE_PROG_FROM AS START_DATE_LINE,
+                          PROP.PERIODE_PROG_TO AS END_DATE_LINE,
+                          'Y' AS AUTOMATIC_LINE,
+                          'All Lines Adjustment' AS PRICING_PHASE,
+                          PROD.KODE_POSTING AS BUCKET,
+                          (CASE
+                              WHEN ITCV.SET_VARIANT_DESC = 'ALL'
+                                   AND PROD_ITEM IS NOT NULL
+                              THEN
+                                 PROD_ITEM.PROD_ITEM
+                              ELSE
+                                 (   PROD.PRODUCT_CATEGORY
+                                  || '.'
+                                  || PROD.PRODUCT_CLASS
+                                  || '.'
+                                  || PROD.PRODUCT_BRAND
+                                  || '.'
+                                  || PROD.PRODUCT_EXT
+                                  || '.'
+                                  || PROD.PRODUCT_PACK
+                                  || '.'
+                                  || PROD_VARIANT)
+                           END)
+                             AS PRODUCT_ATTRIBUTE,
+                          (CASE
+                              WHEN ITCV.SET_VARIANT_DESC = 'ALL'
+                                   AND PROD_ITEM IS NOT NULL
+                              THEN
+                                 PROD_ITEM.PROD_ITEM
+                              ELSE
+                                 (   PROD.PRODUCT_CATEGORY
+                                  || '.'
+                                  || PROD.PRODUCT_CLASS
+                                  || '.'
+                                  || PROD.PRODUCT_BRAND
+                                  || '.'
+                                  || PROD.PRODUCT_EXT
+                                  || '.'
+                                  || PROD.PRODUCT_PACK
+                                  || '.'
+                                  || PROD_VARIANT)
+                           END)
+                             AS PRODUCT_VALUE,
+                          'Item Quantity' AS VOLUME_TYPE,
+                          (CASE
+                              WHEN DISC.TIPE_PERHITUNGAN = 'TDKKELIPATAN'
+                              THEN
+                                 'Point'
+                              ELSE
+                                 'Recurring'
+                           END)
+                             AS BREAK_TYPE,
+                          DISC.UOM AS UOM,
+                          DISC.QTY_FROM AS VALUE_FROM,
+                          NVL (DISC.QTY_TO, 999999) AS VALUE_TO,
+                          DISC.TIPE_POTONGAN AS APPLICATION_METHOD,
+                          --DECODE(unpivot_row,1,DISC.DISC_YEARLY,2,DISC.DISC_NON_YEARLY,NULL) AS VALUE,
+                          DISC.DISC_NON_YEARLY AS VALUE,
+                          1 AS LINE_NUM,
+                          -1 AS GROUPING_NO,
+                          'Customer' AS QUALIFIER_CONTEXT,
+                          (CASE
+                              WHEN PROD.EXCL_CUST_BY = 'REGION'
+                              THEN
+                                 'FCS_REGION'
+                              WHEN PROD.EXCL_CUST_BY = 'AREA'
+                              THEN
+                                 'FCS_AREA'
+                              WHEN PROD.EXCL_CUST_BY = 'CUSTOMER'
+                              THEN
+                                 'SOLD_TO_ORG_ID'
+                              WHEN PROD.EXCL_CUST_BY = 'LOCATION'
+                              THEN
+                                 'FCS_LOCATION'
+                              ELSE
+                                 'NOT DEFINED'
+                           END)
+                             AS QUALIFIER_ATTR,
+                          'NOT =' AS OPERATOR_SIGN,
+                          (CASE
+                              WHEN PROD.EXCL_CUST_BY = 'REGION'
+                              THEN
+                                 REG.REGION_CODE
+                              WHEN PROD.EXCL_CUST_BY = 'AREA'
+                              THEN
+                                 AREA.AREA_CODE
+                              WHEN PROD.EXCL_CUST_BY = 'CUSTOMER'
+                              THEN
+                                 TO_CHAR (CUST.CUSTOMER_ID)
+                              WHEN PROD.EXCL_CUST_BY = 'LOCATION'
+                              THEN
+                                 TO_CHAR (LOC.LOCATION_CODE)
+                           END)
+                             AS VALUE_QUALIFIER,
+                          PROP.CONFIRM_NO AS CONFIRM_NO_DEF,
+                          PROD.PROMO_PRODUK_ID,
+                          DISC.DISC_NON_YEARLY,
+                          'OT' KET
+                   FROM   PROPOSAL PROP,
+                          PROMO_PRODUK PROD,
+                          DISCOUNT DISC,
+                          EXCL_PROP_CUST_REGION REG,
+                          EXCL_PROP_CUST_CUST CUST,
+                          EXCL_PROP_CUST_AREA AREA,
+                          EXCL_PROP_CUST_LOC LOC,
+                          (    SELECT   LEVEL AS unpivot_row
+                                 FROM   DUAL
+                           CONNECT BY   LEVEL <= 2),
+                          PRODUK_VARIANT PROD_VARIANT,
+                          PRODUK_ITEM PROD_ITEM,
+                          APPS.FCS_VIEW_ITEM_MASTER_CATEGORY ITCV
+                  WHERE       PROP.CONFIRM_NO IS NOT NULL
+                          AND PROD.PROPOSAL_ID = PROP.PROPOSAL_ID
+                          AND DISC.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID
+                          AND REG.PROMO_PRODUK_ID(+) = PROD.PROMO_PRODUK_ID
+                          AND CUST.PROMO_PRODUK_ID(+) = PROD.PROMO_PRODUK_ID
+                          AND AREA.PROMO_PRODUK_ID(+) = PROD.PROMO_PRODUK_ID
+                          AND LOC.PROMO_PRODUK_ID(+) = PROD.PROMO_PRODUK_ID
+                          --AND DECODE(unpivot_row,1,DISC.DISC_YEARLY,2,DISC.DISC_NON_YEARLY,NULL) IS NOT NULL
+                          AND DISC.DISC_NON_YEARLY IS NOT NULL
+                          AND PROD_VARIANT.PROMO_PRODUK_ID = PROD.PROMO_PRODUK_ID
+                          AND PROD_ITEM.PROMO_PRODUK_ID(+) = PROD.PROMO_PRODUK_ID
+                          AND ITCV.SET_VARIANT = PROD_VARIANT
+                          AND PROD.EXCL_CUST_BY IS NOT NULL
+                          AND PROP.USER_TYPE_CREATOR = 'AREA'
+               GROUP BY   (CASE
+                              WHEN PROD.EXCL_CUST_BY = 'REGION'
+                              THEN
+                                 'FCS_REGION'
+                              WHEN PROD.EXCL_CUST_BY = 'AREA'
+                              THEN
+                                 'FCS_AREA'
+                              WHEN PROD.EXCL_CUST_BY = 'CUSTOMER'
+                              THEN
+                                 'SOLD_TO_ORG_ID'
+                              WHEN PROD.EXCL_CUST_BY = 'LOCATION'
+                              THEN
+                                 'FCS_LOCATION'
+                              ELSE
+                                 'NOT DEFINED'
+                           END),
+                          (CASE
+                              WHEN PROP.ADDENDUM_KE IS NULL
+                              THEN
+                                 PROP.CONFIRM_NO
+                              ELSE
+                                 PROP.CONFIRM_NO || '-' || PROP.ADDENDUM_KE
+                           END),
+                          PROP.CURRENCY,
+                          PROP.PERIODE_PROG_FROM,
+                          PROP.PERIODE_PROG_TO,
+                          PROP.PERIODE_PROG_FROM,
+                          PROP.PERIODE_PROG_TO,
+                          PROD.KODE_POSTING,
+                          (   PROD.PRODUCT_CATEGORY
+                           || '.'
+                           || PROD.PRODUCT_CLASS
+                           || '.'
+                           || PROD.PRODUCT_BRAND
+                           || '.'
+                           || PROD.PRODUCT_EXT
+                           || '.'
+                           || PROD.PRODUCT_PACK
+                           || '.'
+                           || PROD_VARIANT),
+                          (CASE
+                              WHEN DISC.TIPE_PERHITUNGAN = 'TDKKELIPATAN'
+                              THEN
+                                 'Point'
+                              ELSE
+                                 'Recurring'
+                           END),
+                          DISC.UOM,
+                          DISC.QTY_FROM,
+                          NVL (DISC.QTY_TO, 999999),
+                          PROD_ITEM.PROD_ITEM,
+                          ITCV.SET_VARIANT_DESC,
+                          DISC.TIPE_POTONGAN,
+                          (CASE
+                              WHEN PROD.EXCL_CUST_BY = 'REGION'
+                              THEN
+                                 REG.REGION_CODE
+                              WHEN PROD.EXCL_CUST_BY = 'AREA'
+                              THEN
+                                 AREA.AREA_CODE
+                              WHEN PROD.EXCL_CUST_BY = 'CUSTOMER'
+                              THEN
+                                 TO_CHAR (CUST.CUSTOMER_ID)
+                              WHEN PROD.EXCL_CUST_BY = 'LOCATION'
+                              THEN
+                                 TO_CHAR (LOC.LOCATION_CODE)
+                           END),
+                          --DECODE(unpivot_row,1,DISC.DISC_YEARLY,2,DISC.DISC_NON_YEARLY,NULL),
+                          DISC.DISC_NON_YEARLY,
+                          PROP.CONFIRM_NO,
+                          PROD.PROMO_PRODUK_ID,
+                          (CASE
+                              WHEN PROP.MIX_QTY_PROMO = 'N' THEN 'Line'
+                              ELSE 'Group of Line'
+                           END)) LALA
+   ORDER BY   1 ASC]]></userDefinedSQL>
+<parsed>true</parsed>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="LINE_NUM" id="983DC826-22D7-FD8F-26CE-457B67A119C3">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>LINE_NUM</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>LINE_NUM</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>LINE_NUM</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="NO_CONFIRM" id="BC62A45E-529A-0E7F-9D64-E09C398268C6">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>NO_CONFIRM</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>NO_CONFIRM</alias>
+<dataType>VARCHAR2 (116 CHAR)</dataType>
+<headerAlias>NO_CONFIRM</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="CURRENCY" id="4BE9EEAB-54C7-DEF9-CB50-BB910800BEE3">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>CURRENCY</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>CURRENCY</alias>
+<dataType>VARCHAR2 (15 CHAR)</dataType>
+<headerAlias>CURRENCY</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="START_DATE" id="2EF94BD1-D556-5844-3EEA-2A98FDF2492E">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>START_DATE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>START_DATE</alias>
+<dataType>DATE</dataType>
+<headerAlias>START_DATE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="END_DATE" id="CE3215EA-800B-A440-AF68-7B1293BD2D45">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>END_DATE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>END_DATE</alias>
+<dataType>DATE</dataType>
+<headerAlias>END_DATE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="ACTIVE" id="04EF1811-8447-F8E7-DF72-EFA08E84485D">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>ACTIVE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>ACTIVE</alias>
+<dataType>CHAR (1 BYTE)</dataType>
+<headerAlias>ACTIVE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="AUTOMATIC" id="A74356C4-983E-6230-B0B2-E66539DD1C3C">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>AUTOMATIC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>AUTOMATIC</alias>
+<dataType>CHAR (1 BYTE)</dataType>
+<headerAlias>AUTOMATIC</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="LINE_LEVEL" id="41E9CC02-681A-8872-EA7F-FDAC3D8DAA0D">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>LINE_LEVEL</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>LINE_LEVEL</alias>
+<dataType>VARCHAR2 (13 BYTE)</dataType>
+<headerAlias>LINE_LEVEL</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="LINE_TYPE" id="1C679FDA-1CE3-D790-121F-EF0034F3DBC1">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>LINE_TYPE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>LINE_TYPE</alias>
+<dataType>CHAR (8 BYTE)</dataType>
+<headerAlias>LINE_TYPE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="START_DATE_LINE" id="ACEA4DC7-56EB-C97E-BA9C-F678B3BCE62A">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>START_DATE_LINE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>START_DATE_LINE</alias>
+<dataType>DATE</dataType>
+<headerAlias>START_DATE_LINE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="END_DATE_LINE" id="9D2622C9-7243-27C9-85E0-39DA399F948D">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>END_DATE_LINE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>END_DATE_LINE</alias>
+<dataType>DATE</dataType>
+<headerAlias>END_DATE_LINE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="AUTOMATIC_LINE" id="0C75C4AD-EC85-900D-17E1-AFFE84F7F7B5">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>AUTOMATIC_LINE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>AUTOMATIC_LINE</alias>
+<dataType>CHAR (1 BYTE)</dataType>
+<headerAlias>AUTOMATIC_LINE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PRICING_PHASE" id="C3DE63C1-1B6F-0D5B-1612-6B5BCEBDD713">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>PRICING_PHASE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PRICING_PHASE</alias>
+<dataType>CHAR (20 BYTE)</dataType>
+<headerAlias>PRICING_PHASE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="BUCKET" id="0186F9C1-CC87-757D-98F4-9B84F7130956">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>BUCKET</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>BUCKET</alias>
+<dataType>VARCHAR2 (40 BYTE)</dataType>
+<headerAlias>BUCKET</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PRODUCT_ATTRIBUTE" id="05A50B47-C806-20FE-9347-B70E585236C4">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>PRODUCT_ATTRIBUTE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PRODUCT_ATTRIBUTE</alias>
+<dataType>VARCHAR2 (245 BYTE)</dataType>
+<headerAlias>PRODUCT_ATTRIBUTE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PRODUCT_VALUE" id="419186A1-AAD5-90F7-B0C9-99165F0EF509">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>PRODUCT_VALUE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PRODUCT_VALUE</alias>
+<dataType>VARCHAR2 (245 BYTE)</dataType>
+<headerAlias>PRODUCT_VALUE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="VOLUME_TYPE" id="23A44B3F-C3DF-28E0-84DA-9DB4036955A6">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>VOLUME_TYPE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>VOLUME_TYPE</alias>
+<dataType>CHAR (13 BYTE)</dataType>
+<headerAlias>VOLUME_TYPE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="BREAK_TYPE" id="AA4A3E5F-AD73-12BC-0C4C-DC073A8517A7">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>BREAK_TYPE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>BREAK_TYPE</alias>
+<dataType>VARCHAR2 (9 BYTE)</dataType>
+<headerAlias>BREAK_TYPE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="UOM" id="FF86CD8A-7B30-B033-CFE6-DFAA9A37C82E">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>UOM</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>UOM</alias>
+<dataType>VARCHAR2 (15 CHAR)</dataType>
+<headerAlias>UOM</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="VALUE_FROM" id="E0954CF1-9840-E928-E6D5-B650E94530EE">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>VALUE_FROM</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>VALUE_FROM</alias>
+<dataType>NUMBER (18, 2)</dataType>
+<headerAlias>VALUE_FROM</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="VALUE_TO" id="97F2A189-306C-B52C-37A5-0D1C4E6BBDE6">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>VALUE_TO</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>VALUE_TO</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>VALUE_TO</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="APPLICATION_METHOD" id="46DFD4BC-B605-99F2-69D7-32CFF96263A2">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>APPLICATION_METHOD</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>APPLICATION_METHOD</alias>
+<dataType>VARCHAR2 (15 CHAR)</dataType>
+<headerAlias>APPLICATION_METHOD</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="VALUE" id="8141304C-D6EE-1F3B-0CAB-2E26B10158F7">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>VALUE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>VALUE</alias>
+<dataType>NUMBER (18, 2)</dataType>
+<headerAlias>VALUE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="GROUPING_NO" id="326046B0-3F10-6EB9-24C1-8A093797E623">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>GROUPING_NO</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>GROUPING_NO</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>GROUPING_NO</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="QUALIFIER_CONTEXT" id="825838F5-9D22-4470-C1E1-7302466C47CF">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>QUALIFIER_CONTEXT</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>QUALIFIER_CONTEXT</alias>
+<dataType>CHAR (8 BYTE)</dataType>
+<headerAlias>QUALIFIER_CONTEXT</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="QUALIFIER_ATTR" id="00D0DAAB-0733-3F74-C9CE-59A498048EFD">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>QUALIFIER_ATTR</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>QUALIFIER_ATTR</alias>
+<dataType>VARCHAR2 (14 BYTE)</dataType>
+<headerAlias>QUALIFIER_ATTR</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="OPERATOR_SIGN" id="E3C88AF0-D475-C8DE-6624-7FABB87230AB">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>OPERATOR_SIGN</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>OPERATOR_SIGN</alias>
+<dataType>CHAR (5 BYTE)</dataType>
+<headerAlias>OPERATOR_SIGN</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="VALUE_QUALIFIER" id="FFCD4351-0AC5-4C16-3A39-714F7A6AE665">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>VALUE_QUALIFIER</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>VALUE_QUALIFIER</alias>
+<dataType>VARCHAR2 (40 BYTE)</dataType>
+<headerAlias>VALUE_QUALIFIER</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="CONFIRM_NO_DEF" id="08AD9B2E-5F5E-9825-95E1-C41361367FEC">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>CONFIRM_NO_DEF</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>CONFIRM_NO_DEF</alias>
+<dataType>VARCHAR2 (100 CHAR)</dataType>
+<headerAlias>CONFIRM_NO_DEF</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PROMO_PRODUK_ID" id="F00DA625-1CEA-AD1E-8822-822D321A01DA">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>PROMO_PRODUK_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PROMO_PRODUK_ID</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>PROMO_PRODUK_ID</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="DISC_YEARLY" id="8429BD8C-2484-EA1B-77CF-EC386A341151">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>DISC_YEARLY</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>DISC_YEARLY</alias>
+<dataType>NUMBER (18, 2)</dataType>
+<headerAlias>DISC_YEARLY</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="KET" id="98A6685F-980D-FBD3-0E71-307F2A427E2A">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_MODIFIER_AREA_EXCL</sourceObjSchema>
+<sourceObjName>KET</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>KET</alias>
+<dataType>CHAR (2 BYTE)</dataType>
+<headerAlias>KET</headerAlias>
+<reference>false</reference>
+</viewElement>
+</viewElements>
+<usedObjects>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="538D0EA2-79B5-8D68-5833-D83541B30A66">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>PROPOSAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="D8A21A01-2E09-60F0-A3C4-FE2BFC0357A3">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>PROMO_PRODUK</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="4FFF0E57-A793-B615-0E38-141B685A5B3C">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>DISCOUNT</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="D6B4DD37-8F8B-5AA2-B3BC-47D5C5028FD8">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>EXCL_PROP_CUST_REGION</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="2C45A7E0-BA66-59D8-3DB4-C6DC85E766B4">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>EXCL_PROP_CUST_CUST</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="342EA2C5-FF1B-FBA1-A247-1DACF8BDB93C">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>EXCL_PROP_CUST_AREA</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="55743C13-B86B-1875-B0DA-52E82CA4704B">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>EXCL_PROP_CUST_LOC</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="10B8B685-CC2A-83E3-26DF-3B346EE64A15">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>PRODUK_VARIANT</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="2D40A9A4-E052-2DA0-68E8-A03104F68EE4">
+<container>true</container>
+<schema>FOCUSPP</schema>
+<tableName>PRODUK_ITEM</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="F9E19516-7F2B-1CE9-86EE-96E422DD2228">
+<columnName>PRODUCT_CATEGORY</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROMO_PRODUK</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="28A25059-BDE8-F8E6-4205-E5A2685C18B4">
+<columnName>QTY_FROM</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DISCOUNT</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="13FB8B35-B2AA-DE5A-3CCF-2A07AEE8350E">
+<columnName>PROMO_PRODUK_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>EXCL_PROP_CUST_REGION</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="DC4386AE-577C-B173-2E2A-C069560A0EFC">
+<columnName>PERIODE_PROG_TO</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROPOSAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="14395251-39F4-8339-295B-73239F48DA4C">
+<columnName>PRODUCT_CLASS</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROMO_PRODUK</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="5C847BFD-A726-3AC6-5B36-0D3AFE35BFA2">
+<columnName>LOCATION_CODE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>EXCL_PROP_CUST_LOC</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="F385081A-CC8E-B884-92D1-524F9F00EE0F">
+<columnName>MIX_QTY_PROMO</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROPOSAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="C2CC40B8-B552-B135-340D-EA3D0EE76F06">
+<columnName>PROD_VARIANT</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PRODUK_VARIANT</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="5C30F99C-0110-F3EF-0B68-B7A9835C8815">
+<columnName>CONFIRM_NO</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROPOSAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="FF0DFAE6-E5A5-356B-92AF-2C37A2F92ABE">
+<columnName>TIPE_POTONGAN</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DISCOUNT</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="84D5E1DC-8447-9C91-1702-70D61D9E495E">
+<columnName>PRODUCT_EXT</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROMO_PRODUK</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="198BCDC4-3A6C-E4CF-EBC2-8123E5C2FD31">
+<columnName>CURRENCY</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROPOSAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="73BAD4F4-E930-8C01-DA4B-C2CE1DCFF35A">
+<columnName>PROD_ITEM</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PRODUK_ITEM</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="A06A3B1B-8E0A-6787-9769-C661BF8FDDAD">
+<columnName>REGION_CODE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>EXCL_PROP_CUST_REGION</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="7D9EA434-547F-39A9-6D2C-F2A1C50F54C2">
+<columnName>PROMO_PRODUK_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>EXCL_PROP_CUST_LOC</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="857801AA-0570-33D5-15D4-C811C2051555">
+<columnName>UOM</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DISCOUNT</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="1CB02735-C261-DD4A-A9C8-3FB4785CB189">
+<columnName>PERIODE_PROG_FROM</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROPOSAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="D97E2632-AD52-78D4-6EB7-8E6407CEB5C4">
+<columnName>PROMO_PRODUK_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DISCOUNT</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="C9664D27-9A7E-D906-2289-C0815EDD085E">
+<columnName>PROPOSAL_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROPOSAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="CACC8E96-E7D7-89F4-A4BC-D0E65FD7A9DF">
+<columnName>DISC_NON_YEARLY</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DISCOUNT</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="EC974438-A6B9-CC9D-A390-ADAF0FD6D347">
+<columnName>ADDENDUM_KE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROPOSAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="74907CBE-AFC0-B6A0-5E61-3AF1AF14ED55">
+<columnName>PROPOSAL_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROMO_PRODUK</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="7D25D7E2-8297-493E-6722-FC1CC8322C7D">
+<columnName>DISC_YEARLY</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DISCOUNT</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="B9A2CD47-5E1B-FB64-A50F-EC77AF2895FC">
+<columnName>EXCL_CUST_BY</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROMO_PRODUK</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="18A40A26-E48F-5228-D26C-4D96ED68D5B1">
+<columnName>PRODUCT_BRAND</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROMO_PRODUK</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="3462930F-F962-963B-F6FC-6F31064FFC58">
+<columnName>TIPE_PERHITUNGAN</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DISCOUNT</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="37B63C45-7127-69C9-7871-80CBFDAFD3CA">
+<columnName>PROMO_PRODUK_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PRODUK_ITEM</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="BC44DCA3-092F-F6A5-6936-D511E9CDEC63">
+<columnName>KODE_POSTING</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROMO_PRODUK</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="46037359-1E54-14F5-FF2D-094BD7EEA50C">
+<columnName>PROMO_PRODUK_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>EXCL_PROP_CUST_CUST</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="4013FBFC-90A4-E807-D992-196A7A5395DD">
+<columnName>CUSTOMER_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>EXCL_PROP_CUST_CUST</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="6CB4BA1E-24F8-3580-951F-1585A64B382D">
+<columnName>PROMO_PRODUK_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROMO_PRODUK</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="0A11CA9D-64BC-6675-A97D-E8FF4B66473B">
+<columnName>PROMO_PRODUK_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PRODUK_VARIANT</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="F21B0332-B1A9-7AAF-FC37-F3CD19B557F4">
+<columnName>PROMO_PRODUK_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>EXCL_PROP_CUST_AREA</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="3EF0F776-4358-4FC1-57AE-85C636997441">
+<columnName>QTY_TO</columnName>
+<schema>FOCUSPP</schema>
+<tableName>DISCOUNT</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="F16A84B5-53FA-6D89-C7DE-8C8D7BEBE4A2">
+<columnName>AREA_CODE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>EXCL_PROP_CUST_AREA</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="A74F1FF7-9BBD-A371-DA97-D57C0C8C08F9">
+<columnName>USER_TYPE_CREATOR</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROPOSAL</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="F1DFB398-C4F2-DB40-0E1F-178F7DDC1C1E">
+<columnName>PRODUCT_PACK</columnName>
+<schema>FOCUSPP</schema>
+<tableName>PROMO_PRODUK</tableName>
+</UsedObject>
+</usedObjects>
+</TableView>

@@ -1,0 +1,28 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<StoredProcedureOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.StoredProcedureOraclev10g" name="FCS_PRINT_PREV_LOG" directorySegmentName="seg_0" id="60E12184-3382-D8AE-0166-22CEA0C97105">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_PRINT_PREV_LOG</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:55:05 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<owner><![CDATA[4E5B45BD-E77E-0B6D-EFA2-DE9F30B5E31F]]></owner>
+<source>CREATE OR REPLACE PROCEDURE         FOCUSPP.FCS_PRINT_PREV_LOG (P_PROPID IN NUMBER, P_UNAME IN VARCHAR2)
+IS
+V_NUM_VIEW PRINT_PREV_LOG.NUM_VIEW%type;
+BEGIN
+    BEGIN
+    SELECT PPL.NUM_VIEW INTO V_NUM_VIEW FROM PRINT_PREV_LOG PPL WHERE PPL.PROPOSAL_ID = P_PROPID AND PPL.USER_NAME = P_UNAME FOR UPDATE OF PPL.NUM_VIEW;
+    EXCEPTION
+      WHEN NO_DATA_FOUND THEN
+      V_NUM_VIEW := 0;
+    END;
+        
+    IF (V_NUM_VIEW &gt; 0) THEN
+        UPDATE PRINT_PREV_LOG SET NUM_VIEW = V_NUM_VIEW+1, LAST_VIEW_ON = SYSDATE WHERE PROPOSAL_ID = P_PROPID AND USER_NAME = P_UNAME;
+    ELSE 
+        INSERT INTO PRINT_PREV_LOG (PROPOSAL_ID, USER_NAME, NUM_VIEW, LAST_VIEW_ON) VALUES (P_PROPID, P_UNAME, 1, SYSDATE);
+    END IF;
+    COMMIT;
+END;</source>
+</StoredProcedureOraclev10g>

@@ -1,0 +1,172 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableView class="oracle.dbtools.crest.model.design.relational.TableView" directorySegmentName="seg_0" id="1454CE1A-161A-9A21-CC1C-AB7C97692C43" schemaObject="C9391DEC-BBF6-7C19-FA2A-D5CF4AE93BE9" name="FCS_PPPC_PRICE_LIST">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FOCUSPP</sourceObjSchema>
+<sourceObjName>FCS_PPPC_PRICE_LIST</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<userDefined>true</userDefined>
+<userDefinedSQL><![CDATA[CREATE OR REPLACE VIEW FCS_PPPC_PRICE_LIST
+AS 
+SELECT PL.PRICE_NAME, PL.PRICE_DESC, PL.PRICE_CATEGORY, PL.PRICE_CATEGORY_DESC, PL.TYPE_CUSTOMER, PL.PRICE, PL.USER_NAME, PL.LINE_ID
+FROM APPS.FCS_PPPC_PRICE_LIST PL
+GROUP BY PL.PRICE_NAME, PL.PRICE_DESC, PL.PRICE_CATEGORY, PL.PRICE_CATEGORY_DESC, PL.TYPE_CUSTOMER, PL.PRICE, PL.USER_NAME, PL.LINE_ID]]></userDefinedSQL>
+<parsed>true</parsed>
+<viewElements>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PRICE_NAME" id="E9C4F742-1C63-2720-D8C1-13B409EEB4F6">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_PPPC_PRICE_LIST</sourceObjSchema>
+<sourceObjName>PRICE_NAME</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PRICE_NAME</alias>
+<dataType>VARCHAR2 (250 BYTE)</dataType>
+<headerAlias>PRICE_NAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PRICE_DESC" id="C7CA0CE4-114F-D99F-55CC-E8E63C7CC286">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_PPPC_PRICE_LIST</sourceObjSchema>
+<sourceObjName>PRICE_DESC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PRICE_DESC</alias>
+<dataType>VARCHAR2 (400 BYTE)</dataType>
+<headerAlias>PRICE_DESC</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PRICE_CATEGORY" id="190A77D7-DF38-B53C-4CB0-B6E481CA4F78">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_PPPC_PRICE_LIST</sourceObjSchema>
+<sourceObjName>PRICE_CATEGORY</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PRICE_CATEGORY</alias>
+<dataType>VARCHAR2 (250 BYTE)</dataType>
+<headerAlias>PRICE_CATEGORY</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PRICE_CATEGORY_DESC" id="7C13A095-35A8-620E-8514-E82C80FBEC7C">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_PPPC_PRICE_LIST</sourceObjSchema>
+<sourceObjName>PRICE_CATEGORY_DESC</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PRICE_CATEGORY_DESC</alias>
+<dataType>VARCHAR2 (400 BYTE)</dataType>
+<headerAlias>PRICE_CATEGORY_DESC</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="TYPE_CUSTOMER" id="66566DA5-1AF9-AFE5-12D3-FCA78E68E663">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_PPPC_PRICE_LIST</sourceObjSchema>
+<sourceObjName>TYPE_CUSTOMER</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>TYPE_CUSTOMER</alias>
+<dataType>VARCHAR2 (10 BYTE)</dataType>
+<headerAlias>TYPE_CUSTOMER</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="PRICE" id="B4EAB883-C86E-DECC-1D9F-58721923BEE1">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_PPPC_PRICE_LIST</sourceObjSchema>
+<sourceObjName>PRICE</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>PRICE</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>PRICE</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="USER_NAME" id="221B091B-F0A6-AE21-8D49-9CCDFFB6D960">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_PPPC_PRICE_LIST</sourceObjSchema>
+<sourceObjName>USER_NAME</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>USER_NAME</alias>
+<dataType>VARCHAR2 (100 BYTE)</dataType>
+<headerAlias>USER_NAME</headerAlias>
+<reference>false</reference>
+</viewElement>
+<viewElement class="oracle.dbtools.crest.model.design.relational.ColumnView" name="LINE_ID" id="9F3D88FD-3E31-43B1-F4C5-A7BBAACEA348">
+<sourceConnName>ProdFDI as focuspp</sourceConnName>
+<sourceObjSchema>FCS_PPPC_PRICE_LIST</sourceObjSchema>
+<sourceObjName>LINE_ID</sourceObjName>
+<createdBy>FransMa</createdBy>
+<createdTime>2019-10-28 02:54:53 UTC</createdTime>
+<ownerDesignName>pppc_prodfdi</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<alias>LINE_ID</alias>
+<dataType>NUMBER</dataType>
+<headerAlias>LINE_ID</headerAlias>
+<reference>false</reference>
+</viewElement>
+</viewElements>
+<usedObjects>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="E9C4F742-1C63-2720-D8C1-13B409EEB4F6">
+<columnName>PRICE_NAME</columnName>
+<schema>FOCUSPP</schema>
+<tableName>FCS_PPPC_PRICE_LIST</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="221B091B-F0A6-AE21-8D49-9CCDFFB6D960">
+<columnName>USER_NAME</columnName>
+<schema>FOCUSPP</schema>
+<tableName>FCS_PPPC_PRICE_LIST</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="B4EAB883-C86E-DECC-1D9F-58721923BEE1">
+<columnName>PRICE</columnName>
+<schema>FOCUSPP</schema>
+<tableName>FCS_PPPC_PRICE_LIST</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="190A77D7-DF38-B53C-4CB0-B6E481CA4F78">
+<columnName>PRICE_CATEGORY</columnName>
+<schema>FOCUSPP</schema>
+<tableName>FCS_PPPC_PRICE_LIST</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="9F3D88FD-3E31-43B1-F4C5-A7BBAACEA348">
+<columnName>LINE_ID</columnName>
+<schema>FOCUSPP</schema>
+<tableName>FCS_PPPC_PRICE_LIST</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="C7CA0CE4-114F-D99F-55CC-E8E63C7CC286">
+<columnName>PRICE_DESC</columnName>
+<schema>FOCUSPP</schema>
+<tableName>FCS_PPPC_PRICE_LIST</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="7C13A095-35A8-620E-8514-E82C80FBEC7C">
+<columnName>PRICE_CATEGORY_DESC</columnName>
+<schema>FOCUSPP</schema>
+<tableName>FCS_PPPC_PRICE_LIST</tableName>
+</UsedObject>
+<UsedObject class="oracle.dbtools.crest.swingui.editor.viewbuilder.SQLNameHelper" id="66566DA5-1AF9-AFE5-12D3-FCA78E68E663">
+<columnName>TYPE_CUSTOMER</columnName>
+<schema>FOCUSPP</schema>
+<tableName>FCS_PPPC_PRICE_LIST</tableName>
+</UsedObject>
+</usedObjects>
+</TableView>
