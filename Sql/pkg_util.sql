@@ -24,11 +24,11 @@ AS
       l_idx    NUMBER;
   BEGIN
       l_array.delete;
-    
+
       IF l_text IS NULL THEN
         RAISE_APPLICATION_ERROR(-20000, 'P_TEXT parameter cannot be NULL');
       END IF;
-    
+
       WHILE l_text IS NOT NULL LOOP
         l_idx := INSTR(l_text, p_delimeter);
         l_array.extend;
@@ -123,25 +123,38 @@ AS
     weekend_num NUMBER;
     addwe NUMBER;
     holiday_num NUMBER;
+    vSign NUMBER;
+    date1 DATE;
+    date2 DATE;
   BEGIN
 
-    vSelisih := ABS(toDate-fromDate);
+    IF TRUNC(fromDate) < TRUNC(toDate) THEN
+        date1 := TRUNC(fromDate);
+        date2 := TRUNC(todate);
+        vSign := 1;
+    ELSE
+        date1 := TRUNC(toDate);
+        date2 := TRUNC(fromdate);
+        vSign := -1;
+    END IF;
+    
+    vSelisih := date2 - date1;
     weekend_num := FLOOR(vSelisih/7);
     rems := MOD(vSelisih,7);
-    
+
     IF (rems = 0) THEN addwe := 0;
     ELSIF (rems = 6) THEN addwe := 1;
-    ELSIF TO_CHAR(fromDate,'D') = '1' THEN addwe := 0.5;
-    ELSIF TO_CHAR(fromDate,'D') + rems < 7 THEN addwe := 0;
-    ELSIF TO_CHAR(fromDate,'D') + rems > 7 THEN addwe := 1;
+    ELSIF TO_CHAR(date1,'D') = '1' THEN addwe := 0.5;
+    ELSIF TO_CHAR(date1,'D') + rems < 7 THEN addwe := 0;
+    ELSIF TO_CHAR(date1,'D') + rems > 7 THEN addwe := 1;
     ELSE addwe := 0.5;
     END IF; 
-   
+
     -- jumlah holiday ???
     SELECT COUNT(*) INTO holiday_num FROM holiday
-      WHERE tgl_libur BETWEEN TRUNC(fromDate) AND toDate;
+      WHERE tgl_libur BETWEEN date1 AND date2;
 
-    RETURN (vSelisih - 2*(weekend_num + addwe) - holiday_num);    
+    RETURN (vSign*(vSelisih - 2*(weekend_num + addwe) - holiday_num));    
   END working_days_between;
 
   PROCEDURE process_recipients(p_mail_conn IN OUT UTL_SMTP.connection,
@@ -166,7 +179,7 @@ AS
     vFrom VARCHAR2(50) := 'focusdcv_admin@focus.co.id';
   BEGIN
     l_mail_conn := UTL_SMTP.open_connection(vHost, vPort);
-    
+
     UTL_SMTP.helo(l_mail_conn, vHost);
     UTL_SMTP.mail(l_mail_conn, 'admindcv@focus.co.id');
     process_recipients(l_mail_conn, p_to);
@@ -181,15 +194,15 @@ AS
     UTL_SMTP.write_data(l_mail_conn, 'From: ' || vFrom || UTL_TCP.crlf);
     UTL_SMTP.write_data(l_mail_conn, 'Subject: ' || p_subject || UTL_TCP.crlf);
     UTL_SMTP.write_data(l_mail_conn, 'Reply-To: ' || vFrom || UTL_TCP.crlf || UTL_TCP.crlf);
-      
+
     UTL_SMTP.write_data(l_mail_conn, p_message || UTL_TCP.crlf || UTL_TCP.crlf);
 
     UTL_SMTP.close_data(l_mail_conn);
-    
+
     UTL_SMTP.quit(l_mail_conn);
 
-  
+
   END send_mail;
-  
+
 END util_pkg;
 /
