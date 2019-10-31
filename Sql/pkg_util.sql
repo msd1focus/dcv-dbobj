@@ -1,10 +1,11 @@
 create or replace PACKAGE UTIL_PKG AS
    TYPE t_split_array IS TABLE OF VARCHAR2(4000);
-   
+
     FUNCTION split_text (p_text IN  CLOB, p_delimeter  IN  VARCHAR2 DEFAULT ',') RETURN t_split_array;
     FUNCTION terbilang (n NUMBER) RETURN VARCHAR2;
     PROCEDURE send_mail (p_to VARCHAR2, p_cc VARCHAR2, p_subject VARCHAR2, p_message VARCHAR2) ;
     FUNCTION working_days_between (fromDate DATE, toDate DATE) RETURN NUMBER;
+    FUNCTION next_working_day (fromDate DATE, workdays PLS_INTEGER) RETURN DATE;
 END UTIL_PKG;
 /
 
@@ -137,7 +138,7 @@ AS
         date2 := TRUNC(fromdate);
         vSign := -1;
     END IF;
-    
+
     vSelisih := date2 - date1;
     weekend_num := FLOOR(vSelisih/7);
     rems := MOD(vSelisih,7);
@@ -156,6 +157,37 @@ AS
 
     RETURN (vSign*(vSelisih - 2*(weekend_num + addwe) - holiday_num));    
   END working_days_between;
+
+  FUNCTION next_working_day (fromDate DATE, workdays PLS_INTEGER) 
+  RETURN DATE
+  AS
+    num_of_holidays NUMBER;
+    end_dt DATE := TRUNC(fromDate);
+    counter PLS_INTEGER := 0;
+    v     NUMBER;
+  BEGIN
+
+    IF TO_CHAR(fromDate,'Dy') IN ('Sun','Sat') THEN
+        end_dt := NEXT_DAY(fromDate,'Monday');
+    END IF;
+
+    WHILE (counter < ABS(workdays)) LOOP
+        IF workdays > 0 THEN end_dt := end_dt + 1;
+        ELSE end_dt := end_dt - 1;
+        END IF;
+
+        IF TO_CHAR(end_dt,'Dy') NOT IN ('Sat','Sun') THEN
+            BEGIN
+                SELECT 1 INTO v FROM holiday WHERE tgl_libur = end_dt;
+            EXCEPTION WHEN NO_DATA_FOUND THEN
+                counter := counter + 1;
+            END;
+        END IF;
+    END LOOP;
+    
+    RETURN (end_dt);
+    
+  END next_working_day;
 
   PROCEDURE process_recipients(p_mail_conn IN OUT UTL_SMTP.connection,
                                p_list      IN     VARCHAR2)
