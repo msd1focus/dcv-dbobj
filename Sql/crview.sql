@@ -193,3 +193,21 @@ AND t.progress_status = 'WAIT')
 SELECT q2.no_dcv, q1.role_code, q2.nodecode, q2.bagian, q1.pilihan, q1.description
 FROM Q1, Q2
 WHERE q1.node_id = q2.nodecode;
+
+create view all_user_v (id, username, user_source, password, fullname) as
+select cust_id, username, 'WO', password, name
+from focuspp.wo_users where company = 'FDI'
+union
+select id, user_name, 'DCV', password, full_name
+from dcv_user_access
+union
+select id, user_name, 'PPPC', password, full_name
+from focuspp.app_user_access;
+
+create view all_user_role_v (user_id, role_code, role_name, role_type, bagian) as
+select to_char(ur.user_id), r.role_code, r.role_name, r.role_type, r.bagian
+from dcv_role r, dcv_user_role ur
+where r.role_code = ur.role_code
+UNION
+select user_id, 'DISTRIBUTOR_ROLE', 'Distributor', 'WF', 'Distributor'
+from wo_users;
