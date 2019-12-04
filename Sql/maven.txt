@@ -1,3 +1,4 @@
+INFO.
 dari command-line
 mvn install:install-file -Dfile=d:\oracle\database\product\12.2.0\dbhome_1\jdbc\lib\ojdbc8.jar -DgroupId=com.oracle
 
